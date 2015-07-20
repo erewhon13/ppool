@@ -24,7 +24,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -32,14 +32,14 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
-		
+		</dependency>
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -89,7 +89,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-				
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -108,14 +108,102 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>
+		
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.3.Final</version>
+		</dependency>
+		
+
+		<!-- spring jdbc 지원 패키지 등록 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<!-- ${ 이름 } : <properties> 영역에서 미리 정의한 값을 참조하는 형식 -->
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- Connection Pool 패키지 등록 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<!-- apache commons connection pool 패키지가 내부적으로 사용하는 패키지 등록 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<version>2.3</version>
+		</dependency>
+
+		<!-- mybatis 관련 패키지 등록 -->
+		<!-- mybatis pagckage -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+		<!-- mybatis - spring bridge -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+
+		<!-- spring aop component -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- end of spring aop component -->
+		<!-- aspectj runtime -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+		<!-- spring aop proxy bean creator -> 인터페이스를 사용하지 않는 빈의 프록시를 만들 때 사용 -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		
+		
 	</dependencies>
     <build>
         <plugins>
