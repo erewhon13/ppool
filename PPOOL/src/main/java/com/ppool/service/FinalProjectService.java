@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.ppool.dto.Project;
 import com.ppool.repository.ProjectRepository;
 
-@Service
-public class FinalProjectService {
+@Service("projectService")
+public class FinalProjectService implements ProjectService{
 
 	private ProjectRepository projectRepository;
 	
