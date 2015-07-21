@@ -35,7 +35,7 @@
 	<div id='cssmenu'>
 		<ul>
 			<li><a href='/ppool/home.action'>홈</a></li>
-			<li class='active'><a href='#'>공지사항</a></li>
+			<li class='active'><a href='/ppool/notificationlist.action'>공지사항</a></li>
 			<li><a href='#'>프로젝트</a></li>
 			<li><a href='/ppool/search.action'>인물검색</a></li>
 			<li><a href='#'>메뉴 3</a>

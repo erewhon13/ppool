@@ -10,13 +10,9 @@ import com.ppool.mapper.UserMapper;
 @Repository("userRepository")
 public class OracleUserRepository implements UserRepository{
 	
-	private UserMapper userMapper;
 	@Autowired
-	@Qualifier("userMapper")
-	public void setSubjectMapper(UserMapper userMapper) {
-		this.userMapper = userMapper;
-	}
-
+	private UserMapper userMapper;
+	
 	@Override
 	public void registerUser(User user) {
 		userMapper.registerUser(user);
