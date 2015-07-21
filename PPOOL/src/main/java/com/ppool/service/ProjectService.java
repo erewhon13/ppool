@@ -8,17 +8,6 @@ import com.ppool.dto.Project;
 import com.ppool.repository.ProjectRepository;
 
 @Service
-public class ProjectService {
-
-	private ProjectRepository projectRepository;
-	
-	@Autowired
-	@Qualifier("projectRepository")
-	public void setProjectRepository(ProjectRepository projectRepository) {
-		this.projectRepository = projectRepository;
-	}
-	
-	public void registerProject(Project project){
-		projectRepository.registerProject(project);
-	}
+public interface ProjectService {
+	public void registerProject(Project project);
 }
