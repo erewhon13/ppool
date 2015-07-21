@@ -20,11 +20,11 @@
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
 	<div>
-		<div id="sidemenu">사이드 메뉴</div>
+		
 		<div align="center" style="margin-top: 3%">
 			<div id="pageContainer">	
 				<form id="writeform" action="write.action" method="post">
-				<table>
+				<table border="1">
 					<tr>
 						<th>제목</th>
 						<td>
