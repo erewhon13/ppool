@@ -25,7 +25,7 @@
 			<a href="#">로그인</a>
 		</div>
 		<div id="userinfo">
-			<a href="/ppool/register.action">회원가입</a>
+			<a href="/ppool/registerview.action">회원가입</a>
 		</div>
 	</div>
 	<div id="logo">
