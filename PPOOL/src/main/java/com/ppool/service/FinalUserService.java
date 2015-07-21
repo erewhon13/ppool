@@ -8,8 +8,8 @@ import com.ppool.dto.User;
 import com.ppool.mapper.UserMapper;
 import com.ppool.repository.UserRepository;
 
-@Service
-public class FinalUserService{
+@Service("userService")
+public class FinalUserService implements UserService{
 	
 	
 	@Autowired
