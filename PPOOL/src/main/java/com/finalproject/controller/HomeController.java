@@ -1,4 +1,4 @@
-package com.project.ppool.controller;
+package com.finalproject.controller;
 
 import java.util.Locale;
 
