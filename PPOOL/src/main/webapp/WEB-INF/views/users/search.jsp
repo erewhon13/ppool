@@ -37,12 +37,16 @@ float:left;
 
 #s_inside{
 width:920px;
-height:100px;
+height:500px;
 background-color:yellow;
 margin:10px;
 }
 
 #s_inside2{
+width:900px;
+height:200px;
+background-color:lime;
+margin:20px;
 }
 
 
@@ -66,8 +70,11 @@ margin:10px;
 				
 				<div id="s_center" >가운데 인물검색 사진 넣어야지 
 					<hr/>
-					<div id="s_inside">가운데 위에</div>
-					<div id="s_inside2">안에 안에</div>
+					<div id="s_inside">가운데 위에 개발분야라고 쓸부분 
+							<div id="s_inside2">안에 안에</div>
+					
+					</div>
+					
 				</div>
 				
 			
