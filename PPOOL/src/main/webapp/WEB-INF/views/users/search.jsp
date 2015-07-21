@@ -12,6 +12,8 @@ height:30px;
 margin-left:64px;
 }
 
+
+
 div#s_left{
 width:200px;
 height:700px;

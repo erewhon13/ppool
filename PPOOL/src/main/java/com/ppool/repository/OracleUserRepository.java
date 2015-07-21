@@ -10,7 +10,6 @@ import com.ppool.mapper.UserMapper;
 @Repository("userRepository")
 public class OracleUserRepository implements UserRepository{
 	
-	
 	@Autowired
 	private UserMapper userMapper;
 	

@@ -8,7 +8,14 @@ import com.ppool.dto.User;
 import com.ppool.mapper.UserMapper;
 import com.ppool.repository.UserRepository;
 
-
-public interface UserService{
-	void registerUser(User user);
+@Service
+public class FinalUserService{
+	
+	
+	@Autowired
+	private UserRepository userRepositor;
+	
+	public void registerUser(User user){
+		userRepositor.registerUser(user);
+	}
 }
