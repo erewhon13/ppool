@@ -10,12 +10,12 @@ import com.ppool.repository.UserRepository;
 
 @Service
 public class UserService{
-	
-	
+
 	@Autowired
 	private UserRepository userRepositor;
 	
 	public void registerUser(User user){
 		userRepositor.registerUser(user);
 	}
+	
 }
