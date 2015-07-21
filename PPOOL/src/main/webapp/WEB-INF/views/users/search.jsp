@@ -4,30 +4,50 @@
 <html>
 <head>
 <meta charset='utf-8'>
-<title>Main Page</title>
+<title>Search Page</title>
+<style type="text/css">
+
+#s_top{
+height:30px;
+margin-left:64px;
+}
+
+div#s_left{
+width:200px;
+height:700px;
+background-color:gray;
+float:left;
+margin-left:64px;
+}
+
+#s_center{
+width:938px;
+height:700px;
+background-color:maroon;
+float:left;
+}
+
+
+</style>
+
+
+
 </head>
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
 <body>
-
-
-		<div>
-			<h1>인물 검색해야징~</h1>
-		</div>
-
-		<table width="1055" border="0" cellspacing="0" cellpadding="0">
-			<tbody>
-				<tr>
-					<td width="220" height="318" valign="top"></td>
-				
-				
-				</tr>
-			
-			</tbody>
 		
-		</table>
-
+		
+				<div  id="s_top">공간바
+				</div>
+		
+				<div id="s_left" >왼쪽바
+				</div>
+		
+				<div id="s_center" >가운데
+				</div>
+		
 
 
 </body>
