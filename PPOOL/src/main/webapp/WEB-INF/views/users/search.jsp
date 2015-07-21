@@ -20,10 +20,12 @@ float:left;
 margin-left:64px;
 
 }
+
+
 #s_middle{
 width:30px;
 height:700px;
-background-color:black;
+background-color:white;
 float:right;
 
 }
@@ -31,22 +33,22 @@ float:right;
 #s_center{
 width:938px;
 height:700px;
-background-color:maroon;
+background-color:white;
 float:left;
 }
 
 #s_inside{
 width:920px;
 height:500px;
-background-color:yellow;
+background-color:rgb(191,195,199);
 margin:10px;
 }
 
 #s_inside2{
-width:900px;
-height:200px;
+width:850px;
+height:150px;
 background-color:lime;
-margin-left:20px;
+margin-top: 20px;
 }
 
 
@@ -60,23 +62,23 @@ margin-left:20px;
 %>
 <body>
 		
-		
-				<div  id="s_top">공간바</div>
+				<div  id="s_top"></div> <!-- 공간바 -->
 		
 				<div id="s_left" >왼쪽바
-					<div id="s_middle">가운데 끼인바</div>
+					<div id="s_middle"></div><!-- 가운데 끼인바 -->
 				</div>
 			
 				
-				<div id="s_center" >가운데 인물검색 사진 넣어야지 
-					<hr/>
-					<div id="s_inside">가운데 위에 개발분야라고 쓸부분 
-							<div id="s_inside2">안에 안에</div>
+				<div id="s_center" ><!-- 가운데 -->
+					<img src="/ppool/resources/images/search.gif">
+					  <hr style="border:inset 1px black; width:99%;"/>
 					
-					</div>
+						<div id="s_inside">
+							<div id="s_inside2"></div>
+					
+						</div>
 					
 				</div>
-				
 			
 
 
