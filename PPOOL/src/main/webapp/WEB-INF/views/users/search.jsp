@@ -18,6 +18,14 @@ height:700px;
 background-color:gray;
 float:left;
 margin-left:64px;
+
+}
+#s_middle{
+width:30px;
+height:700px;
+background-color:black;
+float:right;
+
 }
 
 #s_center{
@@ -25,6 +33,16 @@ width:938px;
 height:700px;
 background-color:maroon;
 float:left;
+}
+
+#s_inside{
+width:920px;
+height:100px;
+background-color:yellow;
+margin:10px;
+}
+
+#s_inside2{
 }
 
 
@@ -39,15 +57,20 @@ float:left;
 <body>
 		
 		
-				<div  id="s_top">공간바
-				</div>
+				<div  id="s_top">공간바</div>
 		
 				<div id="s_left" >왼쪽바
+					<div id="s_middle">가운데 끼인바</div>
 				</div>
-		
-				<div id="s_center" >가운데
+			
+				
+				<div id="s_center" >가운데 인물검색 사진 넣어야지 
+					<hr/>
+					<div id="s_inside">가운데 위에</div>
+					<div id="s_inside2">안에 안에</div>
 				</div>
-		
+				
+			
 
 
 </body>
