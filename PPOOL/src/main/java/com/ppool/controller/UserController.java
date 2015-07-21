@@ -30,7 +30,7 @@ public class UserController {
 	
 	@RequestMapping(value="registerview.action" ,method = RequestMethod.GET)
 	public ModelAndView registerView(){
-		mav.setViewName("users/register");
+		mav.setViewName("users/registeruser");
 		return mav;
 	}
 	@RequestMapping(value="registeruser.action",method = RequestMethod.POST)
