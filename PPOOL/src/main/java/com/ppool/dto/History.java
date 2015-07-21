@@ -9,7 +9,6 @@ public class History {
 	private Date historyPeriod;
 	private int historyStaff;
 	private String historyWork;
-	private String environment;
 	private String historyContent;
 	private Date historyRegdate;
 	private boolean historyOpened;
@@ -44,12 +43,6 @@ public class History {
 	}
 	public void setHistoryWork(String historyWork) {
 		this.historyWork = historyWork;
-	}
-	public String getEnvironment() {
-		return environment;
-	}
-	public void setEnvironment(String environment) {
-		this.environment = environment;
 	}
 	public String getHistoryContent() {
 		return historyContent;
