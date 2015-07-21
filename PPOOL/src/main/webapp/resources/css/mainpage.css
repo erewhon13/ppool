@@ -1,0 +1,41 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+#main {
+    text-align: center;
+    margin-top: 3%;
+    height: 500px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Nanum Gothic', serif;
+    border: solid 1px;
+}
+#register{
+    text-align: center;
+    margin-top: 3%;
+    height: 500px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Nanum Gothic', serif;
+    border: solid 1px;
+    
+}
+#topbar{
+    font-family: 'Nanum Gothic', serif;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 2%;
+    margin-top: 1.5%;  
+}
+#logininfo{
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 1%;
+    margin-top: 0.5%;
+    display: inline;
+}
+#email{display: inline;}
+#logo{float: left;margin-left: 6%;}
+#passwd{display: inline;}
+#userinfo{display: inline;margin: 5px;}
+a:link {text-decoration: none; color: #333333;}
+a:visited {text-decoration: none; color: #333333;}
+
