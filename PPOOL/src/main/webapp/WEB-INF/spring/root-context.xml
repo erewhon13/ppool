@@ -28,4 +28,9 @@
 		<property name="mapperInterface" value="com.ppool.mapper.UserMapper" />
 		<property name="sqlSessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="projectMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.ppool.mapper.ProjectMapper" />
+		<property name="sqlSessionFactory" ref="sessionFactory" />
+	</bean>
 </beans>

@@ -28,10 +28,9 @@
 			<a href="/ppool/registerview.action">회원가입</a>
 		</div>
 	</div>
-	<div id="logo">
-		<img src="/ppool/resources/images/PPOOL.png">
+	<div id="logo" >
+		<img src="/ppool/resources/images/PPOOL.png" onclick="location.href='/ppool/home.action'">
 	</div>
-
 	<div id='cssmenu'>
 		<ul>
 			<li><a href='/ppool/home.action'>홈</a></li>
