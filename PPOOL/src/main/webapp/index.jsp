@@ -17,10 +17,10 @@
 <body>
 	<div id="topbar">
 		<div id="email">
-			<label>이메일 : </label><input type="text" />
+			<label>이메일 : </label><input type="text" name="email"/>
 		</div>
 		<div id="passwd">
-			<label>비밀번호 : </label><input type="password" />
+			<label>비밀번호 : </label><input type="password" name="passwd"/>
 		</div>
 		<div id="userinfo">
 			<a href="#">로그인</a>
