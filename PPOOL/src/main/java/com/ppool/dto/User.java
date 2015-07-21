@@ -8,7 +8,7 @@ public class User {
 	private String userPasswd;
 	private String userName;
 	private String userStatus;
-	private String userHome;
+	private String userPhone;
 	private Date userBirth;
 	private boolean userGender;
 	private String userAddress;
@@ -60,12 +60,14 @@ public class User {
 		this.userStatus = userStatus;
 	}
 
-	public String getUserHome() {
-		return userHome;
+	
+
+	public String getUserPhone() {
+		return userPhone;
 	}
 
-	public void setUserHome(String userHome) {
-		this.userHome = userHome;
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
 
 	public Date getUserBirth() {
