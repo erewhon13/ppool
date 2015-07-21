@@ -47,11 +47,12 @@ margin:10px;
 }
 
 #s_inside2{
-width:850px;
+width:925px;
 height:150px;
-background-color:lime;
+background-color:red;
 margin-top: 20px;
 }
+
 
 
 </style>
@@ -75,9 +76,38 @@ margin-top: 20px;
 					<img src="/ppool/resources/images/search.gif">
 					  <hr style="border:inset 1px black; width:99%;"/>
 					
-						<div id="s_inside">
-							<div id="s_inside2"></div>
-					
+						<div id="s_inside" style="margin-top:10px">
+							<div id="s_inside2" style="padding-top: 10px">
+										
+								 <table border="0" cellpacing="0" cellpadding="0" width="700" valign="top">
+								 
+								 </table>
+										
+										<li>
+											<input type="checkbox" name="" value=".NET">
+										</li>
+											<li>
+											<input type="checkbox" name="" value=".NET">
+										</li>
+											<li>
+											<input type="checkbox" name="" value=".NET">
+										</li>
+											<li>
+											<input type="checkbox" name="" value=".NET">
+										</li>
+											<li>
+											<input type="checkbox" name="" value=".NET">
+										</li>
+											<li>
+											<input type="checkbox" name="" value=".NET">
+										</li>
+										
+										
+										
+									</div>
+								
+							</div>
+							 <hr style="border:inset 1px black; width:100%;"/>
 						</div>
 					
 				</div>
