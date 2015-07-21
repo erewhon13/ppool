@@ -10,9 +10,9 @@
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
 <div>
-<div id="sidemenu">
+<!-- <div id="sidemenu">
 사이드 메뉴
-</div>
+</div> -->
 <form action="registeruser.action" method="POST">
 <div id="register">
 	회원가입 페이지

@@ -11,11 +11,14 @@ import com.ppool.repository.UserRepository;
 @Service("userService")
 public class FinalUserService implements UserService{
 	
-	
+	private UserRepository userRepository;
 	@Autowired
-	private UserRepository userRepositor;
+	@Qualifier("userRepository")
+	public void setUserRepository (UserRepository userRepository){
+		this.userRepository = userRepository;
+	}
 	
 	public void registerUser(User user){
-		userRepositor.registerUser(user);
+		userRepository.registerUser(user);
 	}
 }

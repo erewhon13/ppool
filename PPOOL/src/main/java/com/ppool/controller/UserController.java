@@ -79,4 +79,10 @@ public class UserController {
 		mav.setViewName("redirect:home.action");
 		return mav;
 	}
+	@RequestMapping(value="userlogin.action", method = RequestMethod.POST)
+	public ModelAndView userLogin(String userEmail,String userPasswd){
+		System.out.println(userEmail);
+		System.out.println(userPasswd);
+		return mav;
+	}
 }

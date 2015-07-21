@@ -11,18 +11,19 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
+<script src="/ppool/resources/js/userinfo.js"></script>
 <title>Main Page</title>
 </head>
 <body>
 	<div id="topbar">
 		<div id="email">
-			<label>이메일 : </label><input type="text" />
+			<label>이메일 : </label><input type="text" id="userEmail"/>
 		</div>
 		<div id="passwd">
-			<label>비밀번호 : </label><input type="password" />
+			<label>비밀번호 : </label><input type="password" id="userPasswd"/>
 		</div>
 		<div id="userinfo">
-			<a href="#">로그인</a>
+			<a href="/ppool/userlogin.action" id="userLogin">로그인</a>
 		</div>
 		<div id="userinfo">
 			<a href="/ppool/registerview.action">회원가입</a>
