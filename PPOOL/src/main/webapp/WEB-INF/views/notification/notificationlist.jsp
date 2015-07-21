@@ -22,7 +22,7 @@
 
 	
 	<div>
-		<div id="sidemenu">사이드 메뉴</div>
+		
 		<div align="center" style="margin-top: 3%">
 			<form id="notification" action="" method="post">
 				<table width="70%" style="text-align: center;">
