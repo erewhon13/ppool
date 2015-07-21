@@ -11,6 +11,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -33,6 +34,7 @@ public class UserController {
 				true));
 	}
 	@Autowired
+	@Qualifier("userService")
 	private UserService userService;
 	
 	@RequestMapping(value="registerview.action" ,method = RequestMethod.GET)
