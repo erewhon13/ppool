@@ -1,5 +1,7 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -23,7 +25,7 @@ public class OracleUserRepository implements UserRepository{
 	}
 
 	@Override
-	public void userlogin(String userEmail, String userPasswd) {
-		userMapper.userlogin(userEmail, userPasswd);
+	public void userLogin(HashMap<String, Object> params) {
+		userMapper.userLogin(params);
 	}
 }

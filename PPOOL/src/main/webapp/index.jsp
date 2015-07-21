@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
 <title>Main Page</title>
 </head>
 
