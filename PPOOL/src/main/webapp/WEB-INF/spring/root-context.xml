@@ -28,7 +28,4 @@
 		<property name="mapperInterface" value="com.ppool.mapper.UserMapper" />
 		<property name="sqlSessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	
-	
 </beans>

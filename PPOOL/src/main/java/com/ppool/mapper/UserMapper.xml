@@ -7,7 +7,7 @@
 <mapper namespace="com.ppool.mapper.UserMapper">
 	<insert id="registerUser" parameterType="User">
 		INSERT INTO
-		USER()
-		VALUES()
+		USERS(USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR)
+		VALUES(USERNO_SEQUENCE.NEXTVAL,#{userEmail},#{userPasswd},#{userName},#{userPhone},#{userBirth},#{userGender},#{userAddress},#{userExperience},#{userAcademic},#{userMajor})
 	</insert>
 </mapper>

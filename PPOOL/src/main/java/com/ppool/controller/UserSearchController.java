@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class SearchController {
+public class UserSearchController {
 	ModelAndView mav = new ModelAndView();
 	
 	@RequestMapping(value = "search.action", method = RequestMethod.GET)

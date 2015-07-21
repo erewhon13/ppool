@@ -48,7 +48,7 @@ margin:10px;
 width:900px;
 height:200px;
 background-color:lime;
-margin:20px;
+margin-left:20px;
 }
 
 
