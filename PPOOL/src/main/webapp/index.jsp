@@ -12,13 +12,17 @@
 	</script>
 <style type="text/css">
 
+#s_top{
+height:30px;
+margin-left:64px;
+}
+
 div#s_left{
-width:200px;
+width:250px;
 height:700px;
 background-color:gray;
 float:left;
 margin-left:64px;
-
 }
 
 #s_middle{
@@ -38,6 +42,5 @@ float:right;
 
 <body>
 	<%pageContext.include("/WEB-INF/views/include/header.jsp"); %>
-	<div id="main" >가나다라마바사아자차카타파하</div>
 </body>
 </html>
