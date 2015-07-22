@@ -26,7 +26,8 @@ public class FinalUserService implements UserService {
 	}
 
 	@Override
-	public void userLogin(HashMap<String, Object> params) {
-		userRepository.userLogin(params);
+	public User userLogin(HashMap<String, Object> params) {
+		User user = userRepository.userLogin(params);
+		return user;
 	}
 }

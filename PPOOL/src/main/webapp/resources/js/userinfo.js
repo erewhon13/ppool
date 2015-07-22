@@ -2,15 +2,17 @@ $(function(){
 	$("#userLogin").click(function() {
 		$.ajax({
 		url : "/ppool/userlogin.action",
-		async : false,
-		type : "POST",
+		async : true,
+		method : "POST",
 		data : {
 			userEmail : $("#userEmail").val(),
 			userPasswd : $("#userPasswd").val()
 		},
 		success : function(data) {
 			if (data == "success") {
-				alert("로그인성공");
+				$(".nonelogined").css("display","none");
+				$(".logined").css("display","block");
+				$("#mid").text($("#userEmail").val());
 			} else {
 				alert('로그인 실패');
 				//$('#message').text('로그인 실패');
@@ -24,5 +26,6 @@ $(function(){
 	});
 
 	event.preventDefault();
-	})
+	});
+	
 });
