@@ -1,5 +1,7 @@
 package com.ppool.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,16 @@ public class FinalProjectService implements ProjectService{
 		this.projectRepository = projectRepository;
 	}
 	
-	public void registerProject(Project project){
+	@Override
+	public void registerProject(Project project) {
 		projectRepository.registerProject(project);
 	}
+
+	@Override
+	public List<Project> getProjectList() {
+		List<Project> projects = projectRepository.getProjectList();
+		return projects;
+	}
+
+	
 }
