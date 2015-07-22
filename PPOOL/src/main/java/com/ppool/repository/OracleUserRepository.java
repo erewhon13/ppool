@@ -32,7 +32,7 @@ public class OracleUserRepository implements UserRepository{
 
 	@Override
 	public User userInfo(int userNo) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = userMapper.userInfo(userNo);
+		return user;
 	}
 }

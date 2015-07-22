@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -12,17 +12,18 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
-<script src="/ppool/resources/js/userinfo.js"></script>
+<script src="/ppool/resources/js/userinfoscript.js"></script>
 <title>Main Page</title>
 </head>
 <body>
-	<div id="topbar" class="nonelogined" style='display : ${loginuser eq null ? "block" : "none"}'>
-			<div id="email">
-				<label>이메일 : </label><input type="text" id="userEmail"/>
-			</div>
-			<div id="passwd">
-				<label>비밀번호 : </label><input type="password" id="userPasswd"/>
-			</div>
+	<div id="topbar" class="nonelogined"
+		style='display : ${loginuser eq null ? "block" : "none"}'>
+		<div id="email">
+			<label>이메일 : </label><input type="text" id="userEmail" />
+		</div>
+		<div id="passwd">
+			<label>비밀번호 : </label><input type="password" id="userPasswd" />
+		</div>
 		<div id="userinfo">
 			<a href="/ppool/userlogin.action" id="userLogin">로그인</a>
 		</div>
@@ -30,12 +31,15 @@
 			<a href="/ppool/registerview.action">회원가입</a>
 		</div>
 	</div>
-		<div id="topbar" class="logined" style='display : ${loginuser eq null ? "none" : "block"}'>
-			<span id="mid"><a href="#">${loginuser ne null ? loginuser.getUserName() : ""}</a></span>님 환영합니다. 
-			<a href='/ppool/userlogout.action'>로그아웃</a>
-		</div>
-	<div id="logo" >
-		<img src="/ppool/resources/images/PPOOL.png" onclick="location.href='/ppool/home.action'">
+	<div id="topbar" class="logined"
+		style='display : ${loginuser eq null ? "none" : "block"}'>
+		<span id="mid"><a
+			href="/ppool/userinfo.action?userNo=${loginuser.getUserNo()}">${loginuser ne null ? loginuser.getUserName() : ""}</a></span>님
+		환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
+	</div>
+	<div id="logo">
+		<img src="/ppool/resources/images/PPOOL.png"
+			onclick="location.href='/ppool/home.action'">
 	</div>
 	<div id='cssmenu'>
 		<ul>

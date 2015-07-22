@@ -33,7 +33,7 @@ public class FinalUserService implements UserService {
 
 	@Override
 	public User userInfo(int userNo) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = userRepository.userInfo(userNo);
+		return user;
 	}
 }

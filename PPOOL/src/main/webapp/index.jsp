@@ -39,14 +39,5 @@ float:right;
 <body>
 	<%pageContext.include("/WEB-INF/views/include/header.jsp"); %>
 	<div id="main" >가나다라마바사아자차카타파하</div>
-	
-	
-	<div id="s_left" >왼쪽바
-		<div id="s_middle"></div><!-- 가운데 끼인바 -->
-	</div>
-	
-	
-	
-	
 </body>
 </html>

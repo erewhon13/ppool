@@ -113,7 +113,9 @@ public class UserController {
 	}
 	@RequestMapping(value="userinfo.action", method = RequestMethod.GET)
 	public ModelAndView userInfo(int userNo){
-		mav.setViewName("userinfo");
+		mav.setViewName("users/userinfo");
+		User user = userService.userInfo(userNo);
+		mav.addObject("user",user);
 		return mav;
 	}
 }
