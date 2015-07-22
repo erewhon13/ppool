@@ -1,0 +1,93 @@
+table.search-list,
+.category_view_list table {
+	width:70%;
+	border-top:2px solid #898989;
+	border-bottom:1px solid #ebebeb;
+}
+
+* html .category_view_list table.detail {
+	width: 955px;
+}
+
+* + html .category_view_list table.detail {
+	width: 955px;
+}
+
+table.search-list td {padding:7px 3px 6px; border-bottom:1px solid #ebebeb;}
+table.search-list td a {color: #606060;}
+
+table.search-list thead th,
+.category_view_list table thead th {
+	height:31px;
+	font-size:11px;
+	color:#505050; 
+	font-weight:normal;
+}
+
+table.search-list thead th.left {
+	padding-left: 15px;
+	text-align: left;
+}
+
+table.search-list thead th, x:-moz-any-link, x:default, .category_view_list table thead th, x:-moz-any-link, x:default  {
+	height:32px;
+}
+
+table.search-list thead th.project,
+.category_view_list table thead th.project {
+	text-align:left;
+	padding:0 0 0 24px;
+}
+
+table.category_view_list tbody td,
+.category_view_list table tbody td {
+	height:42px;
+}
+
+table.search-list tbody td, x:-moz-any-link, x:default, .category_view_list table  tbody td, x:-moz-any-link, x:default  {
+	height:43px;
+}
+
+
+*:first-child+html .category_view_list table  tbody td {
+	height:41px;
+}
+
+table.search-list tbody td.project,
+.category_view_list table tbody td.project {
+	width:300px;
+	padding:0 0 0 24px;
+}
+
+table.search-list tbody td.project a,
+.category_view_list table tbody td.project a {
+	font-size:13px;
+	color:#235985;
+	font-weight:bold;
+}
+
+table.search-list tbody td.act_rank,
+.category_view_list table tbody td.act_rank {
+	width:30px;
+	text-align:center;
+	font-size:11px;
+	font-family:Tahoma;
+	font-weight:bold;
+	color:#000;
+	letter-spacing:0;
+}
+
+table.search-list tbody td.issue,
+.category_view_list table tbody td.issue {
+	width:40px;
+	text-align:center;
+	font-size:11px;
+	font-family:Tahoma;
+	color:#556d7b;
+	letter-spacing:0;
+}
+
+.search-list tbody td.mem, .search-list tbody td.start_date{
+    text-align:center;
+	
+}
