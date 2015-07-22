@@ -1,8 +1,10 @@
 package com.ppool.dto;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class History {
+public class History implements Serializable {
 
 	private int historyNo;
 	private String historyTitle;
@@ -13,6 +15,9 @@ public class History {
 	private Date historyRegdate;
 	private boolean historyOpened;
 	private int userNo;
+	
+	private List<HistoryUploadFile> files;
+	
 	
 	public int getHistoryNo() {
 		return historyNo;
@@ -67,6 +72,12 @@ public class History {
 	}
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
+	}
+	public List<HistoryUploadFile> getFiles() {
+		return files;
+	}
+	public void setFiles(List<HistoryUploadFile> files) {
+		this.files = files;
 	}
 	
 	
