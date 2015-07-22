@@ -22,10 +22,10 @@
 
 	
 	<div>
-		<div id="sidemenu">사이드 메뉴</div>
-		<div align="center" style="margin-top: 3%">
+		
+		<div align="center" style="margin-top: 3%" >
 			<form id="notification" action="" method="post">
-				<table width="70%" style="text-align: center;">
+				<table border="1" width="70%" style="text-align: center;">
 					<tr
 						style="background-color: #d3d3d3; color: #ffffff; height: 30px; margin-top: 10px;">
 						<th style="width: 10%">번호</th>
@@ -43,7 +43,8 @@
 
 				</table>
 
-
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 				<div>
 					<a href="notificationwriteform.action">등록</a>
 				</div>

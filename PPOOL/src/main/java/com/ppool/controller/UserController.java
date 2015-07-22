@@ -1,7 +1,10 @@
 package com.ppool.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -9,6 +12,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,14 +22,18 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.User;
 import com.ppool.service.UserService;
 
 @Controller
+@SessionAttributes("loginuser")
 public class UserController {
 	ModelAndView mav = new ModelAndView();
 	
@@ -78,5 +88,15 @@ public class UserController {
 		}
 		mav.setViewName("redirect:home.action");
 		return mav;
+	}
+	@RequestMapping(value="userlogin.action", method = RequestMethod.POST,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String userLogin(String userEmail,String userPasswd){
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userEmail", userEmail);
+		params.put("userPasswd", userPasswd);
+		userService.userLogin(params);
+		mav.setViewName("index");
+		return "success";
 	}
 }

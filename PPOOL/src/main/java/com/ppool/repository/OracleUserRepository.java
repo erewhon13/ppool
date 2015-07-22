@@ -1,5 +1,7 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -10,12 +12,20 @@ import com.ppool.mapper.UserMapper;
 @Repository("userRepository")
 public class OracleUserRepository implements UserRepository{
 	
-	@Autowired
 	private UserMapper userMapper;
+	@Autowired
+	@Qualifier("userMapper")
+	public void setUserMapper(UserMapper userMapper){
+		this.userMapper = userMapper;
+	}
 	
 	@Override
 	public void registerUser(User user) {
 		userMapper.registerUser(user);
 	}
 
+	@Override
+	public void userLogin(HashMap<String, Object> params) {
+		userMapper.userLogin(params);
+	}
 }

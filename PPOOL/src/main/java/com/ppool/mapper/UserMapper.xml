@@ -10,4 +10,9 @@
 		USERS(USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR)
 		VALUES(USERNO_SEQUENCE.NEXTVAL,#{userEmail},#{userPasswd},#{userName},#{userPhone},#{userBirth},#{userGender},#{userAddress},#{userExperience},#{userAcademic},#{userMajor})
 	</insert>
+	<select id="userLogin" parameterType="hashMap"
+		resultType="User">
+		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR FROM USERS
+		WHERE USEREMAIL = #{userEmail} AND USERPASSWD = #{userPasswd}
+	</select>
 </mapper>
