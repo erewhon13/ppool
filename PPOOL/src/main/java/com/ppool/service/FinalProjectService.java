@@ -1,6 +1,7 @@
 package com.ppool.service;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -36,14 +37,20 @@ public class FinalProjectService implements ProjectService{
 			project.setStampStart(f.format(project.getProjectStartDay()));
 			project.setStampEnd(f.format(project.getProjectEndDay()));
 			
-			/*Date ex = project.getProjectExpire(); 
-			Date now = new Date();*/
-			long exx = project.getProjectExpire().getTime() - (new Date()).getTime();
-			int x = (int)(exx/(24 * 60 * 60 * 1000) + 1);
+			Calendar cal = Calendar.getInstance();
+			long nowDay = cal.getTimeInMillis();
 			
-			project.setProjectStatus(x);
+			int year = project.getProjectExpire().getYear();
+			int month = project.getProjectExpire().getMonth();
+			int date = project.getProjectExpire().getDate();
+			
+			cal.set(year+1900,month,date);//목표일
+			long eventDay = cal.getTimeInMillis();
+			int y =(int)((eventDay - nowDay) / (24 * 60 * 60 * 1000));
+			project.setProjectStatus(y);
 			
 			project.setStampExpire(f.format(project.getProjectExpire()));
+			
 		}
 		return projects;
 	}
