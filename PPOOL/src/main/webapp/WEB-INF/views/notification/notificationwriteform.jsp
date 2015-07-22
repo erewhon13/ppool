@@ -12,6 +12,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
+
 <title>Main Page</title>
 </head>
 
@@ -21,10 +22,10 @@
 	%>
 	<div>
 		
-		<div align="center" style="margin-top: 3%">
+		<div align="center" style="margin-top: 3%" >
 			<div id="pageContainer">	
-				<form id="writeform" action="write.action" method="post">
-				<table border="1">
+				<form id="writeform" action="notificationwrite.action" method="post">
+				<table  border="1">
 					<tr>
 						<th>제목</th>
 						<td>
@@ -50,11 +51,12 @@
 						</td>
 					</tr>
 				</table>
+				<br /><br />
 				<div class="buttons">	        	
-					<!--  <a href="#" onclick="">글쓰기</a> -->
-					<a href="javascript:doSubmit();">글쓰기</a>
+					<input type='submit' value='등록' style='height:25px' />
 					&nbsp;&nbsp;
-					<a href="notificationlist.action">목록보기</a>
+					<input type="button" value="취소" style="height: 25px" 
+						onclick="location.href='notificationlist.action';"/>
 				</div>
 				</form>
 			</div>

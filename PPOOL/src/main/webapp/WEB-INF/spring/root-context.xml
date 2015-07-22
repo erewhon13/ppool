@@ -33,4 +33,9 @@
 		<property name="mapperInterface" value="com.ppool.mapper.ProjectMapper" />
 		<property name="sqlSessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="notificationMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.ppool.mapper.NotificationMapper" />
+		<property name="sqlSessionFactory" ref="sessionFactory" />
+	</bean>
 </beans>

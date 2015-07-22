@@ -2,7 +2,9 @@ package com.ppool.service;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class NotificationService {
+import com.ppool.dto.Notification;
 
+public interface NotificationService {
+	void insertNotification(Notification notification);
+	
 }
