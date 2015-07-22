@@ -23,11 +23,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.User;
@@ -87,26 +89,31 @@ public class UserController {
 		} catch (Exception e) {
 			
 		}
-		mav.setViewName("redirect:home.action");
+		mav.setViewName("redirect:/home.action");
 		return mav;
 	}
 	@RequestMapping(value="userlogin.action", method = RequestMethod.POST)
-	@ResponseBody
-	public String userLogin(String userEmail,String userPasswd,Model model){
+	//@ResponseBody user 리턴값의 User 객체가 MessageConvert 로 설정된  
+	//MappingJacksonHttpMessageConverter 에서 JSON 으로 변환 작업이 이뤄진다.
+	public @ResponseBody User userLogin(String userEmail,String userPasswd,Model model){
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userEmail", userEmail);
 		params.put("userPasswd", userPasswd);
 		User user = userService.userLogin(params);
-		
-		String result = null;
 		if (user != null) {
 			model.addAttribute("loginuser",user);
-			result = "success";
-		} else {
-			result = "fail";
 		}
-		
-		mav.setViewName("index");
-		return result;
+		return user;
+	}
+	@RequestMapping(value="userlogout.action",method = RequestMethod.GET)
+	public ModelAndView userLogout(@ModelAttribute("loginuser")User user,SessionStatus status){
+		status.setComplete();
+		mav.setViewName("redirect:/");
+		return mav;
+	}
+	@RequestMapping(value="userinfo.action", method = RequestMethod.GET)
+	public ModelAndView userInfo(int userNo){
+		mav.setViewName("userinfo");
+		return mav;
 	}
 }

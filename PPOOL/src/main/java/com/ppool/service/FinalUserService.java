@@ -30,4 +30,10 @@ public class FinalUserService implements UserService {
 		User user = userRepository.userLogin(params);
 		return user;
 	}
+
+	@Override
+	public User userInfo(int userNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

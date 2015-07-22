@@ -12,7 +12,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "home.action", method = RequestMethod.GET)
 	public ModelAndView home() {
-		
 		mav.setViewName("index");
 		return mav;
 	}

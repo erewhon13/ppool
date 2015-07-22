@@ -29,4 +29,10 @@ public class OracleUserRepository implements UserRepository{
 		User user = userMapper.userLogin(params);
 		return user;
 	}
+
+	@Override
+	public User userInfo(int userNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

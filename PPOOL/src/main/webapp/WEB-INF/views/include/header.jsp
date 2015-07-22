@@ -32,7 +32,7 @@
 	</div>
 		<div id="topbar" class="logined" style='display : ${loginuser eq null ? "none" : "block"}'>
 			<span id="mid"><a href="#">${loginuser ne null ? loginuser.getUserName() : ""}</a></span>님 환영합니다. 
-			<a href='/demoweb/account/logout.action'>로그아웃</a>
+			<a href='/ppool/userlogout.action'>로그아웃</a>
 		</div>
 	<div id="logo" >
 		<img src="/ppool/resources/images/PPOOL.png" onclick="location.href='/ppool/home.action'">
