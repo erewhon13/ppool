@@ -34,7 +34,7 @@ float:right;
 
 #s_center{
 width:938px;
-height:700px;
+height:2000px;
 background-color:white;
 float:left;
 }
@@ -77,7 +77,7 @@ margin:10px;
 					  <hr style="border:inset 1px black; width:99%;"/>
 					
 				
-						<div id="s_inside" style="margin-top:10px">
+						<div id="s_inside" style="margin-top:10px; border:1px solid;">
 							<table style="text-align:center; width:100%;  height:150px; ">		
 								 		<tbody>
 								 				<tr>
@@ -226,12 +226,24 @@ margin:10px;
 						
 						</div>
 						<br>
-						<div id="s_inside2" style="margin-top:10px">
-							<table style="text-align:center; width:100%; height:50px; border:thin;">
-							
-							
+						<div id="s_inside2" style="margin-top:10px; border:1px solid;" >
+							<table style="text-align:center; width:100%; height:50px;" border="1px solid #bcbcbc" >
+								<td style="text-align: center; width:15%; height:50px;">회원정보</td>
+								<td style="text-align: center; width:15%; height:50px;">등급</td>
+								<td style="text-align: center; width:40%; height:50px;">이력사항 </td>
+								<td style="text-align: center; width:15%; height:50px;">희망지역</td>
+								<td style="text-align: center; width:15%; height:50px;">엠블럼</td>
+							</table>
+							<table style="text-align:center; width:100%; height:80px;" border="1px solid #bcbcbc" >
+								<td style="text-align: center; width:15%; height:50px;"></td>
+								<td style="text-align: center; width:15%; height:50px;"></td>
+								<td style="text-align: center; width:40%; height:50px;"></td>
+								<td style="text-align: center; width:15%; height:50px;"></td>
+								<td style="text-align: center; width:15%; height:50px;"></td>
 							
 							</table>
+				
+						
 						
 						</div>
 						

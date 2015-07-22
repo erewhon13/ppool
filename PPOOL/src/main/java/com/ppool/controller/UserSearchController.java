@@ -13,7 +13,7 @@ public class UserSearchController {
 	@RequestMapping(value = "search.action", method = RequestMethod.GET)
 	public ModelAndView home() {
 		
-		mav.setViewName("users/search");
+		mav.setViewName("users/searchuser");
 		return mav;
 	}
 	
