@@ -25,7 +25,8 @@ public class OracleUserRepository implements UserRepository{
 	}
 
 	@Override
-	public void userLogin(HashMap<String, Object> params) {
-		userMapper.userLogin(params);
+	public User userLogin(HashMap<String, Object> params) {
+		User user = userMapper.userLogin(params);
+		return user;
 	}
 }

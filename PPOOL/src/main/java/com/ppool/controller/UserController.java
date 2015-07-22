@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -89,14 +90,23 @@ public class UserController {
 		mav.setViewName("redirect:home.action");
 		return mav;
 	}
-	@RequestMapping(value="userlogin.action", method = RequestMethod.POST,produces="text/html;charset=UTF-8")
+	@RequestMapping(value="userlogin.action", method = RequestMethod.POST)
 	@ResponseBody
-	public String userLogin(String userEmail,String userPasswd){
+	public String userLogin(String userEmail,String userPasswd,Model model){
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userEmail", userEmail);
 		params.put("userPasswd", userPasswd);
-		userService.userLogin(params);
+		User user = userService.userLogin(params);
+		
+		String result = null;
+		if (user != null) {
+			model.addAttribute("loginuser",user);
+			result = "success";
+		} else {
+			result = "fail";
+		}
+		
 		mav.setViewName("index");
-		return "success";
+		return result;
 	}
 }
