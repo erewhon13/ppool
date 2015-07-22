@@ -39,9 +39,10 @@
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
+	<form action="registerproject.action" method="POST"> 
 	<div align="center">
-		<form>
-		<table style="text-align: center; width: 1000px; border: dotted; padding: 5px; margin: 10px">
+		
+		<table style="text-align: center; width: 1024px; border:groove; padding: 5px; margin: 10px">
 			<tr>
 				<td style="width: 15%" bgcolor="#ddbbff">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -52,7 +53,8 @@
 				<td style="width: 15%" bgcolor="#ddbbff">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" name="writer" />
+					<input type="text" style="width: 100%"  />
+					<input type="hidden" >
 				</td>
 				<td style="width: 15%" bgcolor="#ddbbff">연락처</td>
 				<td style="width: 35%" align="left">
@@ -89,9 +91,9 @@
 				<td colspan="3" align="left">
 					<input id="email1" type="text" name="email1" value="" style="width: 150px;"> @ 
 					<input id="email2" type="text" name="email2" value="" style="width: 155px; 
-						border: solid #CECFD0 1px; font-size: 9pt;"readonly=""> 
-					<select id="emailSelect" name="emailSelect"style="width: 150px; 
-						font-size: 12px;"onchange="javascript:ChangeEmail();">
+							border: solid #CECFD0 1px; font-size: 9pt;"readonly=""> 
+					<select id="emailSelect" name="emailSelect" style="width: 150px; 
+							font-size: 12px;"onchange="javascript:ChangeEmail();">
 						<option value="">선택해주세요</option>
 						<option value="etc">직접입력</option>
 						<option value="gmail.com">gmail.com</option>
@@ -113,7 +115,7 @@
 				</td>
 			</tr>
 		</table>
-		<table style="text-align: center; width: 1000px; border: dotted; padding: 5px; margin: 10px">
+		<table style="text-align: center; width: 1000px; border:double ; padding: 5px; margin: 10px">
 			<tr>
 				<td style="width: 18%" bgcolor="#ddbbff">개발</td>
 				<td style="width: 82%" colspan="3"></td>
@@ -145,20 +147,20 @@
 			<tr>
 				<td bgcolor="#ddbbff">기간</td>
 				<td align="left">
-					<input style="text-align: center" type="date"name="projectStartDay"> ~ 
+					<input style="text-align: center" type="date" name="projectStartDay"> ~ 
 					<input style="text-align: center" type="date" name="projectEndDay">
 				</td>
 			</tr>
 		</table>
-		</form>
+		
 	</div>
 
 	<div align="center">
-	<input type="submit" value="등록"/>
-	<input type="button" value="다시작성"/>
-	<input type="button" value="취소"/>
+		<input type="submit" value="등록"/>
+		<input type="button" value="다시작성"/>
+		<input type="button" value="취소"/>
 	</div>
-	
+	</form>
 	
 </body>
 </html>
