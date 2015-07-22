@@ -18,10 +18,13 @@
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
-
+<div>
+<%
+	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+%>
 <c:set var="projects" value="${projects }"/>
 
-<div style="width:1030px;margin-right:5%;float: right" ><br/>
+<div style="width:1024px;margin-right:5%;float: right" ><br/>
 	<table class="ex1">
 		<caption>테스트</caption><br/>
 		<thead>
@@ -41,34 +44,45 @@
 					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd"></c:when>
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr></c:when>
 				</c:choose>
-					<th scope="row">${project.projectNo}</th>
-					<td class="date1">${project.projectStartDay} ~ ${project.projectEndDay}</td>
-					<td class="desc">${project.projectContent}</td>
-					<td>${project.projectLocation}</td>
-					<td>${project.projectExpire}</td>
-					<td>${project.projectStatus}</td>
+					<th scope="projectno">${project.projectNo}</th>
+					<td class="date">
+						${project.stampStart} ~ <br/> ${project.stampEnd}
+					</td>
+					<td class="content">${project.projectContent}</td>
+					<td class="location">${project.projectLocation}</td>
+					<c:if test="${project.projectStatus > 0}">
+						<td class="dday">D - ${project.projectStatus}</td>
+					</c:if>
+					<c:if test="${project.projectStatus == 0}">
+						<td class="dday" style="color: red">마감일</td>
+					</c:if>
+					<c:if test="${project.projectStatus < 0}">
+						<td class="dday">${project.stampExpire}</td>
+					</c:if>
+					
+					<%-- <c:choose>
+						<c:when test="${project.stampExpire > 0} ">
+							<td>D-${project.stampExpire}</td>
+						</c:when>
+						<c:when test="${project.stampExpire == 0} ">
+							<td >마감일</td>
+						</c:when>
+						<c:when test="${project.stampExpire < 0} ">
+							<td >이미 마감된 프로젝트 </td>
+						</c:when>
+					</c:choose> --%>
+					
+					<c:if test="${project.projectStatus >= 0}">
+						<td class="status" style="color: blue">모집중</td>
+					</c:if>
+					<c:if test="${project.projectStatus < 0}">
+						<td class="status">완료</td>
+					</c:if>
 				</tr>
 			</c:forEach>
-			
-			<tr>
-				<th scope="row">JAVA2</th>
-				<td class="date1">날짜다2</td>
-				<td class="desc">엄청난 프로젝트2</td>
-				<td>조건들2</td>
-				<td>내일까지2</td>
-				<td>모집중2</td>
-			</tr>
-			<tr class="odd">
-				<th scope="row">JAVA2</th>
-				<td class="date1">날짜다2</td>
-				<td class="desc">엄청난 프로젝트2</td>
-				<td>조건들2</td>
-				<td>내일까지2</td>
-				<td>모집중2</td>
-			</tr>
-			
 		</tbody>
 	</table>
+	<br/>
 	<div style="width: 1024px;" align="right">
 		<input type="button" onclick="location.href='/ppool/registerproject.action'" value="프로젝트 등록">
 	</div>

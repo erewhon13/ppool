@@ -9,6 +9,10 @@
 	td{
 	padding:10px;
 	}
+	caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+	input.sub {
+	font-size: 15pt;
+	}
 	</style>
 	<script type="text/javascript">
 	function ChangeEmail() {
@@ -39,10 +43,14 @@
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
+<div>
+<%
+	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+%>
 	<form action="registerproject.action" method="POST"> 
-	<div align="center">
-		
-		<table style="text-align: center; width: 1024px; border:groove; padding: 5px; margin: 10px">
+		<div style="width:1024px; margin-right:5%;float: right" ><br/>
+		<table style="text-align: center; width: 98%; border:groove;  ">
+			<caption >테스트</caption><br/>
 			<tr>
 				<td style="width: 15%" bgcolor="#ddbbff">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -115,7 +123,7 @@
 				</td>
 			</tr>
 		</table>
-		<table style="text-align: center; width: 1000px; border:double ; padding: 5px; margin: 10px">
+		<table style="text-align: center; width: 98%; border:groove;  ">
 			<tr>
 				<td style="width: 18%" bgcolor="#ddbbff">개발</td>
 				<td style="width: 82%" colspan="3"></td>
@@ -152,13 +160,12 @@
 				</td>
 			</tr>
 		</table>
-		
-	</div>
-
-	<div align="center">
-		<input type="submit" value="등록"/>
-		<input type="button" value="다시작성"/>
-		<input type="button" value="취소"/>
+		<br/>
+		<div align="center" >
+			<input class="sub" type="submit" value="등록"/>
+			<input class="sub" type="button" value="다시작성"/>
+			<input class="sub" type="button" value="취소"/>
+		</div>
 	</div>
 	</form>
 	

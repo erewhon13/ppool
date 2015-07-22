@@ -16,7 +16,30 @@ public class Project {
 	private int projectStatus;
 	private String projectPhone;
 	private String projectEmail;
-	
+	///////////////////////////////////////////
+	private String stampStart;
+	private String stampEnd;
+	private String stampExpire;
+
+	public String getStampStart() {
+		return stampStart;
+	}
+	public void setStampStart(String stampStart) {
+		this.stampStart = stampStart;
+	}
+	public String getStampEnd() {
+		return stampEnd;
+	}
+	public void setStampEnd(String stampEnd) {
+		this.stampEnd = stampEnd;
+	}
+	public String getStampExpire() {
+		return stampExpire;
+	}
+	public void setStampExpire(String stampExpire) {
+		this.stampExpire = stampExpire;
+	}
+	///////////////////////////////////////////
 	public int getProjectNo() {
 		return projectNo;
 	}
