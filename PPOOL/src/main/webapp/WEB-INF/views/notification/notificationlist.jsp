@@ -1,3 +1,5 @@
+<%@page import="com.ppool.dto.Notification"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE HTML>
@@ -20,28 +22,23 @@
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
 
-	
+	<div><%
+		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+	%></div>
 	<div>
 		
 		<div align="center" style="margin-top: 3%" >
 			<form id="notification" action="" method="post">
 				<table border="1" width="70%" style="text-align: center;">
 					<tr
-						style="background-color: #d3d3d3; color: #ffffff; height: 30px; margin-top: 10px;">
+						style="background-color: #FF9147; color: #ffffff; height: 30px; margin-top: 10px;">
 						<th style="width: 10%">번호</th>
 						<th style="width: 25%">제목</th>
 						<th style="width: 15%">등록일</th>
 						<th style="width: 10%">관리자번호</th>
-
-
 					</tr>
 					
-				</table>
-
-
-
-
-				</table>
+			</table>
 
 				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
