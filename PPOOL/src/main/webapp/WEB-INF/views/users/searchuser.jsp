@@ -177,9 +177,9 @@ margin:10px;
 								 						<td style="width:80%" align="left" >
 								 						
 								 							<ul class="li-style1">	
-								 								<li><input type="checkbox" name="" value="초급" > 초급</li>
-																<li><input type="checkbox" name="" value="중급" >중급</li>
-																<li><input type="checkbox" name="" value="고급" > 고급 </li>
+								 								<li><input type="checkbox" name="r1" value="초급" > 초급</li>
+																<li><input type="checkbox" name="r2" value="중급" >중급</li>
+																<li><input type="checkbox" name="r3" value="고급" > 고급 </li>
 								 							</ul>
 								 						</td>
 								 				</tr>
