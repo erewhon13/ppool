@@ -91,6 +91,7 @@ public class HistoryController {
 			//첨부파일 데이터 DB에 저장
 			HistoryUploadFile fileItem = new HistoryUploadFile();
 			fileItem.setHistoryNo(newUploadNo);//등록된 상위 글번호
+			System.out.println(Util.getUniqueFileName(path, fileName));
 			fileItem.setUploadSavedFileName(Util.getUniqueFileName(path, fileName));
 			fileItem.setUserFileName(fileName);
 			

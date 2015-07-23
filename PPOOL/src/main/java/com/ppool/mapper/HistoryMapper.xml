@@ -20,6 +20,7 @@
 			HISTORYWORK,
 			HISTORYCONTENT,
 			HISTORYOPENED,
+			HISTORYSERVICE,
 			USERNO)
 		VALUES(
 			HISTORYNO_SEQUENCE.NEXTVAL,
@@ -30,15 +31,25 @@
 			#{historyWork},
 			#{historyContent},
 			#{historyOpened},
+			#{historyService},
 			#{userNo})
 	</insert>
 	
-	<!-- <insert id="insertHistoryFile" parameterType="com.ppool.dto.HistoryUploadFile">
+	 <insert id="insertHistoryFile" parameterType="com.ppool.dto.HistoryUploadFile">
 		INSERT INTO
 		HISTORYUPLOADFILE
-		(uploadFileNo,historyNo,userFileName,uploadSavedFileName)
-		VALUES(UPLOADFILENO_SEQUENCE.NEXTVAL,#{historyNo},#{userFileName},#{uploadSavedFileName})
-	</insert> -->
+			(uploadFileNo,
+			historyNo,
+			userFileName,
+			uploadSavedFileName)
+		VALUES
+			(UPLOADFILENO_SEQUENCE.NEXTVAL,
+			#{historyNo},
+			#{userFileName},
+			#{uploadSavedFileName})
+	</insert>
+	
+	
 	
 	
 	
