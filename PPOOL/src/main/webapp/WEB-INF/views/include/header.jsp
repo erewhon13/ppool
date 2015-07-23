@@ -9,8 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"
-	type="text/javascript"></script>
+<script src="//code.jquery.com/jquery-1.11.3.js"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
 <script src="/ppool/resources/js/userinfoscript.js"></script>
 <title>Main Page</title>
