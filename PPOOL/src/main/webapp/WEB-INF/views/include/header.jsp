@@ -48,6 +48,7 @@
 			<li><a href='/ppool/projectlist.action'>프로젝트</a></li>
 			<li><a href='/ppool/search.action'>인물검색</a></li>
 			<li><a href='/ppool/historylist.action'>프로젝트이력등록</a></li>
+			<li><a href='/ppool/resume.action'>이력/경력사항 관리</a></li>
 			<li><a href='#'>메뉴 3</a>
 				<ul>
 					<li><a href='#'>하위 메뉴 1</a>
@@ -61,6 +62,7 @@
 							<li><a href='#'>콘텐츠</a></li>
 						</ul></li>
 				</ul></li>
+			
 		</ul>
 	</div>
 </body>
