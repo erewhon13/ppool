@@ -7,7 +7,13 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="/ppool/resources/css/board.css">
    <title>Insert title here</title>
-
+	<script src="//code.jquery.com/jquery-1.11.3.js"></script> <!-- jquery 사용하기 위해서 CDN삽입 -->
+	<script type="text/javascript">
+		/* $(function(){
+			$("#register").click(function(event){
+				location.href="historyRegister.action";})
+		}) */
+	</script>
 </head>
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
@@ -38,7 +44,9 @@
 	
 				</tbody>
 	</table>
-	<input type="button" value="등록하기" > 
+	
+	<a href="historyRegister.action">[등록하기] </a>
+	
 	</div>
 </div>
 </body>

@@ -11,7 +11,6 @@ import com.ppool.repository.HistoryRepository;
 
 
 @Controller
-@RequestMapping(value="history")
 public class HistoryController {
 	
 	private HistoryRepository historyRepository;
@@ -22,15 +21,22 @@ public class HistoryController {
 		this.historyRepository=historyRepository;
 	}
 	
-	ModelAndView mav = new ModelAndView();
+	
 	
 	@RequestMapping(value = "historylist.action", method = RequestMethod.GET)
 	public ModelAndView historyList() {
-		
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("history/historylist");
 		return mav;
 	}
 	
-	
+	@RequestMapping(value="historyRegister.action", method=RequestMethod.GET)
+	public ModelAndView historyRegister(){
+		ModelAndView mav = new ModelAndView();
+						
+		mav.setViewName("history/historywriteform");
+		return mav;
+		
+	}
 
 }
