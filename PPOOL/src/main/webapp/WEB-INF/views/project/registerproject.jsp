@@ -8,6 +8,7 @@
 	
 	<style type="text/css">
 	td{
+	font-size:10pt;
 	margin:5px;
 	padding:10px;
 	}
@@ -59,7 +60,7 @@
 	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
 %>
 	<form action="registerproject.action" method="POST"> 
-		<div style="width:1024px; margin-right:5%;float: right" ><br/>
+		<div style="width:800px; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 98%; border:groove;  ">
 			<caption >테스트</caption><br/>
 			<tr>

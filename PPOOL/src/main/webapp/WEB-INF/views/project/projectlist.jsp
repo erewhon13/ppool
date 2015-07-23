@@ -10,9 +10,21 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
-	
-	<!-- <link rel="stylesheet" href="/ppool/resources/css/board.css"> -->
-	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("a[rel='colorbox']").colorbox({
+			onOpen : function(){
+				timer = setInterval(function(){
+					$.colorbox.next();
+				}, 3000);
+			},
+			onClosed : function(){
+				clearInterval(timer);
+			}
+		});
+	});
+	</script>
 </head>
 <body>
 <%
@@ -24,7 +36,7 @@
 %>
 <c:set var="projects" value="${projects }"/>
 
-<div style="width:1024px;margin-right:5%;float: right" ><br/>
+<div style="width:800px;margin-right:5%;float: right" ><br/>
 	<table class="ex1">
 		<caption>테스트</caption><br/>
 		<thead>
@@ -83,7 +95,7 @@
 		</tbody>
 	</table>
 	<br/>
-	<div style="width: 1024px;" align="right">
+	<div style="width: 800px;" align="right">
 		<input type="button" onclick="location.href='/ppool/registerproject.action'" value="프로젝트 등록">
 	</div>
 </div>

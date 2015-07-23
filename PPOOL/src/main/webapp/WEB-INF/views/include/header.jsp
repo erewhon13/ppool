@@ -9,8 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"
-	type="text/javascript"></script>
+<script src="//code.jquery.com/jquery-1.11.3.js"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
 <script src="/ppool/resources/js/userinfoscript.js"></script>
 <title>Main Page</title>
@@ -49,6 +48,7 @@
 			<li><a href='/ppool/search.action'>인물검색</a></li>
 			<li><a href='/ppool/historylist.action'>프로젝트이력등록</a></li>
 			<li><a href='/ppool/resume.action'>이력/경력사항 관리</a></li>
+			<li><a href='/ppool/history/historylist.action'>프로젝트이력등록</a></li>
 			<li><a href='#'>메뉴 3</a>
 				<ul>
 					<li><a href='#'>하위 메뉴 1</a>
