@@ -12,6 +12,5 @@ table.ex1 {width:98%; margin:0 auto; text-align:center; border-collapse:collapse
 .ex1 tbody td.status {text-align:center; width:10%}
 .ex1 tbody tr.odd {background:#f9f9f9}
 .ex1 tbody tr.odd th {background:#f2f2f2}
-.ex1 tbody tr.dead {color:#ffffff;background-color:#000000; }
 .ex1 tbody tr:hover {background:#F3F5BB}
 .ex1 tbody tr:hover th {background:#F2F684; color:#1BA6B2}

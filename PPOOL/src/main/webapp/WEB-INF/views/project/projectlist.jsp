@@ -10,9 +10,21 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
-	
-	<!-- <link rel="stylesheet" href="/ppool/resources/css/board.css"> -->
-	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("a[rel='colorbox']").colorbox({
+			onOpen : function(){
+				timer = setInterval(function(){
+					$.colorbox.next();
+				}, 3000);
+			},
+			onClosed : function(){
+				clearInterval(timer);
+			}
+		});
+	});
+	</script>
 </head>
 <body>
 <%
@@ -40,15 +52,10 @@
 		<tbody>
 			<c:set var="r" value="1"/>
 			<c:forEach var="project" items="${projects }" >
-			<c:if test="${project.projectStatus < 0}">
-				<tr class="dead">
-			</c:if>
-			<c:if test="${project.projectStatus >= 0}">
 				<c:choose>
 					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd"></c:when>
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr></c:when>
 				</c:choose>
-			</c:if>
 					<th scope="projectno">${project.projectNo}</th>
 					<td class="date">
 						${project.stampStart} ~ <br/> ${project.stampEnd}
