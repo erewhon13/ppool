@@ -28,5 +28,14 @@ $(function(){
 
 	event.preventDefault();
 	});
+	/*$(window).FileReader(function() {
+		$("input[type=file]").on("change",function(event){
+			var reader = new FileReader();
+			reader.onload(function(oFREvent) {
+				$('#output').html('&lt;img src="'+oFREvent.target.result+'"&gt;');
+			});
+			reader.readAsDataURL(this.files[0]);
+		});
+	});*/
 	
 });
