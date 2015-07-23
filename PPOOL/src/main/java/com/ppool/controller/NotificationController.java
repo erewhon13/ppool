@@ -1,11 +1,19 @@
 package com.ppool.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.Notification;
@@ -15,6 +23,12 @@ import com.ppool.service.ProjectService;
 
 @Controller
 public class NotificationController {
+	
+	@InitBinder
+	protected void initBinder(WebDataBinder binder){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	}
 
 	@Autowired
 	@Qualifier("notificationService")
@@ -24,8 +38,10 @@ public class NotificationController {
 	public ModelAndView notificationList() {
 
 		ModelAndView mav = new ModelAndView();
+		List<Notification> notifications = notificationService.notificationList();
 
 		mav.setViewName("notification/notificationlist");
+		mav.addObject("notifications", notifications);
 
 		return mav;
 	}
@@ -44,4 +60,24 @@ public class NotificationController {
 		notificationService.insertNotification(notification);
 		return "redirect:/notificationlist.action";
 	}
+	@RequestMapping(value = "notificationview.action", method = RequestMethod.GET)
+	public ModelAndView notificationView() {
+
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("notification/notificationview");
+
+		return mav;
+	}
+//	@RequestMapping(value = "notificationview.action", method = RequestMethod.GET)
+//	public ModelAndView instructorView(@RequestParam("notificationno") int notificationNo) {
+//		
+//		Notification notification = NotificationService.
+//		
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("notification/notificationview");
+//		mav.addObject("notification", notification);
+//		
+//		return mav;
+//	}
 }

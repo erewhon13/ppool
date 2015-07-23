@@ -37,8 +37,8 @@ public class OracleNotificationRepository implements NotificationRepository {
 
 	public List<Notification> notificationList() {
 		List<Notification> notifications = notificationMapper.notificationList();
-
 		return notifications;
+
 	}
 
 //	public List<Instructor> getInstructorList(int first, int last) {
@@ -52,14 +52,13 @@ public class OracleNotificationRepository implements NotificationRepository {
 //		return instructors;
 //	}
 //
-//	@Override
-//	public Instructor getInstructorById(int instructorCode) {
-//
-//		Instructor instructor = instructorMapper
-//				.getInstructorById(instructorCode);
-//
-//		return instructor;
-//	}
+	@Override
+	public Notification getNotificationById(int notificationNo) {
+
+		Notification notification = notificationMapper.getNotificationById(notificationNo);
+
+		return notification;
+	}
 //
 //	@Override
 //	public void instructorupdate(Instructor instructor) {

@@ -12,7 +12,6 @@
 		<typeAlias type="com.ppool.dto.Project" alias="Project" />
 		<typeAlias type="com.ppool.dto.Notification" alias="Notification" />
 	</typeAliases>
-
 	<mappers>
 		<mapper resource="com/ppool/mapper/UserMapper.xml" />
 		<mapper resource="com/ppool/mapper/ProjectMapper.xml" />
