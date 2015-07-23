@@ -6,6 +6,21 @@
 
 <mapper namespace="com.ppool.mapper.ProjectMapper">
 	<insert id="registerProject" parameterType="Project">
-	
+		INSERT INTO PROJECTS
+		(PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
+		PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTLOCATION,  
+		PROJECTSTATUS, PROJECTPHONE, PROJECTEMAIL)
+		VALUES
+		(PROJECTNO_SEQUENCE.NEXTVAL, #{userNo},#{projectTitle},#{projectContent},#{projectTeamCount},
+		#{projectStartDay}, #{projectEndDay}, #{projectExpire}, #{projectLocation}, 
+		#{projectStatus}, #{projectPhone},#{projectEmail})
 	</insert>
+	
+	<select id="getProjectList" resultType="Project">
+		SELECT PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
+		PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTLOCATION, PROJECTREGISTERDAY, 
+		PROJECTSTATUS, PROJECTPHONE, PROJECTEMAIL
+		FROM PROJECTS
+		ORDER BY PROJECTNO DESC
+	</select>
 </mapper>

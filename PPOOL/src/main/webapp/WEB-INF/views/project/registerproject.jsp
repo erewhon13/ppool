@@ -5,11 +5,26 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
+	
 	<style type="text/css">
 	td{
+	margin:5px;
 	padding:10px;
 	}
+	caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+	input.sub {
+	font-size: 15pt;
+	}
+	.ul_checkbox{
+		list-style:none;
+		text-align: left;
+	}
+	.ul_checkbox li{
+		margin:2 5 2 5;
+		display:inline-block; 
+	}
 	</style>
+	
 	<script type="text/javascript">
 	function ChangeEmail() {
 		var email1 = document.getElementById("email1");
@@ -27,21 +42,26 @@
 		}
 	}
 	
-	window.onload = function(){
+	/* window.onload = function(){
 		var area = document.getElementById("textarea");
 		area.style.maxWidth = area.offsetParent.offsetWidth + "px";
 		area.style.minWidth = area.offsetParent.offsetWidth + "px";
 		
-	}
+	} */
 	</script>
 </head>
 <body>
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
-	<div align="center">
-		<form>
-		<table style="text-align: center; width: 1000px; border: dotted; padding: 5px; margin: 10px">
+<div>
+<%
+	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+%>
+	<form action="registerproject.action" method="POST"> 
+		<div style="width:1024px; margin-right:5%;float: right" ><br/>
+		<table style="text-align: center; width: 98%; border:groove;  ">
+			<caption >테스트</caption><br/>
 			<tr>
 				<td style="width: 15%" bgcolor="#ddbbff">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -52,10 +72,11 @@
 				<td style="width: 15%" bgcolor="#ddbbff">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" name="writer" />
+					<input type="text" style="width: 100%"  />
+					<input type="hidden" >
 				</td>
 				<td style="width: 15%" bgcolor="#ddbbff">연락처</td>
-				<td style="width: 35%" align="left">
+				<td style="width: 35%; font-size: 10pt;" align="left">
 					<select name="phone1">
 						<option value="">----</option>
 						<option value="02">02</option>
@@ -80,18 +101,18 @@
 						<option value="0506">0506</option>
 						<option value="0130">0130</option>
 					</select> - 
-					<input type="text" name="phone2" value=""style="width: 60px; text-align: center;"> - 
-					<input type="text" name="phone3" value=""style="width: 60px; text-align: center;">
+					<input type="text" name="phone2" value=""style="width: 70px; text-align: center;"> - 
+					<input type="text" name="phone3" value=""style="width: 70px; text-align: center;">
 				</td>
 			</tr>
 			<tr>
-				<td bgcolor="#ddbbff">이메일</td>
-				<td colspan="3" align="left">
+				<td style="width: 15%" bgcolor="#ddbbff">이메일</td>
+				<td style="width: 15%" colspan="3" align="left">
 					<input id="email1" type="text" name="email1" value="" style="width: 150px;"> @ 
 					<input id="email2" type="text" name="email2" value="" style="width: 155px; 
-						border: solid #CECFD0 1px; font-size: 9pt;"readonly=""> 
-					<select id="emailSelect" name="emailSelect"style="width: 150px; 
-						font-size: 12px;"onchange="javascript:ChangeEmail();">
+							border: solid #CECFD0 1px; font-size: 10pt;"readonly=""> 
+					<select id="emailSelect" name="emailSelect" style="width: 150px; 
+							font-size: 12px;"onchange="javascript:ChangeEmail();">
 						<option value="">선택해주세요</option>
 						<option value="etc">직접입력</option>
 						<option value="gmail.com">gmail.com</option>
@@ -113,52 +134,114 @@
 				</td>
 			</tr>
 		</table>
-		<table style="text-align: center; width: 1000px; border: dotted; padding: 5px; margin: 10px">
+		<br/>
+		<table style="text-align: center; width: 98%; border:groove;  ">
 			<tr>
-				<td style="width: 18%" bgcolor="#ddbbff">개발</td>
-				<td style="width: 82%" colspan="3"></td>
-			</tr>
-			<tr>
-				<td bgcolor="#ddbbff">디자인</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td bgcolor="#ddbbff">지역</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td bgcolor="#ddbbff">프로젝트 설명</td>
-				<td colspan="4">
-					<textarea name="projectContent" id="textarea" rows="20" cols="30" style="max-height: 600px;"></textarea>
+				<td style="width: 15%" bgcolor="#ddbbff">개발</td>
+				<td style="width: 85%" colspan="3">
+					<ul class="ul_checkbox"  >				
+						<li><input type="checkbox" name="100" value=".NET" > .NET</li>
+						<li><input type="checkbox" name="101" value="ANDROID" > ANDROID</li>
+						<li><input type="checkbox" name="102" value="ASP" > ASP</li>
+						<li><input type="checkbox" name="103" value="C" > C</li>
+						<br>	
+						<li><input type="checkbox" name="104" value="C#" > C#</li>
+						<li><input type="checkbox" name="105" value="C++" > C++</li>
+						<li><input type="checkbox" name="106" value="CSS" > CSS</li>
+						<li><input type="checkbox" name="107" value="DB" > DB</li>
+						<br>
+						<li><input type="checkbox" name="108" value="DELPHI" > DELPHI</li>
+						<li><input type="checkbox" name="109" value="HTML" > HTML</li>
+						<li><input type="checkbox" name="110" value="IOS" > IOS</li>
+						<li><input type="checkbox" name="111" value="JAVA" > JAVA</li>
+						<br>
+						<li><input type="checkbox" name="112" value="JSP" > JSP</li>
+						<li><input type="checkbox" name="113" value="LINUX" > LINUX</li>
+						<li><input type="checkbox" name="114" value="PHP" > PHP</li>
+						<li><input type="checkbox" name="115" value="PYTHON" > PYTHON</li>
+						<li><input type="checkbox" name="116" value="RUBY" > RUBY</li>
+					</ul>
 				</td>
 			</tr>
 			<tr>
-				<td bgcolor="#ddbbff">모집인원</td>
-				<td>
+				<td style="width: 15%" bgcolor="#ddbbff">디자인</td>
+				<td style="width: 85%" colspan="3">
+					<ul class="ul_checkbox">	
+						<li><input type="checkbox" name="200" value="HTML5" > HTML5</li>
+						<li><input type="checkbox" name="201" value="그래픽디자인" > 그래픽디자인</li>
+						<li><input type="checkbox" name="202" value="모바일" > 모바일 </li>
+						<li><input type="checkbox" name="203" value="웹디자인" > 웹디자인 </li>
+						<br/>
+						<li><input type="checkbox" name="204" value="파워포인트" > 파워포인트 </li>
+						<li><input type="checkbox" name="205" value="포토샵편집" > 포토샵편집 </li>
+						<li><input type="checkbox" name="206" value="플래시" > 플래시 </li>
+						<li><input type="checkbox" name="207" value="3D" > 3D </li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%" bgcolor="#ddbbff">지역</td>
+				<td style="width: 85%" colspan="3">
+					<ul class="ul_checkbox">	
+						<li><input type="checkbox" name="200" value="강북" > 강북</li>
+						<li><input type="checkbox" name="201" value="강동" > 강동</li>
+						<li><input type="checkbox" name="202" value="강남" > 강남</li>
+						<li><input type="checkbox" name="203" value="강서" > 강서 </li>
+						<li><input type="checkbox" name="204" value="용인" > 용인 </li>
+						<li><input type="checkbox" name="205" value="화성" > 화성 </li>
+						<li><input type="checkbox" name="206" value="일산" > 일산 </li>
+						<br>
+						<li><input type="checkbox" name="207" value="수원" > 수원 </li>
+						<li><input type="checkbox" name="207" value="충북" > 충북 </li>
+						<li><input type="checkbox" name="207" value="충남" > 충남 </li>
+						<li><input type="checkbox" name="207" value="대전" > 대전 </li>
+						<li><input type="checkbox" name="207" value="강원" > 강원 </li>
+						<li><input type="checkbox" name="207" value="경북" > 경북 </li>
+						<li><input type="checkbox" name="207" value="경남" > 경남 </li>
+						<br>
+						<li><input type="checkbox" name="207" value="대구" > 대구 </li>
+						<li><input type="checkbox" name="207" value="전북" > 전북 </li>
+						<li><input type="checkbox" name="207" value="전남" > 전남 </li>
+						<li><input type="checkbox" name="207" value="광주" > 광주 </li>
+						<li><input type="checkbox" name="207" value="부산" > 부산 </li>
+						<li><input type="checkbox" name="207" value="울산" > 울산 </li>
+						<li><input type="checkbox" name="207" value="제주" > 제주 </li>
+						<li><input type="checkbox" name="207" value="해외" > 해외 </li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%" bgcolor="#ddbbff">프로젝트 설명</td>
+				<td style="width: 85%" colspan="3">
+					<textarea name="projectContent" id="textarea" rows="20" style="max-height: 600px;width:100%;resize:none"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%" bgcolor="#ddbbff">모집인원</td>
+				<td style="width: 35%">
 					<input type="text" style="width: 100%" name="projectTeamCount" />
 				</td>
-				<td bgcolor="#ddbbff">마감일</td>
-				<td align="left">
+				<td style="width: 15%" bgcolor="#ddbbff">마감일</td>
+				<td style="width: 35%" align="left">
 					<input style="text-align: center" type="date" name="projectExpire">
 				</td>
 			</tr>
 			<tr>
 				<td bgcolor="#ddbbff">기간</td>
 				<td align="left">
-					<input style="text-align: center" type="date"name="projectStartDay"> ~ 
+					<input style="text-align: center" type="date" name="projectStartDay"> ~ 
 					<input style="text-align: center" type="date" name="projectEndDay">
 				</td>
 			</tr>
 		</table>
-		</form>
+		<br/>
+		<div align="center" >
+			<input class="sub" type="submit" value="등록"/>
+			<input class="sub" type="button" value="다시작성"/>
+			<input class="sub" type="button" value="취소"/>
+		</div>
 	</div>
-
-	<div align="center">
-	<input type="submit" value="등록"/>
-	<input type="button" value="다시작성"/>
-	<input type="button" value="취소"/>
-	</div>
-	
+	</form>
 	
 </body>
 </html>

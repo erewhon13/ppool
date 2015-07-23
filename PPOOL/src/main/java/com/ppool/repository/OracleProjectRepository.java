@@ -1,5 +1,7 @@
 package com.ppool.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -21,6 +23,12 @@ public class OracleProjectRepository implements ProjectRepository{
 	@Override
 	public void registerProject(Project project) {
 		projectMapper.registerProject(project);
+	}
+
+	@Override
+	public List<Project> getProjectList() {
+		List<Project> projects = projectMapper.getProjectList();
+		return projects;
 	}
 
 }
