@@ -5,13 +5,41 @@
   "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
 
 <mapper namespace="com.ppool.mapper.HistoryMapper">
-	<insert id="insertHistory" parameterType="int">
-		<selectKey keyProperty="subjectRegisterCode" order="AFTER" resultType="int" >
+
+	<insert id="insertHistory" parameterType="com.ppool.dto.History">
+		<selectKey keyProperty="historyNo" order="AFTER" resultType="int" >
 			SELECT HISTORYNO_SEQUENCE.currval FROM DUAL
 		</selectKey>	
 		INSERT INTO	
-		HISTORY(HISTORYNO,HISTORYTITLE,HISTORYPERIOD,HISTORYSTAFF,HISTORYWORK,HISTORYCONTENT,HISTORYREGDATE,HISTORYOPENED,USERNO)
-		VALUES(HISTORYNO_SEQUENCE.NEXTVAL,#{HISTORYTITLE},)
+		HISTORY(
+			HISTORYNO,
+			HISTORYTITLE,
+			HISTORYSTARTDAY,
+			HISTORYENDDAY,
+			HISTORYSTAFF,
+			HISTORYWORK,
+			HISTORYCONTENT,
+			HISTORYOPENED,
+			USERNO)
+		VALUES(
+			HISTORYNO_SEQUENCE.NEXTVAL,
+			#{historyTitle},
+			#{historyStartDay},
+			#{historyEndDay},
+			#{historyStaff},
+			#{historyWork},
+			#{historyContent},
+			#{historyOpened},
+			#{userNo})
 	</insert>
+	
+	<!-- <insert id="insertHistoryFile" parameterType="com.ppool.dto.HistoryUploadFile">
+		INSERT INTO
+		HISTORYUPLOADFILE
+		(uploadFileNo,historyNo,userFileName,uploadSavedFileName)
+		VALUES(UPLOADFILENO_SEQUENCE.NEXTVAL,#{historyNo},#{userFileName},#{uploadSavedFileName})
+	</insert> -->
+	
+	
 	
 </mapper>

@@ -1,5 +1,7 @@
 package com.ppool.service;
 
-public interface HistoryService {
+import com.ppool.dto.History;
 
+public interface HistoryService {
+	void insertHistory(History history);
 }
