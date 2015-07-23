@@ -12,7 +12,9 @@
 	<div id="sidemenu">
 		<ul>
 			<li><a href='#'><span>홈</span></a></li>
-			<li class='active has-sub'><a href='#'><span>공지사항</span></a>
+			
+			<li><a href='#'><span>공지사항</span></a></li>
+			<li class='active has-sub'><a href='#'><span>Content</span></a>
 				<ul>
 					<li class='has-sub'><a href='#'><span>Product 1</span></a>
 						<ul>
@@ -25,8 +27,8 @@
 							<li class='last'><a href='#'><span>Sub Product</span></a></li>
 						</ul></li>
 				</ul></li>
-			<li><a href='#'><span>About</span></a></li>
 			<li class='last'><a href='#'><span>Contact</span></a></li>
+			
 		</ul>
 	</div>
 </body>

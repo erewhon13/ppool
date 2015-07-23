@@ -22,11 +22,15 @@
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
 
-	<div><%
-		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-	%></div>
 	<div>
-		
+	<%
+		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+	%>
+	</div>
+	<div>
+		<%
+			List<Notification> notifications = (List<Notification>) request.getAttribute("notifications");
+		%>
 		<div align="center" style="margin-top: 3%" >
 			<form id="notification" action="" method="post">
 				<table border="1" width="70%" style="text-align: center;">
@@ -37,11 +41,27 @@
 						<th style="width: 15%">등록일</th>
 						<th style="width: 10%">관리자번호</th>
 					</tr>
+					<%
+						for (Notification notification : notifications) {
+					%>
+					<tr
+						style='text-align: center; height: 30px; background-color: #F1F1F1;'>
+						<td><%=notification.getNotificationNo()%></td>
+						<td><a
+							href='notificationview.action'>
+								<%=notification.getNotificationTitle()%></a></td>
+						<td><%=notification.getNotificationRegisterDay()%></td>
+						<td><%=notification.getAdminNo()%></td>
+					</tr>
+					<%
+						}
+					%>
 					
 			</table>
+				
 
 				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				
 				<div>
 					<a href="notificationwriteform.action">등록</a>
 				</div>

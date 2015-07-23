@@ -29,25 +29,26 @@
 					<tr>
 						<th>제목</th>
 						<td>
-							<input type="text" name="title" style="width:280px" />
+							<input type="text" name="notificationTitle" style="width:280px" />
 						</td>
 					</tr>
 					<tr>
-						<th>작성자</th>
+						<th>관리번호</th>
 						<td>
+						<input type="text" name="adminNo" style="width:280px" value="1" readonly="readonly"/>
 						</td>
 					</tr>
 					<tr>
 						<th>작성일</th>
 						<td>
-							<input type="date" name="date" style="width:280px" />
+							<input type="date" name="notificationRegisterDay" style="width:280px" />
 						</td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td>		                    
 							<textarea 
-								name="content" cols="76" rows="15"></textarea>
+								name="notificationContent" cols="76" rows="15"></textarea>
 						</td>
 					</tr>
 				</table>

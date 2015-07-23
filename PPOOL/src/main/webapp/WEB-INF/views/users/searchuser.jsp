@@ -11,25 +11,18 @@
 height:30px;
 margin-left:64px;
 }
-
-
-
 div#s_left{
 width:200px;
 height:700px;
 background-color:gray;
 float:left;
 margin-left:64px;
-
 }
-
-
 #s_middle{
 width:30px;
 height:700px;
 background-color:white;
 float:right;
-
 }
 
 #s_center{
@@ -74,7 +67,7 @@ margin:10px;
 				
 				<div id="s_center" ><!-- 가운데 -->
 					<img src="/ppool/resources/images/search.gif">
-					  <hr style="border:inset 1px black; width:99%;"/>
+					 <hr border-top:1px solid />
 					
 				
 						<div id="s_inside" style="margin-top:10px; border:1px solid;">
@@ -111,7 +104,7 @@ margin:10px;
 								 				</tr>
 								 		</tbody>
 							</table>	
-								<hr style="border:outset 1px gray; width:98%;"/>
+								 <hr border-top:1px solid />
 							<table  style="text-align:center; width:100%;  height:150px;">
 										<tbody>
 								 				<tr>
@@ -132,7 +125,7 @@ margin:10px;
 								 				</tr>
 								 		</tbody>
 							</table>	
-								 <hr style="border:outset 1px gray; width:98%;"/>
+								 <hr border-top:1px solid  />
 							<table  style="text-align:center; width:100%;  height:150px;">
 										<tbody>
 								 				<tr>
@@ -169,7 +162,7 @@ margin:10px;
 								 				</tr>
 								 		</tbody>
 							</table>		 
-					 <hr style="border:outset 1px gray; width:98%;"/>	 
+					 	<hr border-top:1px solid />
 								 <table  style="text-align:center; width:100%;  height:100px; ">
 										<tbody>
 								 				<tr>
@@ -177,15 +170,15 @@ margin:10px;
 								 						<td style="width:80%" align="left" >
 								 						
 								 							<ul class="li-style1">	
-								 								<li><input type="checkbox" name="" value="초급" > 초급</li>
-																<li><input type="checkbox" name="" value="중급" >중급</li>
-																<li><input type="checkbox" name="" value="고급" > 고급 </li>
+								 								<li><input type="checkbox" name="r1" value="초급" > 초급</li>
+																<li><input type="checkbox" name="r2" value="중급" >중급</li>
+																<li><input type="checkbox" name="r3" value="고급" > 고급 </li>
 								 							</ul>
 								 						</td>
 								 				</tr>
 								 		</tbody>
 								</table>	
-						<hr style="border:outset 1px gray; width:98%;"/>	 
+						<hr border-top:1px solid />
 								<table  style="text-align:center; width:100%;  height:100px; ">
 										<tbody>
 								 				<tr>
@@ -204,7 +197,7 @@ margin:10px;
 								 				</tr>
 								 		</tbody>
 								</table>	
-						  <hr style="border:outset 1px gray; width:98%;"/>	 
+						 <hr border-top:1px solid />
 								<table  style="text-align:center; width:100%;  height:100px; ">
 										<tbody>
 								 				<tr>
@@ -216,7 +209,7 @@ margin:10px;
 								 				</tr>
 								 		</tbody>
 								</table>
-							<hr style="border:outset 1px gray; width:98%;"/>	 
+							<hr border-top:1px solid />
 								<table  style="text-align:center; width:100%;  height:100px; ">
 									<td>
 										<button>검색하기</button>

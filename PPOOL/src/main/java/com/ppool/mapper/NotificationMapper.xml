@@ -7,8 +7,19 @@
 <mapper namespace="com.ppool.mapper.NotificationMapper">
 	<insert id='insertNotification' parameterType='Notification'>
 		INSERT INTO
-		NOTIFICATIONS(NOTIFICATIONNO,NOTIFICATIONTITLE, NOTIFICATIONCONTENT, NOTIFICATIONREGSTERDAY,ADMINNO)
-		VALUES(NOTIFICATION_SEQUENCE.NEXTVAL,#{notificationTitle},#{notificationContent},#{notificationRegisterDay},1)
+		NOTIFICATIONS(NOTIFICATIONNO,NOTIFICATIONTITLE, NOTIFICATIONCONTENT, NOTIFICATIONREGISTERDAY,ADMINNO)
+		VALUES(NOTIFICATION_SEQUENCE.NEXTVAL,#{notificationTitle},#{notificationContent},#{notificationRegisterDay},#{adminNo})
 	</insert>
 	
+	<select id="notificationList" resultType="Notification">
+		SELECT NOTIFICATIONNO, NOTIFICATIONTITLE, NOTIFICATIONREGISTERDAY, ADMINNO
+		FROM NOTIFICATIONS
+	</select>
+	
+	<select id="getNotificationById" resultType="Notification">
+		SELECT NOTIFICATIONNO, userName, userType, instructorPhone, instructorEmail, instructorAddress, instructorDegree, instructorCareer, instructorSalary, deleted
+		FROM instructor
+		where
+		instructorCode= #{instructorCode}
+	</select>
 </mapper>

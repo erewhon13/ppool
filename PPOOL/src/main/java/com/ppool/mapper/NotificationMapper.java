@@ -8,7 +8,11 @@ public interface NotificationMapper {
 
 	List<Notification> notificationList();
 
-	void insertNotification(Notification notification); 
+	void insertNotification(Notification notification);
+
+	Notification getInstructorById(int notificationNo);
+
+	Notification getNotificationById(int notificationNo); 
 		
 	
 

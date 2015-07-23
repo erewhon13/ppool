@@ -7,15 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class UserSearchController {
+public class UserResumeController {
+
 	ModelAndView mav = new ModelAndView();
 	
-	@RequestMapping(value = "search.action", method = RequestMethod.GET)
-	public ModelAndView search() {
+	@RequestMapping(value="resume.action", method=RequestMethod.GET)
+	public ModelAndView resume(){
 		
-		mav.setViewName("users/searchuser");
+		mav.setViewName("users/userresume");
 		return mav;
 	}
-	
 }
-
