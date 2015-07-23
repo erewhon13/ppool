@@ -1,3 +1,4 @@
+<%@page import="com.ppool.dto.Notification"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE HTML>
@@ -20,21 +21,39 @@
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
 	<div>
-		<div id="sidemenu">사이드 메뉴</div>
-		<div align="center" style="margin-top: 3%">
-			<form id="notification" action="" method="post">
-				<table width="70%" style="text-align: center;">
-					<tr
-						style="background-color: #d3d3d3; color: #ffffff; height: 30px; margin-top: 10px;">
-						<th style="width: 10%">번호</th>
-						<th style="width: 25%">제목</th>
-						<th style="width: 15%">등록일</th>
-						<th style="width: 10%">관리자번호</th>
+				<%
+					Notification notification = (Notification) request.getAttribute("notification");
+				%>
 
+				<form action='notificationupdate.action' method='post'>
+					<!-- 상대경로표시 -->
+					<table>
+						<tr>
+							<th>번호</th>
+							<td><%=notification.getNotificationNo()%></td>
+						</tr>
 
-					</tr>
+						<tr>
+							<th>제목</th>
+							<td><%=notification.getNotificationTitle()%></td>
+						</tr>
 
-				</table>
+						<tr>
+							<th>내용</th>
+							<td><%=notification.getNotificationContent()%></td>
+						</tr>
+						<tr>
+							<th>작성일</th>
+							<td><%=notification.getNotificationRegisterDay()%></td>
+						</tr>
+
+					</table>
+					
+					<div style='text-align: center'>
+						[&nbsp;<a href='instructoreditform.action?NotificationNo=<%=notification.getNotificationNo() %>' style='text-decoration:none'>편집</a>&nbsp;]
+						[&nbsp;<a href="javascript:deleteinstructor(<%= notification.getNotificationNo() %>);">삭제</a>&nbsp;]
+						[&nbsp;<a href='notificationlist.action' style='text-decoration:none'>취소</a>&nbsp;]
+					</div>
 			</form>
 		</div>
 	</div>

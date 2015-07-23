@@ -48,7 +48,7 @@
 						style='text-align: center; height: 30px; background-color: #F1F1F1;'>
 						<td><%=notification.getNotificationNo()%></td>
 						<td><a
-							href='notificationview.action?='>
+							href='notificationview.action'>
 								<%=notification.getNotificationTitle()%></a></td>
 						<td><%=notification.getNotificationRegisterDay()%></td>
 						<td><%=notification.getAdminNo()%></td>
