@@ -10,7 +10,6 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<script type="text/javascript">
 	
 	$(document).ready(function (){

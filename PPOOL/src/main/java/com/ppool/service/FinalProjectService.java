@@ -33,6 +33,7 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public List<Project> getProjectList() {
 		List<Project> projects = projectRepository.getProjectList();
+		
 		for (Project project : projects) {
 			project.setStampStart(f.format(project.getProjectStartDay()));
 			project.setStampEnd(f.format(project.getProjectEndDay()));
@@ -52,7 +53,14 @@ public class FinalProjectService implements ProjectService{
 			project.setStampExpire(f.format(project.getProjectExpire()));
 			
 		}
+		
 		return projects;
+	}
+
+	@Override
+	public Project getProjectByProjectNo(int projectNo) {
+		Project project = projectRepository.getProjectByProjectNo(projectNo);
+		return project;
 	}
 
 	

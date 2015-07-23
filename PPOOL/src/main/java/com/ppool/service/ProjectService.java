@@ -7,4 +7,5 @@ import com.ppool.dto.Project;
 public interface ProjectService {
 	void registerProject(Project project);
 	List<Project> getProjectList();
+	Project getProjectByProjectNo(int projectNo);
 }
