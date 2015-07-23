@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,6 +45,26 @@ margin:10px;
 
 
 </style>
+<link rel="Stylesheet" href="/demoweb/styles/jquery-ui.css" />
+		<style>
+	        /* #dialog { font-size: 62.5% } */
+	        #dialog input[type], label {
+	            margin-bottom: 12px; 
+	            padding: .4em; 
+	            width: 95%;
+	        }
+	    </style>
+	    
+		<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+		<script src="/PPOOL/resources/js/jquery-ui.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+
+	
+</script>
+
+
 
 
 
@@ -83,7 +105,7 @@ margin:10px;
 											학력사항
 											</td>
 											<td style="width:20%" align="right">
-												<button style="float:right;">등록하기</button>
+												<button id="login" title="등록상자" style="float:right;">등록하기</button>
 											</td>
 										</tr>
 								</tbody>
