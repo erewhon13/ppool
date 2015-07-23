@@ -24,7 +24,7 @@
 %>
 <c:set var="projects" value="${projects }"/>
 
-<div style="width:1024px;margin-right:5%;float: right" ><br/>
+<div style="width:800px;margin-right:5%;float: right" ><br/>
 	<table class="ex1">
 		<caption>테스트</caption><br/>
 		<thead>
@@ -40,10 +40,15 @@
 		<tbody>
 			<c:set var="r" value="1"/>
 			<c:forEach var="project" items="${projects }" >
+			<c:if test="${project.projectStatus < 0}">
+				<tr class="dead">
+			</c:if>
+			<c:if test="${project.projectStatus >= 0}">
 				<c:choose>
 					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd"></c:when>
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr></c:when>
 				</c:choose>
+			</c:if>
 					<th scope="projectno">${project.projectNo}</th>
 					<td class="date">
 						${project.stampStart} ~ <br/> ${project.stampEnd}
@@ -83,7 +88,7 @@
 		</tbody>
 	</table>
 	<br/>
-	<div style="width: 1024px;" align="right">
+	<div style="width: 800px;" align="right">
 		<input type="button" onclick="location.href='/ppool/registerproject.action'" value="프로젝트 등록">
 	</div>
 </div>
