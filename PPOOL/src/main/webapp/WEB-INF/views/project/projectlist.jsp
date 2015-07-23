@@ -14,10 +14,9 @@
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
-		$('.odd, .even').click(function(){
-			alert("ff");
-			location.replace("/ppool/projectDetailView.action?projectno="+$(".odd, .even").val());
-			alert("33");
+		$('.odd, .even').click(function(event){
+			$(location).attr("href", "/ppool/projectDetailView.action?projectNo="+ $(this).find($('.pno')).val() );
+			event.preventDefault();
 		});
 	});
 		
@@ -51,10 +50,11 @@
 			<c:set var="r" value="1"/>
 			<c:forEach var="project" items="${projects }" >
 				<c:choose>
-					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" value="${project.projectNo}"></c:when>
-					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even"></c:when>
+					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" ></c:when>
+					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" ></c:when>
 				</c:choose>
-					<th class="projectno">${project.projectNo}</th>
+					<input class="pno" type="hidden" value="${project.projectNo}">
+					<th class="projectno" >${project.projectNo}</th>
 					<td class="date">
 						${project.stampStart} ~ <br/> ${project.stampEnd}
 					</td>

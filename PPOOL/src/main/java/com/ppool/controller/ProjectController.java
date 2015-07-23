@@ -80,8 +80,9 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value="projectDetailView.action" ,method = RequestMethod.GET)
-	public ModelAndView projectDetailView(){
+	public ModelAndView projectDetailView(int projectNo){
 		//mav.setViewName("project/projectDetailView");
+		System.out.println(projectNo);
 		mav.setViewName("redirect:/registerproject.action");
 		return mav;
 	}
