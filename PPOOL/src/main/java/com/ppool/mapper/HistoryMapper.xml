@@ -40,17 +40,20 @@
 		HISTORYUPLOADFILE
 			(uploadFileNo,
 			historyNo,
-			userFileName,
+			uploadUserFileName,
 			uploadSavedFileName)
 		VALUES
 			(UPLOADFILENO_SEQUENCE.NEXTVAL,
 			#{historyNo},
-			#{userFileName},
+			#{uploadUserFileName},
 			#{uploadSavedFileName})
 	</insert>
 	
 	
-	
+	<select id="getHistoryList" resultType="History">
+		SELECT HISTORYNO, HISTORYOPENED, HISTORYTITLE, HISTORYSTARTDAY, HISTORYENDDAY, HISTORYWORK
+		FROM HISTORY
+	</select>
 	
 	
 </mapper>

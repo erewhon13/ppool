@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -24,19 +25,22 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ppool.dto.History;
 import com.ppool.dto.HistoryUploadFile;
 import com.ppool.repository.HistoryRepository;
+import com.ppool.service.HistoryService;
 import com.ppool.util.Util;
 
 
 @Controller
 public class HistoryController {
 	
-	private HistoryRepository historyRepository;
+	private HistoryService historyService;
 	
 	@Autowired
-	@Qualifier("historyRepository")
-	public void setHistoryRepository(HistoryRepository historyRepository){
-		this.historyRepository=historyRepository;
+	@Qualifier("historyService")
+	public void setHistoryService(HistoryService historyService){
+		this.historyService=historyService;
 	}
+	
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -47,6 +51,9 @@ public class HistoryController {
 	@RequestMapping(value = "historylist.action", method = RequestMethod.GET)
 	public ModelAndView historyList() {
 		ModelAndView mav = new ModelAndView();
+		List<History> histories=historyService.getHistoryList();
+		
+		mav.addObject("histories",histories);
 		mav.setViewName("history/historylist");
 		return mav;
 	}
@@ -75,9 +82,8 @@ public class HistoryController {
 		history.setUserNo(21);
 		history.setFile(file2);
 		
-		System.out.println(history);
 		
-		int newUploadNo = historyRepository.insertHistory(history);//insert하면 신규 자료번호 반환
+		int newUploadNo = historyService.insertHistory(history);//insert하면 신규 자료번호 반환
 		
 		MultipartFile file = req.getFile("attach");//요청 데이터에서 파일 정보 추출
 		if (file != null && file.getSize() > 0) {
@@ -91,11 +97,10 @@ public class HistoryController {
 			//첨부파일 데이터 DB에 저장
 			HistoryUploadFile fileItem = new HistoryUploadFile();
 			fileItem.setHistoryNo(newUploadNo);//등록된 상위 글번호
-			System.out.println(Util.getUniqueFileName(path, fileName));
 			fileItem.setUploadSavedFileName(Util.getUniqueFileName(path, fileName));
-			fileItem.setUserFileName(fileName);
+			fileItem.setUploadUserFileName(fileName);
 			
-			historyRepository.insertHistoryFile(fileItem);//DB에 저장
+			historyService.inserHistoryFile(fileItem);//DB에 저장
 			
 			//파일을 디스크에 저장
 			try {
@@ -114,7 +119,7 @@ public class HistoryController {
 			}
 		}
 		
-		return "redirect:/history/historylist.action";
+		return "redirect:/historylist.action";
 		
 	}
 	
