@@ -10,6 +10,18 @@ public class Notification {
 	private Date notificationRegisterDay;
 	private int adminNo;
 
+	// ///////////////뷰에서 Date를 보기 좋게 하기위해 사용하는 필드///////////////////
+	
+	private String stampRegisterDay;
+
+	public String getStampRegisterDay() {
+		return stampRegisterDay;
+	}
+
+	public void setStampRegisterDay(String stampRegisterDay) {
+		this.stampRegisterDay = stampRegisterDay;
+	}
+
 	public int getNotificationNo() {
 		return notificationNo;
 	}
