@@ -74,11 +74,12 @@ public class NotificationController {
 	}
 	
 	@RequestMapping(value = "notificationeditform.action", method = RequestMethod.GET)
-	public ModelAndView notificationEditForm() {
-
+	public ModelAndView notificationEditForm(int notificationNo) {
+		//상세보기의 정보를 
+		Notification notification = notificationService.notificationView(notificationNo);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("notification/notificationeditform");
-
+		mav.addObject("notification", notification);
 		return mav;
 	}
 	

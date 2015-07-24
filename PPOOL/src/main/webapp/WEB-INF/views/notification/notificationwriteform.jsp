@@ -13,7 +13,7 @@
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
 
-<title>Main Page</title>
+<title>등록하기</title>
 </head>
 
 <body>
