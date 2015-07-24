@@ -13,7 +13,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
-<title>Main Page</title>
+<title>상세보기</title>
 </head>
 
 <body>
@@ -25,14 +25,14 @@
 		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
 	%>
 	
-	<div align="center" style="margin-top: 3%">
+	<div align="center" style="margin-top: 3%" >
 				<%
 					Notification notification = (Notification) request.getAttribute("notification");
 				%>
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
-					<table border="1">
+					<table border="1" >
 						<tr>
 							<th>번호</th>
 							<td><%=notification.getNotificationNo()%></td>
@@ -55,7 +55,7 @@
 					</table>
 					
 					<div style='text-align: center'>
-						[&nbsp;<a href='notificationeditform.action?NotificationNo=<%=notification.getNotificationNo() %>' style='text-decoration:none'>편집</a>&nbsp;]
+						[&nbsp;<a href='notificationeditform.action?notificationNo=<%=notification.getNotificationNo() %>' style='text-decoration:none'>편집</a>&nbsp;]
 						[&nbsp;<a href="javascript:deleteinstructor(<%= notification.getNotificationNo() %>);">삭제</a>&nbsp;]
 						[&nbsp;<a href='notificationlist.action' style='text-decoration:none'>취소</a>&nbsp;]
 					</div>
