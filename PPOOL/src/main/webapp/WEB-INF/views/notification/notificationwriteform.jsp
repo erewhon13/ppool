@@ -20,6 +20,10 @@
 	<%
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
+	
+	<%
+		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+	%>
 	<div>
 		
 		<div align="center" style="margin-top: 3%" >

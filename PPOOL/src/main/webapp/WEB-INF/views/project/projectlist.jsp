@@ -17,9 +17,16 @@
 			$(location).attr("href", "/ppool/projectDetailView.action?projectNo="+ $(this).find($('.pno')).val() );
 			event.preventDefault();
 		});
-		$('.register').click(function(event){
-			$(location).attr("href", "/ppool/registerproject.action");
-			event.preventDefault();
+		$('.list').click(function(event){
+			$('#search').click(function(){
+				alert("미구현입니다")
+				event.preventDefault();
+			});
+			$('#writer').click(function(){
+				$(location).attr("href", "/ppool/registerproject.action");
+				event.preventDefault();
+			});
+			
 		});
 	});
 		
@@ -36,7 +43,7 @@
 %>
 <c:set var="projects" value="${projects }"/>
 
-<div style="width:800px;margin-right:5%;float: right" ><br/>
+<div style="width:72%;margin-right:5%;float: right" ><br/>
 	<table class="ex1">
 		<caption>테스트</caption>
 		<thead>
@@ -53,7 +60,7 @@
 			<c:set var="r" value="1"/>
 			<c:forEach var="project" items="${projects }" >
 				<c:choose>
-					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" ></c:when>
+					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" style="cursor: pointer;" ></c:when>
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" ></c:when>
 				</c:choose>
 					<input class="pno" type="hidden" value="${project.projectNo}">
@@ -90,8 +97,9 @@
 		</tbody>
 	</table>
 	<br/>
-	<div style="width: 800px;" align="right">
-		<img src="/ppool/resources/images/register.gif" class="register" style="cursor: pointer;">
+	<div style="width:100%;" align="right">
+		<img src="/ppool/resources/images/search.png" class="list" id="search" style="cursor: pointer;">
+		<img src="/ppool/resources/images/writer.png" class="list" id="writer" style="cursor: pointer;">
 	</div>
 </div>
 </body>

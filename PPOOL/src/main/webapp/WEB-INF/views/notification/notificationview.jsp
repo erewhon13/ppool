@@ -20,6 +20,11 @@
 	<%
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
+	
+	<%
+		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+	%>
+	
 	<div align="center" style="margin-top: 3%">
 				<%
 					Notification notification = (Notification) request.getAttribute("notification");
@@ -44,13 +49,13 @@
 						</tr>
 						<tr>
 							<th>작성일</th>
-							<td><%=notification.getNotificationRegisterDay()%></td>
+							<td><%=notification.getStampRegisterDay()%></td>
 						</tr>
 
 					</table>
 					
 					<div style='text-align: center'>
-						[&nbsp;<a href='instructoreditform.action?NotificationNo=<%=notification.getNotificationNo() %>' style='text-decoration:none'>편집</a>&nbsp;]
+						[&nbsp;<a href='notificationeditform.action?NotificationNo=<%=notification.getNotificationNo() %>' style='text-decoration:none'>편집</a>&nbsp;]
 						[&nbsp;<a href="javascript:deleteinstructor(<%= notification.getNotificationNo() %>);">삭제</a>&nbsp;]
 						[&nbsp;<a href='notificationlist.action' style='text-decoration:none'>취소</a>&nbsp;]
 					</div>

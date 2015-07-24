@@ -128,20 +128,20 @@ margin:10px;
 							</table>		
 					</div>
 					
-					<div id="교육사항">	
-						<table style="text-align:center; width:100%; margin-top:10px; ">
-								<tbody>
-										<tr>
-											<td style="width:80%"  align="left"  >
-												<img src="/ppool/resources/images/arrow.gif" height=13px>
-											교육사항
-											</td>
-											<td style="width:20%" align="right">
-												<button style="float:right;">등록하기</button>
-											</td>
-										</tr>
-								</tbody>
-						</table>
+						<div id="교육사항">	
+							<table style="text-align:center; width:100%; margin-top:10px; ">
+									<tbody>
+											<tr>
+												<td style="width:80%"  align="left"  >
+													<img src="/ppool/resources/images/arrow.gif" height=13px>
+												교육사항
+												</td>
+												<td style="width:20%" align="right">
+													<button style="float:right;">등록하기</button>
+												</td>
+											</tr>
+									</tbody>
+							</table>
 							<table style="text-align:center; width:100%;">
 								<tbody>
 						

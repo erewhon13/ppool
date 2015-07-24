@@ -50,7 +50,7 @@
 						<td><a
 							href='notificationview.action?notificationNo=<%=notification.getNotificationNo() %>'>
 								<%=notification.getNotificationTitle()%></a></td>
-						<td><%=notification.getNotificationRegisterDay()%></td>
+						<td><%=notification.getStampRegisterDay()%></td>
 						<td><%=notification.getAdminNo()%></td>
 					</tr>
 					<%

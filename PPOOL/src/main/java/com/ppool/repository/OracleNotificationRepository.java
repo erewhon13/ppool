@@ -59,14 +59,16 @@ public class OracleNotificationRepository implements NotificationRepository {
 
 		return notification;
 	}
-//
-//	@Override
-//	public void instructorupdate(Instructor instructor) {
-//
-//		instructorMapper.instructorupdate(instructor);
-//
-//	}
-//
+
+	@Override
+	public Notification notificationUpdate(int notificationNo) {
+
+		Notification notification = notificationMapper.notificationUpdate(notificationNo);
+
+		return notification;
+
+	}
+
 //	@Override
 //	public void instructordelete(int instructorCode) {
 //

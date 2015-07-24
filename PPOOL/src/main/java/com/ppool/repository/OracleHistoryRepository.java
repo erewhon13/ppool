@@ -1,5 +1,7 @@
 package com.ppool.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -21,14 +23,21 @@ public class OracleHistoryRepository implements HistoryRepository{
 	
 	@Override
 	public int insertHistory(History history) {
-		historyMapper.insertHistory(history);
-		return history.getHistoryNo();
+		int historyNo=historyMapper.insertHistory(history);
+		return historyNo;
 	}
 
 
 	@Override
 	public void insertHistoryFile(HistoryUploadFile file) {
 		historyMapper.insertHistoryFile(file);		
+	}
+
+
+	@Override
+	public List<History> selectHistoryList() {
+		List<History> histories=historyMapper.getHistoryList();
+		return histories;
 	}
 	
 	
