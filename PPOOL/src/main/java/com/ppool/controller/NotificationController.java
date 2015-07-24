@@ -84,15 +84,11 @@ public class NotificationController {
 	}
 	
 	@RequestMapping(value = "notificationupdate.action", method = RequestMethod.POST)
-	public ModelAndView notificationUpdate(int notificationNo) {
+	public String notificationUpdate(int notificationNo, Notification notification) {
 		
-		Notification notification = notificationService.notificationUpdate(notificationNo);
+		notificationService.notificationUpdate(notification);
 		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("notification/notificationlist");
-		mav.addObject("notification", notification);
-		
-		return mav;
+		return "redirect:/notification/notificationlist.action";
 	}
 	
 	

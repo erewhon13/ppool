@@ -12,7 +12,7 @@ public interface NotificationMapper {
 
 	Notification notificationView(int notificationNo);
 
-	Notification notificationUpdate(int notificationNo);
+	void notificationUpdate(Notification notification);
 
 	 
 		
