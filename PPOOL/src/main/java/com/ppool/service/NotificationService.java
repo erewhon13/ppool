@@ -15,6 +15,8 @@ public interface NotificationService {
 
 	Notification notificationView(int notificationNo);
 
+	Notification notificationUpdate(int notificationNo);
+
 
 	
 }

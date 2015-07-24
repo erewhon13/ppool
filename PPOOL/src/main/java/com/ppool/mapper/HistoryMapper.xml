@@ -40,14 +40,57 @@
 		HISTORYUPLOADFILE
 			(uploadFileNo,
 			historyNo,
-			userFileName,
+			uploadUserFileName,
 			uploadSavedFileName)
 		VALUES
 			(UPLOADFILENO_SEQUENCE.NEXTVAL,
 			#{historyNo},
-			#{userFileName},
+			#{uploadUserFileName},
 			#{uploadSavedFileName})
 	</insert>
+	
+	
+	<select id="getHistoryList" resultType="History">
+		SELECT HISTORYNO, HISTORYOPENED, HISTORYTITLE, HISTORYSTARTDAY, HISTORYENDDAY, HISTORYWORK
+		FROM HISTORY
+	</select>
+	
+	<!--  -->
+	<!-- 
+	
+	<select id="getHistoryByHistoryNo" parameterType="int" resultMap="historyResult">
+		SELECT HISTORYNO,HISTORYTITLE,HISTORYSTARTDAY,
+			   HISTORYENDDAY, HISTORYWORK, HISTORYCONTENT,HISTORYOPENED,HISTORYSERVICE
+		FROM history
+		WHERE
+			historyno = #{historyNo}
+	</select>
+	
+	<resultMap id="historyResult" type="History">
+		<id column="historyno" property="historyNo" />
+		<result column="historytitle" property="historyTitle" />
+		<result column="historystartday" property="historyStartDay" />
+		<result column="historyendday" property="historyEndDay" />
+		<result column="historywork" property="historyWork" />
+		<result column="historycontent" property="historyContent" />
+		<result column="historyopened" property="historyOpened" />
+		<result column="historyservice" property="historyService" />
+		<association property="file" column="historyno" resultMap="getHistoryFileByHistoryNo"/>		
+	</resultMap>
+	
+	<resultMap id="historyFileResult" type="HistoryUploadFile">
+		<id column="uploadfileno" property="uploadFileNo"/>
+		<result column="uploadUserfilename"	property="uploadUserFileName"/>
+		<result column="uploadsavedfilename" property="uploadSavedFileName"/>	
+	</resultMap>
+	
+	<select id="getHistoryFileByHistoryNo" parameterType="int" resultMap="historyFileResult">
+	 SELECT uploadFileNo, historyNo, uploadUserFileName, uploadSavedFileName
+	 FROM HistoryUploadFile
+	 WHERE historyNo = #{historyNo}
+	</select> -->
+		
+	<!--  -->
 	
 	
 	

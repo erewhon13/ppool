@@ -22,4 +22,10 @@
 		where
 		NOTIFICATIONNO= #{notificationNo}
 	</select>
+	
+	<update id="notificationUpdate" parameterType="int">
+		UPDATE NOTIFICATIONS
+		SET notificationTitle = #{notificationTitle}, notificationContent = #{notificationContent} 
+		WHERE notificationNo = #{notificationNo}
+	</update>
 </mapper>

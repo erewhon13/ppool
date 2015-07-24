@@ -72,4 +72,27 @@ public class NotificationController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "notificationeditform.action", method = RequestMethod.GET)
+	public ModelAndView notificationEditForm() {
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("notification/notificationeditform");
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "notificationupdate.action", method = RequestMethod.POST)
+	public ModelAndView notificationUpdate(int notificationNo) {
+		
+		Notification notification = notificationService.notificationUpdate(notificationNo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("notification/notificationlist");
+		mav.addObject("notification", notification);
+		
+		return mav;
+	}
+	
+	
 }
