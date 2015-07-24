@@ -88,7 +88,7 @@ public class NotificationController {
 		
 		notificationService.notificationUpdate(notification);
 		
-		return "redirect:/notification/notificationlist.action";
+		return "redirect:notificationlist.action";
 	}
 	
 	
