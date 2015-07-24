@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User Resume</title>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 
 <style type="text/css">
 
@@ -41,32 +43,47 @@ background-color:white;
 margin:10px;
 }
 
-<!--rgb(191,195,199);-->
-
-
 </style>
-<link rel="Stylesheet" href="/demoweb/styles/jquery-ui.css" />
-		<style>
-	        /* #dialog { font-size: 62.5% } */
-	        #dialog input[type], label {
-	            margin-bottom: 12px; 
-	            padding: .4em; 
-	            width: 95%;
-	        }
-	    </style>
-	    
-		<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
-		<script src="/PPOOL/resources/js/jquery-ui.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 
 <script type="text/javascript">
 
-	
+		$(document).ready(function(){
+			var dialog;
+			var form;
+			
+				
+				
+	 	$("#register").click(function(){
+	 		make();
+	 	})
+	 	
+	 	dialog = $("#dialog-form").dialog({
+	 		autoOpen: false,
+	 	      height: 300,
+	 	      width: 350,
+	 	      modal: true,
+	 	      buttons:{
+	 	    	  		"CREATE":addRegister,
+	 	    	  		Cancel: function(){
+	 	    	  			dialog.dialog("close");
+	 	    	  		}
+	 	      },
+	 	      close: function(){
+	 	    	  	form[0].reset();
+	 	    	  	allFields.removeClass("ui-state-error");
+	 	      }
+	 	});
+	 	
+	 	form = dialog.find( "form" ).on( "submit", function( event ) {
+	 	      event.preventDefault();
+	 	      addRegister();
+	 	    });
+	 
+	 	$( "#register" ).button().on( "click", function() {
+	 	      dialog.dialog( "open" );
+	 	    });
+		});		
 </script>
-
-
-
-
 
 </head>
 <%
@@ -96,7 +113,7 @@ margin:10px;
 									</tr>
 								</tbody>
 						</table>
-					<div id="학력사항">	
+					<div id="users-contain" class="ui-widget">	
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
 										<tr>
@@ -105,26 +122,33 @@ margin:10px;
 											학력사항
 											</td>
 											<td style="width:20%" align="right">
-												<button id="login" title="등록상자" style="float:right;">등록하기</button>
+												<button id="register" title="등록상자" style="float:right;">등록하기</button>
 											</td>
 										</tr>
 								</tbody>
 						</table>
-							<table style="text-align:center; width:100%;">
-								<tbody>
+							
 						
-										<tr>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공계열</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
-											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">기간</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">소재지</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">공개여부</td>
+						
+							<table id="users"  class="ui-widget ui-widget-content" style="text-align:center; width:100%;">
+								<thead>
+										<tr class="ui-widget-header">
+											<th style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</th>
+											<th style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">기간</th>
+											<th style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">소재지</th>
+											<th style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">공개여부</th>
 										</tr>
+								</thead>
+								<tbody>
 										<tr>
-											<td align="center" height="28" colspan="7">등록된 학력사항 정보가 없습니다.</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tr>
-								</tbody>
+								</tbody>		
 							</table>		
 					</div>
 					
@@ -316,5 +340,20 @@ margin:10px;
 				
 					
 				</div>
+				<div id="dialog-form" title="등록하기">
+									<form>
+											<fieldset>
+													<label for="major">전공</label>
+													<input type="text" name="major" id="major" class="text ui-widget-content ui-corner-all">
+													<label for="major">기간</label>
+													<input type="text" name="major" id="major" class="text ui-widget-content ui-corner-all">
+													<label for="1">소재지</label>
+													<input type="text" name="1" id="1" class="text ui-widget-content ui-corner-all">
+													<label for="2">공개여부</label>
+													<input type="text" name="2" id="2" class="text ui-widget-content ui-corner-all">
+													<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+											</fieldset>
+									</form>
+							</div>
 </body>
 </html>
