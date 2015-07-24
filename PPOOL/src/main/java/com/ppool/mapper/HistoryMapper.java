@@ -10,5 +10,9 @@ public interface HistoryMapper {
 	int insertHistory(History history);
 	void insertHistoryFile(HistoryUploadFile file);
 	List<History> getHistoryList();
-
+	History getHistoryByHistoryNo(int historyNo);
+	HistoryUploadFile getHistoryFileByHistoryNo(int historyNo);
+	
+	
+	
 }

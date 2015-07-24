@@ -8,6 +8,9 @@ public class HistoryUploadFile implements Serializable {
 	private int historyNo;
 	private String uploadUserFileName;
 	private String uploadSavedFileName;
+	
+		
+	
 	public int getUploadFileNo() {
 		return uploadFileNo;
 	}

@@ -20,6 +20,33 @@ public class History implements Serializable {
 	
 	private HistoryUploadFile file;
 	
+	////////jsp에서 Date를 보기 좋게 하기 위해 사용하는 필드///////
+	
+	private String startDay;
+	private String endDay;
+	private String regDate;	
+	
+	public String getStartDay() {
+		return startDay;
+	}
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+	public String getEndDay() {
+		return endDay;
+	}
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	
+	/////////////////////////////////////////////////
+	
 	
 	public int getHistoryNo() {
 		return historyNo;
@@ -94,10 +121,5 @@ public class History implements Serializable {
 	public void setFile(HistoryUploadFile file) {
 		this.file = file;
 	}
-	
-	
-	
-	
-	
-	
+
 }

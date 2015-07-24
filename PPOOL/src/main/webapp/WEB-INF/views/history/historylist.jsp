@@ -74,9 +74,23 @@
 										<tr>
 											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyNo}</td>
 											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyTitle}</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyWork}</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyOpened}</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyStartDay}~${history.historyEndDay}</td>
+											
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">
+												<c:choose>
+													<c:when test="${history.historyWork eq 'developer'}">개발자</c:when>
+													<c:when test="${history.historyWork eq 'designer'}">디자이너</c:when>
+													<c:otherwise>기타</c:otherwise>
+												</c:choose>
+											
+											</td>
+											
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">
+												<c:choose>
+													<c:when test="${history.historyOpened eq true}">yes</c:when>
+													<c:otherwise>no</c:otherwise>
+												</c:choose>
+											</td>
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.startDay}~<br/>${history.endDay}</td>
 										</tr>
 										</c:forEach>
 								</tbody>
