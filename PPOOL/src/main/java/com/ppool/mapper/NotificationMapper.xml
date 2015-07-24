@@ -16,10 +16,10 @@
 		FROM NOTIFICATIONS
 	</select>
 	
-	<select id="getNotificationById" resultType="Notification">
-		SELECT NOTIFICATIONNO, userName, userType, instructorPhone, instructorEmail, instructorAddress, instructorDegree, instructorCareer, instructorSalary, deleted
-		FROM instructor
+	<select id="notificationView" resultType="Notification">
+		SELECT NOTIFICATIONNO, NOTIFICATIONTITLE, NOTIFICATIONCONTENT, NOTIFICATIONREGISTERDAY
+		FROM NOTIFICATIONS
 		where
-		instructorCode= #{instructorCode}
+		NOTIFICATIONNO= #{notificationNo}
 	</select>
 </mapper>

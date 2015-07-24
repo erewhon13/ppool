@@ -20,14 +20,14 @@
 	<%
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
-	<div>
+	<div align="center" style="margin-top: 3%">
 				<%
 					Notification notification = (Notification) request.getAttribute("notification");
 				%>
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
-					<table>
+					<table border="1">
 						<tr>
 							<th>번호</th>
 							<td><%=notification.getNotificationNo()%></td>
