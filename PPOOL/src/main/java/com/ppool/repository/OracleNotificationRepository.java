@@ -59,7 +59,7 @@ public class OracleNotificationRepository implements NotificationRepository {
 
 		return notification;
 	}
-
+	
 	@Override
 	public Notification notificationUpdate(int notificationNo) {
 
