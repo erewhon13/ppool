@@ -39,8 +39,16 @@
 				$('#email1').focus();
 			}
 		});
+		$('#writer').click(function(){
+			$('#submitForm').submit()
+		});
+		$('#rewriter').click(function(){
+			alert("다시쓰기 미구현");
+		});
+		$('#cancel').click(function(){
+			$(location).attr("href", "/ppool/projectlist.action");
+		});
 	});
-		$('')
 	/* function WriteIt() {
 		with(document.ProjectWriteFm) {
 			if(!IsEmpty(fm_comname.value)) {
@@ -138,7 +146,7 @@
 <%
 	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
 %>
-	<form action="registerproject.action" method="POST"> 
+	<form id="submitForm" action="registerproject.action" method="POST"> 
 		<div style="width:72%; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 98%; border:groove;  ">
 			<caption >테스트</caption><br/>
@@ -316,9 +324,9 @@
 		</table>
 		<br/>
 		<div style="width:100%;" align="right" >
-			<img src="/ppool/resources/images/register.png" class="register" id="submit" style="cursor: pointer;">
-			<img src="/ppool/resources/images/rewriter.png" class="register" id="rewrite" style="cursor: pointer;">
-			<img src="/ppool/resources/images/cancel.png" class="register" id="cancel" style="cursor: pointer;margin-right: 5%">
+			<img src="/ppool/resources/images/register.png" id="writer" style="cursor: pointer;">
+			<img src="/ppool/resources/images/rewriter.png"  id="rewriter" style="cursor: pointer;">
+			<img src="/ppool/resources/images/cancel.png" id="cancel" style="cursor: pointer;margin-right: 5%">
 		</div>
 	</div>
 	</form>
