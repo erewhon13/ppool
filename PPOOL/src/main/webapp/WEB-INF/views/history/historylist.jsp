@@ -54,7 +54,6 @@
 												이력사항
 								</td>
 									<td style="width:20%" align="right">
-													<button style="float:right;">등록하기</button>
 												</td>
 											</tr>
 									</tbody>
