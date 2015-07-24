@@ -10,15 +10,16 @@ import com.ppool.dto.User;
 import com.ppool.mapper.UserMapper;
 
 @Repository("userRepository")
-public class OracleUserRepository implements UserRepository{
-	
+public class OracleUserRepository implements UserRepository {
+
 	private UserMapper userMapper;
+
 	@Autowired
 	@Qualifier("userMapper")
-	public void setUserMapper(UserMapper userMapper){
+	public void setUserMapper(UserMapper userMapper) {
 		this.userMapper = userMapper;
 	}
-	
+
 	@Override
 	public void registerUser(User user) {
 		userMapper.registerUser(user);
@@ -34,5 +35,10 @@ public class OracleUserRepository implements UserRepository{
 	public User userInfo(int userNo) {
 		User user = userMapper.userInfo(userNo);
 		return user;
+	}
+
+	@Override
+	public void updateUserInfo(User user) {
+		userMapper.updateUserInfo(user);
 	}
 }

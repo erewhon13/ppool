@@ -9,6 +9,14 @@
 	font-family: 'Nanum Gothic', serif;
 	border: solid 1px;
 }
+#imageview{
+	width: 130px;
+	height: 150px;
+}
+#defalutimage{
+	width: 130px;
+	height: 150px;
+}
 
 #sidemenu {
 	float: left;
