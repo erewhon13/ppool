@@ -34,6 +34,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.User;
 import com.ppool.service.UserService;
+import com.ppool.util.Util;
 
 @Controller
 @SessionAttributes("loginuser")
@@ -57,6 +58,7 @@ public class UserController {
 	}
 	@RequestMapping(value="registeruser.action",method = RequestMethod.POST)
 	public ModelAndView registerUser(User user){
+		user.setUserPasswd(Util.getHashedString(user.getUserPasswd(), "SHA-1"));
 		userService.registerUser(user);
 		String host = "smtp.gmail.com";
         String username = "ppoolmanager@gmail.com";
@@ -65,7 +67,7 @@ public class UserController {
         // 메일 내용
         String recipient = user.getUserEmail();
         String subject = "회원가입 인증";
-        String body = "<a href='#'>TEST</a>";
+        String body = "<a href='#'>인증페이지</a>";
          
         //properties 설정
         Properties props = new Properties();
@@ -98,7 +100,7 @@ public class UserController {
 	public @ResponseBody User userLogin(String userEmail,String userPasswd,Model model){
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userEmail", userEmail);
-		params.put("userPasswd", userPasswd);
+		params.put("userPasswd", Util.getHashedString(userPasswd, "SHA-1"));
 		User user = userService.userLogin(params);
 		if (user != null) {
 			model.addAttribute("loginuser",user);
@@ -112,10 +114,22 @@ public class UserController {
 		return mav;
 	}
 	@RequestMapping(value="userinfo.action", method = RequestMethod.GET)
-	public ModelAndView userInfo(int userNo){
+	public ModelAndView userInfo(int userNo,HttpServletRequest requset){
+		
+		User user = userService.userInfo(userNo);
+		
+		String uri = requset.getRequestURI().toString();
+
+		mav.addObject("user",user);
+		mav.addObject("uri",uri);
 		mav.setViewName("users/userinfo");
+		return mav;
+	}
+	@RequestMapping(value="userinfoupdateform.action",method=RequestMethod.GET)
+	public ModelAndView userInfoUpdate(int userNo){
 		User user = userService.userInfo(userNo);
 		mav.addObject("user",user);
+		mav.setViewName("users/userinfoupdateform");
 		return mav;
 	}
 }

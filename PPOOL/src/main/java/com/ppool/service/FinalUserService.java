@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ppool.dto.User;
 import com.ppool.mapper.UserMapper;
 import com.ppool.repository.UserRepository;
+import com.ppool.util.ChangeWord;
 
 @Service("userService")
 public class FinalUserService implements UserService {
@@ -34,6 +35,12 @@ public class FinalUserService implements UserService {
 	@Override
 	public User userInfo(int userNo) {
 		User user = userRepository.userInfo(userNo);
+		user.setStampRegisterDay(ChangeWord.dateToString(user.getUserBirth()));
 		return user;
+	}
+
+	@Override
+	public void updateUserInfo(User user) {
+		userRepository.updateUserInfo(user);
 	}
 }

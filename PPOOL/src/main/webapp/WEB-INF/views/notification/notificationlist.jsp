@@ -14,7 +14,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
-<title>Main Page</title>
+<title>목록보기</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 				<table  width="70%" style="text-align: center;">
 					<tr
 						style="background-color: #FF9147; color: #ffffff; height: 30px; margin-top: 10px;">
-						<th style="width: 10%">번호</th>
+						<th style="width: 10%">글번호</th>
 						<th style="width: 25%">제목</th>
 						<th style="width: 15%">등록일</th>
 						<th style="width: 10%">관리자번호</th>

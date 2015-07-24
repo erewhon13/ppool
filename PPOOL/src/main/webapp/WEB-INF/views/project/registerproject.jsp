@@ -38,7 +38,6 @@
 				$('#email2').attr("readonly", true);
 				$('#email1').focus();
 			}
-			
 		});
 	});
 		$('')
@@ -140,7 +139,7 @@
 	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
 %>
 	<form action="registerproject.action" method="POST"> 
-		<div style="width:800px; margin-right:5%;float: right" ><br/>
+		<div style="width:72%; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 98%; border:groove;  ">
 			<caption >테스트</caption><br/>
 			<tr>
@@ -316,12 +315,10 @@
 			</tr>
 		</table>
 		<br/>
-		<div align="center" >
-			<img src="/ppool/resources/images/register.gif" onclick="submitProject();" style="cursor: pointer;">
-			<img src="/ppool/resources/images/rewrite.gif" onclick="" style="cursor: pointer;">
-			<!-- <input class="sub" type="" value="등록"/> -->
-			<!-- <input class="sub" type="button" value="다시작성"/> -->
-			<input class="sub" type="button" value="취소"/>
+		<div style="width:100%;" align="right" >
+			<img src="/ppool/resources/images/register.png" class="register" id="submit" style="cursor: pointer;">
+			<img src="/ppool/resources/images/rewriter.png" class="register" id="rewrite" style="cursor: pointer;">
+			<img src="/ppool/resources/images/cancel.png" class="register" id="cancel" style="cursor: pointer;margin-right: 5%">
 		</div>
 	</div>
 	</form>
