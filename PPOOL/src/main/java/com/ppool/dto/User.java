@@ -18,7 +18,8 @@ public class User {
 	private String userGrade;
 	private int userWarningCount;
 	private int userOpenLevel;
-	private int userPicture;
+	private boolean userPicture;
+	private String stampRegisterDay;
 
 	public int getUserNo() {
 		return userNo;
@@ -59,8 +60,6 @@ public class User {
 	public void setUserStatus(String userStatus) {
 		this.userStatus = userStatus;
 	}
-
-	
 
 	public String getUserPhone() {
 		return userPhone;
@@ -142,11 +141,19 @@ public class User {
 		this.userOpenLevel = userOpenLevel;
 	}
 
-	public int getUserPicture() {
+	public boolean isUserPicture() {
 		return userPicture;
 	}
 
-	public void setUserPicture(int userPicture) {
+	public void setUserPicture(boolean userPicture) {
 		this.userPicture = userPicture;
+	}
+
+	public String getStampRegisterDay() {
+		return stampRegisterDay;
+	}
+
+	public void setStampRegisterDay(String stampRegisterDay) {
+		this.stampRegisterDay = stampRegisterDay;
 	}
 }

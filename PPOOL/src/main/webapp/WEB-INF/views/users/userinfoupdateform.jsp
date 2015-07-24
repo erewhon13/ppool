@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -46,7 +46,8 @@
 	</div>
 	<form action="userinfoupdateform.action" method="POST">
 	<div id="personaldata">
-		<c:choose>
+			<div id="imageview"></div>
+			<c:choose>
 			<c:when test="${user.isUserPicture() eq true}">
 				<div id="imageview"></div>
 			</c:when>
@@ -56,6 +57,7 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
+		<div><input type="file" accept="image/**" value="1" id="fileinput"></div>
 		<div>
 			<label>이름 : </label>${user.getUserName()}</div>
 		<div>
