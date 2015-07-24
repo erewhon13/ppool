@@ -11,11 +11,13 @@ import org.springframework.stereotype.Service;
 
 import com.ppool.dto.Project;
 import com.ppool.repository.ProjectRepository;
+import com.ppool.util.ChangeWord;
 
 @Service("projectService")
 public class FinalProjectService implements ProjectService{
 
 	private ProjectRepository projectRepository;
+	//ChangeWord f = new ChangeWord();
 	
 	@Autowired
 	@Qualifier("projectRepository")
@@ -28,15 +30,13 @@ public class FinalProjectService implements ProjectService{
 		projectRepository.registerProject(project);
 	}
 	
-	SimpleDateFormat f = new SimpleDateFormat("yy년 MM월 dd일");
-	
 	@Override
 	public List<Project> getProjectList() {
 		List<Project> projects = projectRepository.getProjectList();
 		
 		for (Project project : projects) {
-			project.setStampStart(f.format(project.getProjectStartDay()));
-			project.setStampEnd(f.format(project.getProjectEndDay()));
+			project.setStampStart(ChangeWord.dateToString(project.getProjectStartDay()));
+			project.setStampEnd(ChangeWord.dateToString(project.getProjectEndDay()));
 			
 			Calendar cal = Calendar.getInstance();
 			long nowDay = cal.getTimeInMillis();
@@ -50,7 +50,7 @@ public class FinalProjectService implements ProjectService{
 			int y =(int)((eventDay - nowDay) / (24 * 60 * 60 * 1000));
 			project.setProjectStatus(y);
 			
-			project.setStampExpire(f.format(project.getProjectExpire()));
+			project.setStampExpire(ChangeWord.dateToString(project.getProjectExpire()));
 			
 		}
 		
@@ -60,8 +60,11 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public Project getProjectByProjectNo(int projectNo) {
 		Project project = projectRepository.getProjectByProjectNo(projectNo);
+		project.setStampStart(ChangeWord.dateToString(project.getProjectStartDay()));
+		project.setStampEnd(ChangeWord.dateToString(project.getProjectEndDay()));
+		project.setStampExpire(ChangeWord.dateToString(project.getProjectExpire()));
+		project.setStampRegisterDay(ChangeWord.dateToString(project.getProjectRegisterDay()));
 		return project;
 	}
-
 	
 }

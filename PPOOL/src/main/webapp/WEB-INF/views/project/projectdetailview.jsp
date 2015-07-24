@@ -30,11 +30,11 @@
 프로젝트 번호 : ${ project.projectNo}<br/>
 프로젝트 명 : ${ project.projectTitle}<br/>
 프로젝트 팀원 :${ project.projectTeamCount}<br/>
-프로젝트 시작일 :${ project.projectStartDay}<br/>
-프로젝트 종료 :${ project.projectEndDay}<br/>
+프로젝트 시작일 :${ project.stampStart}<br/>
+프로젝트 종료 :${ project.stampEnd}<br/>
 프로젝트 장소 :${ project.projectLocation}<br/>
-프로젝트 마감 :${ project.projectExpire}<br/>
-프로젝트 등록일 :${ project.projectRegisterDay}<br/>
+프로젝트 마감 :${ project.stampExpire}<br/>
+프로젝트 등록일 :${ project.stampRegisterDay}<br/>
 프로젝트 상태 :${ project.projectStatus}<br/>
 등록 유저 :${ project.userNo}<br/>
 

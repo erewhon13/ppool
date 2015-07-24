@@ -41,6 +41,7 @@
 			
 		});
 	});
+		$('')
 	/* function WriteIt() {
 		with(document.ProjectWriteFm) {
 			if(!IsEmpty(fm_comname.value)) {
@@ -135,7 +136,6 @@
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
-<div>
 <%
 	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
 %>
@@ -317,8 +317,10 @@
 		</table>
 		<br/>
 		<div align="center" >
-			<input class="sub" type="submit" value="등록"/>
-			<input class="sub" type="button" value="다시작성"/>
+			<img src="/ppool/resources/images/register.gif" onclick="submitProject();" style="cursor: pointer;">
+			<img src="/ppool/resources/images/rewrite.gif" onclick="" style="cursor: pointer;">
+			<!-- <input class="sub" type="" value="등록"/> -->
+			<!-- <input class="sub" type="button" value="다시작성"/> -->
 			<input class="sub" type="button" value="취소"/>
 		</div>
 	</div>

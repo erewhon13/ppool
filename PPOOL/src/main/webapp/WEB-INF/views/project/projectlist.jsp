@@ -17,6 +17,10 @@
 			$(location).attr("href", "/ppool/projectDetailView.action?projectNo="+ $(this).find($('.pno')).val() );
 			event.preventDefault();
 		});
+		$('.register').click(function(event){
+			$(location).attr("href", "/ppool/registerproject.action");
+			event.preventDefault();
+		});
 	});
 		
 	</script>
@@ -87,7 +91,7 @@
 	</table>
 	<br/>
 	<div style="width: 800px;" align="right">
-		<input type="button" onclick="location.href='/ppool/registerproject.action'" value="프로젝트 등록">
+		<img src="/ppool/resources/images/register.gif" class="register" style="cursor: pointer;">
 	</div>
 </div>
 </body>
