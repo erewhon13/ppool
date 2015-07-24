@@ -10,6 +10,6 @@ public interface NotificationRepository {
 
 	List<Notification> notificationList();
 
-	Notification getNotificationById(int notificationNo);
+	Notification notificationView(int notificationNo);
 
 }

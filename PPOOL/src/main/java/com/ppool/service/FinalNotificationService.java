@@ -31,9 +31,12 @@ public class FinalNotificationService implements NotificationService {
 		return notificationRepository.notificationList();
 		
 	}
-//	public Notification getNotificationById() {
-//		return notificationRepository.getNotificationById(notificationNo);
-//		
-//	}
+	
+	public Notification notificationView(int notificationNo) {
+		Notification notification = notificationRepository.notificationView(notificationNo);
+		return notification;
+	}
+	
+	
 
 }

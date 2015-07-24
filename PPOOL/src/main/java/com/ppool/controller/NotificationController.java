@@ -60,24 +60,16 @@ public class NotificationController {
 		notificationService.insertNotification(notification);
 		return "redirect:/notificationlist.action";
 	}
+	
 	@RequestMapping(value = "notificationview.action", method = RequestMethod.GET)
-	public ModelAndView notificationView() {
-
+	public ModelAndView notificationView(int notificationNo) {
+		
+		Notification notification = notificationService.notificationView(notificationNo);
+		
 		ModelAndView mav = new ModelAndView();
-
 		mav.setViewName("notification/notificationview");
-
+		mav.addObject("notification", notification);
+		
 		return mav;
 	}
-//	@RequestMapping(value = "notificationview.action", method = RequestMethod.GET)
-//	public ModelAndView instructorView(@RequestParam("notificationno") int notificationNo) {
-//		
-//		Notification notification = NotificationService.
-//		
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("notification/notificationview");
-//		mav.addObject("notification", notification);
-//		
-//		return mav;
-//	}
 }
