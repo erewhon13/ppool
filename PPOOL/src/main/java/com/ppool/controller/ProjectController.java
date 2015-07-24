@@ -74,8 +74,7 @@ public class ProjectController {
 		project.setUserNo(21);
 		
 		projectService.registerProject(project);
-		
-		mav.setViewName("redirect:/registerproject.action");
+		mav.setViewName("redirect:/projectlist.action");
 		return mav;
 	}
 	
