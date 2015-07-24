@@ -33,7 +33,7 @@
 		%>
 		<div align="center" style="margin-top: 3%" >
 			<form id="notification" action="" method="post">
-				<table border="1" width="70%" style="text-align: center;">
+				<table  width="70%" style="text-align: center;">
 					<tr
 						style="background-color: #FF9147; color: #ffffff; height: 30px; margin-top: 10px;">
 						<th style="width: 10%">번호</th>
@@ -48,9 +48,9 @@
 						style='text-align: center; height: 30px; background-color: #F1F1F1;'>
 						<td><%=notification.getNotificationNo()%></td>
 						<td><a
-							href='notificationview.action'>
+							href='notificationview.action?notificationNo=<%=notification.getNotificationNo() %>'>
 								<%=notification.getNotificationTitle()%></a></td>
-						<td><%=notification.getNotificationRegisterDay()%></td>
+						<td><%=notification.getStampRegisterDay()%></td>
 						<td><%=notification.getAdminNo()%></td>
 					</tr>
 					<%

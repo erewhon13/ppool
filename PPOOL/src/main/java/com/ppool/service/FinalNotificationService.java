@@ -2,6 +2,8 @@ package com.ppool.service;
 
 import java.util.List;
 
+import javax.naming.NoInitialContextException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -9,8 +11,11 @@ import org.springframework.stereotype.Service;
 
 
 
+
+
 import com.ppool.dto.Notification;
 import com.ppool.repository.NotificationRepository;
+import com.ppool.util.ChangeWord;
 
 @Service("notificationService")
 public class FinalNotificationService implements NotificationService {
@@ -28,12 +33,27 @@ public class FinalNotificationService implements NotificationService {
 	}
 	
 	public List<Notification> notificationList() {
-		return notificationRepository.notificationList();
+		
+		List<Notification> notifications =notificationRepository.notificationList();
+		for (Notification notification : notifications) {
+			notification.setStampRegisterDay(ChangeWord.dateToString(notification.getNotificationRegisterDay()));
+		}
+		return notifications;
+		
 		
 	}
-//	public Notification getNotificationById() {
-//		return notificationRepository.getNotificationById(notificationNo);
-//		
-//	}
+	
+	public Notification notificationView(int notificationNo) {
+		Notification notification = notificationRepository.notificationView(notificationNo);
+		notification.setStampRegisterDay(ChangeWord.dateToString(notification.getNotificationRegisterDay()));
+		return notification;
+	}
+	
+	public Notification notificationUpdate(int notificationNo) {
+		Notification notification = notificationRepository.notificationUpdate(notificationNo);
+		return notification;
+	}
+	
+	
 
 }

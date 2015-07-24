@@ -10,9 +10,9 @@ public interface NotificationMapper {
 
 	void insertNotification(Notification notification);
 
-	Notification getInstructorById(int notificationNo);
+	Notification notificationView(int notificationNo);
 
-	Notification getNotificationById(int notificationNo); 
+	Notification notificationUpdate(int notificationNo); 
 		
 	
 

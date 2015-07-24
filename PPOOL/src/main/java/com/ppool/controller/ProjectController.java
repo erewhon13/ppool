@@ -51,20 +51,41 @@ public class ProjectController {
 		return mav;
 	}
 	
+	int a = 0;
 	@RequestMapping(value="registerproject.action",method = RequestMethod.POST)
 	public ModelAndView registerProject(Project project, String email1, String email2, 
 			String phone1, String phone2, String phone3){
 		project.setProjectEmail(email1+"@"+email2);
 		project.setProjectPhone(phone1+"-"+phone2+"-"+phone3);
-		project.setProjectLocation("서울");
-		project.setUserNo(9);
-		project.setProjectStatus(1);
+		switch (a) {
+			case 0:
+				project.setProjectLocation("서울");
+				a=1;
+				break;
+			case 1:
+				project.setProjectLocation("강원");
+				a=2;
+				break;
+			case 2:
+				project.setProjectLocation("부산");
+				a=0;
+				break;
+		}
+		project.setUserNo(21);
 		
 		projectService.registerProject(project);
-		
-		mav.setViewName("redirect:/registerproject.action");
+		mav.setViewName("redirect:/projectlist.action");
 		return mav;
 	}
 	
+	@RequestMapping(value="projectDetailView.action" ,method = RequestMethod.GET)
+	public ModelAndView projectDetailView(int projectNo){
+		Project project = projectService.getProjectByProjectNo(projectNo);
+		
+		mav.setViewName("project/projectdetailview");
+		mav.addObject("project", project);
+		
+		return mav;
+	}
 	
 }

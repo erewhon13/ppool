@@ -11,11 +11,14 @@
 		<typeAlias type="com.ppool.dto.User" alias="User" />
 		<typeAlias type="com.ppool.dto.Project" alias="Project" />
 		<typeAlias type="com.ppool.dto.Notification" alias="Notification" />
+		<typeAlias type="com.ppool.dto.History" alias="History"/>
+		<typeAlias type="com.ppool.dto.HistoryUploadFile" alias="HistoryFile"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/ppool/mapper/UserMapper.xml" />
 		<mapper resource="com/ppool/mapper/ProjectMapper.xml" />
 		<mapper resource="com/ppool/mapper/NotificationMapper.xml" />
+		<mapper resource="com/ppool/mapper/HistoryMapper.xml"/>
 	</mappers>
 
 </configuration>

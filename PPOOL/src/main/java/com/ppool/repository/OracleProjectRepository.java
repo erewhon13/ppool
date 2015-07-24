@@ -31,4 +31,10 @@ public class OracleProjectRepository implements ProjectRepository{
 		return projects;
 	}
 
+	@Override
+	public Project getProjectByProjectNo(int projectNo) {
+		Project project = projectMapper.getProjectByProjectNo(projectNo);
+		return project;
+	}
+
 }

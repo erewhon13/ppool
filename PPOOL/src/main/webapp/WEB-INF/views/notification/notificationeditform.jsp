@@ -12,6 +12,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <script src="/ppool/resources/js/menuscript.js"></script>
+
 <title>Main Page</title>
 </head>
 
@@ -19,26 +20,43 @@
 	<%
 		pageContext.include("/WEB-INF/views/include/header.jsp");
 	%>
+	
+	<%
+		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
+	%>
 	<div>
-		<div id="sidemenu">사이드 메뉴</div>
-		<div align="center" style="margin-top: 3%">
-			<form id="notification" action="" method="post">
-				<table width="70%" style="text-align: center;">
-					<tr
-						style="background-color: #d3d3d3; color: #ffffff; height: 30px; margin-top: 10px;">
-						<th style="width: 10%">번호</th>
-						<th style="width: 25%">제목</th>
-						<th style="width: 15%">등록일</th>
-						<th style="width: 10%">관리자번호</th>
-
-
+		
+		<div align="center" style="margin-top: 3%" >
+			<div id="pageContainer">	
+				<form id="editform" action="notificationupdate.action?" method="post">
+				<table  border="1">
+					<tr>
+						<th>제목</th>
+						<td>
+							<input type="text" name="notificationTitle" style="width:280px" />
+						</td>
 					</tr>
-
+					<tr>
+						<th>내용</th>
+						<td>		                    
+							<textarea 
+								name="notificationContent" cols="76" rows="15"></textarea>
+						</td>
+					</tr>
 				</table>
-			</form>
-		</div>
+				<br /><br />
+				<div class="buttons">	        	
+					<input type='submit' value='등록' style='height:25px' />
+					&nbsp;&nbsp;
+					<input type="button" value="취소" style="height: 25px" 
+						onclick="location.href='notificationlist.action';"/>
+				</div>
+				</form>
+			</div>
+		</div>   	
+	
 	</div>
-
+			
 
 </body>
 </html>

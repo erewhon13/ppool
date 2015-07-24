@@ -8,15 +8,44 @@ public class History implements Serializable {
 
 	private int historyNo;
 	private String historyTitle;
-	private Date historyPeriod;
+	private Date historyStartDay;
+	private Date historyEndDay;
 	private int historyStaff;
 	private String historyWork;
 	private String historyContent;
 	private Date historyRegdate;
 	private boolean historyOpened;
+	private String historyService;
 	private int userNo;
 	
-	private List<HistoryUploadFile> files;
+	private HistoryUploadFile file;
+	
+	////////jsp에서 Date를 보기 좋게 하기 위해 사용하는 필드///////
+	
+	private String startDay;
+	private String endDay;
+	private String regDate;	
+	
+	public String getStartDay() {
+		return startDay;
+	}
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+	public String getEndDay() {
+		return endDay;
+	}
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	
+	/////////////////////////////////////////////////
 	
 	
 	public int getHistoryNo() {
@@ -30,12 +59,6 @@ public class History implements Serializable {
 	}
 	public void setHistoryTitle(String historyTitle) {
 		this.historyTitle = historyTitle;
-	}
-	public Date getHistoryPeriod() {
-		return historyPeriod;
-	}
-	public void setHistoryPeriod(Date historyPeriod) {
-		this.historyPeriod = historyPeriod;
 	}
 	public int getHistoryStaff() {
 		return historyStaff;
@@ -73,16 +96,30 @@ public class History implements Serializable {
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	public List<HistoryUploadFile> getFiles() {
-		return files;
+	
+	public Date getHistoryStartDay() {
+		return historyStartDay;
 	}
-	public void setFiles(List<HistoryUploadFile> files) {
-		this.files = files;
+	public void setHistoryStartDay(Date historyStartDay) {
+		this.historyStartDay = historyStartDay;
 	}
-	
-	
-	
-	
-	
-	
+	public Date getHistoryEndDay() {
+		return historyEndDay;
+	}
+	public void setHistoryEndDay(Date historyEndDay) {
+		this.historyEndDay = historyEndDay;
+	}
+	public String getHistoryService() {
+		return historyService;
+	}
+	public void setHistoryService(String historyService) {
+		this.historyService = historyService;
+	}
+	public HistoryUploadFile getFile() {
+		return file;
+	}
+	public void setFile(HistoryUploadFile file) {
+		this.file = file;
+	}
+
 }

@@ -16,11 +16,19 @@ public class Project {
 	private int projectStatus;
 	private String projectPhone;
 	private String projectEmail;
-	///////////////////////////////////////////
+	
+	/////////////////뷰에서 Date를 보기 좋게 하기위해 사용하는 필드///////////////////
 	private String stampStart;
 	private String stampEnd;
 	private String stampExpire;
-
+	private String stampRegisterDay;
+	
+	public String getStampRegisterDay() {
+		return stampRegisterDay;
+	}
+	public void setStampRegisterDay(String stampRegisterDay) {
+		this.stampRegisterDay = stampRegisterDay;
+	}
 	public String getStampStart() {
 		return stampStart;
 	}
@@ -39,7 +47,8 @@ public class Project {
 	public void setStampExpire(String stampExpire) {
 		this.stampExpire = stampExpire;
 	}
-	///////////////////////////////////////////
+	//////////////////////////////////////////////////////////////
+	
 	public int getProjectNo() {
 		return projectNo;
 	}

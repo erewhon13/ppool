@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	
+	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<style type="text/css">
 	td{
 	font-size:10pt;
@@ -27,22 +27,103 @@
 	</style>
 	
 	<script type="text/javascript">
-	function ChangeEmail() {
-		var email1 = document.getElementById("email1");
-		var email2 = document.getElementById("email2");
-		var emailSel = document.getElementById("emailSelect");
-		var selected = emailSel.options[emailSel.selectedIndex].value;
-		if (selected == "etc") {
-			email2.readOnly = false;
-			email2.value = "";
-			email2.focus();
-		} else {
-			email2.readOnly = true;
-			email2.value = selected;
-			email1.focus();
+	$(document).ready(function (){
+		$('#emailSelect').change(function(){
+			if($('#emailSelect').val() == "etc"){
+				$('#email2').val("");
+				$('#email2').attr("readonly", false);
+				$('#email2').focus();
+			}else if($('#emailSelect').val() != "etc"){
+				$('#email2').val($('#emailSelect').val());
+				$('#email2').attr("readonly", true);
+				$('#email1').focus();
+			}
+			
+		});
+	});
+		$('')
+	/* function WriteIt() {
+		with(document.ProjectWriteFm) {
+			if(!IsEmpty(fm_comname.value)) {
+				alert("회사명을 입력하세요.");
+				fm_comname.focus();
+				return;
+			}
+			if(!IsEmpty(fm_korname.value)) {
+				alert("담당자명을 입력하세요.");
+				fm_korname.focus();
+				return;
+			}
+			if(!IsEmpty(fm_tel2.value)) {
+				alert("연락처를 입력하세요.");
+				fm_tel2.focus();
+				return;
+			}
+			if(!IsEmpty(fm_tel3.value)) {
+				alert("연락처를 입력하세요.");
+				fm_tel3.focus();
+				return;
+			}
+			if(!IsEmpty(fm_name.value)) {
+				alert("프로젝트명을 입력하세요.");
+				fm_name.focus();
+				return;
+			}
+			if(!IsEmpty(fm_essentialSkill.value)) {
+				alert("필수 스킬을 입력하세요.");
+				fm_essentialSkill.focus();
+				return;
+			}
+			if(!IsEmpty(fm_assistSkill.value)) {
+				alert("보조 스킬을 입력하세요.");
+				fm_assistSkill.focus();
+				return;
+			}
+			if(!IsEmpty(fm_preferential.value)) {
+				alert("우대 사항을 입력하세요.");
+				fm_preferential.focus();
+				return;
+			}
+			if ((!IsEmpty(fm_fromAge.value)) && (!IsEmpty(fm_toAge.value))) {
+				alert("연령을 선택하세요.");
+				fm_fromAge.focus();
+				return;
+			}
+			if(!IsEmpty(fm_school.value)) {
+				alert("학력을 입력하세요.");
+				fm_school.focus();
+				return;
+			}
+			if(!IsEmpty(fm_content.value)) {
+				alert("프로젝트 상세 내용을 입력하세요.");
+				fm_content.focus();
+				return;
+			}
+			if(!IsEmpty(fm_bidsdate.value)) {
+				alert("프로젝트 모집 기간을 입력하세요.");
+				fm_bidsdate.focus();
+				return;
+			}
+			if(!IsEmpty(fm_bidedate.value)) {
+				alert("프로젝트 모집 기간을 입력하세요.");
+				fm_bidedate.focus();
+				return;
+			}
+			if(!IsEmpty(fm_worksdate.value)) {
+				alert("프로젝트 근무 기간을 입력하세요.");
+				fm_worksdate.focus();
+				return;
+			}
+			if(!IsEmpty(fm_workedate.value)) {
+				alert("프로젝트 근무 기간을 입력하세요.");
+				fm_workedate.focus();
+				return;
+			}
+			action = "project_write.php";
+			target = "ProjectWriteFm";
+			submit();
 		}
-	}
-	
+		}  */
 	/* window.onload = function(){
 		var area = document.getElementById("textarea");
 		area.style.maxWidth = area.offsetParent.offsetWidth + "px";
@@ -55,7 +136,6 @@
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
-<div>
 <%
 	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
 %>
@@ -110,10 +190,10 @@
 				<td style="width: 15%" bgcolor="#ddbbff">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
 					<input id="email1" type="text" name="email1" value="" style="width: 150px;"> @ 
-					<input id="email2" type="text" name="email2" value="" style="width: 155px; 
-							border: solid #CECFD0 1px; font-size: 10pt;"readonly=""> 
-					<select id="emailSelect" name="emailSelect" style="width: 150px; 
-							font-size: 12px;"onchange="javascript:ChangeEmail();">
+					<input id="email2" type="text" name="email2" value=""  readonly=""
+							style="width: 155px;  border: solid #CECFD0 1px; font-size: 10pt;"> 
+					<select id="emailSelect" style="width: 150px; 
+							font-size: 12px;">
 						<option value="">선택해주세요</option>
 						<option value="etc">직접입력</option>
 						<option value="gmail.com">gmail.com</option>
@@ -229,7 +309,7 @@
 			</tr>
 			<tr>
 				<td bgcolor="#ddbbff">기간</td>
-				<td align="left">
+				<td align="left" style="width: 85%" colspan="3">
 					<input style="text-align: center" type="date" name="projectStartDay"> ~ 
 					<input style="text-align: center" type="date" name="projectEndDay">
 				</td>
@@ -237,8 +317,10 @@
 		</table>
 		<br/>
 		<div align="center" >
-			<input class="sub" type="submit" value="등록"/>
-			<input class="sub" type="button" value="다시작성"/>
+			<img src="/ppool/resources/images/register.gif" onclick="submitProject();" style="cursor: pointer;">
+			<img src="/ppool/resources/images/rewrite.gif" onclick="" style="cursor: pointer;">
+			<!-- <input class="sub" type="" value="등록"/> -->
+			<!-- <input class="sub" type="button" value="다시작성"/> -->
 			<input class="sub" type="button" value="취소"/>
 		</div>
 	</div>
