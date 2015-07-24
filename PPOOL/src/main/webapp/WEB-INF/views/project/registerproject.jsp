@@ -38,7 +38,6 @@
 				$('#email2').attr("readonly", true);
 				$('#email1').focus();
 			}
-			
 		});
 	});
 		$('')
@@ -317,9 +316,9 @@
 		</table>
 		<br/>
 		<div style="width:100%;" align="right" >
-			<img src="/ppool/resources/images/register.png" class="submit" id="submit" style="cursor: pointer;">
-			<img src="/ppool/resources/images/rewriter.png" class="submit" id="rewrite" style="cursor: pointer;">
-			<img src="/ppool/resources/images/cancel.png" class="submit" id="cancel" style="cursor: pointer;margin-right: 5%">
+			<img src="/ppool/resources/images/register.png" class="register" id="submit" style="cursor: pointer;">
+			<img src="/ppool/resources/images/rewriter.png" class="register" id="rewrite" style="cursor: pointer;">
+			<img src="/ppool/resources/images/cancel.png" class="register" id="cancel" style="cursor: pointer;margin-right: 5%">
 		</div>
 	</div>
 	</form>
