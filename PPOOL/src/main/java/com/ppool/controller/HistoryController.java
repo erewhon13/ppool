@@ -100,7 +100,7 @@ public class HistoryController {
 			fileItem.setUploadSavedFileName(Util.getUniqueFileName(path, fileName));
 			fileItem.setUploadUserFileName(fileName);
 			
-			historyService.inserHistoryFile(fileItem);//DB에 저장
+			historyService.insertHistoryFile(fileItem);//DB에 저장
 			
 			//파일을 디스크에 저장
 			try {

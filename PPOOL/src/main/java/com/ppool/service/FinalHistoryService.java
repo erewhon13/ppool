@@ -41,7 +41,7 @@ public class FinalHistoryService implements HistoryService{
 	}
 
 	@Override
-	public void inserHistoryFile(HistoryUploadFile file) {
+	public void insertHistoryFile(HistoryUploadFile file) {
 		historyRepository.insertHistoryFile(file);		
 	}
 

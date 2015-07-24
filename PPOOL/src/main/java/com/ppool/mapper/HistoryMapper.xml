@@ -56,9 +56,8 @@
 	</select>
 	
 	<!--  -->
-	<!-- 
-	
-	<select id="getHistoryByHistoryNo" parameterType="int" resultMap="historyResult">
+
+<!--  	<select id="getHistoryByHistoryNo" parameterType="int" resultMap="historyResult">
 		SELECT HISTORYNO,HISTORYTITLE,HISTORYSTARTDAY,
 			   HISTORYENDDAY, HISTORYWORK, HISTORYCONTENT,HISTORYOPENED,HISTORYSERVICE
 		FROM history
@@ -88,8 +87,8 @@
 	 SELECT uploadFileNo, historyNo, uploadUserFileName, uploadSavedFileName
 	 FROM HistoryUploadFile
 	 WHERE historyNo = #{historyNo}
-	</select> -->
-		
+	</select>  -->
+	
 	<!--  -->
 	
 	
