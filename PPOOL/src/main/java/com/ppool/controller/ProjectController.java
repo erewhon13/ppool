@@ -45,15 +45,15 @@ public class ProjectController {
 		return mav;
 	}
 	
-	@RequestMapping(value="registerproject.action" ,method = RequestMethod.GET)
+	@RequestMapping(value="projectregister.action" ,method = RequestMethod.GET)
 	public ModelAndView registeform(){
-		mav.setViewName("project/registerproject");
+		mav.setViewName("project/projectregister");
 		return mav;
 	}
 	
 	int a = 0;
-	@RequestMapping(value="registerproject.action",method = RequestMethod.POST)
-	public ModelAndView registerProject(Project project, String email1, String email2, 
+	@RequestMapping(value="projectregister.action",method = RequestMethod.POST)
+	public ModelAndView projectRegister(Project project, String email1, String email2, 
 			String phone1, String phone2, String phone3){
 		project.setProjectEmail(email1+"@"+email2);
 		project.setProjectPhone(phone1+"-"+phone2+"-"+phone3);
@@ -73,7 +73,7 @@ public class ProjectController {
 		}
 		project.setUserNo(21);
 		
-		projectService.registerProject(project);
+		projectService.projectRegister(project);
 		mav.setViewName("redirect:/projectlist.action");
 		return mav;
 	}

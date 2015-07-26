@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
 
 <mapper namespace="com.ppool.mapper.ProjectMapper">
-	<insert id="registerProject" parameterType="Project">
+	<insert id="projectRegister" parameterType="Project">
 		INSERT INTO PROJECTS
 		(PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
 		PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTLOCATION,  

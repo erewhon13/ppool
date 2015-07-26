@@ -21,7 +21,7 @@
 			alert("미구현입니다");
 		});
 		$('#writer').click(function(){
-			$(location).attr("href", "/ppool/registerproject.action");
+			$(location).attr("href", "/ppool/projectregister.action");
 		});
 	});
 		

@@ -21,8 +21,8 @@ public class OracleProjectRepository implements ProjectRepository{
 	}
 	
 	@Override
-	public void registerProject(Project project) {
-		projectMapper.registerProject(project);
+	public void projectRegister(Project project) {
+		projectMapper.projectRegister(project);
 	}
 
 	@Override
