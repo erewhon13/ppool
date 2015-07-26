@@ -61,11 +61,10 @@ public class OracleNotificationRepository implements NotificationRepository {
 	}
 	
 	@Override
-	public Notification notificationUpdate(int notificationNo) {
+	public void notificationUpdate(Notification notification) {
 
-		Notification notification = notificationMapper.notificationUpdate(notificationNo);
+		notificationMapper.notificationUpdate(notification);
 
-		return notification;
 
 	}
 
