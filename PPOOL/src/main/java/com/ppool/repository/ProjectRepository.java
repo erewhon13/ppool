@@ -5,7 +5,7 @@ import java.util.List;
 import com.ppool.dto.Project;
 
 public interface ProjectRepository{
-	void registerProject(Project project);
+	void projectRegister(Project project);
 	List<Project> getProjectList();
 	Project getProjectByProjectNo(int projectNo);
 }

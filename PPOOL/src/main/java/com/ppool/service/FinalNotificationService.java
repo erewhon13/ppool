@@ -50,9 +50,9 @@ public class FinalNotificationService implements NotificationService {
 	}
 	
 	
-	public Notification notificationUpdate(int notificationNo) {
-		Notification notification = notificationRepository.notificationUpdate(notificationNo);
-		return notification;
+	public void notificationUpdate(Notification notification) {
+		notificationRepository.notificationUpdate(notification);
+		
 	}
 	
 	

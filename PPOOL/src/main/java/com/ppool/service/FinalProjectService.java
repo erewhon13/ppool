@@ -26,8 +26,8 @@ public class FinalProjectService implements ProjectService{
 	}
 	
 	@Override
-	public void registerProject(Project project) {
-		projectRepository.registerProject(project);
+	public void projectRegister(Project project) {
+		projectRepository.projectRegister(project);
 	}
 	
 	@Override

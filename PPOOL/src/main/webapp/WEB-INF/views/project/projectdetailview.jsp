@@ -13,7 +13,12 @@
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
-		
+		$('#list').click(function(){
+			$(location).attr("href", "/ppool/projectlist.action");
+		});
+		$('#modify').click(function(){
+			alert("수정 미구현");
+		});
 	});
 		
 	</script>
@@ -43,8 +48,8 @@
 		</div>
 	</div>
 	<div style="width:100%;" align="center">
-		<img src="/ppool/resources/images/list.png" class="detailView" id="list" style="cursor: pointer;">
-		<img src="/ppool/resources/images/modify.png" class="detailView" id="modify" style="cursor: pointer;">
+		<img src="/ppool/resources/images/list.png" id="list" style="cursor: pointer;">
+		<img src="/ppool/resources/images/modify.png" id="modify" style="cursor: pointer;">
 	</div>
 </body>
 </html>

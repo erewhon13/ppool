@@ -37,14 +37,14 @@
 					<tr>
 		                <th>제목</th>
 		                <td>
-		                	<input type="text" name="title" style='width:580px' value="<%= notification.getNotificationTitle() %>" />
+		                	<input type="text" name="notificationTitle" style='width:580px' value="<%= notification.getNotificationTitle() %>" />
 		                </td>
 		            </tr>
 		            <tr>
 		                <th>내용</th>
 		                <td>
 							<textarea 
-		                    	name="content" style="width:580px" 
+		                    	name="notificationContent" style="width:580px" 
 		                    	rows="15"><%= notification.getNotificationContent() %></textarea>
 		                </td>
 		            </tr>
