@@ -52,8 +52,8 @@
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
-		<table style="text-align: center; width: 98%; border:groove;  ">
-			<caption >테스트</caption><br/>
+		<table style="text-align: center; width: 100%; border:groove;  ">
+			<caption >테스트</caption>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -126,7 +126,7 @@
 			</tr>
 		</table>
 		<br/>
-		<table style="text-align: center; width: 98%; border:groove;  ">
+		<table style="text-align: center; width: 100%; border:groove;  ">
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">개발</td>
 				<td style="width: 85%" colspan="3">

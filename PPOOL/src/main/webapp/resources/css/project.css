@@ -1,6 +1,6 @@
 @CHARSET "utf-8";
 
-table.ex1 {width:98%; margin:0 auto; text-align:center; border-collapse:collapse}
+table.ex1 {width:100%; margin:0 auto; text-align:center; border-collapse:collapse}
 .ex1 th, .ex1 td {padding:5px 10px}
 .ex1 caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
 .ex1 thead th {background:#FF9147; color:#fff; text-align:center; border-right:1px solid #fff}

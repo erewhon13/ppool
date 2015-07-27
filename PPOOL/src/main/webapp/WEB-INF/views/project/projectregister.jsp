@@ -1,149 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	<script src='/ppool/resources/js/projectregister.js'></script>
 	<style type="text/css">
-	td{
-	font-size:10pt;
-	margin:5px;
-	padding:10px;
-	}
-	caption {font-weight:700; font-size:20px; padding:5px; color:#FF9147; text-align:left; margin-bottom:5px}
-	input.sub {
-	font-size: 15pt;
-	}
-	.ul_checkbox{
-		list-style:none;
-		text-align: left;
-	}
-	.ul_checkbox li{
-		margin:2 5 2 5;
-		display:inline-block; 
-	}
+		td{
+			font-size:10pt;
+			margin:5px;
+			padding:10px;
+		}
+		caption {font-weight:700; font-size:20px; padding:5px; color:#FF9147; text-align:left; margin-bottom:5px}
+		input.sub {
+			font-size: 15pt;
+		}
+		.ul_checkbox{
+			list-style:none;
+			text-align: left;
+		}
+		.ul_checkbox li{
+			margin:2 5 2 5;
+			display:inline-block; 
+		}
 	</style>
 	
 	<script type="text/javascript">
-	$(document).ready(function (){
-		$('#emailSelect').change(function(){
-			if($('#emailSelect').val() == "etc"){
-				$('#email2').val("");
-				$('#email2').attr("readonly", false);
-				$('#email2').focus();
-			}else if($('#emailSelect').val() != "etc"){
-				$('#email2').val($('#emailSelect').val());
-				$('#email2').attr("readonly", true);
-				$('#email1').focus();
-			}
-		});
-		$('#writer').click(function(){
-			checkFormAndSubmit();
-		});
-		$('#rewriter').click(function(){
-			alert("다시쓰기 미구현");
-		});
-		$('#cancel').click(function(){
-			$(location).attr("href", "/ppool/projectlist.action");
-		});
-		
-	});
-	
-	function checkFormAndSubmit(){
-		var r = /^[0-9]+$/;
-		var e = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
-		
-		if( $('#projecttitle').val().trim() == "" ){
-			alert("제목을 입력하세요")
-			$('#projecttitle').focus();
-			return;
-		}
-		if( $('#projectwriter').val().trim() == "" ){
-			alert("작성자를 입력하세요")
-			$('#projectwriter').focus();
-			return;
-		}
-		if( $('#phone1').val().trim() == "" ){
-			alert("전화번호를 입력하세요")
-			$('#phone1').focus();
-			return;
-		}
-		if( $('#phone2').val().trim() == "" ){
-			alert("전화번호를 입력하세요")
-			$('#phone2').focus();
-			return;
-		}
-		if(!r.test( $('#phone2').val().trim())  ){
-			alert("숫자만 입력하세요2")
-			$('#phone2').focus();
-			return;
-		}
-		
-		if( $('#phone3').val().trim() == "" ){
-			alert("전화번호를 입력하세요")
-			$('#phone3').focus();
-			return;
-		}
-		if( !r.test( $('#phone3').val().trim())  ){
-			alert("숫자만 입력하세요3")
-			$('#phone3').focus();
-			return;
-		}
-		
-		if( $('#email1').val().trim() == "" ){
-			alert("이메일을 입력하세요")
-			$('#email1').focus();
-			return;
-		}
-		if( $('#email2').val().trim() == "" ){
-			alert("이메일을 입력하세요")
-			$('#email2').focus();
-			return;
-		}
-		var email = $('#email1').val().trim() +'@'+$('#email2').val().trim();
-		if( !e.test(email) ){
-			alert("이메일의 형식이 바르지 않습니다.")
-			$('#email1').focus();
-			return;
-		}
-		
-		if( $('#projectcontent').val().trim() == "" ){
-			alert("상세 설명을 입력하세요")
-			$('#projectcontent').focus();
-			return;
-		}
-		if( $('#projectteamcount').val().trim() == "" ){
-			alert("모집인원 입력")
-			$('#projectteamcount').focus();
-			return;
-		}
-		if( !r.test( $('#projectteamcount').val().trim())  ){
-			alert("숫자만 입력하세요")
-			$('#projectteamcount').focus();
-			return;
-		}
-		if( $('#projectexpire').val().trim() == "" ){
-			alert("모집 마감일을 입력")
-			$('#projectexpire').focus();
-			return;
-		}
-		if( $('#projectstartday').val().trim() == "" ){
-			alert("프로젝트 시작일을 입력")
-			$('#projectstartday').focus();
-			return;
-		}
-		if( $('#projectendday').val().trim() == "" ){
-			alert("프로젝트 종료일을 입력")
-			$('#projectendday').focus();
-			return;
-		}
-		$('#submitForm').submit();
-		return;
-	}
-		
 	/* window.onload = function(){
 		var area = document.getElementById("textarea");
 		area.style.maxWidth = area.offsetParent.offsetWidth + "px";
@@ -158,8 +44,8 @@
 
 	<form id="submitForm" action="projectregister.action" method="POST"> 
 		<div style="width:72%; margin-right:5%;float: right" ><br/>
-		<table style="text-align: center; width: 98%; border:groove;  ">
-			<caption >테스트</caption><br/>
+		<table style="text-align: center; width: 100%; border:groove;  ">
+			<caption >테스트</caption>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -232,7 +118,7 @@
 			</tr>
 		</table>
 		<br/>
-		<table style="text-align: center; width: 98%; border:groove;  ">
+		<table style="text-align: center; width: 100%; border:groove;  ">
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">개발</td>
 				<td style="width: 85%" colspan="3">

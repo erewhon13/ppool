@@ -33,37 +33,12 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public List<Project> getProjectList() {
 		List<Project> projects = projectRepository.getProjectList();
-		
-		for (Project project : projects) {
-			project.setStampStart(ChangeWord.dateToString(project.getProjectStartDay()));
-			project.setStampEnd(ChangeWord.dateToString(project.getProjectEndDay()));
-			
-			Calendar cal = Calendar.getInstance();
-			long nowDay = cal.getTimeInMillis();
-			
-			int year = project.getProjectExpire().getYear();
-			int month = project.getProjectExpire().getMonth();
-			int date = project.getProjectExpire().getDate();
-			
-			cal.set(year+1900,month,date);//목표일
-			long eventDay = cal.getTimeInMillis();
-			int y =(int)((eventDay - nowDay) / (24 * 60 * 60 * 1000));
-			project.setProjectStatus(y);
-			
-			project.setStampExpire(ChangeWord.dateToString(project.getProjectExpire()));
-			
-		}
-		
 		return projects;
 	}
 
 	@Override
 	public Project getProjectByProjectNo(int projectNo) {
 		Project project = projectRepository.getProjectByProjectNo(projectNo);
-		project.setStampStart(ChangeWord.dateToString(project.getProjectStartDay()));
-		project.setStampEnd(ChangeWord.dateToString(project.getProjectEndDay()));
-		project.setStampExpire(ChangeWord.dateToString(project.getProjectExpire()));
-		project.setStampRegisterDay(ChangeWord.dateToString(project.getProjectRegisterDay()));
 		return project;
 	}
 

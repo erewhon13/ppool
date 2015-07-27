@@ -8,7 +8,6 @@ public class Project {
 	private String projectTitle;
 	private String projectContent;
 	private int projectTeamCount;
-	private String projectLocation;
 	private Date projectStartDay;
 	private Date projectEndDay;
 	private Date projectExpire;
@@ -17,41 +16,46 @@ public class Project {
 	private String projectPhone;
 	private String projectEmail;
 	
-	/////////////////뷰에서 Date를 보기 좋게 하기위해 사용하는 필드///////////////////
-	private String stampStart;
-	private String stampEnd;
-	private String stampExpire;
-	private String stampRegisterDay;
-	
-	public String getStampRegisterDay() {
-		return stampRegisterDay;
-	}
-	public void setStampRegisterDay(String stampRegisterDay) {
-		this.stampRegisterDay = stampRegisterDay;
-	}
-	public String getStampStart() {
-		return stampStart;
-	}
-	public void setStampStart(String stampStart) {
-		this.stampStart = stampStart;
-	}
-	public String getStampEnd() {
-		return stampEnd;
-	}
-	public void setStampEnd(String stampEnd) {
-		this.stampEnd = stampEnd;
-	}
-	public String getStampExpire() {
-		return stampExpire;
-	}
-	public void setStampExpire(String stampExpire) {
-		this.stampExpire = stampExpire;
-	}
 	//////////////////////////////////////////////////////////////
+	private String phone1;
+	private String phone2;
+	private String phone3;
+	private String email1;
+	private String email2;
 	private String[] develop;
 	private String[] design;
 	private String[] location;
 	
+	public String getPhone1() {
+		return phone1;
+	}
+	public void setPhone1(String phone1) {
+		this.phone1 = phone1;
+	}
+	public String getPhone2() {
+		return phone2;
+	}
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
+	public String getPhone3() {
+		return phone3;
+	}
+	public void setPhone3(String phone3) {
+		this.phone3 = phone3;
+	}
+	public String getEmail1() {
+		return email1;
+	}
+	public void setEmail1(String email1) {
+		this.email1 = email1;
+	}
+	public String getEmail2() {
+		return email2;
+	}
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
 	public String[] getDevelop() {
 		return develop;
 	}
@@ -71,9 +75,7 @@ public class Project {
 		this.location = location;
 	}
 	//////////////////////////////////////////////////////////////
-	
-	
-	
+
 	public int getProjectNo() {
 		return projectNo;
 	}
@@ -103,12 +105,6 @@ public class Project {
 	}
 	public void setProjectTeamCount(int projectTeamCount) {
 		this.projectTeamCount = projectTeamCount;
-	}
-	public String getProjectLocation() {
-		return projectLocation;
-	}
-	public void setProjectLocation(String projectLocation) {
-		this.projectLocation = projectLocation;
 	}
 	public Date getProjectStartDay() {
 		return projectStartDay;

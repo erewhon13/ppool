@@ -1,6 +1,7 @@
 package com.ppool.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.Project;
 import com.ppool.service.ProjectService;
+import com.ppool.util.ChangeWord;
 
 @Controller
 public class ProjectController {
@@ -40,6 +42,26 @@ public class ProjectController {
 	public ModelAndView projectList(){
 		List<Project> projects = projectService.getProjectList();
 		
+		for (Project project : projects) {
+//			project.setStampStart(ChangeWord.dateToString(project.getProjectStartDay()));
+//			project.setStampEnd(ChangeWord.dateToString(project.getProjectEndDay()));
+			
+			Calendar cal = Calendar.getInstance();
+			long nowDay = cal.getTimeInMillis();
+			
+			int year = project.getProjectExpire().getYear();
+			int month = project.getProjectExpire().getMonth();
+			int date = project.getProjectExpire().getDate();
+			
+			cal.set(year+1900,month,date);//목표일
+			long eventDay = cal.getTimeInMillis();
+			int y =(int)((eventDay - nowDay) / (24 * 60 * 60 * 1000));
+			project.setProjectStatus(y);
+			
+//			project.setStampExpire(ChangeWord.dateToString(project.getProjectExpire()));
+			
+		}
+		
 		mav.setViewName("project/projectlist");
 		mav.addObject("projects", projects);
 		return mav;
@@ -53,14 +75,17 @@ public class ProjectController {
 	
 	int a = 0;
 	@RequestMapping(value="projectregister.action",method = RequestMethod.POST)
-	public ModelAndView projectRegister(Project project, String email1, String email2, 
-			String phone1, String phone2, String phone3){
+	public ModelAndView projectRegister(Project project){
 		
-		project.setProjectEmail(email1+"@"+email2);
-		project.setProjectPhone(phone1+"-"+phone2+"-"+phone3);
-		project.setProjectLocation("서울");
+		project.setProjectEmail(project.getEmail1()+"@"+project.getEmail2());
+		project.setProjectPhone(project.getPhone1()+"-"+project.getPhone2()+"-"+project.getPhone3());
 		project.setUserNo(43);
 		
+		if(project.getLocation().length > 0){
+			for (String location : project.getLocation()) {
+				/*projectService.sfdlfjsdf(location*/
+			}
+		}
 		projectService.projectRegister(project);
 		
 		mav.setViewName("redirect:/projectlist.action");

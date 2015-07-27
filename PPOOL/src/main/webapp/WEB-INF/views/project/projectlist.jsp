@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
     
 <!DOCTYPE html>
 <html>
@@ -56,10 +57,12 @@
 					<input class="pno" type="hidden" value="${project.projectNo}">
 					<th class="projectno" >${project.projectNo}</th>
 					<td class="date">
-						${project.stampStart} ~ <br/> ${project.stampEnd}
+						<f:formatDate value="${ project.projectStartDay}" pattern="yy년 MM월 dd일" var="start"/>
+						<f:formatDate value="${ project.projectEndDay}" pattern="yy년 MM월 dd일" var="end"/>
+						${start} ~ <br/> ${end}
 					</td>
 					<td class="content">[${project.projectTeamCount}명] ${project.projectTitle}<br/>${project.projectContent}</td>
-					<td class="location">${project.projectLocation}</td>
+					<td class="location">서울</td>
 					
 					<c:choose>
 						<c:when  test="${project.projectStatus gt 0}">
@@ -69,7 +72,8 @@
 							<td class="dday" style="color: red;font-weight: bold;">마감일</td>
 						</c:when>
 						<c:when test="${project.projectStatus lt 0}">
-							<td class="dday">${project.stampExpire}</td>
+							<f:formatDate value="${ project.projectExpire}" pattern="yy년 MM월 dd일" var="expire"/>
+							<td class="dday">${expire}</td>
 						</c:when>
 					</c:choose>
 					
