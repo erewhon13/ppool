@@ -40,4 +40,13 @@ public class OracleHistoryRepository implements HistoryRepository{
 		return histories;
 	}
 
+
+	@Override
+	public History getHistoryByHistoryNo(int historyNo) {
+		History history= historyMapper.getHistoryByHistoryNo(historyNo);
+		return history;
+	}
+	
+	
+
 }

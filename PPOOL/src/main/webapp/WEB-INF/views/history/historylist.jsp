@@ -10,10 +10,10 @@
    <title>Insert title here</title>
 	<script src="//code.jquery.com/jquery-1.11.3.js"></script> <!-- jquery 사용하기 위해서 CDN삽입 -->
 	<script type="text/javascript">
-		/* $(function(){
-			$("#register").click(function(event){
-				location.href="historyRegister.action";})
-		}) */
+		 $(function(){
+			$(".detailview").click(function(event){
+				location.href="historydetailview.action?historyNo="+$(this).find($('.hno')).val();})
+		})
 	</script>
 </head>
 <%
@@ -54,7 +54,6 @@
 												이력사항
 								</td>
 									<td style="width:20%" align="right">
-													<button style="float:right;">등록하기</button>
 												</td>
 											</tr>
 									</tbody>
@@ -71,10 +70,12 @@
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">
-										<tr>
+										<tr class="detailview">
 											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyNo}</td>
 											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyTitle}</td>
+											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20" >${history.historyTitle}</td>											
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">
+											<input type="hidden" class="hno" value="${history.historyNo}"/>									
 												<c:choose>
 													<c:when test="${history.historyWork eq 'developer'}">개발자</c:when>
 													<c:when test="${history.historyWork eq 'designer'}">디자이너</c:when>
@@ -90,6 +91,7 @@
 												</c:choose>
 											</td>
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.startDay}~<br/>${history.endDay}</td>
+										
 										</tr>
 										</c:forEach>
 								</tbody>
