@@ -10,5 +10,6 @@ public interface HistoryRepository {
 	int insertHistory(History history);
 	void insertHistoryFile(HistoryUploadFile file);
 	List<History> selectHistoryList();
+	History getHistoryByHistoryNo(int historyNo);
 	
 }

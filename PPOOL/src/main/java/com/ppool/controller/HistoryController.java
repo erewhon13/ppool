@@ -38,6 +38,7 @@ public class HistoryController {
 	@Qualifier("historyService")
 	public void setHistoryService(HistoryService historyService){
 		this.historyService=historyService;
+		
 	}
 	
 	
@@ -79,7 +80,7 @@ public class HistoryController {
 		String path = application.getRealPath("/WEB-INF/uploadfiles/");
 	
 		//Upload 객체에 요청 데이터 저장 -> DB에 insert 처리		
-		history.setUserNo(21);
+		history.setUserNo(42);
 		history.setFile(file2);
 		
 		
@@ -100,7 +101,7 @@ public class HistoryController {
 			fileItem.setUploadSavedFileName(Util.getUniqueFileName(path, fileName));
 			fileItem.setUploadUserFileName(fileName);
 			
-			historyService.inserHistoryFile(fileItem);//DB에 저장
+			historyService.insertHistoryFile(fileItem);//DB에 저장
 			
 			//파일을 디스크에 저장
 			try {
@@ -122,6 +123,18 @@ public class HistoryController {
 		return "redirect:/historylist.action";
 		
 	}
+	
+	@RequestMapping(value="historydetailview.action", method=RequestMethod.GET)
+	public ModelAndView historyDetailView(int historyNo){
+		
+		ModelAndView mav= new ModelAndView();
+		History history=historyService.getHistoryByHistoryNo(historyNo);
+		
+		mav.addObject("history",history);
+		mav.setViewName("history/historydetailview");
+		return mav;		
+	};
+	
 	
 	
 
