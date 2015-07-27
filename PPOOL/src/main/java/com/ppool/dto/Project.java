@@ -48,6 +48,31 @@ public class Project {
 		this.stampExpire = stampExpire;
 	}
 	//////////////////////////////////////////////////////////////
+	private String[] develop;
+	private String[] design;
+	private String[] location;
+	
+	public String[] getDevelop() {
+		return develop;
+	}
+	public void setDevelop(String[] develop) {
+		this.develop = develop;
+	}
+	public String[] getDesign() {
+		return design;
+	}
+	public void setDesign(String[] design) {
+		this.design = design;
+	}
+	public String[] getLocation() {
+		return location;
+	}
+	public void setLocation(String[] location) {
+		this.location = location;
+	}
+	//////////////////////////////////////////////////////////////
+	
+	
 	
 	public int getProjectNo() {
 		return projectNo;

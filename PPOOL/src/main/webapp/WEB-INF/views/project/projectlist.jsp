@@ -14,7 +14,7 @@
 	
 	$(document).ready(function (){
 		$('.odd, .even').click(function(){
-			$(location).attr("href", "/ppool/projectDetailView.action?projectNo="+ $(this).find($('.pno')).val() );
+			$(location).attr("href", "/ppool/projectdetailview.action?projectNo="+ $(this).find($('.pno')).val() );
 		});
 		
 		$('#search').click(function(){

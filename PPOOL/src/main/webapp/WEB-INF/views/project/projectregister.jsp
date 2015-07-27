@@ -13,7 +13,7 @@
 	margin:5px;
 	padding:10px;
 	}
-	caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+	caption {font-weight:700; font-size:20px; padding:5px; color:#FF9147; text-align:left; margin-bottom:5px}
 	input.sub {
 	font-size: 15pt;
 	}
@@ -161,18 +161,18 @@
 		<table style="text-align: center; width: 98%; border:groove;  ">
 			<caption >테스트</caption><br/>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">프로젝트명</td>
+				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
 					<input type="text" style="width: 100%" name="projectTitle" id="projecttitle" />
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">담당자</td>
+				<td style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
 					<input type="text" style="width: 100%" name="projectWriter" id="projectwriter" />
 				</td>
-				<td style="width: 15%" bgcolor="#ddbbff">연락처</td>
+				<td style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">
 					<select name="phone1" id="phone1">
 						<option value="">----</option>
@@ -203,7 +203,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">이메일</td>
+				<td style="width: 15%" bgcolor="#FF9147">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
 					<input id="email1" type="text" name="email1" value="" style="width: 150px;"> @ 
 					<input id="email2" type="text" name="email2" value=""  readonly=""
@@ -234,7 +234,7 @@
 		<br/>
 		<table style="text-align: center; width: 98%; border:groove;  ">
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">개발</td>
+				<td style="width: 15%" bgcolor="#FF9147">개발</td>
 				<td style="width: 85%" colspan="3">
 					<ul class="ul_checkbox"  >				
 						<li><input type="checkbox" name="develop" value=".NET" > .NET</li>
@@ -261,7 +261,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">디자인</td>
+				<td style="width: 15%" bgcolor="#FF9147">디자인</td>
 				<td style="width: 85%" colspan="3">
 					<ul class="ul_checkbox">	
 						<li><input type="checkbox" name="design" value="HTML5" > HTML5</li>
@@ -277,7 +277,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">지역</td>
+				<td style="width: 15%" bgcolor="#FF9147">지역</td>
 				<td style="width: 85%" colspan="3">
 					<ul class="ul_checkbox">	
 						<li><input type="checkbox" name="location" value="강북" > 강북</li>
@@ -308,23 +308,23 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">프로젝트 설명</td>
+				<td style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
 				<td style="width: 85%" colspan="3">
 					<textarea name="projectContent" id="projectcontent" rows="20" style="max-height: 600px;width:100%;resize:none"></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#ddbbff">모집인원</td>
+				<td style="width: 15%" bgcolor="#FF9147">모집인원</td>
 				<td style="width: 35%">
 					<input type="text" style="width: 100%" name="projectTeamCount" id="projectteamcount"/>
 				</td>
-				<td style="width: 15%" bgcolor="#ddbbff">마감일</td>
+				<td style="width: 15%" bgcolor="#FF9147">모집 마감일</td>
 				<td style="width: 35%" align="left">
 					<input style="text-align: center" type="date" name="projectExpire" id="projectexpire">
 				</td>
 			</tr>
 			<tr>
-				<td bgcolor="#ddbbff">기간</td>
+				<td bgcolor="#FF9147">프로젝트 기간</td>
 				<td align="left" style="width: 85%" colspan="3">
 					<input style="text-align: center" type="date" name="projectStartDay" id="projectstartday"> ~ 
 					<input style="text-align: center" type="date" name="projectEndDay" id="projectendday">

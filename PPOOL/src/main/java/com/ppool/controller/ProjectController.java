@@ -54,25 +54,20 @@ public class ProjectController {
 	int a = 0;
 	@RequestMapping(value="projectregister.action",method = RequestMethod.POST)
 	public ModelAndView projectRegister(Project project, String email1, String email2, 
-			String phone1, String phone2, String phone3, String[] develop, String[] design){
+			String phone1, String phone2, String phone3){
 		
-//		project.setProjectEmail(email1+"@"+email2);
-//		project.setProjectPhone(phone1+"-"+phone2+"-"+phone3);
+		project.setProjectEmail(email1+"@"+email2);
+		project.setProjectPhone(phone1+"-"+phone2+"-"+phone3);
+		project.setProjectLocation("서울");
+		project.setUserNo(43);
 		
-//		project.setProjectLocation("서울");
-//		project.setUserNo(21);
-//		
-//		projectService.projectRegister(project);
-		
-		for (String string : develop) {
-			System.out.println(string);
-		}
+		projectService.projectRegister(project);
 		
 		mav.setViewName("redirect:/projectlist.action");
 		return mav;
 	}
 	
-	@RequestMapping(value="projectDetailView.action" ,method = RequestMethod.GET)
+	@RequestMapping(value="projectdetailview.action" ,method = RequestMethod.GET)
 	public ModelAndView projectDetailView(int projectNo){
 		Project project = projectService.getProjectByProjectNo(projectNo);
 		
@@ -82,4 +77,13 @@ public class ProjectController {
 		return mav;
 	}
 	
+	/*@RequestMapping(value="projectdelete.action" ,method = RequestMethod.GET)
+	public ModelAndView projectDelete(int projectNo){
+		projectService.projectDelete(projectNo);
+		mav.setViewName("project/projectdetailview");
+		
+		mav.setViewName("redirect:/projectlist.action");
+		return mav;
+	}
+	*/
 }
