@@ -45,6 +45,13 @@ public class FinalHistoryService implements HistoryService{
 		historyRepository.insertHistoryFile(file);		
 	}
 
+
+	@Override
+	public History getHistoryByHistoryNo(int historyNo) {
+		History history=historyRepository.getHistoryByHistoryNo(historyNo);
+		return history;
+	}
+
 	
 	
 }

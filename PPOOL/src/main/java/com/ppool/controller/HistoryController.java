@@ -123,6 +123,18 @@ public class HistoryController {
 		
 	}
 	
+	@RequestMapping(value="historydetailview.action", method=RequestMethod.GET)
+	public ModelAndView historyDetailView(int historyNo){
+		
+		ModelAndView mav= new ModelAndView();
+		History history=historyService.getHistoryByHistoryNo(historyNo);
+		
+		mav.addObject("history",history);
+		mav.setViewName("history/historydetailview");
+		return mav;		
+	};
+	
+	
 	
 
 }

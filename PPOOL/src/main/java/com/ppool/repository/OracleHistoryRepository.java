@@ -39,6 +39,13 @@ public class OracleHistoryRepository implements HistoryRepository{
 		List<History> histories=historyMapper.getHistoryList();
 		return histories;
 	}
+
+
+	@Override
+	public History getHistoryByHistoryNo(int historyNo) {
+		History history= historyMapper.getHistoryByHistoryNo(historyNo);
+		return history;
+	}
 	
 	
 
