@@ -1,6 +1,8 @@
 <%@page import="com.ppool.dto.Notification"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,47 +19,53 @@
 </head>
 
 <body>
-	<%
-		pageContext.include("/WEB-INF/views/include/header.jsp");
-	%>
+	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 	
-	<%
-		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-	%>
 	
 	<div align="center" style="margin-top: 3%" >
-				<%
-					Notification notification = (Notification) request.getAttribute("notification");
-				%>
+				<input type="hidden" c:out value="${ requestScope.notification}"/>
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
 					<table border="1" >
+						
 						<tr>
 							<th>번호</th>
-							<td><%=notification.getNotificationNo()%></td>
+							<td>${ notification.notificationNo }</td>
 						</tr>
 
 						<tr>
 							<th>제목</th>
-							<td><%=notification.getNotificationTitle()%></td>
+							<td>${ notification.notificationTitle }</td>
 						</tr>
 
 						<tr>
 							<th>내용</th>
-							<td><%=notification.getNotificationContent()%></td>
+							<td>${ notification.notificationContent }</td>
 						</tr>
 						<tr>
 							<th>작성일</th>
-							<td><%=notification.getStampRegisterDay()%></td>
+							<td>
+								${ notification.stampRegisterDay }
+							</td>
 						</tr>
-
+						
 					</table>
 					
 					<div style='text-align: center'>
-						[&nbsp;<a href='notificationeditform.action?notificationNo=<%=notification.getNotificationNo() %>' style='text-decoration:none'>편집</a>&nbsp;]
-						[&nbsp;<a href="javascript:deleteinstructor(<%= notification.getNotificationNo() %>);">삭제</a>&nbsp;]
-						[&nbsp;<a href='notificationlist.action' style='text-decoration:none'>취소</a>&nbsp;]
+						<c:url value="notificationeditform.action" var="editformUrl">
+        					<c:param name="notificationNo" value="${ notification.notificationNo }" />
+        				</c:url>
+        				[<a href="${ editformUrl }">편집</a>]
+						<c:url value="notificationdelete.action" var="deleteUrl">
+							<c:param name="notificationNo" value="${ notification.notificationNo }" />
+						</c:url>
+						[<a href="${ deleteUrl }">삭제</a>]
+						<c:url value="notificationlist.action" var="cancel">
+						</c:url>
+						[<a href="${ cancel }">취소</a>]
+						
 					</div>
 			</form>
 		</div>

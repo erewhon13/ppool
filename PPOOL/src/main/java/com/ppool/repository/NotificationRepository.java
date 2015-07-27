@@ -14,6 +14,8 @@ public interface NotificationRepository {
 
 	void notificationUpdate(Notification notification);
 
+	void notificationDelete(int notificationNo);
+
 	
 
 }
