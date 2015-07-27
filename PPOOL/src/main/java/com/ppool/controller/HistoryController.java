@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -27,6 +28,7 @@ import com.ppool.dto.HistoryUploadFile;
 import com.ppool.repository.HistoryRepository;
 import com.ppool.service.HistoryService;
 import com.ppool.util.Util;
+import com.ppool.view.DownloadView;
 
 
 @Controller
@@ -134,6 +136,32 @@ public class HistoryController {
 		return mav;		
 	};
 	
+	@RequestMapping(value="download.action", method=RequestMethod.GET)
+	public ModelAndView download(int uploadFileNo){
+		
+		HistoryUploadFile file=historyService.getHistoryUploadFileByUploadFileNo(uploadFileNo);
+		ModelAndView mav=new ModelAndView();
+		if (file != null) {
+			//다운로드 증가 - 여기서는 생략
+			mav.setView(new DownloadView());
+			mav.addObject("uploadfile", file);
+		} else {
+			mav.setViewName("redirect:/history/historylist.action");
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value="historyupdate.action", method=RequestMethod.POST)
+	public ModelAndView updateHistory(History history){
+		
+		ModelAndView mav=new ModelAndView();
+		history.setUserNo(42);
+		
+		historyService.updateHistory(history);
+		mav.setViewName("redirect:/historylist.action");
+		return mav;
+		
+	}
 	
 	
 

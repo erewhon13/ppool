@@ -52,6 +52,20 @@ public class FinalHistoryService implements HistoryService{
 		return history;
 	}
 
+
+	@Override
+	public HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo) {
+		HistoryUploadFile file=historyRepository.getHistoryUploadFileByUploadFileNo(uploadFileNo);
+		return file;
+	}
+
+
+	@Override
+	public void updateHistory(History history) {
+		historyRepository.updateHistory(history);
+		
+	}
+
 	
 	
 }

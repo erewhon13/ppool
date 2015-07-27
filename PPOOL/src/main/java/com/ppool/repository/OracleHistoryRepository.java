@@ -46,6 +46,21 @@ public class OracleHistoryRepository implements HistoryRepository{
 		History history= historyMapper.getHistoryByHistoryNo(historyNo);
 		return history;
 	}
+
+
+	@Override
+	public HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo) {
+		
+		HistoryUploadFile file=historyMapper.getHistoryUploadFileByUploadFileNo(uploadFileNo);
+		return file;
+		
+	}
+
+
+	@Override
+	public void updateHistory(History history) {
+		historyMapper.updateHistory(history);
+	}
 	
 	
 

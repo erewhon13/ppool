@@ -10,4 +10,6 @@ public interface HistoryService {
 	void insertHistoryFile(HistoryUploadFile file);
 	List<History> getHistoryList();
 	History getHistoryByHistoryNo(int historyNo);
+	HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo);
+	void updateHistory(History history);
 }
