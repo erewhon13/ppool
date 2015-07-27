@@ -79,7 +79,7 @@ public class HistoryController {
 		String path = application.getRealPath("/WEB-INF/uploadfiles/");
 	
 		//Upload 객체에 요청 데이터 저장 -> DB에 insert 처리		
-		history.setUserNo(21);
+		history.setUserNo(42);
 		history.setFile(file2);
 		
 		
