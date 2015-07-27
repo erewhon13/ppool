@@ -147,11 +147,11 @@ public class UserController {
 	public ModelAndView userinfoUpdate(MultipartHttpServletRequest req,User user) {
 		// 가상경로를 물리경로로 변환하는 기능을 가진 객체 반환
 		ServletContext application = req.getSession().getServletContext();
-
+		
 		// 가상경로 -> 물리경로
 		String path = application.getRealPath("/WEB-INF/userprofile/");
 
-		MultipartFile file = req.getFile("attach");// 요청 데이터에서 파일 정보 추출
+		MultipartFile file = req.getFile("userPictureSavedName");// 요청 데이터(jsp에서 input type="file"의 name)에서 파일 정보 추출
 		if (file != null && file.getSize() > 0) {
 
 			String fileName = file.getOriginalFilename();// 파일이름 읽어서 변수에 저장
