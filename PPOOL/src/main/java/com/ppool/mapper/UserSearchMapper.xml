@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
+
+<mapper namespace="com.ppool.mapper.UserSearchMapper">
+
+	<select id="getUserSearchList" resultType="User">
+		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR FROM USERS
+	</select>
+	
+</mapper>

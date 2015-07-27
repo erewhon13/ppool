@@ -9,6 +9,7 @@ public class Notification {
 	private String notificationContent;
 	private Date notificationRegisterDay;
 	private int adminNo;
+	private String deleted;
 
 	// ///////////////뷰에서 Date를 보기 좋게 하기위해 사용하는 필드///////////////////
 	
@@ -60,6 +61,14 @@ public class Notification {
 
 	public void setAdminNo(int adminNo) {
 		this.adminNo = adminNo;
+	}
+
+	public String getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
 	}
 
 }

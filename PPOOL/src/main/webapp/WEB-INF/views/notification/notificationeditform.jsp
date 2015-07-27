@@ -1,6 +1,7 @@
 <%@page import="com.ppool.dto.Notification"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,26 +19,20 @@
 </head>
 
 <body>
-	<%
-		pageContext.include("/WEB-INF/views/include/header.jsp");
-	%>
+	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 	
-	<%
-		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-	%>
 	<div>
 		<div align="center" style="margin-top: 3%" >
 			<div id="pageContainer">	
 				<form id="editform" action="notificationupdate.action" method="post">
-				<%
-				Notification notification = (Notification) request.getAttribute("notification");
-				%>
-				<input type="hidden" name="notificationNo" value="<%= notification.getNotificationNo() %>" />
+				<input type="hidden" c:out value="${ requestScope.notification}"/>
+				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
 				<table  border="1">
 					<tr>
 		                <th>제목</th>
 		                <td>
-		                	<input type="text" name="notificationTitle" style='width:580px' value="<%= notification.getNotificationTitle() %>" />
+		                	<input type="text" name="notificationTitle" style='width:580px' value="${ notification.notificationTitle }" />
 		                </td>
 		            </tr>
 		            <tr>
@@ -45,7 +40,7 @@
 		                <td>
 							<textarea 
 		                    	name="notificationContent" style="width:580px" 
-		                    	rows="15"><%= notification.getNotificationContent() %></textarea>
+		                    	rows="15">${ notification.notificationContent }</textarea>
 		                </td>
 		            </tr>
 				</table>

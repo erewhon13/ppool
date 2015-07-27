@@ -17,6 +17,8 @@ public interface NotificationService {
 
 	void notificationUpdate(Notification notification);
 
+	void notificationDelete(int notificationNo);
+
 	
 
 

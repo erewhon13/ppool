@@ -14,6 +14,8 @@ public interface NotificationMapper {
 
 	void notificationUpdate(Notification notification);
 
+	void notificationDelete(int notificationNo);
+
 	 
 		
 	

@@ -68,11 +68,11 @@ public class OracleNotificationRepository implements NotificationRepository {
 
 	}
 
-//	@Override
-//	public void instructordelete(int instructorCode) {
-//
-//		instructorMapper.instructordelete(instructorCode);
-//	}
+	@Override
+	public void notificationDelete(int notificationNo) {
+
+		notificationMapper.notificationDelete(notificationNo);
+	}
 //
 //	@Override
 //	public int getInstructorCount() {

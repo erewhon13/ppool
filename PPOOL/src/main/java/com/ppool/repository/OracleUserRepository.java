@@ -38,7 +38,8 @@ public class OracleUserRepository implements UserRepository {
 	}
 
 	@Override
-	public void updateUserInfo(User user) {
-		userMapper.updateUserInfo(user);
+	public void userInfoUpdate(User user) {
+		userMapper.userInfoUpdate(user);
+
 	}
 }

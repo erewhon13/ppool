@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -35,14 +36,14 @@ float:left;
 #s_inside{
 width:920px;
 height:940px;
-background-color:rgb(191,195,199);
+background-color:F8F7F7;
 margin:10px;
 }
 
 #s_inside2{
 width:920px;
 height:940px;
-background-color:rgb(191,195,199);
+background-color:F8F7F7;
 margin:10px;
 }
 
@@ -58,7 +59,8 @@ margin:10px;
 %>
 <body>
 		
-				<div  id="s_top"></div> <!-- 공간바 -->
+		<c:set var="users"  value="${users}"/>
+ 				<div  id="s_top"></div> <!-- 공간바 -->
 		
 				<div id="s_left" >왼쪽바
 					<div id="s_middle"></div><!-- 가운데 끼인바 -->
@@ -221,19 +223,24 @@ margin:10px;
 						<br>
 						<div id="s_inside2" style="margin-top:10px; border:1px solid;" >
 							<table style="text-align:center; width:100%; height:50px;" border="1px solid #bcbcbc" >
-								<td style="text-align: center; width:15%; height:50px;">회원정보</td>
-								<td style="text-align: center; width:15%; height:50px;">등급</td>
-								<td style="text-align: center; width:40%; height:50px;">이력사항 </td>
-								<td style="text-align: center; width:15%; height:50px;">희망지역</td>
-								<td style="text-align: center; width:15%; height:50px;">엠블럼</td>
+								<tr>
+									<td style="text-align: center; width:15%; height:50px;">회원정보</td>
+									<td style="text-align: center; width:15%; height:50px;">등급</td>
+									<td style="text-align: center; width:40%; height:50px;">이력사항 </td>
+									<td style="text-align: center; width:15%; height:50px;">희망지역</td>
+									<td style="text-align: center; width:15%; height:50px;">엠블럼</td>
+								</tr>
 							</table>
 							<table style="text-align:center; width:100%; height:80px;" border="1px solid #bcbcbc" >
-								<td style="text-align: center; width:15%; height:50px;"></td>
-								<td style="text-align: center; width:15%; height:50px;"></td>
-								<td style="text-align: center; width:40%; height:50px;"></td>
-								<td style="text-align: center; width:15%; height:50px;"></td>
-								<td style="text-align: center; width:15%; height:50px;"></td>
-							
+							<c:forEach var="user" items="${users}">
+								<tr>
+									<td style="text-align: center; width:15%; height:50px;">${user.userEmail} </td>
+									<td style="text-align: center; width:15%; height:50px;"></td>
+									<td style="text-align: center; width:40%; height:50px;"></td>
+									<td style="text-align: center; width:15%; height:50px;"></td>
+									<td style="text-align: center; width:15%; height:50px;"></td>
+								</tr>
+							</c:forEach>
 							</table>
 				
 						

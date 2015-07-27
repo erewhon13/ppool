@@ -72,6 +72,7 @@
 										<c:forEach var="history" items="${histories}">
 										<tr class="detailview">
 											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyNo}</td>
+											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyTitle}</td>
 											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20" >${history.historyTitle}</td>											
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">
 											<input type="hidden" class="hno" value="${history.historyNo}"/>									

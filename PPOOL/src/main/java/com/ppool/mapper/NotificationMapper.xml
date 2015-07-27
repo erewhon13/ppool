@@ -14,6 +14,7 @@
 	<select id="notificationList" resultType="Notification">
 		SELECT NOTIFICATIONNO, NOTIFICATIONTITLE, NOTIFICATIONREGISTERDAY, ADMINNO
 		FROM NOTIFICATIONS
+		WHERE DELETED ='0'
 	</select>
 	
 	<select id="notificationView" resultType="Notification">
@@ -26,6 +27,12 @@
 	<update id="notificationUpdate" parameterType="Notification">
 		UPDATE NOTIFICATIONS
 		SET notificationTitle = #{notificationTitle}, notificationContent = #{notificationContent} 
+		WHERE notificationNo = #{notificationNo}
+	</update>
+	
+	<update id="notificationDelete" parameterType="int">
+		UPDATE NOTIFICATIONS
+		SET deleted = '1' 
 		WHERE notificationNo = #{notificationNo}
 	</update>
 </mapper>

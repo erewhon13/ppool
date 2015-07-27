@@ -45,6 +45,8 @@ public class NotificationController {
 
 		return mav;
 	}
+	
+	
 
 	@RequestMapping(value = "notificationwriteform.action", method = RequestMethod.GET)
 	public ModelAndView notificationWriteForm() {
@@ -87,6 +89,14 @@ public class NotificationController {
 	public String notificationUpdate(int notificationNo, Notification notification) {
 		
 		notificationService.notificationUpdate(notification);
+		
+		return "redirect:notificationlist.action";
+	}
+	
+	@RequestMapping(value = "notificationdelete.action", method = RequestMethod.GET)
+	public String notificationDelete(int notificationNo) {
+		
+		notificationService.notificationDelete(notificationNo);
 		
 		return "redirect:notificationlist.action";
 	}
