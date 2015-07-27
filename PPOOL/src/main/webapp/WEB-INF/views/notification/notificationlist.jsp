@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" 
+	uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,14 +20,10 @@
 </head>
 
 <body>
-	<%
-		pageContext.include("/WEB-INF/views/include/header.jsp");
-	%>
+	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
 	<div>
-	<%
-		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-	%>
+	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 	</div>
 	<div>
 		<%
@@ -41,21 +39,20 @@
 						<th style="width: 15%">등록일</th>
 						<th style="width: 10%">관리자번호</th>
 					</tr>
-					<%
-						for (Notification notification : notifications) {
-					%>
-					<tr
-						style='text-align: center; height: 30px; background-color: #F1F1F1;'>
-						<td><%=notification.getNotificationNo()%></td>
-						<td><a
-							href='notificationview.action?notificationNo=<%=notification.getNotificationNo() %>'>
-								<%=notification.getNotificationTitle()%></a></td>
-						<td><%=notification.getStampRegisterDay()%></td>
-						<td><%=notification.getAdminNo()%></td>
+				
+				<c:forEach var="notification" items="${ notifications }">
+					<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
+						<td>${ notification.notificationNo }</td>
+						<td>
+							<c:url value="notificationview.action" var="viewUrl">
+								<c:param name="notificationtitle" value="${ notification.notificationTitle }" />
+							</c:url>
+							<a href='${ viewUrl }'>${ notification.notificationNo }</a>
+						</td>
+						<td>${ notification.stampRegisterDay }</td>
+						<td>${ notification.adminNo }</td>
 					</tr>
-					<%
-						}
-					%>
+				</c:forEach>
 					
 			</table>
 				
