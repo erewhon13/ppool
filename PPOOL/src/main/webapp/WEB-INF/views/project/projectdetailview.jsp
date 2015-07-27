@@ -19,19 +19,17 @@
 		$('#modify').click(function(){
 			alert("수정 미구현");
 		});
+		$('#delete').click(function(){
+			alert("딜리트도 미구현");
+		});
 	});
 		
 	</script>
 	
 </head>
 <body>
-<%
-	pageContext.include("/WEB-INF/views/include/header.jsp");
-%>
-
-<%
-	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-%>
+<c:import url="/WEB-INF/views/include/header.jsp"/>
+<c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 
 	<div style="margin: auto;">
 		<div style="text-align: left">
@@ -50,6 +48,7 @@
 	<div style="width:100%;" align="center">
 		<img src="/ppool/resources/images/list.png" id="list" style="cursor: pointer;">
 		<img src="/ppool/resources/images/modify.png" id="modify" style="cursor: pointer;">
+		<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">
 	</div>
 </body>
 </html>

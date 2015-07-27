@@ -29,13 +29,8 @@
 	
 </head>
 <body>
-<%
-	pageContext.include("/WEB-INF/views/include/header.jsp");
-%>
-
-<%
-	pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-%>
+<c:import url="/WEB-INF/views/include/header.jsp"/>
+<c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 <c:set var="projects" value="${projects }"/>
 
 <div style="width:72%;margin-right:5%;float: right" ><br/>
@@ -71,7 +66,7 @@
 							<td class="dday">D - ${project.projectStatus}</td>
 						</c:when>
 						<c:when test="${project.projectStatus eq 0}">
-							<td class="dday" style="color: red">마감일</td>
+							<td class="dday" style="color: red;font-weight: bold;">마감일</td>
 						</c:when>
 						<c:when test="${project.projectStatus lt 0}">
 							<td class="dday">${project.stampExpire}</td>
@@ -80,7 +75,7 @@
 					
 					<c:choose>
 						<c:when test="${project.projectStatus >= 0}">
-							<td class="status" style="color: blue">모집중</td>
+							<td class="status" style="color: blue;font-weight: bold;">모집중</td>
 						</c:when>
 						<c:when test="${project.projectStatus < 0}">
 							<td class="status">완료</td>
