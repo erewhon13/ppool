@@ -88,8 +88,8 @@
 	</table>
 	<br/>
 	<div style="width:100%;" align="right">
-		<img src="/ppool/resources/images/search.png" class="list" id="search" style="cursor: pointer;">
-		<img src="/ppool/resources/images/writer.png" class="list" id="writer" style="cursor: pointer;">
+		<img src="/ppool/resources/images/search.png" id="search" style="cursor: pointer;">
+		<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 	</div>
 </div>
 </body>

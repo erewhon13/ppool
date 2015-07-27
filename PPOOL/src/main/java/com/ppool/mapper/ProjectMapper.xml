@@ -32,4 +32,10 @@
 		WHERE PROJECTNO = #{projectNo}
 	</select>
 	
+	<delete id="projectDelete" parameterType="int">
+		DELETE FROM projects
+		WHERE projectno = #{projectNo}
+	</delete>
+	
+	
 </mapper>

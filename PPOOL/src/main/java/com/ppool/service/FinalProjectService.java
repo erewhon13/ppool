@@ -66,5 +66,11 @@ public class FinalProjectService implements ProjectService{
 		project.setStampRegisterDay(ChangeWord.dateToString(project.getProjectRegisterDay()));
 		return project;
 	}
+
+	@Override
+	public void projectDelete(int projectNo) {
+		projectRepository.projectDelete(projectNo);
+		
+	}
 	
 }

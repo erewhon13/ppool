@@ -40,7 +40,7 @@
 			alert("수정 미구현");
 		});
 		$('#delete').click(function(){
-			$(location).attr("href", "/ppool/projectdelete.action");
+			$(location).attr("href", "/ppool/projectdelete.action?projectNo=${project.projectNo}");
 		});
 	});
 		
@@ -51,8 +51,7 @@
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 
-	<form id="submitForm" action="projectregister.action" method="POST"> 
-		<div style="width:72%; margin-right:5%;float: right" ><br/>
+	<div style="width:72%; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 98%; border:groove;  ">
 			<caption >테스트</caption><br/>
 			<tr>
@@ -237,7 +236,6 @@
 			<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">
 		</div>
 	</div>
-	</form>
 	
 </body>
 </html>
