@@ -77,7 +77,8 @@ public class ProjectController {
 		return mav;
 	}
 	
-	/*@RequestMapping(value="projectdelete.action" ,method = RequestMethod.GET)
+	/*
+	 * @RequestMapping(value="projectdelete.action" ,method = RequestMethod.GET)
 	public ModelAndView projectDelete(int projectNo){
 		projectService.projectDelete(projectNo);
 		mav.setViewName("project/projectdetailview");
