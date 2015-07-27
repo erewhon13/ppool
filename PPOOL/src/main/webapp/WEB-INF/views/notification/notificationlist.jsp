@@ -26,9 +26,7 @@
 	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 	</div>
 	<div>
-		<%
-			List<Notification> notifications = (List<Notification>) request.getAttribute("notifications");
-		%>
+		
 		<div align="center" style="margin-top: 3%" >
 			<form id="notification" action="" method="post">
 				<table  width="70%" style="text-align: center;">
@@ -45,9 +43,9 @@
 						<td>${ notification.notificationNo }</td>
 						<td>
 							<c:url value="notificationview.action" var="viewUrl">
-								<c:param name="notificationtitle" value="${ notification.notificationTitle }" />
+								<c:param name="notificationNo" value="${ notification.notificationNo }" />
 							</c:url>
-							<a href='${ viewUrl }'>${ notification.notificationNo }</a>
+							<a href='${ viewUrl }'>${ notification.notificationTitle }</a>
 						</td>
 						<td>${ notification.stampRegisterDay }</td>
 						<td>${ notification.adminNo }</td>
