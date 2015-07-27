@@ -13,20 +13,15 @@
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
-		$('.odd, .even').click(function(event){
+		$('.odd, .even').click(function(){
 			$(location).attr("href", "/ppool/projectDetailView.action?projectNo="+ $(this).find($('.pno')).val() );
-			event.preventDefault();
 		});
-		$('.list').click(function(event){
-			$('#search').click(function(){
-				alert("미구현입니다")
-				event.preventDefault();
-			});
-			$('#writer').click(function(){
-				$(location).attr("href", "/ppool/registerproject.action");
-				event.preventDefault();
-			});
-			
+		
+		$('#search').click(function(){
+			alert("미구현입니다");
+		});
+		$('#writer').click(function(){
+			$(location).attr("href", "/ppool/projectregister.action");
 		});
 	});
 		
@@ -61,7 +56,7 @@
 			<c:forEach var="project" items="${projects }" >
 				<c:choose>
 					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" style="cursor: pointer;" ></c:when>
-					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" ></c:when>
+					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" style="cursor: pointer;" ></c:when>
 				</c:choose>
 					<input class="pno" type="hidden" value="${project.projectNo}">
 					<th class="projectno" >${project.projectNo}</th>
