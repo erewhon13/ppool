@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>User Resume</title>
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel="stylesheet" href="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.css">
+  <link rel="stylesheet" href="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.theme.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
   <script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 
 <style type="text/css">
@@ -43,29 +43,29 @@ background-color:white;
 margin:10px;
 }
 
+
+
 </style>
 
 <script type="text/javascript">
 
-		$(document).ready(function(){
-			var dialog;
-			var form;
-			
-				
-				
-	 	$("#register").click(function(){
-	 		make();
-	 	})
-	 	
-	 	dialog = $("#dialog-form").dialog({
-	 		autoOpen: false,
+	$(function(){
+		var dialog2, form,
+	
+		userMajor = $("#userMajor"),
+		majorday = $("#majorday"),
+		locationNo = $("#locationNo"),
+		userOpenLevel =$("userOpenLevel");
+		console.log($("#dialog-form").dialog);
+	 	dialog2 = $("#dialog-form").dialog({
+	 		  autoOpen: false,
 	 	      height: 300,
 	 	      width: 350,
 	 	      modal: true,
-	 	      buttons:{
-	 	    	  		"CREATE":addRegister,
-	 	    	  		Cancel: function(){
-	 	    	  			dialog.dialog("close");
+	 	      buttons: {
+	 	    	  		"등록하기":addRegister,
+	 	    	  		"취소": function(){
+	 	    	  			dialog.dialog("cancel");
 	 	    	  		}
 	 	      },
 	 	      close: function(){
@@ -73,23 +73,45 @@ margin:10px;
 	 	    	  	allFields.removeClass("ui-state-error");
 	 	      }
 	 	});
-	 	
-	 	form = dialog.find( "form" ).on( "submit", function( event ) {
+		
+	 	form = dialog2.find( "form" ).on( "submit", function( event ) {
 	 	      event.preventDefault();
 	 	      addRegister();
 	 	    });
 	 
-	 	$( "#register" ).button().on( "click", function() {
-	 	      dialog.dialog( "open" );
+	 	$("#register").on("click", function(event){
+	 	     dialog2.dialog( 'open' );
 	 	    });
-		});		
+		});	
+	
+	function addRegister(){
+		
+	}
+	
+	
+	
 </script>
 
 </head>
 <%
-	pageContext.include("/WEB-INF/views/include/header.jsp");
+	//pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
 <body>
+<div id="dialog-form" title="등록하기">
+		<form>
+				<fieldset>
+						<label for="userMajor">전공</label>
+						<input type="text" name="userMajor" id="userMajor" class="text ui-widget-content ui-corner-all">
+						<label for="majorDay">기간</label>
+						<input type="text" name="majorDay" id="majorDay" class="text ui-widget-content ui-corner-all">
+						<label for="locationNo">소재지</label>
+						<input type="text" name="locationNo" id="locationNo" class="text ui-widget-content ui-corner-all">
+						<label for="userOpenLevel">공개여부</label>
+						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all">
+						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+				</fieldset>
+		</form>
+</div>
 <div  id="r_top"></div> <!-- 공간바 -->
 		
 				<div id="r_left" >왼쪽바
@@ -113,6 +135,10 @@ margin:10px;
 									</tr>
 								</tbody>
 						</table>
+					
+						
+					
+					
 					<div id="users-contain" class="ui-widget">	
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
@@ -122,13 +148,12 @@ margin:10px;
 											학력사항
 											</td>
 											<td style="width:20%" align="right">
-												<button id="register" title="등록상자" style="float:right;">등록하기</button>
+												<button id="register" style="float:right;">등록하기</button>
 											</td>
 										</tr>
 								</tbody>
 						</table>
 							
-						
 						
 							<table id="users"  class="ui-widget ui-widget-content" style="text-align:center; width:100%;">
 								<thead>
@@ -182,38 +207,6 @@ margin:10px;
 							</table>		
 					</div>
 					
-					<div id="경력사항">	
-						<table style="text-align:center; width:100%; margin-top:10px; ">
-								<tbody>
-										<tr>
-											<td style="width:80%"  align="left"  >
-												<img src="/ppool/resources/images/arrow.gif" height=13px>
-											경력사항
-											</td>
-											<td style="width:20%" align="right">
-												<button style="float:right;">등록하기</button>
-											</td>
-										</tr>
-								</tbody>
-						</table>
-							<table style="text-align:center; width:100%;">
-								<tbody>
-						
-										<tr>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">회사명</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">근무부서</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">직위</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">근무기간</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">소재지</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">공개여부</td>
-										</tr>
-										<tr>
-											<td align="center" height="28" colspan="6">등록된 경력사항 정보가 없습니다.</td>
-										</tr>
-								</tbody>
-							</table>		
-					</div>
-					<hr border-top:1px solid />
 						<td style="float:left;">
 									<img src="/ppool/resources/images/topbar2.png" width="100%" >
 						</td>
@@ -340,20 +333,6 @@ margin:10px;
 				
 					
 				</div>
-				<div id="dialog-form" title="등록하기">
-									<form>
-											<fieldset>
-													<label for="major">전공</label>
-													<input type="text" name="major" id="major" class="text ui-widget-content ui-corner-all">
-													<label for="major">기간</label>
-													<input type="text" name="major" id="major" class="text ui-widget-content ui-corner-all">
-													<label for="1">소재지</label>
-													<input type="text" name="1" id="1" class="text ui-widget-content ui-corner-all">
-													<label for="2">공개여부</label>
-													<input type="text" name="2" id="2" class="text ui-widget-content ui-corner-all">
-													<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-											</fieldset>
-									</form>
-							</div>
+				
 </body>
 </html>

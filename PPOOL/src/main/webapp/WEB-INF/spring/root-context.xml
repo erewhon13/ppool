@@ -46,4 +46,9 @@
 		<property name="sqlSessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="userSearchMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.ppool.mapper.UserSearchMapper" />
+		<property name="sqlSessionFactory" ref="sessionFactory" />
+	</bean>
+	
 </beans>

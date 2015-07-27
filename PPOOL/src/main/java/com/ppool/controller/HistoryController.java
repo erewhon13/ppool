@@ -38,6 +38,7 @@ public class HistoryController {
 	@Qualifier("historyService")
 	public void setHistoryService(HistoryService historyService){
 		this.historyService=historyService;
+		
 	}
 	
 	

@@ -19,6 +19,7 @@
 		<mapper resource="com/ppool/mapper/ProjectMapper.xml" />
 		<mapper resource="com/ppool/mapper/NotificationMapper.xml" />
 		<mapper resource="com/ppool/mapper/HistoryMapper.xml"/>
+		<mapper resource="com/ppool/mapper/UserSearchMapper.xml"/>
 	</mappers>
 
 </configuration>

@@ -39,7 +39,5 @@ public class OracleHistoryRepository implements HistoryRepository{
 		List<History> histories=historyMapper.getHistoryList();
 		return histories;
 	}
-	
-	
 
 }
