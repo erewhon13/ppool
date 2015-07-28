@@ -1,14 +1,19 @@
 package com.ppool.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.mail.search.IntegerComparisonTerm;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.Project;
 import com.ppool.service.ProjectService;
-import com.ppool.util.ChangeWord;
+import com.ppool.service.UserService;
+import com.ppool.util.Util;
 
 @Controller
 public class ProjectController {
@@ -30,8 +36,12 @@ public class ProjectController {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,true));
 	}
-	
-	
+//	private UserService userService;
+//	@Autowired
+//	@Qualifier("userService")
+//	public void setUserService(UserService userService) {
+//		this.userService = userService;
+//	}
 	@Autowired
 	@Qualifier("projectService")
 	public void setProjectService(ProjectService projectService) {
@@ -43,9 +53,6 @@ public class ProjectController {
 		List<Project> projects = projectService.getProjectList();
 		
 		for (Project project : projects) {
-//			project.setStampStart(ChangeWord.dateToString(project.getProjectStartDay()));
-//			project.setStampEnd(ChangeWord.dateToString(project.getProjectEndDay()));
-			
 			Calendar cal = Calendar.getInstance();
 			long nowDay = cal.getTimeInMillis();
 			
@@ -57,9 +64,6 @@ public class ProjectController {
 			long eventDay = cal.getTimeInMillis();
 			int y =(int)((eventDay - nowDay) / (24 * 60 * 60 * 1000));
 			project.setProjectStatus(y);
-			
-//			project.setStampExpire(ChangeWord.dateToString(project.getProjectExpire()));
-			
 		}
 		
 		mav.setViewName("project/projectlist");
@@ -72,8 +76,7 @@ public class ProjectController {
 		mav.setViewName("project/projectregister");
 		return mav;
 	}
-	
-	int a = 0;
+
 	@RequestMapping(value="projectregister.action",method = RequestMethod.POST)
 	public ModelAndView projectRegister(Project project){
 		
@@ -81,12 +84,28 @@ public class ProjectController {
 		project.setProjectPhone(project.getPhone1()+"-"+project.getPhone2()+"-"+project.getPhone3());
 		project.setUserNo(43);
 		
-		if(project.getLocation().length > 0){
-			for (String location : project.getLocation()) {
-				/*projectService.sfdlfjsdf(location*/
+		projectService.projectRegister(project);
+		
+		int projectNo = project.getProjectNo();
+		
+		if(project.getSkill() != null && project.getSkill().length > 0){
+			for (String skillNo : project.getSkill() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("skillNo", skillNo);
+				params.put("projectNo", projectNo);
+				
+				projectService.projectSkillRegister(params);
 			}
 		}
-		projectService.projectRegister(project);
+		if(project.getLocation() != null && project.getLocation().length > 0){
+			for (String locationNo : project.getLocation() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("locationNo", locationNo);
+				params.put("projectNo", projectNo);
+				
+				projectService.projectLocationRegister(params);
+			}
+		}
 		
 		mav.setViewName("redirect:/projectlist.action");
 		return mav;
@@ -96,8 +115,13 @@ public class ProjectController {
 	public ModelAndView projectDetailView(int projectNo){
 		Project project = projectService.getProjectByProjectNo(projectNo);
 		
+		String s = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
+		String s2 = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
+		
 		mav.setViewName("project/projectdetailview");
 		mav.addObject("project", project);
+		mav.addObject("locations", s);
+		mav.addObject("skills", s2);
 		
 		return mav;
 	}
