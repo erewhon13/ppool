@@ -115,13 +115,25 @@ public class ProjectController {
 	public ModelAndView projectDetailView(int projectNo){
 		Project project = projectService.getProjectByProjectNo(projectNo);
 		
-		String s = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
-		String s2 = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
+		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
+		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
+		String email1 = project.getProjectEmail().split("@")[0];
+		String email2 = project.getProjectEmail().split("@")[1];
+		String phone1 = project.getProjectPhone().split("-")[0];
+		String phone2 = project.getProjectPhone().split("-")[1];
+		String phone3 = project.getProjectPhone().split("-")[2];
+		
+		System.out.println(project.getUserNo());
 		
 		mav.setViewName("project/projectdetailview");
 		mav.addObject("project", project);
-		mav.addObject("locations", s);
-		mav.addObject("skills", s2);
+		mav.addObject("locations", locations);
+		mav.addObject("skills", skills);
+		mav.addObject("email1", email1);
+		mav.addObject("email2", email2);
+		mav.addObject("phone1", phone1);
+		mav.addObject("phone2", phone2);
+		mav.addObject("phone3", phone3);
 		
 		return mav;
 	}

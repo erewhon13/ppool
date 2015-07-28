@@ -14,13 +14,13 @@
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<style type="text/css">
 	td{
-	font-size:10pt;
-	margin:5px;
-	padding:10px;
+		font-size:10pt;
+		margin:5px;
+		padding:10px;
 	}
 	caption {font-weight:700; font-size:20px; padding:5px; color:#FF9147; text-align:left; margin-bottom:5px}
 	input.sub {
-	font-size: 15pt;
+		font-size: 15pt;
 	}
 	.ul_checkbox{
 		list-style:none;
@@ -31,6 +31,7 @@
 		display:inline-block; 
 	}
 	</style>
+	
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
@@ -54,9 +55,12 @@
 			$('.location input[value='+obj+']').attr('checked', true);
 		})
 		
+		var phone1 = '${phone1}'
+		$('#phone1 option[value='+phone1+']').attr('selected', true);
 		
+		$('.table input, textarea').attr('readonly','readonly');
+		$('.table select, .skill input, .location input ').attr('disabled','disabled');
 	});
-		
 	</script>
 	
 </head>
@@ -64,23 +68,23 @@
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
-		<table style="text-align: center; width: 100%; border:groove;  ">
+		<table style="text-align: center; width: 100%; border:groove;" class="table">
 			<caption >테스트</caption>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
-					<input type="text" style="width: 100%" name="projectTitle" id="projecttitle" value="${ project.projectTitle}"/>
+					<input type="text" style="width: 100%;" name="projectTitle" id="projecttitle" value="${ project.projectTitle}"/>
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" name="projectWriter" id="projectwriter" />
+					<input type="text" style="width: 100%" value="${project.userNo }" />
 				</td>
 				<td style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">
-					<select name="phone1" id="phone1">
+					<select name="phone1" id="phone1" >
 						<option value="">----</option>
 						<option value="02">02</option>
 						<option value="031">031</option>
@@ -104,15 +108,15 @@
 						<option value="0506">0506</option>
 						<option value="0130">0130</option>
 					</select> - 
-					<input type="text" name="phone2" id="phone2" value=""style="width: 70px; text-align: center;"> - 
-					<input type="text" name="phone3" id="phone3" value=""style="width: 70px; text-align: center;">
+					<input type="text" name="phone2" id="phone2" value='${phone2 }' style="width: 70px; text-align: center;"> - 
+					<input type="text" name="phone3" id="phone3" value='${phone3 }' style="width: 70px; text-align: center;">
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
-					<input id="email1" type="text" name="email1" value="" style="width: 150px;"> @ 
-					<input id="email2" type="text" name="email2" value=""  readonly=""
+					<input id="email1" type="text" name="email1" value="${email1 }" style="width: 150px;"> @ 
+					<input id="email2" type="text" name="email2" value="${email2 }"  readonly=""
 							style="width: 155px;  border: solid #CECFD0 1px; font-size: 10pt;"> 
 					<select id="emailSelect" style="width: 150px; 
 							font-size: 12px;">
@@ -138,7 +142,7 @@
 			</tr>
 		</table>
 		<br/>
-		<table style="text-align: center; width: 100%; border:groove;  ">
+		<table style="text-align: center; width: 100%; border:groove; " class="table">
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">개발</td>
 				<td style="width: 85%" colspan="3">
