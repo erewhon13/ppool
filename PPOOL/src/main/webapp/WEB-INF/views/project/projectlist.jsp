@@ -15,7 +15,7 @@
 	
 	$(document).ready(function (){
 		$('.odd, .even').click(function(){
-			$(location).attr("href", "/ppool/projectdetailview.action?projectNo="+ $(this).find($('.pno')).val() );
+			$(location).attr("href", "/ppool/projectdetailview.action?projectNo="+ $(this).attr('id') );
 		});
 		
 		$('#search').click(function(){
@@ -51,10 +51,10 @@
 			<c:set var="r" value="1"/>
 			<c:forEach var="project" items="${projects }" >
 				<c:choose>
-					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" style="cursor: pointer;" ></c:when>
-					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" style="cursor: pointer;" ></c:when>
+					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" id="${project.projectNo}" style="cursor: pointer;" ></c:when>
+					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" id="${project.projectNo}" style="cursor: pointer;" ></c:when>
 				</c:choose>
-					<input class="pno" type="hidden" value="${project.projectNo}">
+					
 					<th class="projectno" >${project.projectNo}</th>
 					<td class="date">
 						<f:formatDate value="${ project.projectStartDay}" pattern="yy년 MM월 dd일" var="start"/>

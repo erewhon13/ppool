@@ -1,5 +1,6 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,16 @@ public class OracleProjectRepository implements ProjectRepository{
 	@Override
 	public void projectDelete(int projectNo) {
 		projectMapper.projectDelete(projectNo);
+	}
+
+	@Override
+	public void projectLocationRegister(HashMap<String, Object> params) {
+		projectMapper.projectLocationRegister(params);
+	}
+
+	@Override
+	public void projectSkillRegister(HashMap<String, Object> params) {
+		projectMapper.projectSkillRegister(params);
 	}
 
 }

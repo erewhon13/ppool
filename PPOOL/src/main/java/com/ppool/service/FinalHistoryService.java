@@ -1,5 +1,6 @@
 package com.ppool.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,46 @@ public class FinalHistoryService implements HistoryService{
 	public History getHistoryByHistoryNo(int historyNo) {
 		History history=historyRepository.getHistoryByHistoryNo(historyNo);
 		return history;
+	}
+
+
+	@Override
+	public HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo) {
+		HistoryUploadFile file=historyRepository.getHistoryUploadFileByUploadFileNo(uploadFileNo);
+		return file;
+	}
+
+
+	@Override
+	public void updateHistory(History history) {
+		historyRepository.updateHistory(history);
+		
+	}
+
+
+	@Override
+	public void deleteHistory(int historyNo) {
+		historyRepository.deleteHistory(historyNo);
+	}
+
+
+	@Override
+	public void deleteHistoryUploadFile(int historyNo) {
+		historyRepository.deleteHistoryUploadFile(historyNo);
+	}
+
+
+	@Override
+	public int getHistoryCount() {
+		int count = historyRepository.getHistoryCount();
+		return count;
+	}
+
+
+	@Override
+	public List<History> historyList(int first,int last) {
+		List<History> histories=historyRepository.historyList(first,last);
+		return histories;		
 	}
 
 	

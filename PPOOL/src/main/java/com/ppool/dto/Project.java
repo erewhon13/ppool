@@ -1,6 +1,7 @@
 package com.ppool.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class Project {
 	private int projectNo;
@@ -22,8 +23,7 @@ public class Project {
 	private String phone3;
 	private String email1;
 	private String email2;
-	private String[] develop;
-	private String[] design;
+	private String[] skill;
 	private String[] location;
 	
 	public String getPhone1() {
@@ -56,17 +56,11 @@ public class Project {
 	public void setEmail2(String email2) {
 		this.email2 = email2;
 	}
-	public String[] getDevelop() {
-		return develop;
+	public String[] getSkill() {
+		return skill;
 	}
-	public void setDevelop(String[] develop) {
-		this.develop = develop;
-	}
-	public String[] getDesign() {
-		return design;
-	}
-	public void setDesign(String[] design) {
-		this.design = design;
+	public void setSkill(String[] skill) {
+		this.skill = skill;
 	}
 	public String[] getLocation() {
 		return location;
