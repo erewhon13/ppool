@@ -28,6 +28,7 @@
 		<c:set var="history" value="${history}"/>
 		<input type="hidden" name="historyNo" value="${history.historyNo}"/>
 		<table style="margin: auto; width: 700px">
+			
 			<tr >
 				<td style="width: 15%; background-color:#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">	
