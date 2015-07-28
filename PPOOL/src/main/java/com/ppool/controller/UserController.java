@@ -146,7 +146,7 @@ public class UserController {
 	@RequestMapping(value = "userinfoupdate.action", method = RequestMethod.POST)
 	public ModelAndView userinfoUpdate(MultipartHttpServletRequest request,User user){
 		ServletContext application = request.getSession().getServletContext();
-		String path = application.getRealPath("/WEB-INF/userprofile");
+		String path = application.getRealPath("/resources/images");
 		MultipartFile file = request.getFile("userProfile");
 		String fileName = file.getOriginalFilename();
 		user.setUserPictureSavedName(fileName);
@@ -167,9 +167,8 @@ public class UserController {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		mav.addObject("path",path);
 		mav.addObject("fileName",fileName);
-		mav.setViewName("users/userinfo");
+		mav.setViewName("redirect:/userinfo.action?userNo="+user.getUserNo());
 		return mav;
 	}
 }
