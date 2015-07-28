@@ -10,12 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserResumeController {
 
 	ModelAndView mav = new ModelAndView();
-  
 	
 	@RequestMapping(value="resume.action", method=RequestMethod.GET)
-	public ModelAndView resume(){
+	public ModelAndView resumeRegister(){
+		
 		
 		mav.setViewName("users/userresume");
 		return mav;
+		
+		
 	}
 }

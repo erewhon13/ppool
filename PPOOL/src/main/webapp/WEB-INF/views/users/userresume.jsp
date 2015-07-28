@@ -43,10 +43,8 @@ background-color:white;
 margin:10px;
 }
 
-	label, input { display:block; }
     input.text { margin-bottom:12px; width:95%; padding: .4em; }
     fieldset { padding:0; border:0; margin-top:25px; }
-	h1 { font-size: 1.2em; margin: .6em 0; }
 
 </style>
 
@@ -138,7 +136,7 @@ margin:10px;
 	 	      addRegister();
 	 	    });
 	 	
-	 	$("#register").on("click", function(event){
+	 	$("#register1").on("click", function(event){
 	 	     dialog.dialog( 'open' );
 	 	    });
 	});	
@@ -502,16 +500,16 @@ margin:10px;
 
 </head>
 <%
-	//pageContext.include("/WEB-INF/views/include/header.jsp");
+	pageContext.include("/WEB-INF/views/include/header.jsp");
 %>
 <body>
 <div id="dialog-form" title="등록하기">
 		<form>
 				<fieldset>
 						<label for="userMajor">전공</label>
-						<input type="text" name="userMajor" id="userMajor" class="text ui-widget-content ui-corner-all" style="width:25%">
+						<input type="text" name="userMajor" id="userMajor" class="text ui-widget-content ui-corner-all" >
 						<label for="majorDay">기간</label>
-						<input type="text" name="majorDay" id="majorDay" class="text ui-widget-content ui-corner-all" style="width:70%">
+						<input type="text" name="majorDay" id="majorDay" class="text ui-widget-content ui-corner-all" >
 						<!-- ~<input type="date" name="majorDay" id="majorDay" class="text ui-widget-content ui-corner-all" style="width:70%">  -->
 						<label for="locationNo">소재지</label>
 						<input type="text" name="locationNo" id="locationNo" class="text ui-widget-content ui-corner-all">
@@ -525,10 +523,10 @@ margin:10px;
 		<form>
 				<fieldset>
 						<label for="ResumeEducation">교육과정</label>
-						<input type="text" name="ResumeEducation" id="ResumeEducation" class="text ui-widget-content ui-corner-all2" style="width:25%">
+						<input type="text" name="ResumeEducation" id="ResumeEducation" class="text ui-widget-content ui-corner-all2" >
 						<label for="ResumeEducationStartDay">교육기간</label>
-						<input type="date" name="ResumeEducationStartDay" id="ResumeEducationStartDay" class="text ui-widget-content ui-corner-all2" style="width:70%">
-						 ~<input type="date" name="ResumeEducationEndDay" id="ResumeEducationEndDay" class="text ui-widget-content ui-corner-all2" style="width:70%"> 
+						<input type="date" name="ResumeEducationStartDay" id="ResumeEducationStartDay" class="text ui-widget-content ui-corner-all2" >
+						 ~<input type="date" name="ResumeEducationEndDay" id="ResumeEducationEndDay" class="text ui-widget-content ui-corner-all2" > 
 						<label for="ResumeEducationCenter">교육기관명</label>
 						<input type="text" name="ResumeEducationCenter" id="ResumeEducationCenter" class="text ui-widget-content ui-corner-all2">
 						<label for="userOpenLevel">공개여부</label>
@@ -577,11 +575,11 @@ margin:10px;
 		<form>
 				<fieldset>
 						<label for="ResumeLicense">자격증명</label>
-						<input type="text" name="ResumeLicense" id="ResumeLicense" class="text ui-widget-content ui-corner-all4" style="width:25%">
+						<input type="text" name="ResumeLicense" id="ResumeLicense" class="text ui-widget-content ui-corner-all4" >
 						<label for="ResumeLicenseCenter">발행처</label>
-						<input type="text" name="ResumeLicenseCenter" id="ResumeLicenseCenter" class="text ui-widget-content ui-corner-all4" style="width:70%">
+						<input type="text" name="ResumeLicenseCenter" id="ResumeLicenseCenter" class="text ui-widget-content ui-corner-all4">
 						<label for="ResumeLicenseDay">취득일자</label>
-						<input type="text" name="ResumeLicenseDay" id="ResumeLicenseDay" class="text ui-widget-content ui-corner-all4" style="width:70%">
+						<input type="text" name="ResumeLicenseDay" id="ResumeLicenseDay" class="text ui-widget-content ui-corner-all4" >
 						<label for="userOpenLevel">공개여부</label>
 						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all4">
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
@@ -592,9 +590,9 @@ margin:10px;
 		<form>
 				<fieldset>
 						<label for="ResumeLanguage">외국어명</label>
-						<input type="text" name="ResumeLanguage" id="ResumeLanguage" class="text ui-widget-content ui-corner-all4" style="width:25%">
+						<input type="text" name="ResumeLanguage" id="ResumeLanguage" class="text ui-widget-content ui-corner-all4" >
 						<label for="ResumeLanguageGrade">외국어수준</label>
-						<input type="text" name="ResumeLanguageGrade" id="ResumeLanguageGrade" class="text ui-widget-content ui-corner-all4" style="width:70%">
+						<input type="text" name="ResumeLanguageGrade" id="ResumeLanguageGrade" class="text ui-widget-content ui-corner-all4" >
 						<label for="userOpenLevel">공개여부</label>
 						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all4">
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
@@ -628,7 +626,7 @@ margin:10px;
 								</tbody>
 						</table>
 					
-					<div id="users-contain" class="ui-widget">	
+				<div id="users-contain" class="ui-widget2">	
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
 										<tr>
@@ -637,15 +635,15 @@ margin:10px;
 											학력사항
 											</td>
 											<td style="width:20%" align="right">
-												<button id="register" style="float:right;">등록하기</button>
+												<button id="register1" style="float:right;">등록하기</button>
 											</td>
 										</tr>
 								</tbody>
 						</table>
 						
-							<table id="users"  class="ui-widget ui-widget-content" style="text-align:center; width:100%;">
+							<table id="users"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
-										<tr class="ui-widget-header">
+										<tr>
 											<td style="width:25%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
 											<td style="width:25%;" align="center"  bgcolor="F8F7F7" height="30" width="20">기간</td>
 											<td style="width:25%;" align="center"  bgcolor="F8F7F7" height="30" width="20">소재지</td>
