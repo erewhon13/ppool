@@ -11,7 +11,7 @@
   <script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 
 <style type="text/css">
-
+ 
 #r_top{
 height:30px;
 margin-left:64px;
