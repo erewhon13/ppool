@@ -54,6 +54,9 @@ public class FinalNotificationService implements NotificationService {
 		notificationRepository.notificationUpdate(notification);
 		
 	}
+	public void notificationDelete(int notificationNo) {
+		notificationRepository.notificationDelete(notificationNo);
+	}
 	
 	
 

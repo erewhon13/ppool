@@ -8,5 +8,5 @@ public interface UserRepository{
 	void registerUser(User user);
 	User userLogin(HashMap<String, Object>params);
 	User userInfo(int userNo);
-	void updateUserInfo(User user);
+	void userInfoUpdate(User user);
 }

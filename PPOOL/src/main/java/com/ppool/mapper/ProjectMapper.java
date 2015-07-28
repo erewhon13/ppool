@@ -10,8 +10,5 @@ public interface ProjectMapper {
 	void projectRegister(Project project);
 	List<Project> getProjectList();
 	Project getProjectByProjectNo(int projectNo);
-	
-		
-	
-	
+	void projectDelete(int projectNo);
 }

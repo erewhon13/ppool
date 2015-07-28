@@ -37,4 +37,9 @@ public class OracleProjectRepository implements ProjectRepository{
 		return project;
 	}
 
+	@Override
+	public void projectDelete(int projectNo) {
+		projectMapper.projectDelete(projectNo);
+	}
+
 }

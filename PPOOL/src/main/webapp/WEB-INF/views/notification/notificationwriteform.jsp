@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,13 +17,9 @@
 </head>
 
 <body>
-	<%
-		pageContext.include("/WEB-INF/views/include/header.jsp");
-	%>
 	
-	<%
-		pageContext.include("/WEB-INF/views/include/sidemenu.jsp");
-	%>
+	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 	<div>
 		
 		<div align="center" style="margin-top: 3%" >

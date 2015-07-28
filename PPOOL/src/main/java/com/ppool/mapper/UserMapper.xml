@@ -19,4 +19,9 @@
 		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR FROM USERS
 		WHERE USERNO = #{userNo}
 	</select>
+	<update id="userInfoUpdate" parameterType="User">
+		UPDATE USERS
+		SET USERNAME = #{userName},USERPHONE = #{userPhone},USERBIRTH = #{userBirth},USERGENDER = #{userGender},USERADDRESS = #{userAddress},USEREXPERIENCE = #{userExperience},USERACADEMIC = #{userAcademic},USERMAJOR = #{userMajor},USERPICTURESAVEDNAME = #{userPictureSavedName}
+		WHERE USERNO=#{userNo}
+	</update>
 </mapper>

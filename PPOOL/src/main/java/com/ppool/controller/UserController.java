@@ -1,7 +1,8 @@
 package com.ppool.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,9 +13,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,12 +24,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.User;
@@ -40,96 +41,144 @@ import com.ppool.util.Util;
 @SessionAttributes("loginuser")
 public class UserController {
 	ModelAndView mav = new ModelAndView();
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,
 				true));
 	}
+
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
-	
-	@RequestMapping(value="registerview.action" ,method = RequestMethod.GET)
-	public ModelAndView registerView(){
+
+	@RequestMapping(value = "registerview.action", method = RequestMethod.GET)
+	public ModelAndView registerView() {
 		mav.setViewName("users/registeruser");
 		return mav;
 	}
-	@RequestMapping(value="registeruser.action",method = RequestMethod.POST)
-	public ModelAndView registerUser(User user){
+
+	@RequestMapping(value = "registeruser.action", method = RequestMethod.POST)
+	public ModelAndView registerUser(User user) {
 		user.setUserPasswd(Util.getHashedString(user.getUserPasswd(), "SHA-1"));
 		userService.registerUser(user);
 		String host = "smtp.gmail.com";
-        String username = "ppoolmanager@gmail.com";
-        String password = "ppoolproject";
-         
-        // 메일 내용
-        String recipient = user.getUserEmail();
-        String subject = "회원가입 인증";
-        String body = "<a href='#'>인증페이지</a>";
-         
-        //properties 설정
-        Properties props = new Properties();
-        props.put("mail.smtps.auth", "true");
-        // 메일 세션
-        Session session = Session.getDefaultInstance(props);
-        MimeMessage msg = new MimeMessage(session);
- 
-        try {
-        	// 메일 관련
-            msg.setSubject(subject);
-            msg.setContent(body, "text/html; charset=utf-8");
-            msg.setFrom(new InternetAddress(username));
-            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-     
-            // 발송 처리
-            Transport transport = session.getTransport("smtps");
-            transport.connect(host, username, password);
-            transport.sendMessage(msg, msg.getAllRecipients());
-            transport.close();
+		String username = "ppoolmanager@gmail.com";
+		String password = "ppoolproject";
+
+		// 메일 내용
+		String recipient = user.getUserEmail();
+		String subject = "회원가입 인증";
+		String body = "<a href='#'>인증페이지</a>";
+
+		// properties 설정
+		Properties props = new Properties();
+		props.put("mail.smtps.auth", "true");
+		// 메일 세션
+		Session session = Session.getDefaultInstance(props);
+		MimeMessage msg = new MimeMessage(session);
+
+		try {
+			// 메일 관련
+			msg.setSubject(subject);
+			msg.setContent(body, "text/html; charset=utf-8");
+			msg.setFrom(new InternetAddress(username));
+			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+					recipient));
+
+			// 발송 처리
+			Transport transport = session.getTransport("smtps");
+			transport.connect(host, username, password);
+			transport.sendMessage(msg, msg.getAllRecipients());
+			transport.close();
 		} catch (Exception e) {
-			
+
 		}
 		mav.setViewName("redirect:/home.action");
 		return mav;
 	}
-	@RequestMapping(value="userlogin.action", method = RequestMethod.POST)
-	//@ResponseBody user 리턴값의 User 객체가 MessageConvert 로 설정된  
-	//MappingJacksonHttpMessageConverter 에서 JSON data형식으로 변환 작업이 이뤄진다.
-	public @ResponseBody User userLogin(String userEmail,String userPasswd,Model model){
+
+	@RequestMapping(value = "userlogin.action", method = RequestMethod.POST)
+	// @ResponseBody user 리턴값의 User 객체가 MessageConvert 로 설정된
+	// MappingJacksonHttpMessageConverter 에서 JSON data형식으로 변환 작업이 이뤄진다.
+	public @ResponseBody User userLogin(String userEmail, String userPasswd,
+			Model model) {
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userEmail", userEmail);
 		params.put("userPasswd", Util.getHashedString(userPasswd, "SHA-1"));
 		User user = userService.userLogin(params);
 		if (user != null) {
-			model.addAttribute("loginuser",user);
+			model.addAttribute("loginuser", user);
 		}
 		return user;
 	}
-	@RequestMapping(value="userlogout.action",method = RequestMethod.GET)
-	public ModelAndView userLogout(@ModelAttribute("loginuser")User user,SessionStatus status){
+
+	@RequestMapping(value = "userlogout.action", method = RequestMethod.GET)
+	public ModelAndView userLogout(@ModelAttribute("loginuser") User user,
+			SessionStatus status) {
 		status.setComplete();
 		mav.setViewName("redirect:/");
 		return mav;
 	}
-	@RequestMapping(value="userinfo.action", method = RequestMethod.GET)
-	public ModelAndView userInfo(int userNo,HttpServletRequest requset){
-		
+
+	@RequestMapping(value = "userinfo.action", method = RequestMethod.GET)
+	public ModelAndView userInfo(int userNo, HttpServletRequest requset) {
+
 		User user = userService.userInfo(userNo);
-		
+
 		String uri = requset.getRequestURI().toString();
 
-		mav.addObject("user",user);
-		mav.addObject("uri",uri);
+		mav.addObject("user", user);
+		mav.addObject("uri", uri);
 		mav.setViewName("users/userinfo");
 		return mav;
 	}
-	@RequestMapping(value="userinfoupdateform.action",method=RequestMethod.GET)
-	public ModelAndView userInfoUpdate(int userNo){
+
+	@RequestMapping(value = "userinfoupdateform.action", method = RequestMethod.GET)
+	public ModelAndView userInfoUpdateForm(int userNo) {
 		User user = userService.userInfo(userNo);
-		mav.addObject("user",user);
+		mav.addObject("user", user);
 		mav.setViewName("users/userinfoupdateform");
+		return mav;
+	}
+
+	@RequestMapping(value = "userinfoupdate.action", method = RequestMethod.POST)
+	public ModelAndView userinfoUpdate(MultipartHttpServletRequest req,User user) {
+		// 가상경로를 물리경로로 변환하는 기능을 가진 객체 반환
+		ServletContext application = req.getSession().getServletContext();
+		
+		// 가상경로 -> 물리경로
+		String path = application.getRealPath("/WEB-INF/userprofile/");
+
+		MultipartFile file = req.getFile("userPictureSavedName");// 요청 데이터(jsp에서 input type="file"의 name)에서 파일 정보 추출
+		if (file != null && file.getSize() > 0) {
+
+			String fileName = file.getOriginalFilename();// 파일이름 읽어서 변수에 저장
+			if (fileName.contains("\\")) {// IE일 경우 전체 경로에서 파일이름만 추출
+				// C:\ABC\DEF\xyz.txt -> xyz.txt
+				fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);
+			}
+			user.setUserPictureSavedName(Util.getUniqueFileName(path, fileName));
+			userService.userInfoUpdate(user);
+			
+			// 파일을 디스크에 저장
+			try {
+				FileOutputStream ostream = new FileOutputStream(new File(path,user.getUserPictureSavedName()));
+				InputStream istream = file.getInputStream();
+				while (true) {
+					int data = istream.read();
+					if (data == -1)
+						break;
+					ostream.write(data);
+				}
+				istream.close();
+				ostream.close();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		mav.setViewName("users/userinfo");
 		return mav;
 	}
 }

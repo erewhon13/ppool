@@ -40,7 +40,7 @@ public class FinalUserService implements UserService {
 	}
 
 	@Override
-	public void updateUserInfo(User user) {
-		userRepository.updateUserInfo(user);
+	public void userInfoUpdate(User user) {
+		userRepository.userInfoUpdate(user);
 	}
 }

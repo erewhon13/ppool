@@ -4,6 +4,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" 
 	uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -53,12 +54,12 @@
 				</c:forEach>
 					
 			</table>
-				
+				<div style='text-align: center'>${pager.toString()}</div>
 
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 				
 				<div>
-					<a href="notificationwriteform.action">등록</a>
+					[<a href="notificationwriteform.action">등록</a>]
 				</div>
 			</form>
 		</div>

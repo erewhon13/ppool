@@ -1,19 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset='utf-8'>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/ppool/resources/js/userinfoscript.js"></script>
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-<script src="//code.jquery.com/jquery-1.11.3.js"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
-<script src="/ppool/resources/js/userinfoscript.js"></script>
-<title>Main Page</title>
-</head>
 <body>
 	<div id="topbar" class="nonelogined"
 		style='display : ${loginuser eq null ? "block" : "none"}'>
@@ -61,8 +50,6 @@
 							<li><a href='#'>콘텐츠</a></li>
 						</ul></li>
 				</ul></li>
-			
+
 		</ul>
 	</div>
-</body>
-</html>
