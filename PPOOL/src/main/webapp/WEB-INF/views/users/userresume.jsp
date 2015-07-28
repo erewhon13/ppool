@@ -203,12 +203,12 @@ margin:10px;
 		          "<td>" + ResumeEducationCenter.val() + "</td>" +
 		          "<td>" + userOpenLevel.val() + "</td>" +
 		        "</tr>" );
-		        dialog.dialog( "close" );
+		        dialog2.dialog( "close" );
 		      } 
 		      return valid; 
 		}
 		
-		dialog = $("#dialog-form2").dialog({
+		dialog2 = $("#dialog-form2").dialog({
 	 		  autoOpen: false,
 	 	      height: 550,
 	 	      width: 400,
@@ -216,7 +216,7 @@ margin:10px;
 	 	      buttons: {
 	 	    	  		"등록하기":addRegister2,
 	 	    	  		"취소": function(){
-	 	    	  			dialog.dialog("close");
+	 	    	  			dialog2.dialog("close");
 	 	    	  		}
 	 	      },
 	 	      close: function(){
@@ -224,17 +224,17 @@ margin:10px;
 	 	    	  	allFields2.removeClass("ui-state-error3");
 	 	      }
 	 	});
-		form2 = dialog.find( "form" ).on( "submit", function( event ) {
+		form2 = dialog2.find( "form" ).on( "submit", function( event ) {
 	 	      event.preventDefault();
 	 	      addRegister2();
 	 	    });
 
 		$("#register2").on("click", function(event){
-	     dialog.dialog( 'open' );
+	     dialog2.dialog( 'open' );
 		    }); 
 		});
 	////////////////////3번
-	 $(function(){
+	/* $(function(){
 		var dialog3, form3,
 	
 		SkillName =$("#SkillName"),
@@ -291,12 +291,12 @@ margin:10px;
 				         "<td>" + ResumeSkillPeriod.val() + "</td>" + 
 				         "<td>" + userOpenLevel.val() + "</td>" +
 				    "</tr>" );
-		        dialog.dialog( "close" );
+		        dialog3.dialog( "close" );
 		      } 
 		      return valid; 
 		}
 		
-		dialog = $("#dialog-form3").dialog({
+		dialog3 = $("#dialog-form3").dialog({
 	 		  autoOpen: false,
 	 	      height: 550,
 	 	      width: 400,
@@ -304,7 +304,7 @@ margin:10px;
 	 	      buttons: {
 	 	    	  		"등록하기":addRegister3,
 	 	    	  		"취소": function(){
-	 	    	  			dialog.dialog("close");
+	 	    	  			dialog3.dialog("close");
 	 	    	  		}
 	 	      },
 	 	      close: function(){
@@ -313,15 +313,15 @@ margin:10px;
 	 	      }
 	 	});
 	 	
-	 	form3 = dialog.find( "form" ).on( "submit", function( event ) {
+	 	form3 = dialog3.find( "form" ).on( "submit", function( event ) {
 	 	      event.preventDefault();
 	 	      addRegister3();
 	 	    });
 	 	
 	 	$("#register3").on("click", function(event){
-	 	     dialog.dialog( 'open' );
+	 	     dialog3.dialog( 'open' );
 	 	    });
-	 });
+	 });*/
 	
 	////////////////////4번
 	$(function(){
@@ -375,17 +375,17 @@ margin:10px;
 			
 			if ( valid ) {
 		        $( "#users4 tbody" ).append( "<tr>" +
-		        		"<td>" + SkillName.val() + "</td>" +
-				         "<td>" + ResumeSkillGrade.val() + "</td>" +
-				         "<td>" + ResumeSkillPeriod.val() + "</td>" + 
+		        		"<td>" + ResumeLicense.val() + "</td>" +
+				         "<td>" + ResumeLicenseCenter.val() + "</td>" +
+				         "<td>" + ResumeLicenseDay.val() + "</td>" + 
 				         "<td>" + userOpenLevel.val() + "</td>" +
 				    "</tr>" );
-		        dialog.dialog( "close" );
+		        dialog4.dialog( "close" );
 		      } 
 		      return valid; 
 		}
 		
-		dialog = $("#dialog-form4").dialog({
+		dialog4 = $("#dialog-form4").dialog({
 	 		  autoOpen: false,
 	 	      height: 550,
 	 	      width: 400,
@@ -393,7 +393,7 @@ margin:10px;
 	 	      buttons: {
 	 	    	  		"등록하기":addRegister4,
 	 	    	  		"취소": function(){
-	 	    	  			dialog.dialog("close");
+	 	    	  			dialog4.dialog("close");
 	 	    	  		}
 	 	      },
 	 	      close: function(){
@@ -402,13 +402,13 @@ margin:10px;
 	 	      }
 	 	});
 	 	
-	 	form4 = dialog.find( "form" ).on( "submit", function( event ) {
+	 	form4 = dialog4.find( "form" ).on( "submit", function( event ) {
 	 	      event.preventDefault();
 	 	      addRegister4();
 	 	    });
 	 	
 	 	$("#register4").on("click", function(event){
-	 	     dialog.dialog( 'open' );
+	 	     dialog4.dialog( 'open' );
 	 	    });
 		});	 
 	////////////////////5번
@@ -455,24 +455,22 @@ margin:10px;
 			 var valid = true;
 			allFields5.removeClass("ui-state-error");
 			
-			valid = valid && checkLength( ResumeLicense, "ResumeLicense",1,30);
-			valid = valid && checkLength( ResumeLicenseCenter, "ResumeLicenseCenter",1,30);
-			valid = valid && checkLength( ResumeLicenseDay, "ResumeLicenseDay",1,30);
+			valid = valid && checkLength( ResumeLanguage, "ResumeLanguage",1,30);
+			valid = valid && checkLength( ResumeLanguageGrade, "ResumeLanguageGrade",1,30);
 			valid = valid && checkLength( userOpenLevel, "userOpenLevel",1,5);
 			
 			if ( valid ) {
 		        $( "#users5 tbody" ).append( "<tr>" +
-		        		"<td>" + ResumeLicense.val() + "</td>" +
-				         "<td>" + ResumeLicenseCenter.val() + "</td>" +
-				         "<td>" + ResumeLicenseDay.val() + "</td>" + 
+		        		"<td>" + ResumeLanguage.val() + "</td>" +
+				         "<td>" + ResumeLanguageGrade.val() + "</td>" +
 				         "<td>" + userOpenLevel.val() + "</td>" +
 				    "</tr>" );
-		        dialog.dialog( "close" );
+		        dialog5.dialog( "close" );
 		      } 
 		      return valid; 
 		}
 		
-		dialog = $("#dialog-form5").dialog({
+		dialog5 = $("#dialog-form5").dialog({
 	 		  autoOpen: false,
 	 	      height: 550,
 	 	      width: 400,
@@ -480,7 +478,7 @@ margin:10px;
 	 	      buttons: {
 	 	    	  		"등록하기":addRegister5,
 	 	    	  		"취소": function(){
-	 	    	  			dialog.dialog("close");
+	 	    	  			dialog5.dialog("close");
 	 	    	  		}
 	 	      },
 	 	      close: function(){
@@ -489,13 +487,13 @@ margin:10px;
 	 	      }
 	 	});
 	 	
-	 	form5 = dialog.find( "form" ).on( "submit", function( event ) {
+	 	form5 = dialog5.find( "form" ).on( "submit", function( event ) {
 	 	      event.preventDefault();
 	 	      addRegister5();
 	 	    });
 	 	
 	 	$("#register5").on("click", function(event){
-	 	     dialog.dialog( 'open' );
+	 	     dialog5.dialog( 'open' );
 	 	    });
 		});	 
 	////////////////////
@@ -540,6 +538,7 @@ margin:10px;
 				</fieldset>
 		</form>
 </div>
+<!--  
 <div id="dialog-form3" title="등록하기">
 		<form>
 				<fieldset>
@@ -574,6 +573,7 @@ margin:10px;
 				</fieldset>
 		</form>
 </div>
+-->
 <div id="dialog-form4" title="등록하기">
 		<form>
 				<fieldset>
@@ -683,8 +683,9 @@ margin:10px;
 							<table id="users2"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육과정</td>
-											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20" >교육기간</td>
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육과정</td>
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20" >교육기간</td>
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20" >교육기간</td>
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육기관명</td>
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">공개여부</td>
 										</tr>
@@ -705,7 +706,7 @@ margin:10px;
 									<img src="/ppool/resources/images/topbar2.png" width="100%" >
 						</td>
 				
-					
+					<!--
 					<div id="users-contain3" class="ui-widget3">	
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
@@ -740,7 +741,7 @@ margin:10px;
 								</tbody>
 							</table>		
 					</div>
-				
+				  -->
 				
 					<div id="users-contain4" class="ui-widget4">	
 						<table style="text-align:center; width:100%; margin-top:10px; ">
