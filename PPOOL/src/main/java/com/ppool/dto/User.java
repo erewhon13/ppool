@@ -1,9 +1,8 @@
 package com.ppool.dto;
 
-
 import java.util.Date;
 
-public class User{
+public class User {
 	private int userNo;
 	private String userEmail;
 	private String userPasswd;
@@ -19,7 +18,7 @@ public class User{
 	private String userGrade;
 	private int userWarningCount;
 	private int userOpenLevel;
-	private boolean userPicture;
+	private boolean userPictureExist;
 	private String userPictureSavedName;
 	private String stampRegisterDay;
 
@@ -143,12 +142,12 @@ public class User{
 		this.userOpenLevel = userOpenLevel;
 	}
 
-	public boolean isUserPicture() {
-		return userPicture;
+	public boolean isUserPictureExist() {
+		return userPictureExist;
 	}
 
-	public void setUserPicture(boolean userPicture) {
-		this.userPicture = userPicture;
+	public void setUserPictureExist(boolean userPictureExist) {
+		this.userPictureExist = userPictureExist;
 	}
 
 	public String getUserPictureSavedName() {

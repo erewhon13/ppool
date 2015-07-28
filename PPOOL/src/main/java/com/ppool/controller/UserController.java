@@ -144,40 +144,31 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "userinfoupdate.action", method = RequestMethod.POST)
-	public ModelAndView userinfoUpdate(MultipartHttpServletRequest req,User user) {
-		// 가상경로를 물리경로로 변환하는 기능을 가진 객체 반환
-		ServletContext application = req.getSession().getServletContext();
-		
-		// 가상경로 -> 물리경로
-		String path = application.getRealPath("/WEB-INF/userprofile/");
-
-		MultipartFile file = req.getFile("userPictureSavedName");// 요청 데이터(jsp에서 input type="file"의 name)에서 파일 정보 추출
-		if (file != null && file.getSize() > 0) {
-
-			String fileName = file.getOriginalFilename();// 파일이름 읽어서 변수에 저장
-			if (fileName.contains("\\")) {// IE일 경우 전체 경로에서 파일이름만 추출
-				// C:\ABC\DEF\xyz.txt -> xyz.txt
-				fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);
+	public ModelAndView userinfoUpdate(MultipartHttpServletRequest request,User user){
+		ServletContext application = request.getSession().getServletContext();
+		String path = application.getRealPath("/WEB-INF/userprofile");
+		MultipartFile file = request.getFile("userProfile");
+		String fileName = file.getOriginalFilename();
+		user.setUserPictureSavedName(fileName);
+		user.setUserPictureExist(true);
+		userService.userInfoUpdate(user);
+		//파일을 디스크에 저장
+		try {
+			FileOutputStream ostream = 
+				new FileOutputStream(new File(path, user.getUserPictureSavedName()));
+			InputStream istream = file.getInputStream();
+			while (true) {
+				int data = istream.read();
+				if (data == -1) break;
+				ostream.write(data);
 			}
-			user.setUserPictureSavedName(Util.getUniqueFileName(path, fileName));
-			userService.userInfoUpdate(user);
-			
-			// 파일을 디스크에 저장
-			try {
-				FileOutputStream ostream = new FileOutputStream(new File(path,user.getUserPictureSavedName()));
-				InputStream istream = file.getInputStream();
-				while (true) {
-					int data = istream.read();
-					if (data == -1)
-						break;
-					ostream.write(data);
-				}
-				istream.close();
-				ostream.close();
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
+			istream.close();
+			ostream.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
+		mav.addObject("path",path);
+		mav.addObject("fileName",fileName);
 		mav.setViewName("users/userinfo");
 		return mav;
 	}

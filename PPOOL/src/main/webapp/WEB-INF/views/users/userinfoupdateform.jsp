@@ -47,9 +47,8 @@
 	<form action="userinfoupdate.action" method="POST" enctype="multipart/form-data">
 	<input type="hidden" value="${user.getUserNo()}" name="userNo">
 	<div id="personaldata">
-			<div id="imageview"></div>
 			<c:choose>
-			<c:when test="${user.isUserPicture() eq true}">
+			<c:when test="${user.isUserPictureExist() eq true}">
 				<div id="imageview"></div>
 			</c:when>
 			<c:otherwise>
@@ -58,9 +57,10 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
-		<div><input type="file" accept="image/**" id="fileinput" name="userPictureSavedName"></div>
+		<div><input type="file" accept="image/**" id="fileinput" name="userProfile"></div>
 		<div>
-			<label>이름 : </label><input type="text" value="${user.getUserName()}" name="userName"></div>
+		
+			<label>이름 : ${fileName}</label><input type="text" value="${user.getUserName()}" name="userName"></div>
 		<div>
 			<label>휴대전화 : </label><input type="text" value="${user.getUserPhone()}" name="userPhone"></div>
 		<div>
