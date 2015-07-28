@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -603,7 +604,7 @@ margin:10px;
 
 
 				<div  id="r_top"></div> <!-- 공간바 -->
-				<div id="r_left" >왼쪽바
+				<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 				<div id="r_middle"></div><!-- 가운데 끼인바 -->
 				</div>
 				
