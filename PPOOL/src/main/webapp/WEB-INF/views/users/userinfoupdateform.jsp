@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -40,55 +40,59 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-
 	<div>
-	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
-	</div>
-	<form action="userinfoupdate.action" method="POST" enctype="multipart/form-data">
-	<input type="hidden" value="${user.getUserNo()}" name="userNo">
-	<div id="personaldata">
-			<c:choose>
-			<c:when test="${user.isUserPictureExist() eq true}">
-				<div id="imageview"></div>
-			</c:when>
-			<c:otherwise>
-				<div id="defaultimage">
-					<img src="/ppool/resources/images/default_image.png" />
-				</div>
-			</c:otherwise>
-		</c:choose>
-		<div><input type="file" accept="image/**" id="fileinput" name="userProfile"></div>
-		<div>
-		
-			<label>이름 : ${fileName}</label><input type="text" value="${user.getUserName()}" name="userName"></div>
-		<div>
-			<label>휴대전화 : </label><input type="text" value="${user.getUserPhone()}" name="userPhone"></div>
-		<div>
-		<%-- <input type="date" value="${user.getStampRegisterDay()}"> --%>
-			<label>생년월일 : </label><input type="date" name="userBirth"></div>
-		<div>
-			<label>성별 : </label><label>남</label><input type="radio" name="userGender" value="1">
-		<label>여</label><input type="radio" name="userGender" value="0"></div>
-		<div>
-			<label>주소 : </label><input type="text" value="${user.getUserAddress()}" name="userAddress"></div>
-		<div>
-			<label>경험유무 : </label><label>유</label><input type="radio" name="userExperience" value="1">
-		<label>무</label><input type="radio" name="userExperience" value="0"></div>
-		<div>
-			<label>최종학력 :</label> 
-			<select name="userAcademic">
-				<option>대졸</option>
-			</select>
-		</div>
-		<div>
-			<label>전공 :</label>
-			<select name="userMajor">
-				<option>컴퓨터공학과</option>
-			</select>
-		</div>
-		<input type="submit" value="전송">
-	</div>
 	
+		<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
+	</div>
+	<form action="userinfoupdate.action" method="POST"
+		enctype="multipart/form-data">
+		<input type="hidden" value="${user.getUserNo()}" name="userNo">
+		<div id="personaldata">
+			<div id="imageview"></div>
+			<div>
+				<input type="file" accept="image/**" id="fileinput"
+					name="userProfile">
+			</div>
+			<div>
+
+				<label>이름 : </label><input type="text" value="${user.getUserName()}"
+					name="userName">
+			</div>
+			<div>
+				<label>휴대전화 : </label><input type="text"
+					value="${user.getUserPhone()}" name="userPhone">
+			</div>
+			<div>
+				<%-- <input type="date" value="${user.getStampRegisterDay()}"> --%>
+				<label>생년월일 : </label><input type="date" name="userBirth">
+			</div>
+			<div>
+				<label>성별 : </label><label>남</label><input type="radio"
+					name="userGender" value="1"> <label>여</label><input
+					type="radio" name="userGender" value="0">
+			</div>
+			<div>
+				<label>주소 : </label><input type="text"
+					value="${user.getUserAddress()}" name="userAddress">
+			</div>
+			<div>
+				<label>경험유무 : </label><label>유</label><input type="radio"
+					name="userExperience" value="1"> <label>무</label><input
+					type="radio" name="userExperience" value="0">
+			</div>
+			<div>
+				<label>최종학력 :</label> <select name="userAcademic">
+					<option>대졸</option>
+				</select>
+			</div>
+			<div>
+				<label>전공 :</label> <select name="userMajor">
+					<option>컴퓨터공학과</option>
+				</select>
+			</div>
+			<input type="submit" value="전송">
+		</div>
+
 	</form>
 </body>
 </html>

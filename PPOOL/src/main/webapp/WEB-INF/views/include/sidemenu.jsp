@@ -8,6 +8,8 @@
 <script src="/ppool/resources/js/sidemenuscript.js"></script>
 </head>
 <body>
+<div id="side">
+<div id="sidelogin">로그인창</div>
 	<div id="sidemenu">
 		<ul>
 			<li><a href='#'><span>홈</span></a></li>
@@ -32,6 +34,7 @@
 				<li class='last'><a href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo()}'><span>회원정보수정</span></a></li>
 			</c:if>
 		</ul>
+	</div>
 	</div>
 </body>
 </html>

@@ -10,21 +10,14 @@
 	border: solid 1px;
 }
 #imageview{
+	margin :0 auto;
 	width: 130px;
 	height: 150px;
 }
-#defalutimage{
+#defaultimage{
+	margin :0 auto;
 	width: 130px;
 	height: 150px;
-}
-
-#sidemenu {
-	float: left;
-	width: 15%;
-	height: 500px;
-	margin-left: 5%;
-	margin-top: 3%;
-	text-align: center;
 }
 
 /* #register {

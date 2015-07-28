@@ -35,21 +35,12 @@
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
-		$('#bookmark').click(function(){
-			//북마크 버튼 눌렀을 때
-			alert("북마크 미구현");
-			//$(location).attr("href", "/ppool/projectlist.action");
-		});
-		$('#list').click(function(){
-			$(location).attr("href", "/ppool/projectlist.action");
+		$('#cancel').click(function(){
+			$(location).attr("href", "/ppool/projectdetailview.action?projectNo=${project.projectNo}");
 		});
 		$('#modify').click(function(){
 			$(location).attr("href", "/ppool/projectmodify.action?projectNo=${project.projectNo}");
 		});
-		$('#delete').click(function(){
-			$(location).attr("href", "/ppool/projectdelete.action?projectNo=${project.projectNo}");
-		});
-		
 		var skills = '${skills}'.split(",");
 		var locations = '${locations}'.split(",");
 		
@@ -62,9 +53,6 @@
 		
 		var phone1 = '${phone1}'
 		$('#phone1 option[value='+phone1+']').attr('selected', true);
-		
-		$('.table input, textarea').attr('readonly','readonly');
-		$('.table select, .skill input, .location input').attr('disabled','disabled');
 	});
 	</script>
 	
@@ -74,7 +62,7 @@
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 100%; border:groove;" class="table">
-			<caption >상세뷰</caption>
+			<caption >수정</caption>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -253,10 +241,8 @@
 		</table>
 		<br/>
 		<div style="width:100%;" align="right" >
-			<img src="/ppool/resources/images/list.png" id="list" style="cursor: pointer;">
-			<img src="/ppool/resources/images/bookmark.png" id="bookmark" style="cursor: pointer;">
+			<img src="/ppool/resources/images/cancel.png" id="cancel" style="cursor: pointer;">
 			<img src="/ppool/resources/images/modify.png" id="modify" style="cursor: pointer;">
-			<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">
 		</div>
 	</div>
 	
