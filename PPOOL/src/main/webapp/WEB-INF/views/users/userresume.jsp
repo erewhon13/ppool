@@ -518,8 +518,7 @@ margin:10px;
 						<label for="locationNo">소재지</label>
 						<input type="text" name="locationNo" id="locationNo" class="text ui-widget-content ui-corner-all">
 						<label for="userOpenLevel">공개여부</label>
-						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all">
-						
+						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all">						
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 				</fieldset>
 		</form>
@@ -834,7 +833,6 @@ margin:10px;
 							</tr>
 						</table>
 					</div>
-				
 				</div>
 				
 				
