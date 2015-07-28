@@ -13,15 +13,14 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-
-	<div>
 	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
-	</div>
 	<form action="userinfoupdateform.action" method="POST">
 		<div id="personaldata">
 			<c:choose>
 				<c:when test="${user.isUserPictureExist() eq true}">
-					<div id="imageview"></div>
+					<div id="imageview">
+						<img src="/ppool/resources/images/${user.getUserPictureSavedName()}">
+					</div>
 				</c:when>
 				<c:otherwise>
 					<div id="defaultimage">

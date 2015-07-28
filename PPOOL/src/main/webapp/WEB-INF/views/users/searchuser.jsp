@@ -62,9 +62,7 @@ margin:10px;
 		<c:set var="users"  value="${users}"/>
  				<div  id="s_top"></div> <!-- 공간바 -->
 		
-				<div id="s_left" >왼쪽바
-					<div id="s_middle"></div><!-- 가운데 끼인바 -->
-				</div>
+				<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 			
 				
 				<div id="s_center" ><!-- 가운데 -->

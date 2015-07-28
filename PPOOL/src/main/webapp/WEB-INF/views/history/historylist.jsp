@@ -1,6 +1,5 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -14,40 +13,20 @@
 		 $(function(){
 			$(".detailview").click(function(event){
 				location.href="historydetailview.action?historyNo="+$(this).find($('.hno')).val();})
+				
+			 $('#writer').click(function(event){
+					$(location).attr('href',"historyRegister.action");
+			   })	
 		})
 	</script>
 </head>
-<%
-	pageContext.include("/WEB-INF/views/include/header.jsp");
-%>
+<c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
-	<div id="sidemenu">사이드 메뉴</div>
-		<!-- <table cellpadding="0" cellspacing="0" border="0" class="search-list brd_directory" id="trove_list">
-		<thead>
-			<tr><th class="left">프로젝트명</th><th>공개</th><th>순번</th><th>역할</th><th>수행기간</th><th class="right"></th></tr>
-		</thead>
-		<tbody>
-				<tr class="">
-			<td class="project left"><a href="#" title=" Unit Project">프로젝트명</a> - <span title=" Unit Project"> Unit Project</span></td>
-			<td class="act_rank">Yes</td>
-			<td class="issue">1</td>
-			<td class="mem" >역할</td>
-			<td class="start_date">수행기간</td>
-		</tr>
-		<tr class="">
-			<td class="project left"><a href="#" title=" Unit Project">프로젝트명</a> - <span title=" Unit Project"> Unit Project</span></td>
-			<td class="act_rank">Yes</td>
-			<td class="issue">1</td>
-			<td class="mem">역할</td>
-			<td class="start_date">수행기간</td>
-		</tr>
-
-	
-				</tbody>
-	</table> -->
+	<div id="sidemenu">사이드 메뉴</div>		
 	<c:set var="histories" value="${histories}"/>
-		<div id="history">	
-			<table style="text-align:center; width:70%; margin-top:10px; ">
+	
+		<div id="history" style="width: 72%; float: right; margin-right: 5%">	
+			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
 						<td style="width:80%"  align="left"  >
@@ -59,15 +38,15 @@
 											</tr>
 									</tbody>
 							</table>
-							<table style="text-align:center; width:70%;">
+							<table style="text-align:center; width:100%;">
 								<tbody>
 						
 										<tr>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">순번</td>
-											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">프로젝트명</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">역할</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">공개</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">수행기간</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20" >순번</td>
+											<td style="width:30%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">프로젝트명</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">역할</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">공개</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">수행기간</td>
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">
@@ -99,11 +78,16 @@
 										</tr>
 										</c:forEach>
 								</tbody>
-							</table>		
+							</table>
+							<br/>		
+							<div style="width:100%;" align="right" >		
+								<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
+							</div>							
 					</div>
+				
+					
 	
-	
-	<a href="historyRegister.action">[등록하기] </a>
+	<!-- <a href="historyRegister.action">[등록하기] </a> -->
 	
 <%-- 		<jsp:include page="paging.jsp" flush="false">
 			<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
