@@ -16,6 +16,10 @@
 
 <body>
 	<%pageContext.include("/WEB-INF/views/include/header.jsp"); %>
-	<div id="main">가나다라마바사아자차카타파하</div>
+	<div id="main">
+		
+		<img src="/ppool/resources/images/main.png" style="width: 100%">
+	
+	</div>
 </body>
 </html>
