@@ -5,7 +5,12 @@
   "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
 
 <mapper namespace="com.ppool.mapper.ProjectMapper">
+	
+	<!-- ***************** 프로젝트 등록 ***************** -->
 	<insert id="projectRegister" parameterType="Project">
+		<selectKey keyProperty="projectNo" order="AFTER" resultType="int" >
+			SELECT PROJECTNO_SEQUENCE.currval FROM DUAL
+		</selectKey>
 		INSERT INTO PROJECTS
 			(PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, 
 			PROJECTTEAMCOUNT, PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE,  
@@ -15,7 +20,23 @@
 			#{projectTeamCount}, #{projectStartDay}, #{projectEndDay}, #{projectExpire},  
 			#{projectStatus}, #{projectPhone},#{projectEmail})
 	</insert>
+		<!-- 지역 등록 -->
+		<insert id="projectLocationRegister" parameterType="hashMap">
+			INSERT INTO projectlocation
+				(projectlocationno, locationno, projectno)
+			VALUES
+				(projectlocation_sequence.nextval, #{locationNo}, #{projectNo})
+		</insert>
+		<!-- 스킬 등록 -->
+		<insert id="projectSkillRegister" parameterType="hashMap">
+			INSERT INTO projectskill
+				(projectskillno, skillno , projectno)
+			VALUES
+				(projectskill_sequence.nextval, #{skillNo}, #{projectNo})
+		</insert>
+	<!-- ********************************************* -->
 	
+	<!-- ***************** 프로젝트 리스트 ***************** -->
 	<select id="getProjectList" resultType="Project">
 		SELECT 
 			PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
@@ -24,8 +45,10 @@
 		FROM PROJECTS
 		ORDER BY PROJECTNO DESC
 	</select>
+	<!-- ********************************************* -->
 	
-	<select id="getProjectByProjectNo" resultType="Project">
+	<!-- ***************** 프로젝트 상세보기 ***************** -->
+	<select id="getProjectByProjectNo" resultMap="detailProject">
 		SELECT 
 			PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
 			PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTREGISTERDAY, 
@@ -34,10 +57,47 @@
 		WHERE PROJECTNO = #{projectNo}
 	</select>
 	
+	<resultMap id="detailProject" type="Project">
+		<id column="projectno" property="projectNo"/>
+		<result column="userno" property="userNo"/>
+		<result column="projecttitle" property="projectTitle"/>
+		<result column="projectcontent" property="projectContent"/>
+		<result column="projectteamcount" property="projectTeamCount"/>
+		<result column="projectstartday" property="projectStartDay"/>
+		<result column="projectendday" property="projectEndDay"/>
+		<result column="projectexpire" property="projectExpire"/>
+		<result column="projectregisterday" property="projectRegisterDay"/>
+		<result column="projectstatus" property="projectStatus"/>
+		<result column="projectphone" property="projectPhone"/>
+		<result column="projectemail" property="projectEmail"/>
+		<collection column="projectno" property="skill" select="getSkillNoByProjectNo"/>
+		<collection column="projectno" property="location" select="getLocationNoByProjectNo"/>
+	</resultMap>
+	
+	<select id="getSkillNoByProjectNo" parameterType="int" resultType="String">
+		SELECT skillno
+		FROM projectskill
+		WHERE projectno=#{projectno}
+	</select>
+	
+	<select id="getLocationNoByProjectNo" parameterType="int" resultType="String">
+		SELECT locationno
+		FROM projectlocation
+		WHERE projectno=#{projectno}
+	</select>
+	
+	<!-- ********************************************* -->
+	
+	<!-- ***************** 프로젝트 삭제 ***************** -->
 	<delete id="projectDelete" parameterType="int">
 		DELETE FROM projects
 		WHERE projectno = #{projectNo}
 	</delete>
+	<!-- ********************************************* -->
+	
+	<!-- ***************** 프로젝트 수정 ***************** -->
+	
+	<!-- ********************************************* -->
 	
 	
 </mapper>

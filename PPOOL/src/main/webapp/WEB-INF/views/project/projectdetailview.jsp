@@ -1,3 +1,4 @@
+<%@page import="com.ppool.dto.Project"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -13,13 +14,13 @@
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<style type="text/css">
 	td{
-	font-size:10pt;
-	margin:5px;
-	padding:10px;
+		font-size:10pt;
+		margin:5px;
+		padding:10px;
 	}
 	caption {font-weight:700; font-size:20px; padding:5px; color:#FF9147; text-align:left; margin-bottom:5px}
 	input.sub {
-	font-size: 15pt;
+		font-size: 15pt;
 	}
 	.ul_checkbox{
 		list-style:none;
@@ -30,6 +31,7 @@
 		display:inline-block; 
 	}
 	</style>
+	
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
@@ -42,33 +44,47 @@
 		$('#delete').click(function(){
 			$(location).attr("href", "/ppool/projectdelete.action?projectNo=${project.projectNo}");
 		});
-	});
 		
+		var skills = '${skills}'.split(",");
+		var locations = '${locations}'.split(",");
+		
+		$.each(skills, function(index, obj){
+			$('.skill input[value='+obj+']').attr('checked', true);
+		})
+		$.each(locations, function(index, obj){
+			$('.location input[value='+obj+']').attr('checked', true);
+		})
+		
+		var phone1 = '${phone1}'
+		$('#phone1 option[value='+phone1+']').attr('selected', true);
+		
+		$('.table input, textarea').attr('readonly','readonly');
+		$('.table select, .skill input, .location input ').attr('disabled','disabled');
+	});
 	</script>
 	
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
-
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
-		<table style="text-align: center; width: 100%; border:groove;  ">
+		<table style="text-align: center; width: 100%; border:groove;" class="table">
 			<caption >테스트</caption>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
-					<input type="text" style="width: 100%" name="projectTitle" id="projecttitle" value="${ project.projectTitle}"/>
+					<input type="text" style="width: 100%;" name="projectTitle" id="projecttitle" value="${ project.projectTitle}"/>
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" name="projectWriter" id="projectwriter" />
+					<input type="text" style="width: 100%" value="${project.userNo }" />
 				</td>
 				<td style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">
-					<select name="phone1" id="phone1">
+					<select name="phone1" id="phone1" >
 						<option value="">----</option>
 						<option value="02">02</option>
 						<option value="031">031</option>
@@ -92,15 +108,15 @@
 						<option value="0506">0506</option>
 						<option value="0130">0130</option>
 					</select> - 
-					<input type="text" name="phone2" id="phone2" value=""style="width: 70px; text-align: center;"> - 
-					<input type="text" name="phone3" id="phone3" value=""style="width: 70px; text-align: center;">
+					<input type="text" name="phone2" id="phone2" value='${phone2 }' style="width: 70px; text-align: center;"> - 
+					<input type="text" name="phone3" id="phone3" value='${phone3 }' style="width: 70px; text-align: center;">
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
-					<input id="email1" type="text" name="email1" value="" style="width: 150px;"> @ 
-					<input id="email2" type="text" name="email2" value=""  readonly=""
+					<input id="email1" type="text" name="email1" value="${email1 }" style="width: 150px;"> @ 
+					<input id="email2" type="text" name="email2" value="${email2 }"  readonly=""
 							style="width: 155px;  border: solid #CECFD0 1px; font-size: 10pt;"> 
 					<select id="emailSelect" style="width: 150px; 
 							font-size: 12px;">
@@ -126,78 +142,79 @@
 			</tr>
 		</table>
 		<br/>
-		<table style="text-align: center; width: 100%; border:groove;  ">
+		<table style="text-align: center; width: 100%; border:groove; " class="table">
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">개발</td>
 				<td style="width: 85%" colspan="3">
-					<ul class="ul_checkbox"  >				
-						<li><input type="checkbox" name="develop" value=".NET" > .NET</li>
-						<li><input type="checkbox" name="develop" value="ANDROID" > ANDROID</li>
-						<li><input type="checkbox" name="develop" value="ASP" > ASP</li>
-						<li><input type="checkbox" name="develop" value="C" > C</li>
-						<br>	
-						<li><input type="checkbox" name="develop" value="C#" > C#</li>
-						<li><input type="checkbox" name="develop" value="C++" > C++</li>
-						<li><input type="checkbox" name="develop" value="CSS" > CSS</li>
-						<li><input type="checkbox" name="develop" value="DB" > DB</li>
-						<br>
-						<li><input type="checkbox" name="develop" value="DELPHI" > DELPHI</li>
-						<li><input type="checkbox" name="develop" value="HTML" > HTML</li>
-						<li><input type="checkbox" name="develop" value="IOS" > IOS</li>
-						<li><input type="checkbox" name="develop" value="JAVA" > JAVA</li>
-						<br>
-						<li><input type="checkbox" name="develop" value="JSP" > JSP</li>
-						<li><input type="checkbox" name="develop" value="LINUX" > LINUX</li>
-						<li><input type="checkbox" name="develop" value="PHP" > PHP</li>
-						<li><input type="checkbox" name="develop" value="PYTHON" > PYTHON</li>
-						<li><input type="checkbox" name="develop" value="RUBY" > RUBY</li>
+					<ul class="ul_checkbox skill"  >				
+						<li><input type="checkbox" name="skill" value="100" > .NET</li>
+						<li><input type="checkbox" name="skill" value="101" > ANDROID</li>
+						<li><input type="checkbox" name="skill" value="102" > ASP</li>
+						<li><input type="checkbox" name="skill" value="103" > C</li>
+						<br/>	
+						<li><input type="checkbox" name="skill" value="104" > C#</li>
+						<li><input type="checkbox" name="skill" value="105" > C++</li>
+						<li><input type="checkbox" name="skill" value="106" > CSS</li>
+						<li><input type="checkbox" name="skill" value="107" > DB</li>
+						<br/>
+						<li><input type="checkbox" name="skill" value="108" > DELPHI</li>
+						<li><input type="checkbox" name="skill" value="109" > HTML</li>
+						<li><input type="checkbox" name="skill" value="110" > IOS</li>
+						<li><input type="checkbox" name="skill" value="111" > JAVA</li>
+						<br/>
+						<li><input type="checkbox" name="skill" value="112" > JSP</li>
+						<li><input type="checkbox" name="skill" value="113" > LINUX</li>
+						<li><input type="checkbox" name="skill" value="114" > PHP</li>
+						<li><input type="checkbox" name="skill" value="115" > PYTHON</li>
+						<li><input type="checkbox" name="skill" value="116" > RUBY</li>
 					</ul>
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">디자인</td>
 				<td style="width: 85%" colspan="3">
-					<ul class="ul_checkbox">	
-						<li><input type="checkbox" name="design" value="HTML5" > HTML5</li>
-						<li><input type="checkbox" name="design" value="그래픽디자인" > 그래픽디자인</li>
-						<li><input type="checkbox" name="design" value="모바일" > 모바일 </li>
-						<li><input type="checkbox" name="design" value="웹디자인" > 웹디자인 </li>
+					<ul class="ul_checkbox skill">	
+						<li><input type="checkbox" name="skill" value="200" > HTML5</li>
+						<li><input type="checkbox" name="skill" value="201" > 그래픽디자인</li>
+						<li><input type="checkbox" name="skill" value="202" > 모바일 </li>
+						<li><input type="checkbox" name="skill" value="203" > 웹디자인 </li>
 						<br/>
-						<li><input type="checkbox" name="design" value="파워포인트" > 파워포인트 </li>
-						<li><input type="checkbox" name="design" value="포토샵편집" > 포토샵편집 </li>
-						<li><input type="checkbox" name="design" value="플래시" > 플래시 </li>
-						<li><input type="checkbox" name="design" value="3D" > 3D </li>
+						<li><input type="checkbox" name="skill" value="204" > 파워포인트 </li>
+						<li><input type="checkbox" name="skill" value="205" > 포토샵편집 </li>
+						<li><input type="checkbox" name="skill" value="206" > 플래시 </li>
+						<li><input type="checkbox" name="skill" value="207" > 3D </li>
 					</ul>
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">지역</td>
 				<td style="width: 85%" colspan="3">
-					<ul class="ul_checkbox">	
-						<li><input type="checkbox" name="location" value="강북" > 강북</li>
-						<li><input type="checkbox" name="location" value="강동" > 강동</li>
-						<li><input type="checkbox" name="location" value="강남" > 강남</li>
-						<li><input type="checkbox" name="location" value="강서" > 강서 </li>
-						<li><input type="checkbox" name="location" value="용인" > 용인 </li>
-						<li><input type="checkbox" name="location" value="화성" > 화성 </li>
-						<li><input type="checkbox" name="location" value="일산" > 일산 </li>
-						<br>
-						<li><input type="checkbox" name="location" value="수원" > 수원 </li>
-						<li><input type="checkbox" name="location" value="충북" > 충북 </li>
-						<li><input type="checkbox" name="location" value="충남" > 충남 </li>
-						<li><input type="checkbox" name="location" value="대전" > 대전 </li>
-						<li><input type="checkbox" name="location" value="강원" > 강원 </li>
-						<li><input type="checkbox" name="location" value="경북" > 경북 </li>
-						<li><input type="checkbox" name="location" value="경남" > 경남 </li>
-						<br>
-						<li><input type="checkbox" name="location" value="대구" > 대구 </li>
-						<li><input type="checkbox" name="location" value="전북" > 전북 </li>
-						<li><input type="checkbox" name="location" value="전남" > 전남 </li>
-						<li><input type="checkbox" name="location" value="광주" > 광주 </li>
-						<li><input type="checkbox" name="location" value="부산" > 부산 </li>
-						<li><input type="checkbox" name="location" value="울산" > 울산 </li>
-						<li><input type="checkbox" name="location" value="제주" > 제주 </li>
-						<li><input type="checkbox" name="location" value="해외" > 해외 </li>
+					<ul class="ul_checkbox location">	
+						<li><input type="checkbox" name="location" value="11" > 강북</li>
+						<li><input type="checkbox" name="location" value="12" > 강동</li>
+						<li><input type="checkbox" name="location" value="13" > 강남</li>
+						<li><input type="checkbox" name="location" value="14" > 강서 </li>
+						<li><input type="checkbox" name="location" value="15" > 용인 </li>
+						<li><input type="checkbox" name="location" value="16" > 화성 </li>
+						<li><input type="checkbox" name="location" value="17" > 일산 </li>
+						<li><input type="checkbox" name="location" value="18" > 성남 </li>
+						<br/>
+						<li><input type="checkbox" name="location" value="19" > 수원 </li>
+						<li><input type="checkbox" name="location" value="20" > 충북 </li>
+						<li><input type="checkbox" name="location" value="21" > 충남 </li>
+						<li><input type="checkbox" name="location" value="22" > 대전 </li>
+						<li><input type="checkbox" name="location" value="23" > 강원 </li>
+						<li><input type="checkbox" name="location" value="24" > 경북 </li>
+						<li><input type="checkbox" name="location" value="25" > 경남 </li>
+						<li><input type="checkbox" name="location" value="26" > 대구 </li>
+						<br/>
+						<li><input type="checkbox" name="location" value="27" > 전북 </li>
+						<li><input type="checkbox" name="location" value="28" > 전남 </li>
+						<li><input type="checkbox" name="location" value="29" > 광주 </li>
+						<li><input type="checkbox" name="location" value="30" > 부산 </li>
+						<li><input type="checkbox" name="location" value="31" > 울산 </li>
+						<li><input type="checkbox" name="location" value="32" > 제주 </li>
+						<li><input type="checkbox" name="location" value="33" > 해외 </li>
 					</ul>
 				</td>
 			</tr>

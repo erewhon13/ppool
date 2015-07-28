@@ -20,7 +20,7 @@
 	<form action="userinfoupdateform.action" method="POST">
 		<div id="personaldata">
 			<c:choose>
-				<c:when test="${user.isUserPicture() eq true}">
+				<c:when test="${user.isUserPictureExist() eq true}">
 					<div id="imageview"></div>
 				</c:when>
 				<c:otherwise>

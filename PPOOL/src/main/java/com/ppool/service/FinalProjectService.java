@@ -3,6 +3,7 @@ package com.ppool.service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,16 @@ public class FinalProjectService implements ProjectService{
 	public void projectDelete(int projectNo) {
 		projectRepository.projectDelete(projectNo);
 		
+	}
+
+	@Override
+	public void projectLocationRegister(HashMap<String, Object> params) {
+		projectRepository.projectLocationRegister(params);
+	}
+
+	@Override
+	public void projectSkillRegister(HashMap<String, Object> params) {
+		projectRepository.projectSkillRegister(params);
 	}
 	
 }
