@@ -219,7 +219,7 @@ margin:10px;
 	 	      },
 	 	      close: function(){
 	 	    	  	form2[0].reset();
-	 	    	  	allFields2.removeClass("ui-state-error3");
+	 	    	  	allFields2.removeClass("ui-state-error2");
 	 	      }
 	 	});
 		form2 = dialog2.find( "form" ).on( "submit", function( event ) {
