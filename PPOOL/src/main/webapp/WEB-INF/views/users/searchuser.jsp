@@ -71,7 +71,7 @@ margin:10px;
 					<img src="/ppool/resources/images/search.gif">
 					 <hr border-top:1px solid />
 					
-				
+				   
 						<div id="s_inside" style="margin-top:10px; border:1px solid;">
 							<table style="text-align:center; width:100%;  height:150px; ">		
 								 		<tbody>

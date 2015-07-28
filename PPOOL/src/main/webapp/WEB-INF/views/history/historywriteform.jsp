@@ -6,7 +6,27 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Insert title here</title>
-</head>
+	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>   
+   	<script type="text/javascript">
+	   $(document).ready(function (){
+		 	 $('#register2').click(function(){
+					var r = /^[0-9]+$/;
+					var e = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
+					
+					if(!r.test( $('#historystaff').val().trim())){
+						alert("숫자만 입력하세요");
+						$('#historystaff').focus();
+						return;
+					}
+					$('#register2').submit();
+					return;
+		  })
+		   $('#close').click(function(event){
+					$(location).attr('href',"historylist.action");
+			   })
+		  
+	   })
+   	</script>
 </head>
 <%
 	pageContext.include("/WEB-INF/views/include/header.jsp");
@@ -39,7 +59,7 @@
 			</tr>
 			<tr>
 				<td style="background-color:#FF9147">참여인원</td>
-				<td><input type="text" name="historyStaff"/></td>
+				<td><input type="text" id="historystaff" name="historyStaff"/></td>
 			</tr>
 			<tr>
 				<td style="background-color:#FF9147">기간</td>
@@ -55,11 +75,9 @@
 				        비공개<input type="radio" name="historyOpened" value="false"></td>
 			</tr>
 		
-		<tr>
-		<td></td>
-				<td><input type="submit" value="등록하기" onclick="document.forms[0].submit();">
-				<input type="submit" value="창닫기"></td>
-		
+		<tr>		<td></td>
+				<td><input type="button" id="register2" value="등록하기">
+				<input type="button" id="close" value="창닫기"></td>		
 		</tr>
 		</table>
 		</form>

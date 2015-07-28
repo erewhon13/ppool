@@ -105,7 +105,7 @@
 	
 	<a href="historyRegister.action">[등록하기] </a>
 	
-		<jsp:include page="paging.jsp" flush="false">
+<%-- 		<jsp:include page="paging.jsp" flush="false">
 			<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
 			<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
 			<jsp:param name="startPageNo" value="${paging.startPageNo}" />
@@ -113,7 +113,7 @@
 			<jsp:param name="endPageNo" value="${paging.endPageNo}" />
 			<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
 			<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-		</jsp:include>
+		</jsp:include> --%>
 	
 	</div>
 </body>
