@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.History;
 import com.ppool.dto.HistoryUploadFile;
+import com.ppool.dto.Paging;
 import com.ppool.repository.HistoryRepository;
 import com.ppool.service.HistoryService;
 import com.ppool.util.Util;
@@ -52,11 +53,25 @@ public class HistoryController {
 	
 	
 	@RequestMapping(value = "historylist.action", method = RequestMethod.GET)
-	public ModelAndView historyList() {
+	public ModelAndView historyList(Integer pageNo) {
+		
+		int pageSize = 10;
+		
+		int totalCount = historyService.getHistoryCount();
+		if (pageNo == null)
+			pageNo = 1;
+		
+		Paging paging = new Paging(pageSize,pageNo,totalCount);
+
+		int first = (pageNo - 1) * pageSize + 1;
+		
+		
+		
 		ModelAndView mav = new ModelAndView();
-		List<History> histories=historyService.getHistoryList();
+		List<History> histories=historyService.historyList(first, first+pageSize);
 		
 		mav.addObject("histories",histories);
+		mav.addObject("paging",paging);
 		mav.setViewName("history/historylist");
 		return mav;
 	}

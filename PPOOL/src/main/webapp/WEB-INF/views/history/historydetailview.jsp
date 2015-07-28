@@ -90,7 +90,6 @@
 				<td><input type="submit" value="수정하기">
 				<input type="button" id="delete" value="삭제">
 				<input type="button" id="close" value="창닫기"></td>
-		
 		</tr>
 		</table>
 		</form>

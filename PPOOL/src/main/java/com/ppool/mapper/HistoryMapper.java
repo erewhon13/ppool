@@ -1,5 +1,6 @@
 package com.ppool.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.ppool.dto.History;
@@ -15,5 +16,7 @@ public interface HistoryMapper {
 	void updateHistory(History history);
 	void deleteHistory(int historyNo);
 	void deleteHistoryUploadFile(int historyNo);
+	int getHistoryCount();
+	List<History> historyList(HashMap<String, Object> params);
 	
 }

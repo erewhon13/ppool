@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +91,10 @@
 													<c:otherwise>no</c:otherwise>
 												</c:choose>
 											</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.startDay}~<br/>${history.endDay}</td>
+											
+											<fmt:formatDate value="${ history.historyStartDay}" pattern="yy년 MM월 dd일" var="start"/>
+											<fmt:formatDate value="${ history.historyEndDay}" pattern="yy년 MM월 dd일" var="end"/>
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${start}~<br/>${end}</td>
 										
 										</tr>
 										</c:forEach>
@@ -100,6 +104,16 @@
 	
 	
 	<a href="historyRegister.action">[등록하기] </a>
+	
+		<jsp:include page="paging.jsp" flush="false">
+			<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
+			<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
+			<jsp:param name="startPageNo" value="${paging.startPageNo}" />
+			<jsp:param name="pageNo" value="${paging.pageNo}" />
+			<jsp:param name="endPageNo" value="${paging.endPageNo}" />
+			<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
+			<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
+		</jsp:include>
 	
 	</div>
 </body>

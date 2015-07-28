@@ -1,5 +1,6 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.ppool.dto.History;
@@ -15,4 +16,6 @@ public interface HistoryRepository {
 	void updateHistory(History history);
 	void deleteHistory(int historyNo);
 	void deleteHistoryUploadFile(int historyNo);
+	int getHistoryCount();
+	List<History> historyList(int first,int last);
 }
