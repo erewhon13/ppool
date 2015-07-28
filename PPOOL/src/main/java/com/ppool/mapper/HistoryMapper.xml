@@ -49,11 +49,35 @@
 			#{uploadSavedFileName})
 	</insert>
 	
-	
+	<!-- pager없는 list -->
 	<select id="getHistoryList" resultType="History">
 		SELECT HISTORYNO, HISTORYOPENED, HISTORYTITLE, HISTORYSTARTDAY, HISTORYENDDAY, HISTORYWORK
 		FROM HISTORY
 	</select>
+	
+	<!-- pager 있는 list -->
+	<select id="historyList" parameterType="hashMap" resultType="History">
+	select *
+		from (select rownum idx, s.* from
+				(select HISTORYNO,
+					HISTORYTITLE,
+					HISTORYSTARTDAY,
+					HISTORYENDDAY,
+					HISTORYSTAFF,
+					HISTORYWORK,
+					HISTORYCONTENT,
+					HISTORYOPENED,
+					HISTORYSERVICE,
+					USERNO from history)s) where idx &gt;= #{first} AND idx &lt; #{last}
+	</select>
+	
+	<!-- 전체 데이터 갯수 구하는 mapper -->
+	<select id="getHistoryCount" resultType="int">
+		select count(*)
+		from history	
+	</select>
+	
+	
 	
 	<!--  -->
 

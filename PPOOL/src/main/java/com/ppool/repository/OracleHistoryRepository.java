@@ -1,5 +1,6 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +74,25 @@ public class OracleHistoryRepository implements HistoryRepository{
 	public void deleteHistoryUploadFile(int historyNo) {
 		historyMapper.deleteHistoryUploadFile(historyNo);
 		
+	}
+
+
+	@Override
+	public int getHistoryCount() {
+		int count=historyMapper.getHistoryCount();
+		return count;
+	}
+
+
+	@Override
+	public List<History> historyList(int first,int last) {
+		
+		HashMap<String, Object> params = new HashMap<>();
+		params.put("first", first);
+		params.put("last", last);
+		
+		List<History> histories=historyMapper.historyList(params);
+		return histories;
 	}
 	
 	

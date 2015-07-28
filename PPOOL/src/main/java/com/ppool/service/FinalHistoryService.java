@@ -1,5 +1,6 @@
 package com.ppool.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,20 @@ public class FinalHistoryService implements HistoryService{
 	@Override
 	public void deleteHistoryUploadFile(int historyNo) {
 		historyRepository.deleteHistoryUploadFile(historyNo);
+	}
+
+
+	@Override
+	public int getHistoryCount() {
+		int count = historyRepository.getHistoryCount();
+		return count;
+	}
+
+
+	@Override
+	public List<History> historyList(int first,int last) {
+		List<History> histories=historyRepository.historyList(first,last);
+		return histories;		
 	}
 
 	
