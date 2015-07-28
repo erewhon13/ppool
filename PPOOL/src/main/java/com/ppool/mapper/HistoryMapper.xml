@@ -63,7 +63,7 @@
 			   HISTORYENDDAY, HISTORYWORK, HISTORYCONTENT,HISTORYOPENED,HISTORYSERVICE,
 			   F.UPLOADFILENO,F.UPLOADUSERFILENAME,F.UPLOADSAVEDFILENAME
 		FROM HISTORY H
-		INNER JOIN 
+		LEFT OUTER JOIN 
 			HISTORYUPLOADFILE F
 		ON H.HISTORYNO=F.HISTORYNO
 		WHERE h.historyno = #{historyNo} 
@@ -104,5 +104,12 @@
 		where historyno=#{historyNo}	
 	</update>
 	
+	<delete id="deleteHistory" parameterType="int">
+		delete from history where historyno=#{historyNo}
+	</delete>
+	
+	<delete id="deleteHistoryUploadFile" parameterType="int">
+		delete from historyuploadfile where historyno=#{historyNo}
+	</delete>
 	
 </mapper>

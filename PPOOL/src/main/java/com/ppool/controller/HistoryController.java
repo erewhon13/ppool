@@ -147,7 +147,7 @@ public class HistoryController {
 			mav.setView(new DownloadView());
 			mav.addObject("uploadfile", file);
 		} else {
-			mav.setViewName("redirect:/history/historylist.action");
+			mav.setViewName("redirect:/historylist.action");
 		}
 		return mav;
 	}
@@ -164,6 +164,14 @@ public class HistoryController {
 		
 	}
 	
+	@RequestMapping(value="historydelete.action", method=RequestMethod.GET)
+	public ModelAndView deleteHistory(int historyNo){
+		ModelAndView mav=new ModelAndView();
+		historyService.deleteHistoryUploadFile(historyNo);
+		historyService.deleteHistory(historyNo);
+		mav.setViewName("redirect:/historylist.action");
+		return mav;
+	}
 	
 
 }

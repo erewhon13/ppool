@@ -61,6 +61,19 @@ public class OracleHistoryRepository implements HistoryRepository{
 	public void updateHistory(History history) {
 		historyMapper.updateHistory(history);
 	}
+
+
+	@Override
+	public void deleteHistory(int historyNo) {
+		historyMapper.deleteHistory(historyNo);
+	}
+
+
+	@Override
+	public void deleteHistoryUploadFile(int historyNo) {
+		historyMapper.deleteHistoryUploadFile(historyNo);
+		
+	}
 	
 	
 

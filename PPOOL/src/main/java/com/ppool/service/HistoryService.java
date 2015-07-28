@@ -12,4 +12,6 @@ public interface HistoryService {
 	History getHistoryByHistoryNo(int historyNo);
 	HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo);
 	void updateHistory(History history);
+	void deleteHistory(int historyNo);
+	void deleteHistoryUploadFile(int historyNo);
 }

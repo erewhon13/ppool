@@ -66,6 +66,18 @@ public class FinalHistoryService implements HistoryService{
 		
 	}
 
+
+	@Override
+	public void deleteHistory(int historyNo) {
+		historyRepository.deleteHistory(historyNo);
+	}
+
+
+	@Override
+	public void deleteHistoryUploadFile(int historyNo) {
+		historyRepository.deleteHistoryUploadFile(historyNo);
+	}
+
 	
 	
 }

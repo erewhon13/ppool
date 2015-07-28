@@ -7,7 +7,18 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Insert title here</title>
-</head>
+   <script src="//code.jquery.com/jquery-1.11.3.js"></script>
+   <script type="text/javascript">
+		  $(function(){
+			   $('#delete').click(function(event){
+					$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			   })
+			   
+			   $('#close').click(function(event){
+					$(location).attr('href',"historylist.action");
+			   })
+	   	})   
+   </script>
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
@@ -51,9 +62,21 @@
 			</tr>			
 			<tr>
 				<td style="background-color:#FF9147">첨부파일</td>
-				<td><a href='download.action?uploadFileNo=${history.file.uploadFileNo}'>
-		                		${history.file.uploadUserFileName}
-		                	</a></td>
+				<td>
+					<c:choose>
+					<c:when test="${history.file.uploadUserFileName ne null}">
+					<a href='download.action?uploadFileNo=${history.file.uploadFileNo}'>
+                		${history.file.uploadUserFileName }
+			        </a>
+			        </c:when>
+			        <c:otherwise>
+					
+                		첨부파일이 없습니다
+			        
+			        </c:otherwise>
+			        </c:choose>
+			        
+			    </td>
 			</tr>
 			<%-- <tr><td>첨부파일: ${history.file.uploadUserFileName}</td></tr> --%>
 			<tr>
@@ -65,7 +88,8 @@
 		<tr>
 		<td></td>
 				<td><input type="submit" value="수정하기">
-				<input type="submit" value="창닫기"></td>
+				<input type="button" id="delete" value="삭제">
+				<input type="button" id="close" value="창닫기"></td>
 		
 		</tr>
 		</table>
