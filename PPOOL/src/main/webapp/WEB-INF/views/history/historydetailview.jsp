@@ -7,19 +7,30 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Insert title here</title>
-</head>
+   <script src="//code.jquery.com/jquery-1.11.3.js"></script>
+   <script type="text/javascript">
+		  $(function(){
+			   $('#delete').click(function(event){
+					$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			   })
+			   
+			   $('#close').click(function(event){
+					$(location).attr('href',"historylist.action");
+			   })
+	   	})   
+   </script>
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
 	<div id="sidemenu">사이드 메뉴</div>
 	<div id="history" >
-	  <form action="historywrite.action" 
-		        	method="post" enctype="multipart/form-data">
+	  <form action="historyupdate.action" method="post" enctype="multipart/form-data">
 		<c:set var="history" value="${history}"/>
+		<input type="hidden" name="historyNo" value="${history.historyNo}"/>
 		<table style="margin: auto; width: 700px">
 			<tr >
 				<td style="width: 15%; background-color:#FF9147">프로젝트명</td>
-				<td style="width: 85%" colspan="3">
+				<td style="width: 85%" colspan="3">	
 				<input type="text" name="historyTitle" value="${history.historyTitle}"></td>
 			</tr>
 			<tr>
@@ -51,8 +62,23 @@
 			</tr>			
 			<tr>
 				<td style="background-color:#FF9147">첨부파일</td>
-				<td><input type="file" name="attach"></td>
+				<td>
+					<c:choose>
+					<c:when test="${history.file.uploadUserFileName ne null}">
+					<a href='download.action?uploadFileNo=${history.file.uploadFileNo}'>
+                		${history.file.uploadUserFileName }
+			        </a>
+			        </c:when>
+			        <c:otherwise>
+					
+                		첨부파일이 없습니다
+			        
+			        </c:otherwise>
+			        </c:choose>
+			        
+			    </td>
 			</tr>
+			<%-- <tr><td>첨부파일: ${history.file.uploadUserFileName}</td></tr> --%>
 			<tr>
 				<td style="background-color:#FF9147">공개여부</td>
 				<td>공개<input type="radio" name="historyOpened" value="true"  ${history.historyOpened eq "true" ?  "checked" :""}> 
@@ -61,9 +87,9 @@
 		
 		<tr>
 		<td></td>
-				<td><input type="submit" value="등록하기" onclick="document.forms[0].submit();">
-				<input type="submit" value="창닫기"></td>
-		
+				<td><input type="submit" value="수정하기">
+				<input type="button" id="delete" value="삭제">
+				<input type="button" id="close" value="창닫기"></td>
 		</tr>
 		</table>
 		</form>
