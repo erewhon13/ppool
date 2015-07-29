@@ -12,8 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
+	<c:import url="/WEB-INF/views/include/header.jsp"/>
 	<form action="userinfoupdateform.action" method="POST">
 		<div id="personaldata">
 			<c:choose>
@@ -47,5 +46,6 @@
 
 		</div>
 	</form>
+	</div>
 </body>
 </html>

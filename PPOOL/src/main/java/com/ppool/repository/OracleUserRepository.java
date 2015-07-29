@@ -42,4 +42,15 @@ public class OracleUserRepository implements UserRepository {
 		userMapper.userInfoUpdate(user);
 
 	}
+
+	@Override
+	public void userSkillRegister(HashMap<String, Object> params) {
+		userMapper.userSkillRegister(params);
+		
+	}
+
+	@Override
+	public void userLocationRegister(HashMap<String, Object> params) {
+		userMapper.userLocationRegister(params);
+	}
 }

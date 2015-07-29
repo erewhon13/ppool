@@ -40,10 +40,6 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div>
-	
-		<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
-	</div>
 	<form action="userinfoupdate.action" method="POST"
 		enctype="multipart/form-data">
 		<input type="hidden" value="${user.getUserNo()}" name="userNo">

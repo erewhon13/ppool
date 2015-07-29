@@ -1,5 +1,11 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+#cast{
+	font-family: 'Nanum Gothic', sans-serif;
+    background: #FF9147;
+    width:1255px;   
+    margin: 0 auto;
+}
 #main {
 	text-align: center;
 	margin-top: 3%;
@@ -36,6 +42,12 @@
 	margin-right: 5%;
 	margin-top: 3%;
 }
+.userlocation ul li{
+	display: inline;
+}
+.userskill ul li{
+	display: inline;
+}
 
 #topbar {
 	font-family: 'Nanum Gothic', serif;
@@ -58,18 +70,16 @@
 }
 
 #logo {
-	float: left;
-	margin-left: 5%;
-	margin-top: 1%;
+	width:1255px;   
+    margin: 0 auto;
 }
 
 #personaldata{
 	text-align: center;
 	height: 500px;
 	font-family: 'Nanum Gothic', serif;
+	width:75%;
 	float: right;
-	width: 75%;
-	margin-right: 5%;
 	margin-top: 3%;
 }
 

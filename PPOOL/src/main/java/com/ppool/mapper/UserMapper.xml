@@ -6,6 +6,9 @@
 
 <mapper namespace="com.ppool.mapper.UserMapper">
 	<insert id="registerUser" parameterType="User">
+		<selectKey keyProperty="userNo" order="AFTER" resultType="int" >
+			SELECT USERNO_SEQUENCE.CURRVAL FROM DUAL
+		</selectKey>
 		INSERT INTO
 		USERS(USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR)
 		VALUES(USERNO_SEQUENCE.NEXTVAL,#{userEmail},#{userPasswd},#{userName},#{userPhone},#{userBirth},#{userGender},#{userAddress},#{userExperience},#{userAcademic},#{userMajor})
@@ -24,4 +27,17 @@
 		SET USERNAME = #{userName},USERPHONE = #{userPhone},USERBIRTH = #{userBirth},USERGENDER = #{userGender},USERADDRESS = #{userAddress},USEREXPERIENCE = #{userExperience},USERACADEMIC = #{userAcademic},USERMAJOR = #{userMajor},USERPICTUREEXIST = #{userPictureExist},USERPICTURESAVEDNAME = #{userPictureSavedName}
 		WHERE USERNO=#{userNo}
 	</update>
+	
+	<!-- userSkill 등록 -->
+	<insert id="userSkillRegister" parameterType="hashMap">
+		INSERT INTO
+		USERSKILL(USERSKILLNO,SKILLNO,USERNO)
+		VALUES(USERSKILLNO_SEQUENCE.NEXTVAL,#{skillNo} ,#{userNo})
+	</insert>
+	<!-- userLocation 등록 -->
+	<insert id="userLocationRegister" parameterType="hashMap">
+		INSERT INTO
+		USERLOCATION(USERLOCATIONNO,LOCATIONNO,USERNO)
+		VALUES(USERLOCATIONNO_SEQUENCE.NEXTVAL,#{locatioNo},#{userNo})
+	</insert>
 </mapper>

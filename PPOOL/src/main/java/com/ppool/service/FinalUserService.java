@@ -43,4 +43,15 @@ public class FinalUserService implements UserService {
 	public void userInfoUpdate(User user) {
 		userRepository.userInfoUpdate(user);
 	}
+
+	@Override
+	public void userSkillRegister(HashMap<String, Object> params) {
+		userRepository.userSkillRegister(params);
+		
+	}
+
+	@Override
+	public void userLocationRegister(HashMap<String, Object> params) {
+		userRepository.userLocationRegister(params);
+	}
 }

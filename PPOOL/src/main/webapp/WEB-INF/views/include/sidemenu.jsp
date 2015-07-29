@@ -26,10 +26,21 @@
 	</div>
 	<div id="topbar" class="logined"
 		style='display : ${loginuser eq null ? "none" : "block"}'>
-		<span id="mid"><a
-			href="/ppool/userinfo.action?userNo=${loginuser.getUserNo()}">${loginuser ne null ? loginuser.getUserName() : ""}</a></span>님
-		환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
-	</div></div>
+		<span id="mid">
+		<a href="/ppool/userinfo.action?userNo=${loginuser.getUserNo()}">${loginuser ne null ? loginuser.getUserName() : ""}</a></span>님 환영합니다.
+		<a href='/ppool/userlogout.action'>로그아웃</a>
+		<ul>
+		<li>
+		<a href='/ppool/resume.action'>이력/경력사항 관리</a>
+		</li>
+		<li>
+		<a href='/ppool/historylist.action'>프로젝트이력등록</a>
+		</li>
+		</ul>
+		
+		
+	</div>
+	</div>
 	<div id="sidemenu">
 		<ul>
 			<li><a href='#'><span>홈</span></a></li>

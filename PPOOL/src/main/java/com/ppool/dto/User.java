@@ -21,6 +21,10 @@ public class User {
 	private boolean userPictureExist;
 	private String userPictureSavedName;
 	private String stampRegisterDay;
+	
+	///1:M관계 형성 필드
+	private String[] userSkill;
+	private String[] userLocation;
 
 	public int getUserNo() {
 		return userNo;
@@ -164,5 +168,21 @@ public class User {
 
 	public void setStampRegisterDay(String stampRegisterDay) {
 		this.stampRegisterDay = stampRegisterDay;
+	}
+
+	public String[] getUserSkill() {
+		return userSkill;
+	}
+
+	public void setUserSkill(String[] userSkill) {
+		this.userSkill = userSkill;
+	}
+
+	public String[] getUserLocation() {
+		return userLocation;
+	}
+
+	public void setUserLocation(String[] userLocation) {
+		this.userLocation = userLocation;
 	}
 }

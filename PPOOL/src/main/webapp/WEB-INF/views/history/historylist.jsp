@@ -22,7 +22,7 @@
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
-	<div id="sidemenu">사이드 메뉴</div>		
+	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>		
 	<c:set var="histories" value="${histories}"/>
 	
 		<div id="history" style="width: 72%; float: right; margin-right: 5%">	
