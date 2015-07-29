@@ -62,7 +62,6 @@ margin:10px;
 		<c:set var="users"  value="${users}"/>
  				<div  id="s_top"></div> <!-- 공간바 -->
 		
-				<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 			
 				
 				<div id="s_center" ><!-- 가운데 -->

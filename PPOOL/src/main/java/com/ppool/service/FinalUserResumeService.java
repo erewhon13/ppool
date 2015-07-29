@@ -24,6 +24,7 @@ public class FinalUserResumeService implements UserResumeService{
 		userResumeRepository.userRegister(resume);
 		
 		
+		
 	}
 
 }

@@ -7,19 +7,23 @@ public class UserResume {
 	private int userResumeNo;
 	private int userNo;
 	private String resumeSchool;
+	private String resumeUserMajor;
 	private Date resumeMajorStartDay;
 	private Date resumeMajorEndDay;
 	private String resumeEducation;
 	private Date resumeEducationStartDay;
 	private Date resumeEducationEndDay;
 	private String resumeEducationCenter;
-	private int resumeSkillGrade;
-	private int resumeSkillPeriod;
 	private String resumeLicense;
 	private String resumeLicenseCenter;
 	private Date resumeLicenseDay;
 	private String resumeLanguage;
 	private int resumeLanguageGrade;
+	
+	private int resumeMajorUserOpenLevel;
+	private int resumeEducationOpenLevel;
+	private int resumeLicenseOpenLevel;
+	private int resumeLanguageOpenLevel;
 	
 	
 	public String getResumeSchool() {
@@ -76,18 +80,6 @@ public class UserResume {
 	public void setResumeEducationCenter(String resumeEducationCenter) {
 		this.resumeEducationCenter = resumeEducationCenter;
 	}
-	public int getResumeSkillGrade() {
-		return resumeSkillGrade;
-	}
-	public void setResumeSkillGrade(int resumeSkillGrade) {
-		this.resumeSkillGrade = resumeSkillGrade;
-	}
-	public int getResumeSkillPeriod() {
-		return resumeSkillPeriod;
-	}
-	public void setResumeSkillPeriod(int resumeSkillPeriod) {
-		this.resumeSkillPeriod = resumeSkillPeriod;
-	}
 	public String getResumeLicense() {
 		return resumeLicense;
 	}
@@ -117,6 +109,36 @@ public class UserResume {
 	}
 	public void setResumeLanguageGrade(int resumeLanguageGrade) {
 		this.resumeLanguageGrade = resumeLanguageGrade;
+	}
+	public String getResumeUserMajor() {
+		return resumeUserMajor;
+	}
+	public void setResumeUserMajor(String resumeUserMajor) {
+		this.resumeUserMajor = resumeUserMajor;
+	}
+	public int getResumeMajorUserOpenLevel() {
+		return resumeMajorUserOpenLevel;
+	}
+	public void setResumeMajorUserOpenLevel(int resumeMajorUserOpenLevel) {
+		this.resumeMajorUserOpenLevel = resumeMajorUserOpenLevel;
+	}
+	public int getResumeEducationOpenLevel() {
+		return resumeEducationOpenLevel;
+	}
+	public void setResumeEducationOpenLevel(int resumeEducationOpenLevel) {
+		this.resumeEducationOpenLevel = resumeEducationOpenLevel;
+	}
+	public int getResumeLicenseOpenLevel() {
+		return resumeLicenseOpenLevel;
+	}
+	public void setResumeLicenseOpenLevel(int resumeLicenseOpenLevel) {
+		this.resumeLicenseOpenLevel = resumeLicenseOpenLevel;
+	}
+	public int getResumeLanguageOpenLevel() {
+		return resumeLanguageOpenLevel;
+	}
+	public void setResumeLanguageOpenLevel(int resumeLanguageOpenLevel) {
+		this.resumeLanguageOpenLevel = resumeLanguageOpenLevel;
 	}
 	
 	

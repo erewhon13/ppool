@@ -13,33 +13,23 @@
 
 <style type="text/css">
  
-#r_top{
-height:30px;
-margin-left:64px;
-}
-div#r_left{
-width:200px;
-height:700px;
-background-color:gray;
-float:left;
-margin-left:64px;
-}
-#r_middle{
-width:30px;
-height:700px;
+
+#r_center{
+width:70%;
+height:80%;
 background-color:white;
 float:right;
 }
 
-#r_center{
-width:938px;
-height:2000px;
+#resumeform{
+width:90%;
+height:80%;
 background-color:white;
-float:left;
 }
+
 #r_inside{
-width:920px;
-height:1100px;
+width:90%;
+height:80%;
 background-color:white;
 margin:10px;
 }
@@ -55,12 +45,12 @@ margin:10px;
 		var dialog, form,
 	
 		resumeSchool = $("#resumeSchool"),
-		userMajor = $("#userMajor"),
+		resumeUserMajor = $("#resumeUserMajor"),
 		resumeMajorStratDay = $("#resumeMajorStartDay"),
 		resumeMajorEndDay = $("#resumeMajorEndDay"),
-		userOpenLevel =$("#userOpenLevel"),
+		resumeMajorUserOpenLevel =$("#resumeMajorUserOpenLevel"),
 		tips = $( ".validateTips" );
-		allFields = $( [] ).add( resumeSchool ).add( userMajor ).add( resumeMajorStartDay ).add(resumeMajorEndDay).add(userOpenLevel);
+		allFields = $( [] ).add( resumeSchool ).add( resumeUserMajor ).add( resumeMajorStartDay ).add(resumeMajorEndDay).add(resumeMajorUserOpenLevel);
 		
 		//console.log($("#dialog-form").dialog);
 	 	
@@ -100,18 +90,18 @@ margin:10px;
 			allFields.removeClass("ui-state-error");
 			
 			valid = valid && checkLength( resumeSchool, "resumeSchool",1,50);
-			valid = valid && checkLength( userMajor, "userMajor",1,50);
+			valid = valid && checkLength( resumeUserMajor, "resumeUserMajor",1,50);
 			valid = valid && checkLength( resumeMajorStratDay, "resumeMajorStratDay",1,50);
 			valid = valid && checkLength( resumeMajorEndDay, "resumeMajorEndDay",1,50);
-			valid = valid && checkLength( userOpenLevel, "userOpenLevel",1,10);
+			valid = valid && checkLength( resumeMajorUserOpenLevel, "resumeMajorUserOpenLevel",1,10);
 			
 			if ( valid ) {
 		        $( "#users tbody" ).append( "<tr>" +
-		          "<td>" + resumeSchool.val() + "</td>" +
-		          "<td>" + userMajor.val() + "</td>" +
-		          "<td>" + resumeMajorStratDay.val() + "</td>" +
-		          "<td>" + resumeMajorEndDay.val() + "</td>" +
-		          "<td>" + userOpenLevel.val() + "</td>" +
+		          "<td><input type=text name=resumeSchool>" + resumeSchool.val() + "</td>" +
+		          "<td><input type=text name=resumeUserMajor>" + resumeUserMajor.val() + "</td>" +
+		          "<td><input type=date name=resumeMajorStartDay>" + resumeMajorStratDay.val() + "</td>" +
+		          "<td><input type=date name=resumeMajorEndDay>" + resumeMajorEndDay.val() + "</td>" +
+		          "<td><input type=int name=resumeMajorUserOpenLevel>" + resumeMajorUserOpenLevel.val() + "</td>" +
 		        "</tr>" );
 		        dialog.dialog( "close" );
 		      } 
@@ -155,9 +145,9 @@ margin:10px;
 		resumeEducationStartDay =$("#resumeEducationStartDay"),
 		resumeEducationEndDay =$("#resumeEducationEndDay"),
 		resumeEducationCenter =$("#resumeEducationCenter"),
-		userOpenLevel =$("#userOpenLevel"),
+		resumeEducationOpenLevel =$("#resumeEducationOpenLevel"),
 		tips = $( ".validateTips" );
-		allFields2 = $( [] ).add( resumeEducation ).add( resumeEducationStartDay ).add( resumeEducationEndDay ).add(resumeEducationCenter).add(userOpenLevel);
+		allFields2 = $( [] ).add( resumeEducation ).add( resumeEducationStartDay ).add( resumeEducationEndDay ).add(resumeEducationCenter).add(resumeEducationOpenLevel);
 	
 		 function updateTips( t ) {
 		      tips
@@ -197,15 +187,15 @@ margin:10px;
 			valid = valid && checkLength( resumeEducationStartDay, "resumeEducationStartDay",1,30);
 			valid = valid && checkLength( resumeEducationEndDay, "resumeEducationEndDay",1,30);
 			valid = valid && checkLength( resumeEducationCenter, "resumeEducationCenter",1,5);
-			valid = valid && checkLength( userOpenLevel, "userOpenLevel",1,5);
+			valid = valid && checkLength( resumeEducationOpenLevel, "resumeEducationOpenLevel",1,5);
 			
 			if ( valid ) {
 		        $( "#users2 tbody" ).append( "<tr>" +
-		          "<td>" + resumeEducation.val() + "</td>" +
-		          "<td>" + resumeEducationStartDay.val() + "</td>" +
-		          "<td>" + resumeEducationEndDay.val() + "</td>" + 
-		          "<td>" + resumeEducationCenter.val() + "</td>" +
-		          "<td>" + userOpenLevel.val() + "</td>" +
+		          "<td name=resumeEducation>" + resumeEducation.val() + "</td>" +
+		          "<td name=resumeEducationStartDay>" + resumeEducationStartDay.val() + "</td>" +
+		          "<td name=resumeEducationEndDay>" + resumeEducationEndDay.val() + "</td>" + 
+		          "<td name=resumeEducationCenter>" + resumeEducationCenter.val() + "</td>" +
+		          "<td name=resumeEducationOpenLevel>" + resumeEducationOpenLevel.val() + "</td>" +
 		        "</tr>" );
 		        dialog2.dialog( "close" );
 		      } 
@@ -335,10 +325,10 @@ margin:10px;
 		resumeLicense =$("#resumeLicense"),
 		resumeLicenseCenter =$("#resumeLicenseCenter"),
 		resumeLicenseDay =$("#resumeLicenseDay"),
-		userOpenLevel =$("#userOpenLevel"),
+		resumeLicenseOpenLevel =$("#resumeLicenseOpenLevel"),
 		tips = $( ".validateTips" );
 
-		allFields4 = $( [] ).add( resumeLicense ).add( resumeLicenseCenter ).add( resumeLicenseDay ).add(userOpenLevel);
+		allFields4 = $( [] ).add( resumeLicense ).add( resumeLicenseCenter ).add( resumeLicenseDay ).add(resumeLicenseOpenLevel);
 	 	
 		 function updateTips( t ) {
 		      tips
@@ -376,14 +366,14 @@ margin:10px;
 			valid = valid && checkLength( resumeLicense, "resumeLicense",1,30);
 			valid = valid && checkLength( resumeLicenseCenter, "resumeLicenseCenter",1,30);
 			valid = valid && checkLength( resumeLicenseDay, "resumeLicenseDay",1,30);
-			valid = valid && checkLength( userOpenLevel, "userOpenLevel",1,5);
+			valid = valid && checkLength( resumeLicenseOpenLevel, "resumeLicenseOpenLevel",1,5);
 			
 			if ( valid ) {
 		        $( "#users4 tbody" ).append( "<tr>" +
-		        		"<td>" + resumeLicense.val() + "</td>" +
-				         "<td>" + resumeLicenseCenter.val() + "</td>" +
-				         "<td>" + resumeLicenseDay.val() + "</td>" + 
-				         "<td>" + userOpenLevel.val() + "</td>" +
+		        		"<td name=resumeLicense>" + resumeLicense.val() + "</td>" +
+				         "<td name=resumeLicenseCenter>" + resumeLicenseCenter.val() + "</td>" +
+				         "<td name=resumeLicenseDay>" + resumeLicenseDay.val() + "</td>" + 
+				         "<td name=resumeLicenseOpenLevel>" + resumeLicenseOpenLevel.val() + "</td>" +
 				    "</tr>" );
 		        dialog4.dialog( "close" );
 		      } 
@@ -423,10 +413,10 @@ margin:10px;
 	
 		resumeLanguage =$("#resumeLanguage"),
 		resumeLanguageGrade =$("#resumeLanguageGrade"),
-		userOpenLevel =$("#userOpenLevel"),
+		resumeLanguageOpenLevel =$("#resumeLanguageOpenLevel"),
 		tips = $( ".validateTips" );
 
-		allFields5 = $( [] ).add( resumeLanguage ).add( resumeLanguageGrade ).add(userOpenLevel);
+		allFields5 = $( [] ).add( resumeLanguage ).add( resumeLanguageGrade ).add(resumeLanguageOpenLevel);
 	 	
 		 function updateTips( t ) {
 		      tips
@@ -463,13 +453,13 @@ margin:10px;
 			
 			valid = valid && checkLength( resumeLanguage, "resumeLanguage",1,30);
 			valid = valid && checkLength( resumeLanguageGrade, "resumeLanguageGrade",1,30);
-			valid = valid && checkLength( userOpenLevel, "userOpenLevel",1,5);
+			valid = valid && checkLength( resumeLanguageOpenLevel, "resumeLanguageOpenLevel",1,5);
 			
 			if ( valid ) {
 		        $( "#users5 tbody" ).append( "<tr>" +
-		        		"<td>" + resumeLanguage.val() + "</td>" +
-				         "<td>" + resumeLanguageGrade.val() + "</td>" +
-				         "<td>" + userOpenLevel.val() + "</td>" +
+		        		"<td name=resumeLanguage>" + resumeLanguage.val() + "</td>" +
+				         "<td name=resumeLanguageGrade>" + resumeLanguageGrade.val() + "</td>" +
+				         "<td name=resumeLanguageOpenLevel >" + resumeLanguageOpenLevel.val() + "</td>" +
 				    "</tr>" );
 		        dialog5.dialog( "close" );
 		      } 
@@ -505,6 +495,15 @@ margin:10px;
 		});	 
 	////////////////////
 	
+	
+	
+	$(".school").each(function(index,obj) {
+		console.log(obj);
+	});
+	
+	
+	
+	
 </script>
 
 </head>
@@ -517,13 +516,13 @@ margin:10px;
 				<fieldset>
 						<label for="resumeSchool">학교</label>
 						<input type="text" name="resumeSchool" id="resumeSchool" class="text ui-widget-content ui-corner-all">
-						<label for="userMajor">전공</label>
-						<input type="text" name="userMajor" id="userMajor" class="text ui-widget-content ui-corner-all" >
+						<label for="resumeUserMajor">전공</label>
+						<input type="text" name="resumeUserMajor" id="resumeUserMajor" class="text ui-widget-content ui-corner-all" >
 						<label for="resumeMajorDay">기간</label>
 						<input type="date" name="resumeMajorStartDay"  id="resumeMajorStartDay" class="text ui-widget-content ui-corner-all" >
 						~<input type="date" name="resumeMajorEndDay"  id="resumeMajorEndDay" class="text ui-widget-content ui-corner-all">
-						<label for="userOpenLevel">공개여부</label>
-						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all">						
+						<label for="resumeMajorUserOpenLevel">공개여부</label>
+						<input type="text" name="resumeMajorUserOpenLevel" id="resumeMajorUserOpenLevel" class="text ui-widget-content ui-corner-all">						
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 				</fieldset>
 		</form>
@@ -538,8 +537,8 @@ margin:10px;
 						 ~<input type="date" name="resumeEducationEndDay" id="resumeEducationEndDay" class="text ui-widget-content ui-corner-all2" > 
 						<label for="resumeEducationCenter">교육기관명</label>
 						<input type="text" name="resumeEducationCenter" id="resumeEducationCenter" class="text ui-widget-content ui-corner-all2">
-						<label for="userOpenLevel">공개여부</label>
-						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all2">
+						<label for="resumeEducationOpenLevel">공개여부</label>
+						<input type="text" name="resumeEducationOpenLevel" id="resumeEducationOpenLevel" class="text ui-widget-content ui-corner-all2">
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 				</fieldset>
 		</form>
@@ -589,8 +588,8 @@ margin:10px;
 						<input type="text" name="resumeLicenseCenter" id="resumeLicenseCenter" class="text ui-widget-content ui-corner-all4">
 						<label for="resumeLicenseDay">취득일자</label>
 						<input type="date" name="resumeLicenseDay" id="resumeLicenseDay" class="text ui-widget-content ui-corner-all4" >
-						<label for="userOpenLevel">공개여부</label>
-						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all4">
+						<label for="resumeLicenseOpenLevel">공개여부</label>
+						<input type="text" name="resumeLicenseOpenLevel" id="resumeLicenseOpenLevel" class="text ui-widget-content ui-corner-all4">
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 				</fieldset>
 		</form>
@@ -602,25 +601,20 @@ margin:10px;
 						<input type="text" name="resumeLanguage" id="resumeLanguage" class="text ui-widget-content ui-corner-all4" >
 						<label for="resumeLanguageGrade">외국어수준</label>
 						<input type="text" name="resumeLanguageGrade" id="resumeLanguageGrade" class="text ui-widget-content ui-corner-all4" >
-						<label for="userOpenLevel">공개여부</label>
-						<input type="text" name="userOpenLevel" id="userOpenLevel" class="text ui-widget-content ui-corner-all4">
+						<label for="resumeLanguageOpenLevel">공개여부</label>
+						<input type="text" name="resumeLanguageOpenLevel" id="resumeLanguageOpenLevel" class="text ui-widget-content ui-corner-all4">
 						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 				</fieldset>
 		</form>
 </div>
 
 
-
-				<div  id="r_top"></div> <!-- 공간바 -->
-				<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
-				<div id="r_middle"></div><!-- 가운데 끼인바 -->
-				</div>
 				
-				<div id="r_center" ><!-- 가운데 -->
-					<img src="/ppool/resources/images/resume.gif">
-					  <hr border-top:1px solid  />
+	<div id="r_center" ><!-- 가운데 -->
+					<img src="/ppool/resources/images/resume.gif" style="margin-top: 30px;">
+					  <hr border-top:1px solid style="width:93%; float:left;" />
 
-		<form action="resumewrite.action" method="post" id="resumeform">
+		<form action="resumewrite.action" method="post" >
 				<div id="r_inside" style="margin-top:20px; ">
 						
 						<table style="text-align:center; width:100%; height:80px; ">
@@ -700,12 +694,12 @@ margin:10px;
 										</tr>
 								</thead>
 								<tbody>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
+										<tr class="school">
+											<td name="resumeEducation"></td>
+											<td name="resumeEducationStartDay"></td>
+											<td name="resumeEducationEndDay"></td>
+											<td name="resumeEducationCenter"></td>
+											<td name="resumeEducationOpenLevel"></td>
 										</tr>
 								</tbody>		
 							</table>		
@@ -778,10 +772,10 @@ margin:10px;
 								</thead>
 								<tbody>
 										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
+											<td name="resumeLicense"></td>
+											<td name="resumeLicenseCenter"></td>
+											<td name="resumeLicenseDay"></td>
+											<td name="resumeLicenseOpenLevel"></td>
 										</tr>
 								</tbody>
 							</table>		
@@ -812,9 +806,9 @@ margin:10px;
 								</thead>
 								<tbody>
 										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
+											<td name="resumeLanguage"></td>
+											<td name="resumeLanguageGrade"></td>
+											<td name="resumeLanguageOpenLevel"></td>
 									   </tr>
 								</tbody>
 							</table>		
@@ -838,17 +832,18 @@ margin:10px;
 						<table>
 							<tr>
 								<td height="65" align="center">
-									<input type="button" id="resumeRegister" value="수정하기">
-									<input type="button" id="close" value="취소">
+									<input type="submit" value="수정하기">
+									<input type="button" value="취소"
+										onclick="location.href='resume.action';">
 								</td>
 							</tr>
 						</table>
 					</div>
 				</div>
-				</form>
+			</form>
 				 
 					
-				</div>
+		</div>
 				
 </body>
 </html>

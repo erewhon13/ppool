@@ -6,8 +6,49 @@
 
 <mapper namespace="com.ppool.mapper.UserResumeMapper">
 
-<!-- 	<insert id="resumeRegister" parameterType="UserResume">
-		
+	<insert id="resumeRegister" parameterType="UserResume">
+		INSERT INTO 
+		USERRESUME(
+					USERRESUMENO,
+					RESUMESCHOOL,
+					RESUMEUSERMAJOR,
+					RESUMEMAJORSTARTDAY,
+					RESUMEMAJORENDDAY,
+					RESUMEMAJORUSEROPENLEVEL,
+					RESUMEEDUCATION,
+					RESUMEEDUCATIONSTARTDAY,
+					RESUMEEDUCATIONENDDAY,
+					RESUMEEDUCATIONCENTER,
+					RESUMEEDUCATIONOPENLEVEL,
+					RESUMELICENSE,
+					RESUMELICENSECENTER,
+					RESUMELICENSEDAY,
+					RESUMELICENSEOPENLEVEL,
+					RESUMELANGUAGE,
+					RESUMELANGUAGEGRADE,
+					RESUMELANGUAGEOPENLEVEL,
+					USERNO)
+			VALUES(
+					USERRESUMENO_SEQUENCE.NEXTVAL,
+					#{resumeSchool},
+					#{resumeUserMajor},
+					#{resumeMajorStartDay},
+					#{resumeMajorEndDay},
+					#{resumeMajorUserOpenLevel},
+					#{resumeEducation},
+					#{resumeEducationStartDay},
+					#{resumeEducationEndDay},
+					#{resumeEducationCenter},
+					#{resumeEducationOpenLevel},
+					#{resumeLicense},
+					#{resumeLicenseCenter},
+					#{resumeLicenseDay},
+					#{resumeLicenseOpenLevel},
+					#{resumeLanguage},
+					#{resumeLanguageGrade},
+					#{resumeLanguageOpenLevel},
+					#{userNo})
+					
 	</insert>
-	 -->
+	 
 </mapper>
