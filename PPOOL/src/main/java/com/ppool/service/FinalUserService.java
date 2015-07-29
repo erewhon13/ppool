@@ -35,7 +35,6 @@ public class FinalUserService implements UserService {
 	@Override
 	public User userInfo(int userNo) {
 		User user = userRepository.userInfo(userNo);
-		user.setStampRegisterDay(ChangeWord.dateToString(user.getUserBirth()));
 		return user;
 	}
 

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Properties;
@@ -21,6 +22,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -149,11 +151,14 @@ public class UserController {
 	public ModelAndView userInfo(int userNo, HttpServletRequest requset) {
 
 		User user = userService.userInfo(userNo);
-
+		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserLocation()));
+		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserSkill()));
 		String uri = requset.getRequestURI().toString();
 
 		mav.addObject("user", user);
 		mav.addObject("uri", uri);
+		mav.addObject("locations",locations);
+		mav.addObject("skills",skills);
 		mav.setViewName("users/userinfo");
 		return mav;
 	}

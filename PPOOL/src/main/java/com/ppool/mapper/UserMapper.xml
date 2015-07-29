@@ -18,7 +18,7 @@
 		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR FROM USERS
 		WHERE USEREMAIL = #{userEmail} AND USERPASSWD = #{userPasswd}
 	</select>
-	<select id="userInfo" resultType="User">
+	<select id="userInfo" resultMap="detailUser">
 		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR,USERPICTUREEXIST,USERPICTURESAVEDNAME FROM USERS
 		WHERE USERNO = #{userNo}
 	</select>
@@ -40,4 +40,32 @@
 		USERLOCATION (USERLOCATIONNO,LOCATIONNO,USERNO)
 		VALUES (USERLOCATIONNO_SEQUENCE.NEXTVAL,#{locationNo},#{userNo})
 	</insert>
+	
+	<resultMap id="detailUser" type="User">
+		<id column="userno" property="userNo"/>
+		<result column="useremail" property="userEmail"/>
+		<result column="userpasswd" property="userPasswd"/>
+		<result column="username" property="userName"/>
+		<result column="userphone" property="userPhone"/>
+		<result column="userbirth" property="userBirth"/>
+		<result column="usergender" property="userGender"/>
+		<result column="useraddress" property="userAddress"/>
+		<result column="userexperience" property="userExperience"/>
+		<result column="useracademic" property="userAcademic"/>
+		<result column="usermajor" property="userMajor"/>
+		<collection column="userno" property="userSkill" select="getSkillNoByUserNo"/>
+		<collection column="userno" property="userLocation" select="getLocationNoByUserNo"/>
+	</resultMap>
+	
+	<select id="getSkillNoByUserNo" parameterType="int" resultType="String">
+		SELECT skillno
+		FROM userskill
+		WHERE userno=#{userno}
+	</select>
+	
+	<select id="getLocationNoByUserNo" parameterType="int" resultType="String">
+		SELECT locationno
+		FROM userlocation
+		WHERE userno=#{userno}
+	</select>
 </mapper>
