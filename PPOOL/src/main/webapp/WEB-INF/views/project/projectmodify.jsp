@@ -65,12 +65,11 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
-<c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 	<form id="submitForm" action="projectmodify.action" method="POST"> 
 	
 	<input type="hidden" name="projectNo" value="${project.projectNo }">
 	
-	<div style="width:72%; margin-right:5%;float: right" ><br/>
+	<div style="width:72%;float: right" ><br/>
 		<table style="text-align: center; width: 100%; border:groove;" class="table">
 			<caption >상세뷰</caption>
 			<tr>

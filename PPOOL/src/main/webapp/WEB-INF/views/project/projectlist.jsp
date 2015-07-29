@@ -31,10 +31,9 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
-<c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 <c:set var="projects" value="${projects }"/>
 
-<div style="width:72%;margin-right:5%;float: right" ><br/>
+<div style="width:72%;float: right" ><br/>
 	<table class="ex1">
 		<caption>테스트</caption>
 		<thead>

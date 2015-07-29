@@ -157,7 +157,6 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
-<c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 
 
 <!----------------------------------- 신고 모달 ------------------------------->
@@ -183,7 +182,7 @@
 
 
 
-	<div style="width:72%; margin-right:5%;float: right" ><br/>
+	<div style="width:72%;float: right" ><br/>
 		<table style="width: 100%; border:groove;" class="table">
 			<caption >상세뷰
 			<img src="/ppool/resources/images/report.png" id="report" style="cursor: pointer;" align="right">
