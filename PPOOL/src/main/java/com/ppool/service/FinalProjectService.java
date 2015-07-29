@@ -46,7 +46,6 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public void projectDelete(int projectNo) {
 		projectRepository.projectDelete(projectNo);
-		
 	}
 
 	@Override
@@ -57,6 +56,21 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public void projectSkillRegister(HashMap<String, Object> params) {
 		projectRepository.projectSkillRegister(params);
+	}
+
+	@Override
+	public void projectLocationDelete(int projectNo) {
+		projectRepository.projectLocationDelete(projectNo);
+	}
+
+	@Override
+	public void projectSkillDelete(int projectNo) {
+		projectRepository.projectSkillDelete(projectNo);
+	}
+
+	@Override
+	public void projectModify(Project project) {
+		projectRepository.projectModify(project);
 	}
 	
 }

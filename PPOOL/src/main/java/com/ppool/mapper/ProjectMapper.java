@@ -14,4 +14,7 @@ public interface ProjectMapper {
 	void projectDelete(int projectNo);
 	void projectLocationRegister(HashMap<String, Object> params);
 	void projectSkillRegister(HashMap<String, Object> params);
+	void projectLocationDelete(int projectNo);
+	void projectSkillDelete(int projectNo);
+	void projectModify(Project project);
 }

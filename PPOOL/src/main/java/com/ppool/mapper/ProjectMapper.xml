@@ -6,7 +6,7 @@
 
 <mapper namespace="com.ppool.mapper.ProjectMapper">
 	
-	<!-- ***************** 프로젝트 등록 ***************** -->
+	<!-- ***************** 프로젝트 등록 및 수정***************** -->
 	<insert id="projectRegister" parameterType="Project">
 		<selectKey keyProperty="projectNo" order="AFTER" resultType="int" >
 			SELECT PROJECTNO_SEQUENCE.currval FROM DUAL
@@ -20,6 +20,15 @@
 			#{projectTeamCount}, #{projectStartDay}, #{projectEndDay}, #{projectExpire},  
 			#{projectStatus}, #{projectPhone},#{projectEmail})
 	</insert>
+	
+	<update id="projectModify" parameterType="Project">
+		UPDATE PROJECTS
+		SET 
+			PROJECTTITLE=#{projectTitle}, PROJECTCONTENT=#{projectContent}, PROJECTTEAMCOUNT=#{projectTeamCount}, PROJECTSTARTDAY=#{projectStartDay}, 
+			PROJECTENDDAY=#{projectEndDay}, PROJECTEXPIRE=#{projectExpire},  
+			PROJECTSTATUS=#{projectStatus}, PROJECTPHONE=#{projectPhone}, PROJECTEMAIL=#{projectEmail}
+		WHERE PROJECTNO=#{projectNo}
+	</update>
 		<!-- 지역 등록 -->
 		<insert id="projectLocationRegister" parameterType="hashMap">
 			INSERT INTO projectlocation
@@ -89,14 +98,18 @@
 	<!-- ********************************************* -->
 	
 	<!-- ***************** 프로젝트 삭제 ***************** -->
+	<delete id="projectLocationDelete" parameterType="int">
+		DELETE FROM projectlocation
+		WHERE projectno = #{projectNo}
+	</delete>
+	<delete id="projectSkillDelete" parameterType="int">
+		DELETE FROM projectskill
+		WHERE projectno = #{projectNo}
+	</delete>
 	<delete id="projectDelete" parameterType="int">
 		DELETE FROM projects
 		WHERE projectno = #{projectNo}
 	</delete>
-	<!-- ********************************************* -->
-	
-	<!-- ***************** 프로젝트 수정 ***************** -->
-	
 	<!-- ********************************************* -->
 	
 	

@@ -13,12 +13,15 @@
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<style type="text/css">
+	th{
+		font-weight: normal;
+	}
 	td{
 		font-size:10pt;
 		margin:5px;
-		padding:10px;
+		padding:6px;
 	}
-	caption {font-weight:700; font-size:20px; padding:5px; color:#FF9147; text-align:left; margin-bottom:5px}
+	caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
 	input.sub {
 		font-size: 15pt;
 	}
@@ -76,18 +79,18 @@
 		<table style="text-align: center; width: 100%; border:groove;" class="table">
 			<caption >상세뷰</caption>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
+				<th style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
 					<input type="text" style="width: 100%;" name="projectTitle" id="projecttitle" value="${ project.projectTitle}"/>
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">담당자</td>
+				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" value="${project.userNo }" />
+					<input type="text" style="width: 100%" id="projectwriter" value="${project.userNo }" />
 				</td>
-				<td style="width: 15%" bgcolor="#FF9147">연락처</td>
+				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">
 					<select name="phone1" id="phone1" >
 						<option value="">----</option>
@@ -118,7 +121,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">이메일</td>
+				<th style="width: 15%" bgcolor="#FF9147">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
 					<input id="email1" type="text" name="email1" value="${email1 }" style="width: 150px;"> @ 
 					<input id="email2" type="text" name="email2" value="${email2 }"  readonly=""
@@ -149,7 +152,7 @@
 		<br/>
 		<table style="text-align: center; width: 100%; border:groove; " class="table">
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">개발</td>
+				<th style="width: 15%" bgcolor="#FF9147">개발</td>
 				<td style="width: 85%" colspan="3">
 					<ul class="ul_checkbox skill"  >				
 						<li><input type="checkbox" name="skill" value="100" > .NET</li>
@@ -176,7 +179,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">디자인</td>
+				<th style="width: 15%" bgcolor="#FF9147">디자인</td>
 				<td style="width: 85%" colspan="3">
 					<ul class="ul_checkbox skill">	
 						<li><input type="checkbox" name="skill" value="200" > HTML5</li>
@@ -192,7 +195,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">지역</td>
+				<th style="width: 15%" bgcolor="#FF9147">지역</td>
 				<td style="width: 85%" colspan="3">
 					<ul class="ul_checkbox location">	
 						<li><input type="checkbox" name="location" value="11" > 강북</li>
@@ -224,25 +227,25 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
+				<th style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
 				<td style="width: 85%" colspan="3">
 					<textarea name="projectContent" id="projectcontent" rows="20" style="max-height: 600px;width:100%;resize:none">${project.projectContent }</textarea>
 				</td>
 			</tr>
 			<tr>
-				<td style="width: 15%" bgcolor="#FF9147">모집인원</td>
+				<th style="width: 15%" bgcolor="#FF9147">모집인원</td>
 				<td style="width: 35%">
 					
 					<input type="text" style="width: 100%" name="projectTeamCount" id="projectteamcount" value="${ project.projectTeamCount}"/>
 				</td>
-				<td style="width: 15%" bgcolor="#FF9147">모집 마감일</td>
+				<th style="width: 15%" bgcolor="#FF9147">모집 마감일</td>
 				<td style="width: 35%" align="left">
 					<f:formatDate value="${ project.projectExpire}" pattern="yyyy-MM-dd" var="expire"/>
 					<input style="text-align: center" type="date" name="projectExpire" id="projectexpire" value="${expire}">
 				</td>
 			</tr>
 			<tr>
-				<td bgcolor="#FF9147">프로젝트 기간</td>
+				<th bgcolor="#FF9147">프로젝트 기간</td>
 				<td align="left" style="width: 85%" colspan="3">
 					<f:formatDate value="${ project.projectStartDay}" pattern="yyyy-MM-dd" var="start"/>
 					<f:formatDate value="${ project.projectEndDay}" pattern="yyyy-MM-dd" var="end"/>

@@ -53,4 +53,21 @@ public class OracleProjectRepository implements ProjectRepository{
 		projectMapper.projectSkillRegister(params);
 	}
 
+	@Override
+	public void projectLocationDelete(int projectNo) {
+		projectMapper.projectLocationDelete(projectNo);
+		
+	}
+
+	@Override
+	public void projectSkillDelete(int projectNo) {
+		projectMapper.projectSkillDelete(projectNo);
+		
+	}
+
+	@Override
+	public void projectModify(Project project) {
+		projectMapper.projectModify(project);
+	}
+
 }
