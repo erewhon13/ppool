@@ -10,8 +10,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
+	<link rel="stylesheet" href="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.css">
+ 	<link rel="stylesheet" href="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.theme.css">
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	<script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 	<style type="text/css">
 	th{
 		font-weight: normal;
@@ -68,13 +71,122 @@
 		
 		$('.table input, textarea').attr('readonly','readonly');
 		$('.table select, .skill input, .location input').attr('disabled','disabled');
+		
+		/////////////////////////////////////////////////////
+		
 	});
+	
+	$(function(){
+		var dialog, form,
+		
+		reportcontent =$("#reportcontent"),
+		tips = $( ".validateTips" );
+		allFields = $( [] ).add( reportcontent );
+		
+		//console.log($("#dialog-form").dialog);
+	 	
+		 function updateTips( t ) {
+		      tips
+		        .text( t )
+		        .addClass( "ui-state-highlight" );
+		      setTimeout(function() {
+		        tips.removeClass( "ui-state-highlight", 1500 );
+		      }, 500 );
+		    }
+		
+		function checkLength( o, n, min, max ) {
+		      if ( o.val().length > max || o.val().length < min ) {
+		        o.addClass( "ui-state-error" );
+		        updateTips( "신고사유를 입력해주세요" );
+		        return false;
+		      } else {
+		        return true;
+		      }
+		    }	
+
+		function checkRegexp( o, regexp, n ) {
+		      if ( !( regexp.test( o.val() ) ) ) {
+		        o.addClass( "ui-state-error" );
+		        updateTips( n );
+		        return false;
+		      } else {
+		        return true;
+		      }
+		    }
+		
+		function addRegister(){
+			 var valid = true;
+			allFields.removeClass("ui-state-error");
+			
+			valid = valid && checkLength( reportcontent, "reportcontent",1,100);			
+			
+			 if ( valid ) {
+		        $( "#reportcontent" );
+		        dialog.dialog( "close" );
+		      } 
+		      return valid; 
+		}
+		
+		dialog = $("#dialog-form").dialog({
+	 		  autoOpen: false,
+	 	      height: 450,
+	 	      width: 400,
+	 	      modal: true,
+	 	      buttons: {
+	 	    	  		"신고하기":addRegister,
+	 	    	  		"취소": function(){
+	 	    	  			dialog.dialog("close");
+	 	    	  		}
+	 	      },
+	 	      close: function(){
+	 	    	  	form[0].reset();
+	 	    	  	allFields.removeClass("ui-state-error");
+	 	      }
+	 	});
+		
+	 	
+	 	form = dialog.find( "form" ).on( "submit", function( event ) {
+	 	      event.preventDefault();
+	 	      addRegister();
+	 	    });
+	 	
+	 	$("#report").on("click", function(event){
+	 	     dialog.dialog( 'open' );
+	 	    });
+	});	
+	
+	
 	</script>
 	
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
+
+
+<!----------------------------------- 신고 모달 ------------------------------->
+<div id="dialog-form" title="신고하기">
+  <p class="validateTips"></p>
+  	  <form>
+	      <label for="projectTitle2">제목</label>
+	      <input type="text" name="제 목" id="projecttitle2" value="${ project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
+	      <br/>
+	      <label for="projectUser">작성자</label>
+	      <input type="text" name="projectUser2" id="projectuser2" value="${project.userName}" style="width: 80%" class="text ui-widget-content ui-corner-all" readonly="readonly">
+	      <br/>
+	      <label for="reportcontent">사유입력</label>
+	      <br/>
+	      <input type="text" name="reportcontent" id="reportcontent" class="text ui-widget-content ui-corner-all" style="height: 150px; width: 100%;">
+	 
+	      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+	      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+	  </form>
+	</div>
+
+<!----------------------------------- 신고 모달 ------------------------------->
+
+
+
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 100%; border:groove;" class="table">
 			<caption >상세뷰
