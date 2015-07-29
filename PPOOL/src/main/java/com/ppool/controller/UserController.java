@@ -78,7 +78,7 @@ public class UserController {
 			for (String locationNo : user.getUserLocation() ) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("locationNo", locationNo);
-				params.put("projectNo", userNo);
+				params.put("userNo", userNo);
 				
 				userService.userLocationRegister(params);
 			}
