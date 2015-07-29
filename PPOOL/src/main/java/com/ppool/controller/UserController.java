@@ -65,6 +65,16 @@ public class UserController {
 		userService.registerUser(user);
 		int userNo = user.getUserNo();
 		
+		if(user.getUserLocation() != null && user.getUserLocation().length > 0){
+			for (String locationNo : user.getUserLocation() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("locationNo", locationNo);
+				params.put("userNo", userNo);
+				
+				userService.userLocationRegister(params);
+			}
+		}
+		
 		if(user.getUserSkill() != null && user.getUserSkill().length > 0){
 			for (String skillNo : user.getUserSkill() ) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
@@ -74,15 +84,7 @@ public class UserController {
 				userService.userSkillRegister(params);
 			}
 		}
-		if(user.getUserLocation() != null && user.getUserLocation().length > 0){
-			for (String locationNo : user.getUserLocation() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("locationNo", locationNo);
-				params.put("projectNo", userNo);
-				
-				userService.userLocationRegister(params);
-			}
-		}
+		
 		
 		String host = "smtp.gmail.com";
 		String username = "ppoolmanager@gmail.com";

@@ -56,7 +56,7 @@
 			<div>
 				<div class="userskill">
 					<ul>
-						<li><input type="checkbox" name="useruserSkill" value="100">.NET</li>
+						<li><input type="checkbox" name="userSkill" value="100">.NET</li>
 						<li><input type="checkbox" name="userSkill" value="101">
 							ANDROID</li>
 						<li><input type="checkbox" name="userSkill" value="102">

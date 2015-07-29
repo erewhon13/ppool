@@ -31,13 +31,13 @@
 	<!-- userSkill 등록 -->
 	<insert id="userSkillRegister" parameterType="hashMap">
 		INSERT INTO
-		USERSKILL(USERSKILLNO,SKILLNO,USERNO)
-		VALUES(USERSKILLNO_SEQUENCE.NEXTVAL,#{skillNo} ,#{userNo})
+		USERSKILL (USERSKILLNO,SKILLNO,USERNO)
+		VALUES (USERSKILLNO_SEQUENCE.NEXTVAL, #{skillNo} ,#{userNo})
 	</insert>
 	<!-- userLocation 등록 -->
 	<insert id="userLocationRegister" parameterType="hashMap">
 		INSERT INTO
-		USERLOCATION(USERLOCATIONNO,LOCATIONNO,USERNO)
-		VALUES(USERLOCATIONNO_SEQUENCE.NEXTVAL,#{locatioNo},#{userNo})
+		USERLOCATION (USERLOCATIONNO,LOCATIONNO,USERNO)
+		VALUES (USERLOCATIONNO_SEQUENCE.NEXTVAL,#{locationNo},#{userNo})
 	</insert>
 </mapper>
