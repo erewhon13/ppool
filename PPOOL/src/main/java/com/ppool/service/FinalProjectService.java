@@ -30,6 +30,28 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public void projectRegister(Project project) {
 		projectRepository.projectRegister(project);
+		
+		int projectNo = project.getProjectNo();
+		
+		if(project.getSkill() != null && project.getSkill().length > 0){
+			for (String skillNo : project.getSkill() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("skillNo", skillNo);
+				params.put("projectNo", projectNo);
+				
+				projectRepository.projectSkillRegister(params);
+			}
+		}
+		if(project.getLocation() != null && project.getLocation().length > 0){
+			for (String locationNo : project.getLocation() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("locationNo", locationNo);
+				params.put("projectNo", projectNo);
+				
+				projectRepository.projectLocationRegister(params);
+			}
+		}
+		
 	}
 	
 	@Override
@@ -46,32 +68,37 @@ public class FinalProjectService implements ProjectService{
 
 	@Override
 	public void projectDelete(int projectNo) {
+		projectRepository.projectLocationDelete(projectNo);
+		projectRepository.projectSkillDelete(projectNo);
 		projectRepository.projectDelete(projectNo);
 	}
 
 	@Override
-	public void projectLocationRegister(HashMap<String, Object> params) {
-		projectRepository.projectLocationRegister(params);
-	}
-
-	@Override
-	public void projectSkillRegister(HashMap<String, Object> params) {
-		projectRepository.projectSkillRegister(params);
-	}
-
-	@Override
-	public void projectLocationDelete(int projectNo) {
-		projectRepository.projectLocationDelete(projectNo);
-	}
-
-	@Override
-	public void projectSkillDelete(int projectNo) {
-		projectRepository.projectSkillDelete(projectNo);
-	}
-
-	@Override
 	public void projectModify(Project project) {
+		int projectNo = project.getProjectNo();
+		
+		projectRepository.projectLocationDelete(projectNo);
+		projectRepository.projectSkillDelete(projectNo);
 		projectRepository.projectModify(project);
+		
+		if(project.getSkill() != null && project.getSkill().length > 0){
+			for (String skillNo : project.getSkill() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("skillNo", skillNo);
+				params.put("projectNo", projectNo);
+				
+				projectRepository.projectSkillRegister(params);
+			}
+		}
+		if(project.getLocation() != null && project.getLocation().length > 0){
+			for (String locationNo : project.getLocation() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("locationNo", locationNo);
+				params.put("projectNo", projectNo);
+				
+				projectRepository.projectLocationRegister(params);
+			}
+		}
 	}
 
 	@Override

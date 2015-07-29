@@ -80,32 +80,10 @@ public class ProjectController {
 
 	@RequestMapping(value="projectregister.action",method = RequestMethod.POST)
 	public ModelAndView projectRegister(Project project){
-		
 		project.setProjectEmail(project.getEmail1()+"@"+project.getEmail2());
 		project.setProjectPhone(project.getPhone1()+"-"+project.getPhone2()+"-"+project.getPhone3());
 		
 		projectService.projectRegister(project);
-		
-		int projectNo = project.getProjectNo();
-		
-		if(project.getSkill() != null && project.getSkill().length > 0){
-			for (String skillNo : project.getSkill() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("skillNo", skillNo);
-				params.put("projectNo", projectNo);
-				
-				projectService.projectSkillRegister(params);
-			}
-		}
-		if(project.getLocation() != null && project.getLocation().length > 0){
-			for (String locationNo : project.getLocation() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("locationNo", locationNo);
-				params.put("projectNo", projectNo);
-				
-				projectService.projectLocationRegister(params);
-			}
-		}
 		
 		mav.setViewName("redirect:/projectlist.action");
 		return mav;
@@ -115,7 +93,6 @@ public class ProjectController {
 	public ModelAndView projectDetailView(int projectNo){
 		Project project = projectService.getProjectByProjectNo(projectNo);
 		List<ProjectComment> comments = projectService.getCommentsByProjectNo(projectNo);
-		
 		
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
@@ -141,8 +118,6 @@ public class ProjectController {
 	
 	@RequestMapping(value="projectdelete.action" ,method = RequestMethod.GET)
 	public ModelAndView projectDelete(int projectNo){
-		projectService.projectLocationDelete(projectNo);
-		projectService.projectSkillDelete(projectNo);
 		projectService.projectDelete(projectNo);
 		
 		mav.setViewName("redirect:/projectlist.action");
@@ -178,32 +153,8 @@ public class ProjectController {
 	public ModelAndView projectModify(Project project){
 		project.setProjectEmail(project.getEmail1()+"@"+project.getEmail2());
 		project.setProjectPhone(project.getPhone1()+"-"+project.getPhone2()+"-"+project.getPhone3());
-		project.setUserNo(43);
 		
-		int projectNo = project.getProjectNo();
-
-		projectService.projectLocationDelete(projectNo);
-		projectService.projectSkillDelete(projectNo);
 		projectService.projectModify(project);
-		
-		if(project.getSkill() != null && project.getSkill().length > 0){
-			for (String skillNo : project.getSkill() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("skillNo", skillNo);
-				params.put("projectNo", projectNo);
-				
-				projectService.projectSkillRegister(params);
-			}
-		}
-		if(project.getLocation() != null && project.getLocation().length > 0){
-			for (String locationNo : project.getLocation() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("locationNo", locationNo);
-				params.put("projectNo", projectNo);
-				
-				projectService.projectLocationRegister(params);
-			}
-		}
 		
 		mav.setViewName("redirect:/projectdetailview.action?projectNo="+project.getProjectNo());
 		return mav;

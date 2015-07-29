@@ -14,10 +14,12 @@
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<style type="text/css">
 	th{
+		text-align:center;
 		font-weight: normal;
 	}
 	td{
-		font-size:10pt;
+		text-align:left;
+		font-size:12pt;
 		margin:5px;
 		padding:6px;
 	}
@@ -63,11 +65,7 @@
 			$('.location input[value='+obj+']').attr('checked', true);
 		})
 		
-		var phone1 = '${phone1}'
-		$('#phone1 option[value='+phone1+']').attr('selected', true);
-		
-		$('.table input, textarea').attr('readonly','readonly');
-		$('.table select, .skill input, .location input').attr('disabled','disabled');
+		$('.skill input, .location input').attr('disabled','disabled');
 	});
 	</script>
 	
@@ -76,78 +74,32 @@
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
-		<table style="text-align: center; width: 100%; border:groove;" class="table">
+		<table style="width: 100%; border:groove;" class="table">
 			<caption >상세뷰
 			<img src="/ppool/resources/images/report.png" id="report" style="cursor: pointer;" align="right">
 			</caption>
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
-					<input type="text" style="width: 100%;" name="projectTitle" id="projecttitle" value="${ project.projectTitle}"/>
+					<div style="width: 100%;">${ project.projectTitle}</div>
 				</td>
 			</tr>
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" value="${project.userName }" readonly="readonly"/>
+					<input type="hidden" name='userNo' value="${loginuser.userNo }">
+					<div style="text-align: left">${loginuser.userName }</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
-				<td style="width: 35%; font-size: 10pt;" align="left">
-					<select name="phone1" id="phone1" >
-						<option value="">----</option>
-						<option value="02">02</option>
-						<option value="031">031</option>
-						<option value="032">032</option>
-						<option value="033">033</option>
-						<option value="041">041</option>
-						<option value="042">042</option>
-						<option value="043">043</option>
-						<option value="051">051</option>
-						<option value="052">052</option>
-						<option value="053">053</option>
-						<option value="054">054</option>
-						<option value="055">055</option>
-						<option value="061">061</option>
-						<option value="062">062</option>
-						<option value="063">063</option>
-						<option value="064">064</option>
-						<option value="0502">0502</option>
-						<option value="0504">0504</option>
-						<option value="0505">0505</option>
-						<option value="0506">0506</option>
-						<option value="0130">0130</option>
-					</select> - 
-					<input type="text" name="phone2" id="phone2" value='${phone2 }' style="width: 70px; text-align: center;"> - 
-					<input type="text" name="phone3" id="phone3" value='${phone3 }' style="width: 70px; text-align: center;">
+				<td style="width: 35%; " align="left">
+					<div style="width: 100%;">${ project.projectPhone}</div>
 				</td>
 			</tr>
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
-					<input id="email1" type="text" name="email1" value="${email1 }" style="width: 150px;"> @ 
-					<input id="email2" type="text" name="email2" value="${email2 }"  readonly=""
-							style="width: 155px;  border: solid #CECFD0 1px; font-size: 10pt;"> 
-					<select id="emailSelect" style="width: 150px; 
-							font-size: 12px;">
-						<option value="">선택해주세요</option>
-						<option value="etc">직접입력</option>
-						<option value="gmail.com">gmail.com</option>
-						<option value="naver.com">naver.com</option>
-						<option value="nate.com">nate.com</option>
-						<option value="daum.net">daum.net</option>
-						<option value="dreamwiz.com">dreamwiz.com</option>
-						<option value="lycos.co.kr">lycos.co.kr</option>
-						<option value="empal.com">empal.com</option>
-						<option value="yahoo.co.kr">yahoo.co.kr</option>
-						<option value="chol.com">chol.com</option>
-						<option value="korea.com">korea.com</option>
-						<option value="paran.com">paran.com</option>
-						<option value="hanafos.com">hanafos.com</option>
-						<option value="hanmir.com">hanmir.com</option>
-						<option value="hotmail.com">hotmail.com</option>
-						<option value="hanmail.net">hanmail.net</option>
-					</select>
+					<div style="width: 100%;">${ project.projectEmail}</div>
 				</td>
 			</tr>
 		</table>
@@ -231,28 +183,27 @@
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
 				<td style="width: 85%" colspan="3">
-					<textarea name="projectContent" id="projectcontent" rows="20" style="max-height: 600px;width:100%;resize:none">${project.projectContent }</textarea>
+					<textarea name="projectContent" id="projectcontent" rows="20" 
+					style="max-height: 600px;width:100%;resize:none" readonly="readonly">${project.projectContent }</textarea>
 				</td>
 			</tr>
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">모집인원</td>
 				<td style="width: 35%">
-					
-					<input type="text" style="width: 100%" name="projectTeamCount" id="projectteamcount" value="${ project.projectTeamCount}"/>
+					<div style="width: 100%;">${ project.projectTeamCount}명</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">모집 마감일</td>
 				<td style="width: 35%" align="left">
-					<f:formatDate value="${ project.projectExpire}" pattern="yyyy-MM-dd" var="expire"/>
-					<input style="text-align: center" type="date" name="projectExpire" id="projectexpire" value="${expire}">
+					<f:formatDate value="${ project.projectExpire}" pattern="yyyy년 MM월 dd일" var="expire"/>
+					<div style="width: 100%;">${expire}</div>
 				</td>
 			</tr>
 			<tr>
 				<th bgcolor="#FF9147">프로젝트 기간</td>
 				<td align="left" style="width: 85%" colspan="3">
-					<f:formatDate value="${ project.projectStartDay}" pattern="yyyy-MM-dd" var="start"/>
-					<f:formatDate value="${ project.projectEndDay}" pattern="yyyy-MM-dd" var="end"/>
-					<input style="text-align: center" type="date" name="projectStartDay" id="projectstartday" value="${start }"> ~ 
-					<input style="text-align: center" type="date" name="projectEndDay" id="projectendday" value="${ end}">
+					<f:formatDate value="${ project.projectStartDay}" pattern="yyyy년 MM월 dd일" var="start"/>
+					<f:formatDate value="${ project.projectEndDay}" pattern="yyyy년 MM월 dd일" var="end"/>
+					<div style="width: 100%;">${start} ~ ${end}</div>
 				</td>
 			</tr>
 		</table>
@@ -274,12 +225,9 @@
 				<!-- <h4 id="nodata" style="text-align: center">
 				작성된 댓글이 없습니다.
 				</h4> -->
-				
 				<!-- comment 있을경우 표시 영역 -->
 				<table style="width: 750px; border: solid 1px; margin: 0 auto">
 					<c:forEach var="comment" items="${comments }" > 
-		        		<%-- <%if (!comment.getWriter().equals(member.getId())) {  %> --%>
-		        		<!-- 작성자와 보는놈이 다른경우 : 댓댓글 작성 가능(미구현) -->
 		        		<tr>
 		        			<td style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
 								<div style="color:#3333dd;font-weight: bold;">${comment.userNo }</div><br/><br/>
@@ -289,25 +237,15 @@
 					                    <div style="text-align: right;">
 					                    	<a href="#" style="color:teal;">댓글</a>
 					                    </div>
+					                    <div style="text-align: right;">
+					                    	<a href="#" style="color: orange;">편집</a>
+					                    	&nbsp;
+					                    	<a href="#" style="color:maroon ;">삭제</a>
+					                    </div>
 			                		</div>
 		                	</td>
 		                </tr>
-		        		<%-- <%}else { %> --%>
-		        		<!-- 작성자가 자기글을 보는경우 : 편집이나 삭제 가능-->
 		        		<tr >
-		        			<td id="commentview${ comment.commentNo}" 
-		        						style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
-								<div style="color:#3333dd;font-weight: bold; ">${comment.userNo }</div><br/><br/>
-								<div >${comment.commentContent }</div><br/><br/>
-								<div style="color: gray;">${ comment.commentRegisterDay}</div>
-								<div >
-				                    <div style="text-align: right;">
-				                    	<a href="#" style="color: orange;">편집</a>
-				                    	&nbsp;
-				                    	<a href="#" style="color:maroon ;">삭제</a>
-				                    </div>
-		                		</div>
-		                	</td>
 			                <td id="commentedit${ comment.commentNo}" 
 			                			style='display:none;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
 								<form id="updatecommentform${ comment.commentNo}" action="updatecomment.action" method="post">
@@ -363,7 +301,7 @@
 			<hr align="center" style="width: 750px;" />
 
 
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+			<br/><br/><br/><br/><br/>
 	
 	
 	

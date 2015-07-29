@@ -198,7 +198,8 @@
 			<tr>
 				<td style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
 				<td style="width: 85%" colspan="3">
-					<textarea name="projectContent" id="projectcontent" rows="20" style="max-height: 600px;width:100%;resize:none"></textarea>
+					<textarea name="projectContent" id="projectcontent" rows="20" style="max-height: 600px;
+					width:100%;resize:none">1. 프로젝트 설명 : </textarea>
 				</td>
 			</tr>
 			<tr>
