@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.ppool.dto.Project;
+import com.ppool.dto.ProjectComment;
 import com.ppool.mapper.ProjectMapper;
 
 @Repository("projectRepository")
@@ -68,6 +69,12 @@ public class OracleProjectRepository implements ProjectRepository{
 	@Override
 	public void projectModify(Project project) {
 		projectMapper.projectModify(project);
+	}
+
+	@Override
+	public List<ProjectComment> getCommentsByProjectNo(int projectNo) {
+		List<ProjectComment> comments = projectMapper.getCommentsByProjectNo(projectNo);
+		return comments;
 	}
 
 }

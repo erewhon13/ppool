@@ -77,7 +77,9 @@
 <c:import url="/WEB-INF/views/include/sidemenu.jsp"/>
 	<div style="width:72%; margin-right:5%;float: right" ><br/>
 		<table style="text-align: center; width: 100%; border:groove;" class="table">
-			<caption >상세뷰</caption>
+			<caption >상세뷰
+			<img src="/ppool/resources/images/report.png" id="report" style="cursor: pointer;" align="right">
+			</caption>
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
 				<td style="width: 85%" colspan="3">
@@ -88,7 +90,7 @@
 				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" id="projectwriter" value="${project.userNo }" />
+					<input type="text" style="width: 100%" value="${project.userName }" readonly="readonly"/>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">
@@ -262,6 +264,111 @@
 			<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">
 		</div>
 	</div>
+	
+	<!------------------ comment 보여주기 영역 시작 -------------------->
+			<br />
+			<br />
+			<c:if test="${comments != null} ">
+				댓글있음
+			</c:if>
+				<!-- <h4 id="nodata" style="text-align: center">
+				작성된 댓글이 없습니다.
+				</h4> -->
+				
+				<!-- comment 있을경우 표시 영역 -->
+				<table style="width: 750px; border: solid 1px; margin: 0 auto">
+					<c:forEach var="comment" items="${comments }" > 
+		        		<%-- <%if (!comment.getWriter().equals(member.getId())) {  %> --%>
+		        		<!-- 작성자와 보는놈이 다른경우 : 댓댓글 작성 가능(미구현) -->
+		        		<tr>
+		        			<td style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
+								<div style="color:#3333dd;font-weight: bold;">${comment.userNo }</div><br/><br/>
+								<div >${comment.commentContent }</div><br/><br/>
+								<div style="color: gray;">${ comment.commentRegisterDay}</div>
+				        			<div >
+					                    <div style="text-align: right;">
+					                    	<a href="#" style="color:teal;">댓글</a>
+					                    </div>
+			                		</div>
+		                	</td>
+		                </tr>
+		        		<%-- <%}else { %> --%>
+		        		<!-- 작성자가 자기글을 보는경우 : 편집이나 삭제 가능-->
+		        		<tr >
+		        			<td id="commentview${ comment.commentNo}" 
+		        						style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
+								<div style="color:#3333dd;font-weight: bold; ">${comment.userNo }</div><br/><br/>
+								<div >${comment.commentContent }</div><br/><br/>
+								<div style="color: gray;">${ comment.commentRegisterDay}</div>
+								<div >
+				                    <div style="text-align: right;">
+				                    	<a href="#" style="color: orange;">편집</a>
+				                    	&nbsp;
+				                    	<a href="#" style="color:maroon ;">삭제</a>
+				                    </div>
+		                		</div>
+		                	</td>
+			                <td id="commentedit${ comment.commentNo}" 
+			                			style='display:none;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
+								<form id="updatecommentform${ comment.commentNo}" action="updatecomment.action" method="post">
+									<%-- <input type="hidden" name="boardno" value='<%=board.getBoardNo()%>' />
+									<input type="hidden" name="pageno" value='<%=pageNo %>' />
+									<input type="hidden" name="commentno" value='<%=comment.getCommentNo() %>' /> --%>
+									
+									<div style="color:#3333dd;font-weight: bold; ">${ comment.commentNo}</div><br/><br/>
+									<textarea id="updatecontent${comment.commentNo }" name="updatecontent" rows="5"
+											style="width:100%;background-color: lightyellow;resize:vertical;">${comment.commentContent }</textarea><br/><br/>
+									<div style="color: gray;">${ comment.commentRegisterDay}</div>
+			                		<div >
+										<div style="text-align: right;">
+											<a href="javascript:updateComment(${ comment.commentNo});" style="color: red;">수정</a> 
+											&nbsp; 
+											<!-- 취소에서는 해당 form의 상태를 초기화(수정중에 취소하면 수정중이던것을 초기화하고 기존화면을 불러준다)  -->
+											<!-- reset을 하지 않으면 다시 편집을 눌렀을 때 아까 수정하면 글자들이 나온다.-->
+											<a href="javascript:document.getElementById('updatecommentform${ comment.commentNo}').reset();
+													toggleCommentStatus(${ comment.commentNo},false)" style="color:blue;">취소</a>
+										</div>
+									</div>
+								</form>
+							</td>
+		               </tr>
+					</c:forEach>
+				</table>
+			
+			
+			<!------------------ comment 쓰기 영역 시작 -------------------->
+			<br />
+			<br />
+
+			<form id="commentform" action="comment.action" method="post">
+				<%-- <input type="hidden" name="writer" value='<%= member.getId() %>' />
+				<input type="hidden" name="boardno" value='<%=board.getBoardNo()%>' />
+				<input type="hidden" name="pageno" value='<%=pageNo %>' /> --%>
+
+				<table style="width: 750px; border: solid 1px; margin: 0 auto">
+					<tr>
+						<td style="width: 700px">
+							<textarea id="content" name="content" rows="5"
+									style="width: 700px;resize:vertical" ></textarea>
+						</td>
+						<td style="width: 50px; vertical-align: middle">
+							<a href="javascript:doSubmit();" style="text-decoration: none">
+							댓글<br />등록
+							</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+
+			<hr align="center" style="width: 750px;" />
+
+
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	
+	
+	
+	
 	
 </body>
 </html>

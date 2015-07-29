@@ -56,7 +56,8 @@
 				<td style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="text" style="width: 100%" id="projectwriter" />
+					<input type="hidden" name='userNo' value="${loginuser.userNo }">
+					<div style="text-align: left">${loginuser.userName }</div>
 				</td>
 				<td style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">

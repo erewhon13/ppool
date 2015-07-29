@@ -34,14 +34,14 @@
 			INSERT INTO projectlocation
 				(projectlocationno, locationno, projectno)
 			VALUES
-				(projectlocation_sequence.nextval, #{locationNo}, #{projectNo})
+				(PROJECTLOCATION_SEQUENCE.NEXTVAL, #{locationNo}, #{projectNo})
 		</insert>
 		<!-- 스킬 등록 -->
 		<insert id="projectSkillRegister" parameterType="hashMap">
 			INSERT INTO projectskill
 				(projectskillno, skillno , projectno)
 			VALUES
-				(projectskill_sequence.nextval, #{skillNo}, #{projectNo})
+				(PROJECTSKILL_SEQUENCE.NEXTVAL, #{skillNo}, #{projectNo})
 		</insert>
 	<!-- ********************************************* -->
 	
@@ -79,9 +79,16 @@
 		<result column="projectstatus" property="projectStatus"/>
 		<result column="projectphone" property="projectPhone"/>
 		<result column="projectemail" property="projectEmail"/>
+		<association column="userno" property="userName"  select="getUserName"/>
 		<collection column="projectno" property="skill" select="getSkillNoByProjectNo"/>
 		<collection column="projectno" property="location" select="getLocationNoByProjectNo"/>
 	</resultMap>
+	
+	<select id="getUserName" parameterType="int" resultType="String">
+		SELECT username
+		FROM users
+		WHERE userno=#{userno}
+	</select>
 	
 	<select id="getSkillNoByProjectNo" parameterType="int" resultType="String">
 		SELECT skillno
@@ -95,6 +102,12 @@
 		WHERE projectno=#{projectno}
 	</select>
 	
+	<select id="getCommentsByProjectNo" parameterType="int" resultType="ProjectComment" >
+		SELECT COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, COMMENTSTEP, COMMENTDEPTH, COMMENTCLOSED, COMMENTREGISTERDAY
+		FROM comments
+		WHERE projectno=#{proejctno}
+		ORDER BY COMMENTNO DESC, commentstep ASC
+	</select>
 	<!-- ********************************************* -->
 	
 	<!-- ***************** 프로젝트 삭제 ***************** -->

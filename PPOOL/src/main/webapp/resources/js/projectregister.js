@@ -31,11 +31,6 @@ $(document).ready(function (){
 			$('#projecttitle').focus();
 			return;
 		}
-		if( $('#projectwriter').val().trim() == "" ){
-			alert("작성자를 입력하세요")
-			$('#projectwriter').focus();
-			return;
-		}
 		if( $('#phone1').val().trim() == "" ){
 			alert("전화번호를 입력하세요")
 			$('#phone1').focus();
@@ -51,7 +46,6 @@ $(document).ready(function (){
 			$('#phone2').focus();
 			return;
 		}
-		
 		if( $('#phone3').val().trim() == "" ){
 			alert("전화번호를 입력하세요")
 			$('#phone3').focus();

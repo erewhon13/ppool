@@ -18,6 +18,16 @@ public class Project {
 	private String projectEmail;
 	
 	//////////////////////////////////////////////////////////////
+	List<ProjectComment> comments;
+	
+	public List<ProjectComment> getComments() {
+		return comments;
+	}
+	public void setComments(List<ProjectComment> comments) {
+		this.comments = comments;
+	}
+	//////////////////////////////////////////////////////////////
+	private String userName;
 	private String phone1;
 	private String phone2;
 	private String phone3;
@@ -26,6 +36,12 @@ public class Project {
 	private String[] skill;
 	private String[] location;
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public String getPhone1() {
 		return phone1;
 	}
