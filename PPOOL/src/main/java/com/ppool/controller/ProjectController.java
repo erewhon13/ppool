@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.Project;
+import com.ppool.dto.ProjectComment;
 import com.ppool.service.ProjectService;
 import com.ppool.service.UserService;
 import com.ppool.util.Util;
@@ -82,7 +83,6 @@ public class ProjectController {
 		
 		project.setProjectEmail(project.getEmail1()+"@"+project.getEmail2());
 		project.setProjectPhone(project.getPhone1()+"-"+project.getPhone2()+"-"+project.getPhone3());
-		project.setUserNo(43);
 		
 		projectService.projectRegister(project);
 		
@@ -114,6 +114,8 @@ public class ProjectController {
 	@RequestMapping(value="projectdetailview.action" ,method = RequestMethod.GET)
 	public ModelAndView projectDetailView(int projectNo){
 		Project project = projectService.getProjectByProjectNo(projectNo);
+		List<ProjectComment> comments = projectService.getCommentsByProjectNo(projectNo);
+		
 		
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
@@ -125,6 +127,7 @@ public class ProjectController {
 		
 		mav.addObject("project", project);
 		mav.addObject("locations", locations);
+		mav.addObject("comments", comments);
 		mav.addObject("skills", skills);
 		mav.addObject("email1", email1);
 		mav.addObject("email2", email2);

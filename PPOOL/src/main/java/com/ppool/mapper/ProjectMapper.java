@@ -6,6 +6,7 @@ import java.util.List;
 import com.ppool.dto.History;
 import com.ppool.dto.HistoryUploadFile;
 import com.ppool.dto.Project;
+import com.ppool.dto.ProjectComment;
 
 public interface ProjectMapper {
 	void projectRegister(Project project);
@@ -17,4 +18,5 @@ public interface ProjectMapper {
 	void projectLocationDelete(int projectNo);
 	void projectSkillDelete(int projectNo);
 	void projectModify(Project project);
+	List<ProjectComment> getCommentsByProjectNo(int projectNo);
 }

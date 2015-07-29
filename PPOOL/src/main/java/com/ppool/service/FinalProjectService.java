@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.ppool.dto.Project;
+import com.ppool.dto.ProjectComment;
 import com.ppool.repository.ProjectRepository;
 import com.ppool.util.ChangeWord;
 
@@ -71,6 +72,12 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public void projectModify(Project project) {
 		projectRepository.projectModify(project);
+	}
+
+	@Override
+	public List<ProjectComment> getCommentsByProjectNo(int projectNo) {
+		List<ProjectComment> comments = projectRepository.getCommentsByProjectNo(projectNo);
+		return comments;
 	}
 	
 }
