@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.ppool.dto.Project;
+import com.ppool.dto.ProjectComment;
 
 public interface ProjectService {
 	void projectRegister(Project project);
@@ -15,4 +16,5 @@ public interface ProjectService {
 	void projectLocationDelete(int projectNo);
 	void projectSkillDelete(int projectNo);
 	void projectModify(Project project);
+	List<ProjectComment> getCommentsByProjectNo(int projectNo);
 }
