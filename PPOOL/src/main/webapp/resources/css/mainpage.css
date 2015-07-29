@@ -12,7 +12,6 @@
 	margin-left: 5%;
 	margin-right: 5%;
 	font-family: 'Nanum Gothic', serif;
-	border: solid 1px;
 }
 #imageview{
 	margin :0 auto;
@@ -48,14 +47,6 @@
 	display: inline;
 }
 
-#topbar {
-	font-family: 'Nanum Gothic', serif;
-	float: right;
-	margin-right: 5%;
-	margin-bottom: 2%;
-	margin-top: 1.5%;
-}
-
 #logininfo {
 	float: right;
 	margin-right: 5%;
@@ -77,7 +68,7 @@
 	text-align: center;
 	height: 500px;
 	font-family: 'Nanum Gothic', serif;
-	width:75%;
+	width:80%;
 	float: right;
 	margin-top: 3%;
 }
