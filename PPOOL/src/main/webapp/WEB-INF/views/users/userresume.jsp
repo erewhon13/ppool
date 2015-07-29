@@ -94,7 +94,7 @@ margin:10px;
 			valid = valid && checkLength( resumeMajorStratDay, "resumeMajorStratDay",1,50);
 			valid = valid && checkLength( resumeMajorEndDay, "resumeMajorEndDay",1,50);
 			valid = valid && checkLength( resumeMajorUserOpenLevel, "resumeMajorUserOpenLevel",1,10);
-			
+			 
 			if ( valid ) {
 		        $( "#users tbody" ).append( "<tr>" +
 		          "<td><input type=text name=resumeSchool>" + resumeSchool.val() + "</td>" +
