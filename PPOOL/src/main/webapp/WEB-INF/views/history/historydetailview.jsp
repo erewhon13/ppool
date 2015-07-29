@@ -1,60 +1,74 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Insert title here</title>
-   <script src="//code.jquery.com/jquery-1.11.3.js"></script>
-   <script type="text/javascript">
-		  $(function(){
-			   $('#delete').click(function(event){
-					$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
-			   })
-			   
-			   $('#close').click(function(event){
+	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>   
+   	<script type="text/javascript">
+	   $(document).ready(function (){
+		 	 $('#register2').click(function(){
+					var r = /^[0-9]+$/;
+					var e = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
+					
+					if(!r.test( $('#historystaff').val().trim())){
+						alert("숫자만 입력하세요");
+						$('#historystaff').focus();
+						return;
+					}
+					alert($('#form'));
+					$('#form').submit();
+					/*$(location).attr('href',"historylist.action"); */
+					return;
+		  })
+		   $('#close').click(function(event){
 					$(location).attr('href',"historylist.action");
 			   })
-	   	})   
-   </script>
+		  $('#delete').click(function(event){
+					$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			   })
+	   })
+   	</script>
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
 	<div id="sidemenu">사이드 메뉴</div>
-	<div id="history" >
-	  <form action="historyupdate.action" method="post" enctype="multipart/form-data">
+	<div id="history" style="width:72%; margin-right:5%;float: right"><br/>
+	  <form action="historyupdate.action" method="post" enctype="multipart/form-data" id="form">
 		<c:set var="history" value="${history}"/>
 		<input type="hidden" name="historyNo" value="${history.historyNo}"/>
-		<table style="margin: auto; width: 700px">
-			
-			<tr >
-				<td style="width: 15%; background-color:#FF9147">프로젝트명</td>
-				<td style="width: 85%" colspan="3">	
-				<input type="text" name="historyTitle" value="${history.historyTitle}"></td>
-			</tr>
+		<table style="text-align: center; width: 100%; border:groove;  ">
+			<caption style="color:#FF9147;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
-				<td style="background-color:#FF9147">작업구분</td>
-				<td>
-				
-				개발<input type="radio" name="historyWork" value="developer" ${ history.historyWork eq "developer" ? "checked" : ""  }>
-				디자인<input	type="radio" name="historyWork" value="designer" ${history.historyWork eq 'designer' ? "checked" : "" }>  				
-				기타<input type="radio"	name="historyWork" value="etc" ${history.historyWork eq 'etc' ? "checked" : ""}>
+				<td style="width: 15%; background-color:#FF9147">프로젝트명</td>
+				<td style="width: 85%; text-align:center;" colspan="3">
+					<input type="text" style="width:98%" name="historyTitle" value="${history.historyTitle}">
 				</td>
 			</tr>
 			<tr>
+				<td style="background-color:#FF9147; width: 15%">작업구분</td>
+				<td>
+					개발<input type="radio" name="historyWork" value="developer" ${ history.historyWork eq "developer" ? "checked" : ""  }> 				
+					디자인<input	type="radio" name="historyWork" value="designer" ${history.historyWork eq 'designer' ? "checked" : "" }> 
+					기타<input type="radio"	name="historyWork" value="etc" ${history.historyWork eq 'etc' ? "checked" : ""}>
+				</td>
+				<td style="background-color:#FF9147">공개여부</td>
+				<td>공개<input type="radio" name="historyOpened" value="true" ${history.historyOpened eq "true" ?  "checked" :""}> 
+				        비공개<input type="radio" name="historyOpened" value="false" ${history.historyOpened eq "false" ? "checked" :""}></td>				
+			</tr>
+			<tr>
 				<td style="background-color:#FF9147">담당업무</td>
-				<td><input type="text" name="historyService" value="${history.historyService}"></td>
-			</tr>
-			<tr>
-				<td style="background-color:#FF9147">프로젝트 상세설명</td>
-				<td><input type="text" name="historyContent" value="${history.historyContent}"></td>
-			</tr>
-			<tr>
+				<td><input type="text" style="width:98%" name="historyService" value="${history.historyService}"></td>
 				<td style="background-color:#FF9147">참여인원</td>
-				<td><input type="text" name="historyStaff" value="${history.historyStaff}"/></td>
+				<td><input type="text" id="historystaff" style="width:95%" name="historyStaff" value="${history.historyStaff}"/></td>				
 			</tr>
+			<tr>
+				<td style="background-color:#FF9147">프로젝트<br/>상세설명</td>
+				<td colspan="3"><textarea name="historyContent" rows="20" style="max-height: 600px;width:98%; resize:none">${history.historyContent}</textarea></td>
+			</tr>		
 			<tr>
 				<td style="background-color:#FF9147">기간</td>
 				<fmt:formatDate value="${history.historyStartDay}" pattern="yyyy-MM-dd" var="startdate"/>
@@ -79,20 +93,16 @@
 			        
 			    </td>
 			</tr>
-			<%-- <tr><td>첨부파일: ${history.file.uploadUserFileName}</td></tr> --%>
-			<tr>
-				<td style="background-color:#FF9147">공개여부</td>
-				<td>공개<input type="radio" name="historyOpened" value="true"  ${history.historyOpened eq "true" ?  "checked" :""}> 
-				        비공개<input type="radio" name="historyOpened" value="false"  ${history.historyOpened eq "false" ? "checked" :""}></td>
-			</tr>
-		
-		<tr>
-		<td></td>
-				<td><input type="submit" value="수정하기">
-				<input type="button" id="delete" value="삭제">
-				<input type="button" id="close" value="창닫기"></td>
+					
+		<tr>		<td></td>
+				
 		</tr>
 		</table>
+		<div style="float: right;">
+				<input type="button" id="register2" value="수정하기">
+				<input type="button" id="delete" value="삭제">				
+				<input type="button" id="close" value="창닫기">	
+		</div>		
 		</form>
 	</div>
 </div>

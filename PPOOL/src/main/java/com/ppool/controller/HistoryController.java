@@ -99,7 +99,7 @@ public class HistoryController {
 		String path = application.getRealPath("/WEB-INF/uploadfiles/");
 	
 		//Upload 객체에 요청 데이터 저장 -> DB에 insert 처리		
-		history.setUserNo(42);
+		history.setUserNo(62);
 		history.setFile(file2);
 		
 		
@@ -173,7 +173,7 @@ public class HistoryController {
 	public ModelAndView updateHistory(History history){
 		
 		ModelAndView mav=new ModelAndView();
-		history.setUserNo(42);
+		history.setUserNo(62);
 		
 		historyService.updateHistory(history);
 		mav.setViewName("redirect:/historylist.action");
