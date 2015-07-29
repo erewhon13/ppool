@@ -6,7 +6,9 @@ public class UserResume {
 	
 	private int userResumeNo;
 	private int userNo;
-	private Date resumeMajorDay;
+	private String resumeSchool;
+	private Date resumeMajorStartDay;
+	private Date resumeMajorEndDay;
 	private String resumeEducation;
 	private Date resumeEducationStartDay;
 	private Date resumeEducationEndDay;
@@ -18,6 +20,26 @@ public class UserResume {
 	private Date resumeLicenseDay;
 	private String resumeLanguage;
 	private int resumeLanguageGrade;
+	
+	
+	public String getResumeSchool() {
+		return resumeSchool;
+	}
+	public void setResumeSchool(String resumeSchool) {
+		this.resumeSchool = resumeSchool;
+	}
+	public Date getResumeMajorStartDay() {
+		return resumeMajorStartDay;
+	}
+	public void setResumeMajorStartDay(Date resumeMajorStartDay) {
+		this.resumeMajorStartDay = resumeMajorStartDay;
+	}
+	public Date getResumeMajorEndDay() {
+		return resumeMajorEndDay;
+	}
+	public void setResumeMajorEndDay(Date resumeMajorEndDay) {
+		this.resumeMajorEndDay = resumeMajorEndDay;
+	}
 	public int getUserResumeNo() {
 		return userResumeNo;
 	}
@@ -29,12 +51,6 @@ public class UserResume {
 	}
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
-	}
-	public Date getResumeMajorDay() {
-		return resumeMajorDay;
-	}
-	public void setResumeMajorDay(Date resumeMajorDay) {
-		this.resumeMajorDay = resumeMajorDay;
 	}
 	public String getResumeEducation() {
 		return resumeEducation;

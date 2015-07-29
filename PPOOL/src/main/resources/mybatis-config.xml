@@ -15,6 +15,7 @@
 		<typeAlias type="com.ppool.dto.History" alias="History"/>
 		<typeAlias type="com.ppool.dto.HistoryUploadFile" alias="HistoryUploadFile"/>
 		<typeAlias type="com.ppool.dto.UserResume" alias="UserResume"/>
+		<typeAlias type="com.ppool.dto.Report" alias="Report"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/ppool/mapper/UserMapper.xml" />
@@ -23,6 +24,7 @@
 		<mapper resource="com/ppool/mapper/HistoryMapper.xml"/>
 		<mapper resource="com/ppool/mapper/UserSearchMapper.xml"/>
 		<mapper resource="com/ppool/mapper/UserResumeMapper.xml"/>
+		<mapper resource="com/ppool/mapper/ReportMapper.xml"/>
 	</mappers>
 
 </configuration>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
+
+<mapper namespace="com.ppool.mapper.ReportMapper">
+
+	<insert id="insertReport" parameterType="Report">
+		INSERT INTO REPORT
+			(REPORTNO,
+			 REPORTCONTENT,
+			 PROJECTNO,
+			 USERNO		
+			)
+		VALUES(
+			REPORTNO_SEQUENCE.NEXTVAL,
+			#{projectContent},
+			#{projectNo},
+			#{userNo}	
+		)
+	</insert>
+	
+	<update id="updateWarningCount" parameterType="int" >
+		update 
+			Users 
+		set 
+			userwarningcount =  userwarningcount+1		
+		where
+			userNo= (Select userNo from project where projectno=#{projectNo})		
+	</update>
+	
+</mapper>
