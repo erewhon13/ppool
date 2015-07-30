@@ -666,7 +666,7 @@ margin:10px;
 											<td>${UserResume.resumeMajorEndDay}</td>
 											<td>${UserResume.resumeMajorUserOpenLevel}</td>
 										</tr>
-									</c:forEach>
+									</c:forEach> 
 								</tbody>		
 							</table>		
 					</div>
