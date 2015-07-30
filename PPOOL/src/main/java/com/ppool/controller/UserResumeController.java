@@ -40,9 +40,11 @@ public class UserResumeController {
 	private UserResumeService userResumeService;
 	
 	@RequestMapping(value="resume.action", method=RequestMethod.GET)
-	public ModelAndView resumeRegisterList(){
+	public ModelAndView resumeRegister(int userNo){
 		
-		List<UserResume> userResume  = userResumeService.getUserResumeList();
+		UserResume userResume  = userResumeService.getUserResume(userNo);
+		
+		
 		mav.addObject("userResume",userResume);
 		mav.setViewName("users/userresume");
 		return mav;
@@ -58,8 +60,6 @@ public class UserResumeController {
 //		String resumeSchool = request.getParameter("resumeSchool");
 //		String resumeUserMajor = request.getParameter("resumeUserMajor");
 
-		
-		resume.setUserNo(93);
 		
 		userResumeService.userRegister(resume);
 		

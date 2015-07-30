@@ -8,6 +8,6 @@ public interface UserResumeService {
 
 	void userRegister(UserResume resume);
 
-	List<UserResume> getUserResumeList();
+	UserResume getUserResume(int userNo);
 	
 }

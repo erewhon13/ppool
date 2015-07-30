@@ -27,9 +27,11 @@ public class FinalUserResumeService implements UserResumeService{
 		
 	}
 
+
 	@Override
-	public List<UserResume> getUserResumeList() {
-		List<UserResume> userResumes = userResumeRepository.getUserResumeList();
-		return userResumes;
+	public UserResume getUserResume(int userNo) {
+		UserResume userResume=userResumeRepository.getUserResume(userNo);
+		return userResume;
 	}
+	
 }

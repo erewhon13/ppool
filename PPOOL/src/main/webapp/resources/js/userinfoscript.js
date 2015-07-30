@@ -2,7 +2,7 @@ $(function(){
 	$("#userLogin").click(function() {
 		$.ajax({
 		url : "/ppool/userlogin.action",
-		async : true,
+		async : false,
 		method : "POST",
 		data : {
 			userEmail : $("#userEmail").val(),

@@ -8,7 +8,7 @@ public interface UserResumeMapper {
 		
 	void resumeRegister(UserResume resume);
 
-	List<UserResume> getUserResumeList();
+	UserResume getUserResume(int userNo);
 		
 	
 }
