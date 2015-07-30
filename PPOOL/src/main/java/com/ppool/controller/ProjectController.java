@@ -160,4 +160,13 @@ public class ProjectController {
 		return mav;
 	}
 	
+	@RequestMapping(value="commentregister.action",method = RequestMethod.POST)
+	public ModelAndView commentRegister(ProjectComment comment){
+		
+		//projectService.commentRegister(comment);
+		
+		mav.setViewName("redirect:/projectlist.action");
+		return mav;
+	}
+	
 }

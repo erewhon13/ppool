@@ -103,7 +103,7 @@
 		<result column="historycontent" property="historyContent" />
 		<result column="historyopened" property="historyOpened" />
 		<result column="historyservice" property="historyService" />
-		<association property="file" column="historyno" select="historyFileResult"/>		
+		<association property="file" column="historyno" resultMap="historyFileResult"/>		
 	</resultMap>
 	
 	<resultMap id="historyFileResult" type="HistoryUploadFile">

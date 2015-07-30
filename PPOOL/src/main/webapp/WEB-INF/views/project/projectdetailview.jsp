@@ -70,7 +70,36 @@
 		
 		$('.skill input, .location input').attr('disabled','disabled');
 		
-	});
+		
+		$("#commentwriter").click(function() {
+			$.ajax({
+			url : "/ppool/commentregister.action",
+			async : true,
+			method : "POST",
+			data : {
+				/* userEmail : $("#userEmail").val(),
+				userPasswd : $("#userPasswd").val() */
+			},
+			success : function(data) {
+				/* if (!data) {
+					alert('로그인 실패');
+					console.log(data);
+				} else {
+					$(".nonelogined").css("display","none");
+					$(".logined").css("display","block");
+					$("#mid").html('<a href="/ppool/userinfo.action?userNo=' + data.userNo + '">' + data.userName + '</a>');
+					console.log(data);
+				} */
+			},
+			error : function(request,status,error) {
+				/* alert('로그인 실패');
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				//$('#message').text('로그인 실패'); */
+			}
+			});//ajax
+		});	//click 함수
+		
+	});//ready
 	
 	$(function(){
 		var dialog, form,
@@ -151,7 +180,6 @@
 	 	    });
 	});	
 	
-	
 	</script>
 	
 </head>
@@ -196,8 +224,6 @@
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
-					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
-					<input type="hidden" name='userNo' value="${loginuser.userNo }">
 					<div style="text-align: left">${loginuser.userName }</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
@@ -328,19 +354,14 @@
 	<!------------------ comment 보여주기 영역 시작 -------------------->
 			<br />
 			<br />
-			<c:if test="${comments != null} ">
-				댓글있음
-			</c:if>
-				<!-- <h4 id="nodata" style="text-align: center">
-				작성된 댓글이 없습니다.
-				</h4> -->
-				<!-- comment 있을경우 표시 영역 -->
+					<!-- comment 있을경우 표시 영역 -->
+			<c:if test="${comments != null}">
 				<table style="width: 750px; border: solid 1px; margin: 0 auto">
 					<c:forEach var="comment" items="${comments }" > 
 		        		<tr>
 		        			<td style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
 								<div style="color:#3333dd;font-weight: bold;">${comment.userNo }</div><br/><br/>
-								<div >${comment.commentContent }</div><br/><br/>
+								<div >${comment.commentContent } ${comments != null}</div><br/><br/>
 								<div style="color: gray;">${ comment.commentRegisterDay}</div>
 				        			<div >
 					                    <div style="text-align: right;">
@@ -381,27 +402,34 @@
 		               </tr>
 					</c:forEach>
 				</table>
-			
+			</c:if>
+				
+					<!-- comment 없을경우 표시 영역 -->
+					<div id="rr">${comments == null}sdfasdf</div>
+			<c:if test="${comments == null}">
+				<div style="background-color: #eeddaa">
+					<h4 style="text-align: center">
+						작성된 댓글이 없습니다.
+					</h4>
+				</div>
+			</c:if>
+				
 			
 			<!------------------ comment 쓰기 영역 시작 -------------------->
 			<br />
 			<br />
 
-			<form id="commentform" action="comment.action" method="post">
-				<%-- <input type="hidden" name="writer" value='<%= member.getId() %>' />
-				<input type="hidden" name="boardno" value='<%=board.getBoardNo()%>' />
-				<input type="hidden" name="pageno" value='<%=pageNo %>' /> --%>
+			<form id="commentform" method="post">
+				<input type="hidden" name="projectNo" value='${project.projectNo }' />
+				<input type="hidden" name="userNo" value='${loginuser.userNo }' />
 
 				<table style="width: 750px; border: solid 1px; margin: 0 auto">
 					<tr>
 						<td style="width: 700px">
-							<textarea id="content" name="content" rows="5"
-									style="width: 700px;resize:vertical" ></textarea>
+							<textarea id="commentContent" name="commentContent" rows="5" style="width: 700px;resize:vertical" ></textarea>
 						</td>
 						<td style="width: 50px; vertical-align: middle">
-							<a href="javascript:doSubmit();" style="text-decoration: none">
-							댓글<br />등록
-							</a>
+							<img src="/ppool/resources/images/register.png" id="commentwriter" style="cursor: pointer;">
 						</td>
 					</tr>
 				</table>
@@ -411,11 +439,6 @@
 
 
 			<br/><br/><br/><br/><br/>
-	
-	
-	
-	
-	
 	
 </body>
 </html>
