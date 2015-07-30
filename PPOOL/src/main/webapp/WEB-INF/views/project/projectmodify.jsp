@@ -50,7 +50,7 @@
 			$('.location input[value='+obj+']').attr('checked', true);
 		})
 		
-		var phone1 = '${phone1}'
+		var phone1 = '${project.phone1}'
 		$('#phone1 option[value='+phone1+']').attr('selected', true);
 		
 		$('#cancel').click(function(){
@@ -83,7 +83,7 @@
 				<td style="width: 35%">
 					<!-- 세션에서 읽어올것 로그인 안되면 로그인창으로 이동 --> 
 					<input type="hidden" name='userNo' value="${loginuser.userNo }">
-					<div style="text-align: left">${loginuser.userName }</div>
+					<div style="text-align: left">${project.userName }</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; font-size: 10pt;" align="left">
@@ -111,15 +111,15 @@
 						<option value="0506">0506</option>
 						<option value="0130">0130</option>
 					</select> - 
-					<input type="text" name="phone2" id="phone2" value='${phone2 }' style="width: 70px; text-align: center;"> - 
-					<input type="text" name="phone3" id="phone3" value='${phone3 }' style="width: 70px; text-align: center;">
+					<input type="text" name="phone2" id="phone2" value="${project.phone2 }" style="width: 70px; text-align: center;"> - 
+					<input type="text" name="phone3" id="phone3" value="${project.phone3 }" style="width: 70px; text-align: center;">
 				</td>
 			</tr>
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">이메일</td>
 				<td style="width: 15%" colspan="3" align="left">
-					<input id="email1" type="text" name="email1" value="${email1 }" style="width: 150px;"> @ 
-					<input id="email2" type="text" name="email2" value="${email2 }"  readonly=""
+					<input id="email1" type="text" name="email1" value="${project.email1 }" style="width: 150px;"> @ 
+					<input id="email2" type="text" name="email2" value="${project.email2 }"  readonly=""
 							style="width: 155px;  border: solid #CECFD0 1px; font-size: 10pt;"> 
 					<select id="emailSelect" style="width: 150px; 
 							font-size: 12px;">
