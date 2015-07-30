@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -11,21 +12,32 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 $(function() {
+	$("#btn").click(function() {
+		var result = confirm('Are you sure you want to do this?');
+		if (result) {
+			//yes
+			alert("yes")
+			
+		}else{
+			alert("no");
+		}
+	})
 	var skills = '${skills}'.split(",");
 	var locations = '${locations}'.split(",");
-	
+	console.log(locations);
 	$.each(skills, function(index, obj){
 		$('.userskill input[value='+obj+']').attr('checked', true);
 	});
 	$.each(locations, function(index, obj){
 		$('.userlocation input[value='+obj+']').attr('checked', true);
 	});
+	$('.userskill input, .userlocation input').attr('disabled','disabled');
 });
 </script>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"/>
-	<form action="userinfoupdateform.action" method="POST">
+	<input type="button" id="btn"> 
 		<div id="personaldata">
 			<c:choose>
 				<c:when test="${user.isUserPictureExist() eq true}">
@@ -39,13 +51,13 @@ $(function() {
 					</div>
 				</c:otherwise>
 			</c:choose>
+			<form action="userinfoupdateform.action" method="POST">
 			<div>
 				<label>이름 : </label>${user.getUserName()}</div>
 			<div>
 				<label>휴대전화 : </label>${user.getUserPhone()}</div>
 			<div>
-				<label>생년월일 : </label>${user.getStampRegisterDay()}</div>
-			<div>
+				<label>생년월일 : </label><f:formatDate value="${user.getUserBirth()}" pattern="yy년 MM월 dd일" var="stampDay"/>${stampDay}</div>			<div>
 				<label>성별 : </label>${user.isUserGender() eq true ? "남" : "여"}</div>
 			<div>
 				<label>주소 : </label>${user.getUserAddress()}</div>
@@ -168,8 +180,8 @@ $(function() {
 							해외</li>
 					</ul>
 				</div>
-				<input type="submit" value="수정">
+				</form>
 		</div>
-	</form>
+	
 </body>
 </html>

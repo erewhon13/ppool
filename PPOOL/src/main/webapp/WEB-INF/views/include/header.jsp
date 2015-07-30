@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script src="/ppool/resources/js/userinfoscript.js"></script>
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
@@ -49,8 +50,6 @@
 		<a href='/ppool/historylist.action'>프로젝트이력등록</a>
 		</li>
 		</ul>
-		
-		
 	</div>
 	</div>
 	<div id="sidemenu">
@@ -60,6 +59,9 @@
 			<li><a href='#'><span>공지사항</span></a></li>
 
 			<li><a href='#'><span>1</span></a></li>
+			<c:if test="${loginuser ne null && uri eq '/ppool/userinfo.action'}">
+			<li><a href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
+			</c:if>
 		</ul>
 	</div>
 	</div>

@@ -42,8 +42,6 @@ import com.ppool.util.Util;
 @Controller
 @SessionAttributes("loginuser")
 public class UserController {
-	ModelAndView mav = new ModelAndView();
-
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -57,6 +55,7 @@ public class UserController {
 
 	@RequestMapping(value = "registerview.action", method = RequestMethod.GET)
 	public ModelAndView registerView() {
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("users/registeruser");
 		return mav;
 	}
@@ -120,6 +119,7 @@ public class UserController {
 		} catch (Exception e) {
 
 		}
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/home.action");
 		return mav;
 	}
@@ -143,6 +143,7 @@ public class UserController {
 	public ModelAndView userLogout(@ModelAttribute("loginuser") User user,
 			SessionStatus status) {
 		status.setComplete();
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/");
 		return mav;
 	}
@@ -154,9 +155,12 @@ public class UserController {
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserLocation()));
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserSkill()));
 		String uri = requset.getRequestURI().toString();
-
+		
+		
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("user", user);
 		mav.addObject("uri", uri);
+		
 		mav.addObject("locations",locations);
 		mav.addObject("skills",skills);
 		mav.setViewName("users/userinfo");
@@ -166,6 +170,11 @@ public class UserController {
 	@RequestMapping(value = "userinfoupdateform.action", method = RequestMethod.GET)
 	public ModelAndView userInfoUpdateForm(int userNo) {
 		User user = userService.userInfo(userNo);
+		ModelAndView mav = new ModelAndView();
+		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserLocation()));
+		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserSkill()));
+		mav.addObject("locations",locations);
+		mav.addObject("skills",skills);
 		mav.addObject("user", user);
 		mav.setViewName("users/userinfoupdateform");
 		return mav;
@@ -173,12 +182,38 @@ public class UserController {
 
 	@RequestMapping(value = "userinfoupdate.action", method = RequestMethod.POST)
 	public ModelAndView userinfoUpdate(MultipartHttpServletRequest request,User user){
+		
 		ServletContext application = request.getSession().getServletContext();
 		String path = application.getRealPath("/resources/images");
 		MultipartFile file = request.getFile("userProfile");
 		String fileName = file.getOriginalFilename();
 		user.setUserPictureSavedName(fileName);
 		user.setUserPictureExist(true);
+		
+		int userNo = user.getUserNo();
+		userService.userSkillDelete(userNo);
+		userService.userLocationDelete(userNo);
+		
+		if(user.getUserLocation() != null && user.getUserLocation().length > 0){
+			for (String locationNo : user.getUserLocation() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("locationNo", locationNo);
+				params.put("userNo", userNo);
+				
+				userService.userLocationRegister(params);
+			}
+		}
+		
+		if(user.getUserSkill() != null && user.getUserSkill().length > 0){
+			for (String skillNo : user.getUserSkill() ) {
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put("skillNo", skillNo);
+				params.put("userNo", userNo);
+				
+				userService.userSkillRegister(params);
+			}
+		}
+		
 		userService.userInfoUpdate(user);
 		//파일을 디스크에 저장
 		try {
@@ -195,7 +230,7 @@ public class UserController {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		mav.addObject("fileName",fileName);
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/userinfo.action?userNo="+user.getUserNo());
 		return mav;
 	}
