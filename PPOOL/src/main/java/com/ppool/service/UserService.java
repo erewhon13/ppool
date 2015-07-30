@@ -12,5 +12,7 @@ public interface UserService{
 	void userInfoUpdate(User user);
 	void userSkillRegister(HashMap<String, Object> params);
 	void userLocationRegister(HashMap<String, Object> params);
+	void userLocationDelete(int userNo);
+	void userSkillDelete(int userNo);
 }
 

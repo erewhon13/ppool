@@ -109,6 +109,9 @@
 		
 	});//ready
 	
+	
+	////////////////////////////////////////////////////////// 신고기능
+	
 	$(function(){
 		var dialog, form,
 		
@@ -148,14 +151,16 @@
 		    }
 		
 		function addRegister(){
+			alert("addRegister")
 			 var valid = true;
 			allFields.removeClass("ui-state-error");
 			
 			valid = valid && checkLength( reportcontent, "reportcontent",1,100);			
 			
 			 if ( valid ) {
-		        $( "#reportcontent" );
+				 $("#reportform").submit();
 		        dialog.dialog( "close" );
+		        
 		      } 
 		      return valid; 
 		}
@@ -172,16 +177,16 @@
 	 	    	  		}
 	 	      },
 	 	      close: function(){
-	 	    	  	form[0].reset();
-	 	    	  	allFields.removeClass("ui-state-error");
+	 	    	 form[0].reset();
+	 	    	  allFields.removeClass("ui-state-error");
 	 	      }
 	 	});
 		
 	 	
-	 	form = dialog.find( "form" ).on( "submit", function( event ) {
+	 /*  form = dialog.find( "form" ).on( "submit", function( event ) {
 	 	      event.preventDefault();
 	 	      addRegister();
-	 	    });
+	 	    }); */
 	 	
 	 	$("#report").on("click", function(event){
 	 	     dialog.dialog( 'open' );
@@ -192,15 +197,17 @@
 	
 </head>
 <body>
+
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 
+<!--------------------------------------------------- 신고 모달 ------------------------------------------------->
 
-<!----------------------------------- 신고 모달 ------------------------------->
 <div id="dialog-form" title="신고하기">
   <p class="validateTips"></p>
-  	  <form>
+  	  <form id="reportform" action="insertreport.action" method="post">
+  	  	  <input type="hidden" name="projectNo" value="${project.projectNo}">
 	      <label for="projectTitle2">제목</label>
-	      <input type="text" name="제 목" id="projecttitle2" value="${ project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
+	      <input type="text" name="projectTitle2" id="projecttitle2" value="${ project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
 	      <br/>
 	      <label for="projectUser">작성자</label>
 	      <input type="text" name="projectUser2" id="projectuser2" value="${project.userName}" style="width: 80%" class="text ui-widget-content ui-corner-all" readonly="readonly">
@@ -210,13 +217,11 @@
 	      <input type="text" name="reportcontent" id="reportcontent" class="text ui-widget-content ui-corner-all" style="height: 150px; width: 100%;">
 	 
 	      <!-- Allow form submission with keyboard without duplicating the dialog button -->
-	      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+	      <!-- <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
 	  </form>
-	</div>
+</div>
 
-<!----------------------------------- 신고 모달 ------------------------------->
-
-
+<!--------------------------------------------------- 신고 모달 ------------------------------------------------->
 
 	<div style="width:72%;float: right" ><br/>
 		<table style="width: 100%; border:groove;" class="table">
@@ -224,7 +229,7 @@
 			<img src="/ppool/resources/images/report.png" id="report" style="cursor: pointer;" align="right">
 			</caption>
 			<tr>
-				<th style="width: 15%" bgcolor="#FF9147">프로젝트명</td>
+				<th style="width: 15%" bgcolor="#FF9147">프로젝트명</th>
 				<td style="width: 85%" colspan="3">
 					<div style="width: 100%;">${ project.projectTitle}</div>
 				</td>
@@ -327,7 +332,7 @@
 				<th style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
 				<td style="width: 85%" colspan="3">
 					<textarea name="projectContent" id="projectcontent" rows="20" 
-					style="max-height: 600px;width:100%;resize:none" readonly="readonly">${project.projectContent }</textarea>
+					style="max-height: 600px;width:100%;resize:none" readonly="readonly">${project.projectContent}</textarea>
 				</td>
 			</tr>
 			<tr>

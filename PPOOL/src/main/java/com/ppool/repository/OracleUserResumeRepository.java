@@ -28,5 +28,13 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			userResumeMapper.resumeRegister(resume);
 			
 		}
+
+		@Override
+		public UserResume getUserResume(int userNo) {
+			UserResume userResume=userResumeMapper.getUserResume(userNo);
+			return userResume;
+		}
+
+		
 	
 }

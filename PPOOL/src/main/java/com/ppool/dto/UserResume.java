@@ -19,6 +19,7 @@ public class UserResume {
 	private Date resumeLicenseDay;
 	private String resumeLanguage;
 	private int resumeLanguageGrade;
+	private String resumeIntroduction;
 	
 	private int resumeMajorUserOpenLevel;
 	private int resumeEducationOpenLevel;
@@ -139,6 +140,12 @@ public class UserResume {
 	}
 	public void setResumeLanguageOpenLevel(int resumeLanguageOpenLevel) {
 		this.resumeLanguageOpenLevel = resumeLanguageOpenLevel;
+	}
+	public String getResumeIntroduction() {
+		return resumeIntroduction;
+	}
+	public void setResumeIntroduction(String resumeIntroduction) {
+		this.resumeIntroduction = resumeIntroduction;
 	}
 	
 	
