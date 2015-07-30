@@ -224,7 +224,7 @@
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
-					<div style="text-align: left">${loginuser.userName }</div>
+					<div style="text-align: left">${project.userName }</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; " align="left">
