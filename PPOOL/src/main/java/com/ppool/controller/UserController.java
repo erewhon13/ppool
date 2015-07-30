@@ -127,16 +127,18 @@ public class UserController {
 	@RequestMapping(value = "userlogin.action", method = RequestMethod.POST)
 	// @ResponseBody user 리턴값의 User 객체가 MessageConvert 로 설정된
 	// MappingJacksonHttpMessageConverter 에서 JSON data형식으로 변환 작업이 이뤄진다.
-	public @ResponseBody User userLogin(String userEmail, String userPasswd,
-			Model model) {
+	public ModelAndView userLogin(String userEmail, String userPasswd,HttpServletRequest requset) {
+		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userEmail", userEmail);
 		params.put("userPasswd", Util.getHashedString(userPasswd, "SHA-1"));
 		User user = userService.userLogin(params);
 		if (user != null) {
-			model.addAttribute("loginuser", user);
+			mav.addObject("loginuser",user);
 		}
-		return user;
+		
+		mav.setViewName("redirect:/home.action");
+		return mav;
 	}
 
 	@RequestMapping(value = "userlogout.action", method = RequestMethod.GET)
