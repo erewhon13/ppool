@@ -56,4 +56,9 @@
 		<property name="sqlSessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="reportMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.ppool.mapper.ReportMapper" />
+		<property name="sqlSessionFactory" ref="sessionFactory" />
+	</bean>
+	
 </beans>

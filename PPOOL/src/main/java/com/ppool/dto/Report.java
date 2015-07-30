@@ -9,6 +9,7 @@ public class Report {
 	private String reportContent;
 	private int projectNo;
 	private int userNo;
+	
 	public int getReportNo() {
 		return reportNo;
 	}

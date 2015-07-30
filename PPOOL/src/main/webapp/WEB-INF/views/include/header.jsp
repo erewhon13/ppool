@@ -44,7 +44,7 @@
 		<a href='/ppool/userlogout.action'>로그아웃</a>
 		<ul>
 		<li>
-		<a href='/ppool/resume.action'>이력/경력사항 관리</a>
+		<a href='/ppool/resume.action?userNo=${loginuser.userNo}'>이력/경력사항 관리</a>
 		</li>
 		<li>
 		<a href='/ppool/historylist.action'>프로젝트이력등록</a>

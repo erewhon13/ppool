@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ProjectComment {
 	private int commentNo;
-	private int projectno;
+	private int projectNo;
 	private int userNo;
 	private String commentContent;
 	private int commentStep;
@@ -17,11 +17,11 @@ public class ProjectComment {
 	public void setCommentNo(int commentNo) {
 		this.commentNo = commentNo;
 	}
-	public int getProjectno() {
-		return projectno;
+	public int getProjectNo() {
+		return projectNo;
 	}
-	public void setProjectno(int projectno) {
-		this.projectno = projectno;
+	public void setProjectNo(int projectNo) {
+		this.projectNo = projectNo;
 	}
 	public int getUserNo() {
 		return userNo;

@@ -31,7 +31,7 @@ public class UserSearchController {
 		ModelAndView mav = new ModelAndView();
 		List<User> users = userSearchService.getUserSearchList();
 		
-		mav.addObject("users",users);
+		mav.addObject("users",users); //getattribute (데이터 출력을 위해 데이터 가져오기)
 		mav.setViewName("users/searchuser");
 		return mav;
 	}
