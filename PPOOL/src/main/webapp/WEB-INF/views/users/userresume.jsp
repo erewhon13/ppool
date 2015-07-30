@@ -46,7 +46,7 @@ margin:10px;
 	
 		resumeSchool = $("#resumeSchool"),
 		resumeUserMajor = $("#resumeUserMajor"),
-		resumeMajorStratDay = $("#resumeMajorStartDay"),
+		resumeMajorStartDay = $("#resumeMajorStartDay"),
 		resumeMajorEndDay = $("#resumeMajorEndDay"),
 		resumeMajorUserOpenLevel =$("#resumeMajorUserOpenLevel"),
 		tips = $( ".validateTips" );
@@ -91,17 +91,17 @@ margin:10px;
 			
 			valid = valid && checkLength( resumeSchool, "resumeSchool",1,50);
 			valid = valid && checkLength( resumeUserMajor, "resumeUserMajor",1,50);
-			valid = valid && checkLength( resumeMajorStratDay, "resumeMajorStratDay",1,50);
+			valid = valid && checkLength( resumeMajorStartDay, "resumeMajorStartDay",1,50);
 			valid = valid && checkLength( resumeMajorEndDay, "resumeMajorEndDay",1,50);
 			valid = valid && checkLength( resumeMajorUserOpenLevel, "resumeMajorUserOpenLevel",1,10);
 			 
 			if ( valid ) {
 		        $( "#users tbody" ).append( "<tr>" +
-		          "<td><input type=text name=resumeSchool>" + resumeSchool.val() + "</td>" +
-		          "<td><input type=text name=resumeUserMajor>" + resumeUserMajor.val() + "</td>" +
-		          "<td><input type=date name=resumeMajorStartDay>" + resumeMajorStratDay.val() + "</td>" +
-		          "<td><input type=date name=resumeMajorEndDay>" + resumeMajorEndDay.val() + "</td>" +
-		          "<td><input type=int name=resumeMajorUserOpenLevel>" + resumeMajorUserOpenLevel.val() + "</td>" +
+		          "<td><input type=hidden name=resumeSchool value=" + resumeSchool.val()+">"+resumeSchool.val() + "</td>" +
+		          "<td><input type=hidden name=resumeUserMajor value="+resumeUserMajor.val()+">" + resumeUserMajor.val() + "</td>" +
+		          "<td><input type=hidden name=resumeMajorStartDay value="+resumeMajorStartDay.val()+">" + resumeMajorStartDay.val() + "</td>" +
+		          "<td><input type=hidden name=resumeMajorEndDay value="+resumeMajorEndDay.val()+">" + resumeMajorEndDay.val() + "</td>" +
+		          "<td><input type=hidden name=resumeMajorUserOpenLevel value="+resumeMajorUserOpenLevel.val()+">" + resumeMajorUserOpenLevel.val() + "</td>" +
 		        "</tr>" );
 		        dialog.dialog( "close" );
 		      } 
@@ -141,6 +141,8 @@ margin:10px;
 	$(function(){
 		var dialog2, form2,
 	
+		
+		
 		resumeEducation =$("#resumeEducation"),
 		resumeEducationStartDay =$("#resumeEducationStartDay"),
 		resumeEducationEndDay =$("#resumeEducationEndDay"),
@@ -191,11 +193,11 @@ margin:10px;
 			
 			if ( valid ) {
 		        $( "#users2 tbody" ).append( "<tr>" +
-		          "<td name=resumeEducation>" + resumeEducation.val() + "</td>" +
-		          "<td name=resumeEducationStartDay>" + resumeEducationStartDay.val() + "</td>" +
-		          "<td name=resumeEducationEndDay>" + resumeEducationEndDay.val() + "</td>" + 
-		          "<td name=resumeEducationCenter>" + resumeEducationCenter.val() + "</td>" +
-		          "<td name=resumeEducationOpenLevel>" + resumeEducationOpenLevel.val() + "</td>" +
+		          "<td><input type=hidden name=resumeEducation value="+resumeEducation.val()+">" + resumeEducation.val() + "</td>" +
+		          "<td><input type=hidden name=resumeEducationStartDay value="+resumeEducationStartDay.val()+">" + resumeEducationStartDay.val() + "</td>" +
+		          "<td><input type=hidden name=resumeEducationEndDay value="+resumeEducationEndDay.val()+">" + resumeEducationEndDay.val() + "</td>" + 
+		          "<td><input type=hidden  name=resumeEducationCenter value="+resumeEducationCenter.val()+">" + resumeEducationCenter.val() + "</td>" +
+		          "<td><input type=hidden name=resumeEducationOpenLevel value="+resumeEducationOpenLevel.val()+">" + resumeEducationOpenLevel.val() + "</td>" +
 		        "</tr>" );
 		        dialog2.dialog( "close" );
 		      } 
@@ -368,12 +370,13 @@ margin:10px;
 			valid = valid && checkLength( resumeLicenseDay, "resumeLicenseDay",1,30);
 			valid = valid && checkLength( resumeLicenseOpenLevel, "resumeLicenseOpenLevel",1,5);
 			
+			
 			if ( valid ) {
 		        $( "#users4 tbody" ).append( "<tr>" +
-		        		"<td name=resumeLicense>" + resumeLicense.val() + "</td>" +
-				         "<td name=resumeLicenseCenter>" + resumeLicenseCenter.val() + "</td>" +
-				         "<td name=resumeLicenseDay>" + resumeLicenseDay.val() + "</td>" + 
-				         "<td name=resumeLicenseOpenLevel>" + resumeLicenseOpenLevel.val() + "</td>" +
+		        			"<td><input type=hidden name=resumeLicense value="+resumeLicense.val()+">" + resumeLicense.val() + "</td>" +
+				         "<td><input type=hidden name=resumeLicenseCenter value="+resumeLicenseCenter.val()+">" + resumeLicenseCenter.val() + "</td>" +
+				         "<td><input type=hidden name=resumeLicenseDay value="+resumeLicenseDay.val()+">" + resumeLicenseDay.val() + "</td>" + 
+				         "<td><input type=hidden name=resumeLicenseOpenLevel value="+resumeLicenseOpenLevel.val()+">" + resumeLicenseOpenLevel.val() + "</td>" +
 				    "</tr>" );
 		        dialog4.dialog( "close" );
 		      } 
@@ -454,12 +457,12 @@ margin:10px;
 			valid = valid && checkLength( resumeLanguage, "resumeLanguage",1,30);
 			valid = valid && checkLength( resumeLanguageGrade, "resumeLanguageGrade",1,30);
 			valid = valid && checkLength( resumeLanguageOpenLevel, "resumeLanguageOpenLevel",1,5);
-			
+		      
 			if ( valid ) {
 		        $( "#users5 tbody" ).append( "<tr>" +
-		        		"<td name=resumeLanguage>" + resumeLanguage.val() + "</td>" +
-				         "<td name=resumeLanguageGrade>" + resumeLanguageGrade.val() + "</td>" +
-				         "<td name=resumeLanguageOpenLevel >" + resumeLanguageOpenLevel.val() + "</td>" +
+		        			"<td><input type=hidden name=resumeLanguage value="+resumeLanguage.val()+">" + resumeLanguage.val() + "</td>" +
+				         "<td><input type=hidden name=resumeLanguageGrade value="+resumeLanguageGrade.val()+">" + resumeLanguageGrade.val() + "</td>" +
+				         "<td><input type=hidden name=resumeLanguageOpenLevel value="+resumeLanguageOpenLevel.val()+">" + resumeLanguageOpenLevel.val() + "</td>" +
 				    "</tr>" );
 		        dialog5.dialog( "close" );
 		      } 
@@ -608,8 +611,7 @@ margin:10px;
 		</form>
 </div>
 
-
-				
+		
 	<div id="r_center" ><!-- 가운데 -->
 					<img src="/ppool/resources/images/resume.gif" style="margin-top: 30px;">
 					  <hr border-top:1px solid style="width:93%; float:left;" />
@@ -656,13 +658,15 @@ margin:10px;
 										</tr>
 								</thead>
 								<tbody>
+									<c:forEach var="UserResume" items="${userResume}">
 										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
+											<td>${UserResume.resumeSchool}</td>
+											<td>${UserResume.resumeUserMajor}</td>
+											<td>${UserResume.resumeMajorStartDay}</td>
+											<td>${UserResume.resumeMajorEndDay}</td>
+											<td>${UserResume.resumeMajorUserOpenLevel}</td>
 										</tr>
+									</c:forEach>
 								</tbody>		
 							</table>		
 					</div>
@@ -694,13 +698,15 @@ margin:10px;
 										</tr>
 								</thead>
 								<tbody>
-										<tr class="school">
-											<td name="resumeEducation"></td>
-											<td name="resumeEducationStartDay"></td>
-											<td name="resumeEducationEndDay"></td>
-											<td name="resumeEducationCenter"></td>
-											<td name="resumeEducationOpenLevel"></td>
+									<c:forEach var="UserResume" items="${userResume}">
+										<tr>
+											<td>${UserResume.resumeEducation}</td>
+											<td>${UserResume.resumeEducationStartDay}</td>
+											<td>${UserResume.resumeEducationEndDay}</td>
+											<td>${UserResume.resumeEducationCenter}</td>
+											<td>${UserResume.resumeEducationOpenLevel}</td>
 										</tr>
+									</c:forEach>
 								</tbody>		
 							</table>		
 					</div>
@@ -771,12 +777,14 @@ margin:10px;
 										</tr>
 								</thead>
 								<tbody>
+									<c:forEach var="UserResume" items="${userResume}">
 										<tr>
-											<td name="resumeLicense"></td>
-											<td name="resumeLicenseCenter"></td>
-											<td name="resumeLicenseDay"></td>
-											<td name="resumeLicenseOpenLevel"></td>
+											<td>${UserResume.resumeLicense}</td>
+											<td>${UserResume.resumeLicenseCenter}</td>
+											<td>${UserResume.resumeLicenseDay}</td>
+											<td>${UserResume.resumeLicenseOpenLevel}</td>
 										</tr>
+									</c:forEach>
 								</tbody>
 							</table>		
 					</div>
@@ -805,11 +813,13 @@ margin:10px;
 										</tr>
 								</thead>
 								<tbody>
+									<c:forEach var="UserResume" items="${userResume}">
 										<tr>
-											<td name="resumeLanguage"></td>
-											<td name="resumeLanguageGrade"></td>
-											<td name="resumeLanguageOpenLevel"></td>
+											<td>${UserResume.resumeLanguage}</td>
+											<td>${UserResume.resumeLanguageGrade}</td>
+											<td>${UserResume.resumeLanguageOpenLevel}</td>
 									   </tr>
+									  </c:forEach>
 								</tbody>
 							</table>		
 					</div>
@@ -823,7 +833,8 @@ margin:10px;
 							<tr>
 								<td bgcolor="#EEF8F3" style="padding:8px 0 8px 0" align="center" >
 										<textarea name="resumeIntroduction" style="width:665px; height:200px; font-size:9pt;
-																	border:1px #DADADA solid; background:#FFFFFF; "></textarea>
+																	border:1px #DADADA solid; background:#FFFFFF; ">
+									    </textarea>
 								</td>
 							</tr>
 						</table>
@@ -832,7 +843,7 @@ margin:10px;
 						<table>
 							<tr>
 								<td height="65" align="center">
-									<input type="submit" value="수정하기">
+									<input type="submit" value="입력하기">
 									<input type="button" value="취소"
 										onclick="location.href='resume.action';">
 								</td>
