@@ -55,7 +55,6 @@
 		<a href='/ppool/projectbookmarklist.action?userNo=${loginuser.userNo }'>북마크 리스트</a>
 		</li>
 		</ul>
-		
 	</div>
 	</div>
 	<div id="sidemenu">
