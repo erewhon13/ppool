@@ -19,7 +19,6 @@
 <body>
 	
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<c:import url="/WEB-INF/views/include/sidemenu.jsp"></c:import>
 	<div>
 		
 		<div align="center" style="margin-top: 3%" >

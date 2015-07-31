@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="/ppool/resources/js/userinfoscript.js"></script>
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
 <link rel="stylesheet" href="/ppool/resources/css/sidemenustyles.css">
@@ -24,15 +23,17 @@
 	<div id="side">
 <div id="sidelogin"><div id="topbar" class="nonelogined"
 		style='display : ${loginuser eq null ? "block" : "none"}'>
+		<form action="userlogin.action" method="POST">
 		<div id="email">
-			<label>이메일 : </label><input type="text" id="userEmail" />
+			<label>이메일 : </label><input type="text" id="userEmail" name="userEmail"/>
 		</div>
 		<div id="passwd">
-			<label>비밀번호 : </label><input type="password" id="userPasswd" />
+			<label>비밀번호 : </label><input type="password" id="userPasswd" name="userPasswd"/>
 		</div>
 		<div id="userinfo">
-			<a href="/ppool/userlogin.action" id="userLogin">로그인</a>
+			<input type="submit" value="로그인">
 		</div>
+		</form>
 		<div id="userinfo">
 			<a href="/ppool/registerview.action">회원가입</a>
 		</div>

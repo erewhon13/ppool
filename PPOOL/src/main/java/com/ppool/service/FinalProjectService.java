@@ -106,5 +106,16 @@ public class FinalProjectService implements ProjectService{
 		List<ProjectComment> comments = projectRepository.getCommentsByProjectNo(projectNo);
 		return comments;
 	}
+
+	@Override
+	public void commentRegister(ProjectComment comment) {
+		projectRepository.commentRegister(comment);
+	}
+
+	@Override
+	public ProjectComment getCommentsByCommentNo(int commentNo) {
+		ProjectComment newComment = projectRepository.getCommentsByCommentNo(commentNo);
+		return newComment;
+	}
 	
 }
