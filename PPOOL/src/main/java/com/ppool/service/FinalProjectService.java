@@ -16,44 +16,45 @@ import com.ppool.repository.ProjectRepository;
 import com.ppool.util.ChangeWord;
 
 @Service("projectService")
-public class FinalProjectService implements ProjectService{
+public class FinalProjectService implements ProjectService {
 
 	private ProjectRepository projectRepository;
-	//ChangeWord f = new ChangeWord();
-	
+
+	// ChangeWord f = new ChangeWord();
+
 	@Autowired
 	@Qualifier("projectRepository")
 	public void setProjectRepository(ProjectRepository projectRepository) {
 		this.projectRepository = projectRepository;
 	}
-	
+
 	@Override
 	public void projectRegister(Project project) {
 		projectRepository.projectRegister(project);
-		
+
 		int projectNo = project.getProjectNo();
-		
-		if(project.getSkill() != null && project.getSkill().length > 0){
-			for (String skillNo : project.getSkill() ) {
+
+		if (project.getSkill() != null && project.getSkill().length > 0) {
+			for (String skillNo : project.getSkill()) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("skillNo", skillNo);
 				params.put("projectNo", projectNo);
-				
+
 				projectRepository.projectSkillRegister(params);
 			}
 		}
-		if(project.getLocation() != null && project.getLocation().length > 0){
-			for (String locationNo : project.getLocation() ) {
+		if (project.getLocation() != null && project.getLocation().length > 0) {
+			for (String locationNo : project.getLocation()) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("locationNo", locationNo);
 				params.put("projectNo", projectNo);
-				
+
 				projectRepository.projectLocationRegister(params);
 			}
 		}
-		
+
 	}
-	
+
 	@Override
 	public List<Project> getProjectList() {
 		List<Project> projects = projectRepository.getProjectList();
@@ -76,26 +77,26 @@ public class FinalProjectService implements ProjectService{
 	@Override
 	public void projectModify(Project project) {
 		int projectNo = project.getProjectNo();
-		
+
 		projectRepository.projectLocationDelete(projectNo);
 		projectRepository.projectSkillDelete(projectNo);
 		projectRepository.projectModify(project);
-		
-		if(project.getSkill() != null && project.getSkill().length > 0){
-			for (String skillNo : project.getSkill() ) {
+
+		if (project.getSkill() != null && project.getSkill().length > 0) {
+			for (String skillNo : project.getSkill()) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("skillNo", skillNo);
 				params.put("projectNo", projectNo);
-				
+
 				projectRepository.projectSkillRegister(params);
 			}
 		}
-		if(project.getLocation() != null && project.getLocation().length > 0){
-			for (String locationNo : project.getLocation() ) {
+		if (project.getLocation() != null && project.getLocation().length > 0) {
+			for (String locationNo : project.getLocation()) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("locationNo", locationNo);
 				params.put("projectNo", projectNo);
-				
+
 				projectRepository.projectLocationRegister(params);
 			}
 		}
@@ -103,7 +104,8 @@ public class FinalProjectService implements ProjectService{
 
 	@Override
 	public List<ProjectComment> getCommentsByProjectNo(int projectNo) {
-		List<ProjectComment> comments = projectRepository.getCommentsByProjectNo(projectNo);
+		List<ProjectComment> comments = projectRepository
+				.getCommentsByProjectNo(projectNo);
 		return comments;
 	}
 
@@ -114,8 +116,30 @@ public class FinalProjectService implements ProjectService{
 
 	@Override
 	public ProjectComment getCommentsByCommentNo(int commentNo) {
-		ProjectComment newComment = projectRepository.getCommentsByCommentNo(commentNo);
+		ProjectComment newComment = projectRepository
+				.getCommentsByCommentNo(commentNo);
 		return newComment;
 	}
-	
+
+	// 북마크 등록
+	@Override
+	public void projectBookmarks(HashMap<String, Object> params) {
+		projectRepository.projectBookmarks(params);
+	}
+
+	// 북마크 목록
+	@Override
+	public List<Project> projectBookmarkList(int userNo) {
+		List<Project> projects = projectRepository.projectBookmarkList(userNo);
+		return projects;
+	}
+
+	// 북마크 중복 체크
+	@Override
+	public int getBookmarkCount(HashMap<String, Object> params) {
+		int count = projectRepository.getBookmarkCount(params);
+		return count;
+
+	}
+
 }

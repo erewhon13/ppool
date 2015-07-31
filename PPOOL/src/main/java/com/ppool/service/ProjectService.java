@@ -14,4 +14,10 @@ public interface ProjectService {
 	List<ProjectComment> getCommentsByProjectNo(int projectNo);
 	void commentRegister(ProjectComment comment);
 	ProjectComment getCommentsByCommentNo(int commentNo);
+	//북마크 등록
+	void projectBookmarks(HashMap<String, Object> params);
+	//북마크 목록
+	List<Project> projectBookmarkList(int userNo);
+	//북마크 중복 체크
+	int getBookmarkCount(HashMap<String, Object> params);
 }

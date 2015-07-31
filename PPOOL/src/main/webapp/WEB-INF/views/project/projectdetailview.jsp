@@ -49,11 +49,18 @@
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
-		$('#bookmark').click(function(){
-			//북마크 버튼 눌렀을 때
-			alert("북마크 미구현");
-			//$(location).attr("href", "/ppool/projectlist.action");
-		});
+		if ('${bookmarkable}' == '0') { 
+			$("#bookmark").click(function(){
+		        var result = confirm('${project.projectTitle}를 북마크에 등록하시겠습니까?');
+		        if(result) {
+		        	//yes
+		        	var url = "/ppool/projectbookmarks.action?userNo=" + "${loginuser.userNo}" + "&projectNo="+"${project.projectNo}";
+		        	$(location).attr("href",url);
+		        }else{
+		        	
+		        }
+			});
+		 }
 		$('#list').click(function(){
 			$(location).attr("href", "/ppool/projectlist.action");
 		});
