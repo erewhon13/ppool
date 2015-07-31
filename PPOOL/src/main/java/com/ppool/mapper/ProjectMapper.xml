@@ -29,6 +29,7 @@
 			PROJECTSTATUS=#{projectStatus}, PROJECTPHONE=#{projectPhone}, PROJECTEMAIL=#{projectEmail}
 		WHERE PROJECTNO=#{projectNo}
 	</update>
+	
 		<!-- 지역 등록 -->
 		<insert id="projectLocationRegister" parameterType="hashMap">
 			INSERT INTO projectlocation
@@ -82,6 +83,7 @@
 		<association column="userno" property="userName"  select="getUserName"/>
 		<collection column="projectno" property="skill" select="getSkillNoByProjectNo"/>
 		<collection column="projectno" property="location" select="getLocationNoByProjectNo"/>
+		<collection column="projectno" property="comments" select="getCommentsByProjectNo"/>
 	</resultMap>
 	
 	<select id="getUserName" parameterType="int" resultType="String">
@@ -102,13 +104,16 @@
 		WHERE projectno=#{projectno}
 	</select>
 	
-	<select id="getCommentsByProjectNo" parameterType="int" resultType="ProjectComment" >
-		SELECT COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, COMMENTSTEP, COMMENTDEPTH, COMMENTCLOSED, COMMENTREGISTERDAY
-		FROM comments
-		WHERE projectno=#{proejctno}
-		ORDER BY COMMENTNO DESC, commentstep ASC
-	</select>
-	<!-- ********************************************* -->
+		<!-- ***************** 코멘트 조회 ***************** -->
+		<select id="getCommentsByProjectNo" parameterType="int" resultMap="newComment">
+			SELECT 
+				COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
+				COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP, COMMENTCLOSED, COMMENTREGISTERDAY
+			FROM COMMENTS
+			WHERE projectno=#{projectno}
+			ORDER BY COMMENTNO ASC, COMMENTSTEP ASC
+		</select>
+	<!-- ***************** 프로젝트 상세보기 ***************** -->
 	
 	<!-- ***************** 프로젝트 삭제 ***************** -->
 	<delete id="projectLocationDelete" parameterType="int">
@@ -123,7 +128,43 @@
 		DELETE FROM projects
 		WHERE projectno = #{projectNo}
 	</delete>
-	<!-- ********************************************* -->
+	<!-- ***************** 프로젝트 삭제 ***************** -->
+	
+	<!-- ***************** 코멘트 등록 ***************** -->
+	<insert id="commentRegister" parameterType="ProjectComment">
+		<selectKey keyProperty="commentNo" order="AFTER" resultType="int" >
+			SELECT COMMENTNO_SEQUENCE.CURRVAL FROM DUAL
+		</selectKey>
+		INSERT INTO COMMENTS
+			(COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
+			COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP)
+		VALUES
+			(COMMENTNO_SEQUENCE.NEXTVAL, #{projectNo}, #{userNo}, #{commentContent}, 
+			COMMENTNO_SEQUENCE.CURRVAL, 1, 1)
+	</insert>
+		<!-- ***************** 신규 코멘트 조회 ***************** -->
+		<select id="getCommentsByCommentNo" parameterType="int" resultMap="newComment">
+			SELECT 
+				COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
+				COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP, COMMENTCLOSED, COMMENTREGISTERDAY
+			FROM COMMENTS
+			WHERE commentno=#{commentNo}
+		</select>
+		
+		<resultMap id="newComment" type="ProjectComment">
+			<id column="commentno" property="commentNo"/>
+			<result column="projectno" property="projectNo"/>
+			<result column="userno" property="userNo"/>
+			<result column="commentcontent" property="commentContent"/>
+			<result column="commentgroupno" property="commentGroupNo"/>
+			<result column="commentstep" property="commentStep"/>
+			<result column="commentdepth" property="commentDepth"/>
+			<result column="commentclosed" property="commentClosed"/>
+			<result column="commentregisterday" property="commentRegisterDay"/>
+			<association column="userno" property="userName" select="getUserName"/>
+		</resultMap>
+	<!-- ***************** 코멘트 등록 ***************** -->
+	
 	
 	
 </mapper>

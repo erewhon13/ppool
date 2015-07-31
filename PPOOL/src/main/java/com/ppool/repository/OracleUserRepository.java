@@ -53,4 +53,16 @@ public class OracleUserRepository implements UserRepository {
 	public void userLocationRegister(HashMap<String, Object> params) {
 		userMapper.userLocationRegister(params);
 	}
+
+	@Override
+	public void userLocationDelete(int userNo) {
+		userMapper.userLocationDelete(userNo);
+		
+	}
+
+	@Override
+	public void userSkillDelete(int userNo) {
+		userMapper.userSkillDelete(userNo);
+		
+	}
 }

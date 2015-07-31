@@ -34,12 +34,21 @@
 		USERSKILL (USERSKILLNO,SKILLNO,USERNO)
 		VALUES (USERSKILLNO_SEQUENCE.NEXTVAL, #{skillNo} ,#{userNo})
 	</insert>
+	<delete id="userSkillDelete" parameterType="int">
+		DELETE FROM USERSKILL
+		WHERE USERNO = #{userNo}
+	</delete>
+	
 	<!-- userLocation 등록 -->
 	<insert id="userLocationRegister" parameterType="hashMap">
 		INSERT INTO
 		USERLOCATION (USERLOCATIONNO,LOCATIONNO,USERNO)
 		VALUES (USERLOCATIONNO_SEQUENCE.NEXTVAL,#{locationNo},#{userNo})
 	</insert>
+	<delete id="userLocationDelete" parameterType="int">
+		DELETE FROM USERLOCATION
+		WHERE USERNO = #{userNo}
+	</delete>
 	
 	<resultMap id="detailUser" type="User">
 		<id column="userno" property="userNo"/>

@@ -22,6 +22,16 @@ public class User {
 	private String userPictureSavedName;
 	private String stampRegisterDay;
 	
+	private String lo;
+	
+	public String getLo() {
+		return lo;
+	}
+
+	public void setLo(String lo) {
+		this.lo = lo;
+	}
+
 	///1:M관계 형성 필드
 	private String[] userSkill;
 	private String[] userLocation;

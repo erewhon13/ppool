@@ -53,4 +53,14 @@ public class FinalUserService implements UserService {
 	public void userLocationRegister(HashMap<String, Object> params) {
 		userRepository.userLocationRegister(params);
 	}
+
+	@Override
+	public void userLocationDelete(int userNo) {
+		userRepository.userLocationDelete(userNo);
+	}
+
+	@Override
+	public void userSkillDelete(int userNo) {
+		userRepository.userSkillDelete(userNo);
+	}
 }

@@ -7,10 +7,22 @@ public class ProjectComment {
 	private int projectNo;
 	private int userNo;
 	private String commentContent;
+	private int commentGroupNo;
 	private int commentStep;
 	private int commentDepth;
 	private int commentClosed;
 	private Date commentRegisterDay;
+//////////////////////////////////////////////////////////////
+	private String userName;
+	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+//////////////////////////////////////////////////////////////
+	
 	public int getCommentNo() {
 		return commentNo;
 	}
@@ -34,6 +46,12 @@ public class ProjectComment {
 	}
 	public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
+	}
+	public int getCommentGroupNo() {
+		return commentGroupNo;
+	}
+	public void setCommentGroupNo(int commentGroupNo) {
+		this.commentGroupNo = commentGroupNo;
 	}
 	public int getCommentStep() {
 		return commentStep;
@@ -59,5 +77,7 @@ public class ProjectComment {
 	public void setCommentRegisterDay(Date commentRegisterDay) {
 		this.commentRegisterDay = commentRegisterDay;
 	}
-
+	
+	
+	
 }

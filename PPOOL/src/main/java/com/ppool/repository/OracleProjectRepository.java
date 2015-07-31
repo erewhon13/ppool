@@ -77,4 +77,15 @@ public class OracleProjectRepository implements ProjectRepository{
 		return comments;
 	}
 
+	@Override
+	public void commentRegister(ProjectComment comment) {
+		projectMapper.commentRegister(comment);
+	}
+
+	@Override
+	public ProjectComment getCommentsByCommentNo(int commentNo) {
+		ProjectComment newComment = projectMapper.getCommentsByCommentNo(commentNo);
+		return newComment;
+	}
+
 }
