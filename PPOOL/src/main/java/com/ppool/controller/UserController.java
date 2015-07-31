@@ -6,14 +6,9 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,19 +16,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.UrlPathHelper;
 
 import com.ppool.dto.User;
 import com.ppool.service.UserService;
@@ -72,26 +66,28 @@ public class UserController {
 	@RequestMapping(value = "userlogin.action", method = RequestMethod.POST)
 	// @ResponseBody user 리턴값의 User 객체가 MessageConvert 로 설정된
 	// MappingJacksonHttpMessageConverter 에서 JSON data형식으로 변환 작업이 이뤄진다.
-	public ModelAndView userLogin(String userEmail, String userPasswd,HttpServletRequest requset) {
+	public ModelAndView userLogin(String userEmail, String userPasswd,
+			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userEmail", userEmail);
 		params.put("userPasswd", Util.getHashedString(userPasswd, "SHA-1"));
 		User user = userService.userLogin(params);
 		if (user != null) {
-			mav.addObject("loginuser",user);
+			mav.addObject("loginuser", user);
 		}
-		
-		mav.setViewName("redirect:/home.action");
+		String referer = request.getHeader("referer");
+		mav.setViewName("redirect:"+referer.substring(27));
 		return mav;
 	}
 
 	@RequestMapping(value = "userlogout.action", method = RequestMethod.GET)
 	public ModelAndView userLogout(@ModelAttribute("loginuser") User user,
-			SessionStatus status) {
+			SessionStatus status,HttpServletRequest request) {
 		status.setComplete();
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/");
+		String referer = request.getHeader("referer");
+		mav.setViewName("redirect:"+referer.substring(27));
 		return mav;
 	}
 
@@ -119,6 +115,7 @@ public class UserController {
 	public ModelAndView userInfoUpdateForm(int userNo) {
 		User user = userService.userInfo(userNo);
 		ModelAndView mav = new ModelAndView();
+		// user.getUserLocation() 배열을 스트링으로 변환하는 작업
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays
 				.asList(user.getUserLocation()));
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays
