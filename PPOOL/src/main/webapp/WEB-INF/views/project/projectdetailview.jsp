@@ -421,7 +421,7 @@
 								<div style="color:#3333dd;font-weight: bold;">${comment.userName }</div>
 								<input type="hidden" name="commentNo" value='${comment.userNo }' />
 									<br/>
-								<div id="a${comment.commentNo}" class="a" style="width:100%;background-color:#faffff;display: block">
+								<div id="a${comment.commentNo}" class="a" style="width:100%;background-color:#D4D4D4;display: block">
 									${fn:replace(comment.commentContent , enter, '<br/>')}
 								</div>
 								<textarea id="b${comment.commentNo}" class="b" name="commentContent" 
