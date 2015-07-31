@@ -14,12 +14,14 @@
 			 USERNO		
 			)
 		VALUES(
-			REPORTNO_SEQUENCE.NEXTVAL,
-			#{projectContent},
+			REPORT_SEQUENCE.NEXTVAL,
+			#{reportContent},
 			#{projectNo},
 			#{userNo}	
 		)
 	</insert>
+	
+	
 	
 	<update id="updateWarningCount" parameterType="int" >
 		update 
@@ -27,7 +29,26 @@
 		set 
 			userwarningcount =  userwarningcount+1		
 		where
-			userNo= (Select userNo from project where projectno=#{projectNo})		
+			userNo= (Select userNo from projects where projectno=#{projectNo})		
 	</update>
+
+	<select id="getReportList" resultType="Report">
+		SELECT *
+		FROM REPORT			
+	</select>
+	
+	<update id="minusWarningCount" parameterType="int">
+		update 
+			Users 
+		set 
+			userwarningcount =  userwarningcount-1		
+		where
+			userNo= (Select userNo from projects where projectno=#{projectNo})
+	
+	</update>	
+	
+	<delete id="deleteReport" parameterType="int">
+	 delete from report where reportno=#{reportNo}	
+	</delete>
 	
 </mapper>

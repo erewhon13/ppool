@@ -14,6 +14,7 @@
 }
 #cssmenu ul li a{
 	background-color: #FF9147;
+	color:white;
 	width: 5px;
 }
 #cssmenu a:link {

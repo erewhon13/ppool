@@ -165,6 +165,78 @@
 		</resultMap>
 	<!-- ***************** 코멘트 등록 ***************** -->
 	
+	<!-- ******************프로젝트 북마크 등록*************** -->
+	<insert id='projectBookmarks' parameterType='Project'>
+	<selectKey keyProperty="projectNo" order="AFTER" resultType="int" >
+			SELECT FAVORITEPROJECT_SEQUENCE.currval FROM DUAL
+		</selectKey>
+		INSERT INTO
+		FAVORITEPROJECT(FAVORITENO, USERNO, PROJECTNO)
+		VALUES(FAVORITEPROJECT_SEQUENCE.NEXTVAL,#{userNo},#{projectNo})
+	</insert>
+	<!-- 북마크 목록-->
+	<select id="projectBookmarkList" parameterType="int" resultMap="projectResult">
+		SELECT 
+			FAVORITEPROJECT.FAVORITENO, 
+			PROJECTS.PROJECTNO, 
+			PROJECTS.PROJECTTITLE, 
+			PROJECTS.PROJECTCONTENT, 
+			PROJECTS.PROJECTTEAMCOUNT, 
+			PROJECTS.PROJECTSTARTDAY, 
+			PROJECTS.PROJECTENDDAY, 
+			PROJECTS.PROJECTEXPIRE, 
+			PROJECTS.PROJECTREGISTERDAY, 
+			PROJECTS.PROJECTSTATUS, 
+			PROJECTS.PROJECTPHONE, 
+			PROJECTS.PROJECTEMAIL
+		FROM 
+			PROJECTS
+		INNER JOIN 
+			FAVORITEPROJECT		
+		ON
+			FAVORITEPROJECT.PROJECTNO = PROJECTS.PROJECTNO
+		WHERE 
+			FAVORITEPROJECT.USERNO = #{userNo} 
+		ORDER BY 
+			PROJECTNO DESC
+	</select>
+	
+	<resultMap id ="projectResult" type="Project">
+		<id column="projectno" property="projectNo"/>
+		<result column="userno" property="userNo"/>
+		<result column="projecttitle" property="projectTitle"/>
+		<result column="projectcontent" property="projectContent"/>
+		<result column="projectteamcount" property="projectTeamCount"/>
+		<result column="projectstartday" property="projectStartDay"/>
+		<result column="projectendday" property="projectEndDay"/>
+		<result column="projectexpire" property="projectExpire"/>
+		<result column="projectregisterday" property="projectRegisterDay"/>
+		<result column="projectstatus" property="projectStatus"/>
+		<result column="projectphone" property="projectPhone"/>
+		<result column="projectemail" property="projectEmail"/>
+		<!--
+		<collection column="projectno" property="favoriteProject" select="getFavoriteNo"/>
+		<collection property="favoriteProject" column="projectNo" resultMap="favoriteResult" />
+		-->
+	</resultMap>
+	<!-- <select id="getFavoriteNo" parameterType="int" resultType="String">
+		SELECT favoriteno
+		FROM favoriteproject
+		whehe projectno=#{projectno}
+		
+	</select>
+	<resultMap id ="favoriteResult" type="FavoriteProject">
+		<id column="favoriteNo" property="favoriteNo"/>
+		
+	</resultMap> -->
+	<!-- 북마크 중복 체크 -->
+	<select id="getBookmarkCount" resultType="int" parameterType="hashmap">
+		SELECT count(*) 
+		FROM FAVORITEPROJECT
+		WHERE userNo=#{userNo} AND projectNo=#{projectNo}
+	</select>
+	<!-- ******************************************************************* -->
+	
 	
 	
 </mapper>

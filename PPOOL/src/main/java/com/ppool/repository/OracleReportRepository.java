@@ -1,5 +1,7 @@
 package com.ppool.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -31,6 +33,23 @@ public class OracleReportRepository implements ReportRepository{
 		reportMapper.updateWarningCount(projectNo);
 		
 	}
+	@Override
+	public List<Report> getReportList(){
+		List<Report> reports=reportMapper.getReportList();
+		return reports;
+	}
+
+
+	@Override
+	public void minusWarningCount(int projectNo) {
+		reportMapper.minusWarningCount(projectNo);		
+	}
+
+
+	@Override
+	public void deleteReport(int reportNo) {
+		reportMapper.deleteReport(reportNo);		
+	};
 
 	
 }

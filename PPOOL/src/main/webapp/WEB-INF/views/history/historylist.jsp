@@ -24,7 +24,7 @@
 <div>
 	<c:set var="histories" value="${histories}"/>
 	
-		<div id="history" style="width: 72%; float: right; margin-right: 5%">	
+		<div id="history" style="width: 79%; float: right;">	
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>

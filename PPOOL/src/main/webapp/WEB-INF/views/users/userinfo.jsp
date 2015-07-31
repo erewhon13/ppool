@@ -12,16 +12,6 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 $(function() {
-	$("#btn").click(function() {
-		var result = confirm('Are you sure you want to do this?');
-		if (result) {
-			//yes
-			alert("yes")
-			
-		}else{
-			alert("no");
-		}
-	})
 	var skills = '${skills}'.split(",");
 	var locations = '${locations}'.split(",");
 	console.log(locations);
@@ -37,7 +27,6 @@ $(function() {
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"/>
-	<input type="button" id="btn"> 
 		<div id="personaldata">
 			<c:choose>
 				<c:when test="${user.isUserPictureExist() eq true}">

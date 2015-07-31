@@ -16,6 +16,19 @@
 
  
 </style>
+<script src="//code.jquery.com/jquery-1.11.3.js"></script>
+<!-- <script type="text/javascript">
+$(function(){
+	var userEmail = $("#userEmail").val();
+	console.log(userEmail);
+	alert(userEmail);
+	var userPasswd = $("#userPasswd").val();
+	var url = "/ppool/userlogin.action?userEmail="+ userEmail+"&userPasswd=" +userPasswd;
+	$("#login").click(function() {
+		$("#login").attr("href",url);
+	})
+})
+</script> -->
 
 	
 <title>Main Page</title>
@@ -23,10 +36,8 @@
 
 <body>
 	<%pageContext.include("/WEB-INF/views/include/header.jsp"); %>
-	<div id="main">
-		
+	<div id="main" style="float: right; width: 79%;">
 		<img src="/ppool/resources/images/main.png" style="width: 100%">
-	
 	</div>
 	
 </body>

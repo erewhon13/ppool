@@ -53,6 +53,13 @@
 					<option>컴퓨터공학과</option>
 				</select>
 			</div>
+			<!-- <div>
+				<label>정보공개여부 :</label> <select name="userOpenLevel">
+					<option value="1">1단계</option>
+					<option value="2">2단계</option>
+					<option value="3">3단계</option>
+				</select>
+			</div> -->
 			<div>
 				<div class="userskill">
 					<ul>
@@ -167,10 +174,12 @@
 							해외</li>
 					</ul>
 				</div>
-				<div>
-					<input type="submit" value="OK" />
-				</div>
+
 			</div>
+			<div>
+				<input type="submit" value="OK" />
+			</div>
+		</div>
 	</form>
 </div>
 </body>

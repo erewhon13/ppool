@@ -20,6 +20,16 @@
 #sidelogin{
 	height: 150px;
 }
+#sidelogin ul li{
+	display: inline-block;
+	text-align: center;
+	margin-right: 35px;
+}
+
+#sidebottom img{
+	margin-top : 10px;
+	width: 252px;
+}
 
 #sidemenu {
 	margin-top:2%;

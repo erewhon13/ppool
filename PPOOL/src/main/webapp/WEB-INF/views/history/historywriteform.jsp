@@ -18,7 +18,6 @@
 						$('#historystaff').focus();
 						return;
 					}
-					alert($('#form'));
 					$('#form').submit();
 					/*$(location).attr('href',"historylist.action"); */
 					return;
@@ -35,6 +34,7 @@
 	<div id="sidemenu">사이드 메뉴</div>
 	<div id="history" style="width:72%; margin-right:5%;float: right"><br/>
 	  <form action="historywrite.action" method="post" enctype="multipart/form-data" id="form">
+	  <input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo }'/>
 		<table style="text-align: center; width: 100%; border:groove;  ">
 			<caption style="color:#FF9147;text-align: left;">프로젝트 이력등록</caption>
 			<tr>

@@ -1,9 +1,12 @@
+<%@page import="java.util.List"%>
+<%@page import="com.ppool.dto.ProjectComment"%>
 <%@page import="com.ppool.dto.Project"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     
 <!DOCTYPE html>
 <html>
@@ -38,16 +41,26 @@
 		margin:2 5 2 5;
 		display:inline-block; 
 	}
+	textarea{
+		font-size: 12pt
+	} 
 	</style>
 	
 	<script type="text/javascript">
 	
 	$(document).ready(function (){
-		$('#bookmark').click(function(){
-			//북마크 버튼 눌렀을 때
-			alert("북마크 미구현");
-			//$(location).attr("href", "/ppool/projectlist.action");
-		});
+		if ('${bookmarkable}' == '0') { 
+			$("#bookmark").click(function(){
+		        var result = confirm('${project.projectTitle}를 북마크에 등록하시겠습니까?');
+		        if(result) {
+		        	//yes
+		        	var url = "/ppool/projectbookmarks.action?userNo=" + "${loginuser.userNo}" + "&projectNo="+"${project.projectNo}";
+		        	$(location).attr("href",url);
+		        }else{
+		        	
+		        }
+			});
+		 }
 		$('#list').click(function(){
 			$(location).attr("href", "/ppool/projectlist.action");
 		});
@@ -74,7 +87,6 @@
 		
 		$('.skill input, .location input').attr('disabled','disabled');
 		
-		
 		$("#commentregister").click(function() {
 			if( $('#commentcontent').val().trim() == "" ){
 				alert("댓글을 입력하고 등록하세요")
@@ -97,8 +109,8 @@
 						alert('입력 성공!');
 						$('#commentcontent').val("");
 						$( "#tab" ).append(result);
-						$('#yescomment').css("display", "block");
-						$('#nocomment').css("display", "none");
+						
+						$('.nocomment').css("display", "none");
 					//}
 				},
 				error : function(xhr, status, error) {
@@ -106,6 +118,22 @@
 				}
 			});//ajax
 		});	//click 함수
+		
+		$('.ed_bt').click(function(){
+			var no = $(this).attr("id").substr(2);
+			var hei = $('#a'+no).height();		//px안붙는다
+
+			if(hei < 95){
+				$('#b'+no).attr('rows', 5);
+			}
+			if(hei >= 95){
+				$('#b'+no).height(hei);
+			}
+			
+			$('#a'+no).css('display', 'none');
+			$('#b'+no).css('display', 'block');
+		})	
+		
 		
 	});//ready
 	
@@ -151,16 +179,40 @@
 		    }
 		
 		function addRegister(){
-			alert("addRegister")
-			 var valid = true;
+	    	 var valid = true;
 			allFields.removeClass("ui-state-error");
 			
 			valid = valid && checkLength( reportcontent, "reportcontent",1,100);			
+			
+			//var form=$('#reportform').serialize();
 			
 			 if ( valid ) {
 				 $("#reportform").submit();
 		        dialog.dialog( "close" );
 		      } 
+				 //$(location).attr('href','insertreport.action?'+form);
+				/*  $("#reportform").submit(); */
+				
+					$.ajax({
+						url:"/ppool/insertreport.action",
+						method:"POST",
+						async:true,
+						data:{
+							userNo : $("#userNo").val(),
+							projectNo :$("#projectNo").val(),
+							reportContent : $("#reportcontent").val()
+						}, 
+						success: function(result){
+							alert('신고되었습니다');
+							dialog.dialog( "close" );
+						},
+						error:function(){
+							alert('오류');
+						}				
+					})
+							        
+			      } 
+>>>>>>> branch 'master' of https://github.com/erewhon13/ppool.git
 		      return valid; 
 		}
 		
@@ -203,17 +255,18 @@
 
 <div id="dialog-form" title="신고하기">
   <p class="validateTips"></p>
-  	  <form id="reportform" action="insertreport.action" method="post">
-  	  	  <input type="hidden" name="projectNo" value="${project.projectNo}">
+  	  <form id="reportform">
+  	  	  <input type="hidden" id="projectNo" name="projectNo" value="${project.projectNo}">
+  	  	  <input type="hidden" id="userNo" name="userNo" value="${loginuser.userNo}">
 	      <label for="projectTitle2">제목</label>
-	      <input type="text" name="projectTitle2" id="projecttitle2" value="${ project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
+	      <input type="text" name="projectTitle2" id="projecttitle2" value="${project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
 	      <br/>
 	      <label for="projectUser">작성자</label>
 	      <input type="text" name="projectUser2" id="projectuser2" value="${project.userName}" style="width: 80%" class="text ui-widget-content ui-corner-all" readonly="readonly">
 	      <br/>
 	      <label for="reportcontent">사유입력</label>
 	      <br/>
-	      <input type="text" name="reportcontent" id="reportcontent" class="text ui-widget-content ui-corner-all" style="height: 150px; width: 100%;">
+	      <input type="text" name="reportContent" id="reportcontent" class="text ui-widget-content ui-corner-all" style="height: 150px; width: 100%;">
 	 
 	      <!-- Allow form submission with keyboard without duplicating the dialog button -->
 	      <!-- <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
@@ -236,7 +289,7 @@
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
-					<div style="text-align: left">${project.userName }</div>
+					<div style="text-align: left">${project.userName}</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; " align="left">
@@ -331,7 +384,7 @@
 				<th style="width: 15%" bgcolor="#FF9147">프로젝트 설명</td>
 				<td style="width: 85%" colspan="3">
 					<textarea name="projectContent" id="projectcontent" rows="20" 
-					style="max-height: 600px;width:100%;resize:none" readonly="readonly">${project.projectContent}</textarea>
+					style="max-height: 600px;width:100%;resize:none;font-size: 15pt;" readonly="readonly;">${project.projectContent}</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -361,45 +414,60 @@
 			<img src="/ppool/resources/images/modify.png" id="modify" style="cursor: pointer;">
 			<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">
 		</div>
-	</div>
+		
 	
 	<!------------------ comment 보여주기 영역 시작 -------------------->
 			<br />
 			<br />
+	
 			<c:set var="comments" value="${project.comments }"/>
-			<table style="width: 750px; border: solid 1px; margin: 0 auto" id="tab">
+			<table style="width: 100%; border: solid 1px; margin: 0 auto" id="tab">
+			
+			<% pageContext.setAttribute("enter", "\n"); %>
 			<!-- comment 있을경우 표시 영역 -->
 				<c:if test="${!empty comments}">
 					<c:forEach var="comment" items="${comments }" > 
 		        		<tr>
-		        			<td id="yescomment" style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
-								<div style="color:#3333dd;font-weight: bold;">${comment.userName }</div><br/><br/>
-								<div >${comment.commentContent }</div><br/><br/>
+		        			<td class="yescomment" style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
+								<div style="color:#3333dd;font-weight: bold;">${comment.userName }</div>
+								<input type="hidden" name="commentNo" value='${comment.userNo }' />
+									<br/>
+								<div id="a${comment.commentNo}" class="a" style="width:100%;background-color:#D4D4D4;display: block">
+									${fn:replace(comment.commentContent , enter, '<br/>')}
+								</div>
+								<textarea id="b${comment.commentNo}" class="b" name="commentContent" 
+											style="width:100%;background-color: lightyellow;resize:vertical ;display: none">${comment.commentContent }</textarea>
+									<br/>
+								
 								<f:formatDate value="${ comment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
 								<div style="color: gray;">${registerday}</div>
 			        			<div >
-				                    <div style="text-align: right;">
-				                    	<a href="#" style="color:teal;">댓글</a>
-				                    </div>
-				                    <div style="text-align: right;">
-				                    	<a href="#" style="color: orange;">편집</a>
-				                    	&nbsp;
-				                    	<a href="#" style="color:maroon ;">삭제</a>
-				                    </div>
+			        				<c:if test="${loginuser.userNo eq comment.userNo }">
+				        				<div style="text-align: right;">
+				        				<input type="button" style="color: orange;" class="ed_bt" id="ed${comment.commentNo}" value="편집"/>&nbsp;
+				        				<input type="button" style="color: maroon;" class="de_bt" value="삭제"/>&nbsp;
+				        				<input type="button" style="color: cteal;" class="re_bt" value="댓글"/>
+					                    </div>
+			        				</c:if>
+			        				<c:if test="${loginuser.userNo ne comment.userNo }">
+					                    <div style="text-align: right;">
+					                    	<input type="button" style="color: cteal;" class="ed_bt" value="댓글"/>
+					                    </div>
+				                    </c:if>
 		                		</div>
 		                	</td>
 		                </tr>
 		                
-		        		<%-- <tr >
-			                <td id="commentedit${ comment.commentNo}" style='display:none;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
+		        		<tr >
+			                <td class="editform" style='display:none;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
 								<form id="updatecommentform${ comment.commentNo}" action="updatecomment.action" method="post">
-									<input type="hidden" name="boardno" value='<%=board.getBoardNo()%>' />
+									<%-- <input type="hidden" name="boardno" value='<%=board.getBoardNo()%>' />
 									<input type="hidden" name="pageno" value='<%=pageNo %>' />
-									<input type="hidden" name="commentno" value='<%=comment.getCommentNo() %>' />
+									<input type="hidden" name="commentno" value='<%=comment.getCommentNo() %>' /> --%>
 									
-									<div style="color:#3333dd;font-weight: bold; ">${ comment.commentNo}</div><br/><br/>
-									<textarea id="updatecontent${comment.commentNo }" name="updatecontent" rows="5"
-											style="width:100%;background-color: lightyellow;resize:vertical;">${comment.commentContent }</textarea><br/><br/>
+									<div style="color:#3333dd;font-weight: bold;" >${ comment.commentNo}</div><br/><br/>
+									<textarea id="updatecontent${comment.commentNo }" name="updatecontent" rows="5" 
+											style="width:100%; background-color: lightyellow; resize:vertical;">${comment.commentContent }</textarea><br/><br/>
 									<div style="color: gray;">${ comment.commentRegisterDay}</div>
 			                		<div >
 										<div style="text-align: right;">
@@ -413,7 +481,7 @@
 									</div>
 								</form>
 							</td>
-		               </tr> --%>
+		               </tr>
 		               
 					</c:forEach>
 				</c:if>
@@ -421,7 +489,7 @@
 						<!-- comment 없을경우 표시 영역 -->
 				<c:if test="${empty comments}">
 					<tr >
-	        			<td id="nocomment" style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;background-color: #FAED7D'>
+	        			<td class="nocomment" style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;background-color: #FAED7D'>
 							<h4 style="text-align: center">
 								작성된 댓글이 없습니다.
 							</h4>
@@ -439,24 +507,23 @@
 			<br />
 
 			<form id="commentform">
-				<input type="hidden" id="projectno" name="projectNo" value='${project.projectNo }' />
-				<input type="hidden" id="userno" name="userNo" value='${loginuser.userNo }' />
-				<table style="width: 700px; border: solid 1px; margin: 0 auto">
+					<input type="hidden" id="projectno" name="projectNo" value='${project.projectNo }' />
+					<input type="hidden" id="userno" name="userNo" value='${loginuser.userNo }' />
+				<table style="width: 100%; border: solid 1px; margin: 0 auto">
 					<tr>
-						<td style="width: 650px">
-							<textarea id="commentcontent" name="commentContent" rows="5" style="width: 700px;resize:vertical" ></textarea>
+						<td style="width: 90%">
+							<textarea id="commentcontent" name="commentContent" rows="5" style="width: 100%;resize:vertical" ></textarea>
 						</td>
-						<td style="width: 50px; vertical-align: middle">
+						<td style="width: 10%;" >
 							<img src="/ppool/resources/images/register.png" id="commentregister" style="cursor: pointer;">
 						</td>
 					</tr>
 				</table>
 			</form>
 
-			<hr align="center" style="width: 750px;" />
-
-
-			<br/><br/><br/><br/><br/>
+			<hr align="center" style="width: 100%;" />
+			<br/><br/>
+</div>
 	
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.ppool.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,25 @@ public class FinalReportService implements ReportService{
 	@Override
 	public void updateWarningCount(int projectNo) {
 		reportRepository.updateWarningCount(projectNo);		
+	}
+
+
+	@Override
+	public List<Report> getReportList() {
+		List<Report> reports = reportRepository.getReportList();
+		return reports;
+	}
+
+
+	@Override
+	public void minusWarningCount(int projectNo) {
+			reportRepository.minusWarningCount(projectNo);
+	}
+
+
+	@Override
+	public void deleteReport(int reportNo) {
+		reportRepository.deleteReport(reportNo);		
 	}
 
 }
