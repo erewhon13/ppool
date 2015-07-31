@@ -160,17 +160,36 @@
 		    }
 		
 		function addRegister(){
-			alert("addRegister")
-			 var valid = true;
+	    	 var valid = true;
 			allFields.removeClass("ui-state-error");
 			
 			valid = valid && checkLength( reportcontent, "reportcontent",1,100);			
 			
+			//var form=$('#reportform').serialize();
+			
 			 if ( valid ) {
-				 $("#reportform").submit();
-		        dialog.dialog( "close" );
-		        
-		      } 
+				 //$(location).attr('href','insertreport.action?'+form);
+				/*  $("#reportform").submit(); */
+				
+					$.ajax({
+						url:"/ppool/insertreport.action",
+						method:"POST",
+						async:true,
+						data:{
+							userNo : $("#userNo").val(),
+							projectNo :$("#projectNo").val(),
+							reportContent : $("#reportcontent").val()
+						}, 
+						success: function(result){
+							alert('신고되었습니다');
+							dialog.dialog( "close" );
+						},
+						error:function(){
+							alert('오류');
+						}				
+					})
+							        
+			      } 
 		      return valid; 
 		}
 		
@@ -213,17 +232,18 @@
 
 <div id="dialog-form" title="신고하기">
   <p class="validateTips"></p>
-  	  <form id="reportform" action="insertreport.action" method="post">
-  	  	  <input type="hidden" name="projectNo" value="${project.projectNo}">
+  	  <form id="reportform">
+  	  	  <input type="hidden" id="projectNo" name="projectNo" value="${project.projectNo}">
+  	  	  <input type="hidden" id="userNo" name="userNo" value="${loginuser.userNo}">
 	      <label for="projectTitle2">제목</label>
-	      <input type="text" name="projectTitle2" id="projecttitle2" value="${ project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
+	      <input type="text" name="projectTitle2" id="projecttitle2" value="${project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
 	      <br/>
 	      <label for="projectUser">작성자</label>
 	      <input type="text" name="projectUser2" id="projectuser2" value="${project.userName}" style="width: 80%" class="text ui-widget-content ui-corner-all" readonly="readonly">
 	      <br/>
 	      <label for="reportcontent">사유입력</label>
 	      <br/>
-	      <input type="text" name="reportcontent" id="reportcontent" class="text ui-widget-content ui-corner-all" style="height: 150px; width: 100%;">
+	      <input type="text" name="reportContent" id="reportcontent" class="text ui-widget-content ui-corner-all" style="height: 150px; width: 100%;">
 	 
 	      <!-- Allow form submission with keyboard without duplicating the dialog button -->
 	      <!-- <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
@@ -249,7 +269,7 @@
 			<tr>
 				<th style="width: 15%" bgcolor="#FF9147">담당자</td>
 				<td style="width: 35%">
-					<div style="text-align: left">${project.userName }</div>
+					<div style="text-align: left">${project.userName}</div>
 				</td>
 				<th style="width: 15%" bgcolor="#FF9147">연락처</td>
 				<td style="width: 35%; " align="left">

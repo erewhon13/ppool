@@ -14,8 +14,8 @@
 			 USERNO		
 			)
 		VALUES(
-			REPORTNO_SEQUENCE.NEXTVAL,
-			#{projectContent},
+			REPORT_SEQUENCE.NEXTVAL,
+			#{reportContent},
 			#{projectNo},
 			#{userNo}	
 		)
@@ -27,7 +27,7 @@
 		set 
 			userwarningcount =  userwarningcount+1		
 		where
-			userNo= (Select userNo from project where projectno=#{projectNo})		
+			userNo= (Select userNo from projects where projectno=#{projectNo})		
 	</update>
 	
 </mapper>
