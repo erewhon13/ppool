@@ -14,9 +14,14 @@
 		<typeAlias type="com.ppool.dto.Notification" alias="Notification" />
 		<typeAlias type="com.ppool.dto.History" alias="History"/>
 		<typeAlias type="com.ppool.dto.HistoryUploadFile" alias="HistoryUploadFile"/>
-		<typeAlias type="com.ppool.dto.UserResume" alias="UserResume"/>
 		<typeAlias type="com.ppool.dto.Report" alias="Report"/>
+		<typeAlias type="com.ppool.dto.ResumeEducation" alias="ResumeEducation"/>
+		<typeAlias type="com.ppool.dto.ResumeIntroduction" alias="ResumeIntroduction"/>
+		<typeAlias type="com.ppool.dto.ResumeLanguage" alias="ResumeLanguage"/>
+		<typeAlias type="com.ppool.dto.ResumeLicense" alias="ResumeLicense"/>
+		<typeAlias type="com.ppool.dto.ResumeSchool" alias="ResumeSchool"/>
 	</typeAliases>
+	
 	<mappers>
 		<mapper resource="com/ppool/mapper/UserMapper.xml" />
 		<mapper resource="com/ppool/mapper/ProjectMapper.xml" />

@@ -6,52 +6,95 @@
 
 <mapper namespace="com.ppool.mapper.UserResumeMapper">
 
-	<insert id="resumeRegister" parameterType="UserResume">
+	<insert id="resumeSchoolRegister" parameterType="resumeSchool">
 		INSERT INTO 
-		USERRESUME(
-					USERRESUMENO,
-					RESUMESCHOOL,
+		RESUMESCHOOL(
+					RESUMESCHOOLNO,
+					RESUMEUSERSCHOOL,
 					RESUMEUSERMAJOR,
 					RESUMEMAJORSTARTDAY,
 					RESUMEMAJORENDDAY,
-					RESUMEMAJORUSEROPENLEVEL,
+					USERNO)
+			VALUES(
+					RESUMESCHOOLNO_SEQUENCE.NEXTVAL,
+					#{resumeUserSchool},
+					#{resumeUserMajor},
+					#{resumeMajorStartDay},
+					#{resumeMajorEndDay},
+					#{userNo})
+	</insert>
+	<insert id="resumeIntroductionRegister" parameterType="resumeIntroduction">
+		INSERT INTO 
+		RESUMEINTRODUCTION(
+					RESUMEINTRODUCTIONNO,
+					RESUMEINTRODUCTION,
+					USERNO)
+			VALUES(
+					RESUMEINTRODUCTIONNO_SEQUENCE.NEXTVAL,
+					#{resumeIntroduction},
+					#{userNo})
+	</insert>
+	<select id="getResumeIntroduction" resultType="resumeIntroduction" parameterType="int">
+		SELECT RESUMEINTRODUCTIONNO, RESUMEINTRODUCTION FROM RESUMEINTRODUCTION
+		WHERE USERNO=#{userNo}
+	</select>
+	
+	
+	<insert id="resumeEducationRegister" parameterType="resumeEducation">
+		INSERT INTO 
+		RESUMEEDUCATION(
+					RESUMEEDUCATIONNO,
 					RESUMEEDUCATION,
 					RESUMEEDUCATIONSTARTDAY,
 					RESUMEEDUCATIONENDDAY,
 					RESUMEEDUCATIONCENTER,
-					RESUMEEDUCATIONOPENLEVEL,
-					RESUMELICENSE,
-					RESUMELICENSECENTER,
-					RESUMELICENSEDAY,
-					RESUMELICENSEOPENLEVEL,
-					RESUMELANGUAGE,
-					RESUMELANGUAGEGRADE,
-					RESUMELANGUAGEOPENLEVEL,
-					RESUMEINTRODUCTION,
 					USERNO)
 			VALUES(
-					USERRESUMENO_SEQUENCE.NEXTVAL,
-					#{resumeSchool},
-					#{resumeUserMajor},
-					#{resumeMajorStartDay},
-					#{resumeMajorEndDay},
-					#{resumeMajorUserOpenLevel},
+					RESUMEEDUCATIONNO_SEQUENCE.NEXTVAL,
 					#{resumeEducation},
 					#{resumeEducationStartDay},
 					#{resumeEducationEndDay},
 					#{resumeEducationCenter},
-					#{resumeEducationOpenLevel},
+					#{userNo})
+	</insert>	
+	<insert id="resumeLicenseRegister" parameterType="resumeLicense">
+		INSERT INTO 
+		RESUMELICENSE(
+					RESUMELICENSENO,
+					RESUMELICENSE,
+					RESUMELICENSEDAY,
+					RESUMELICENSECENTER,
+					USERNO)
+			VALUES(
+					RESUMELICENSENO_SEQUENCE.NEXTVAL,
 					#{resumeLicense},
-					#{resumeLicenseCenter},
 					#{resumeLicenseDay},
-					#{resumeLicenseOpenLevel},
+					#{resumeLicenseCenter},
+					#{userNo})
+	</insert>	
+	<insert id="resumeLanguageRegister" parameterType="resumeLanguage">
+		INSERT INTO 
+		RESUMELANGUAGE(
+					RESUMELANGUAGENO,
+					RESUMELANGUAGE,
+					RESUMELANGUAGEGRADE,
+					USERNO)
+			VALUES(
+					RESUMELANGUAGENO_SEQUENCE.NEXTVAL,
 					#{resumeLanguage},
 					#{resumeLanguageGrade},
-					#{resumeLanguageOpenLevel},
-					#{resumeIntroduction},
 					#{userNo})
-					</insert>
+	</insert>		
+		
+		<!-- 
+	<select id="getResumeSchool" resultType="resumeSchool" parameterType="int">
+		SELECT RESUMESCHOOLNO,RESUMESCHOOL,RESUMEUSERMAJOR,RESUMEMAJORSTARTDAY,
+		RESUMEMAJORENDDAY,USERNO FROM RESUMESCHOOL
+		WHERE USERNO=#{userNo}
+	</select>	
+	 -->
 					
+		<!-- 			
 		<select id="getUserResume" resultType="UserResume" parameterType="int">
 		SELECT USERRESUMENO,RESUMESCHOOL,RESUMEUSERMAJOR,RESUMEMAJORSTARTDAY,RESUMEMAJORENDDAY,
 		RESUMEMAJORUSEROPENLEVEL,RESUMEEDUCATION,RESUMEEDUCATIONSTARTDAY,RESUMEEDUCATIONENDDAY,
@@ -60,7 +103,7 @@
 		USERNO FROM USERRESUME
 		WHERE USERNO=#{userNo}
 		</select>	
-					
+			 -->		
 	
 	 
 </mapper>

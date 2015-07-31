@@ -160,7 +160,6 @@
 			 if ( valid ) {
 				 $("#reportform").submit();
 		        dialog.dialog( "close" );
-		        
 		      } 
 		      return valid; 
 		}
