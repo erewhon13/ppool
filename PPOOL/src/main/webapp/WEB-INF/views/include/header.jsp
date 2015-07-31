@@ -41,7 +41,7 @@
 	<div id="topbar" class="logined"
 		style='display : ${loginuser eq null ? "none" : "block"}'>
 		<span id="mid">
-		<a href="/ppool/userinfo.action?userNo=${loginuser.getUserNo()}">${loginuser ne null ? loginuser.getUserName() : ""}</a></span>님 환영합니다.
+		<a href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님 환영합니다.
 		<a href='/ppool/userlogout.action'>로그아웃</a>
 		<ul>
 		<li>
@@ -49,6 +49,9 @@
 		</li>
 		<li>
 		<a href='/ppool/historylist.action'>프로젝트이력등록</a>
+		</li>
+		<li>
+		<a href='/ppool/projectbookmarklist.action?userNo=${loginuser.userNo }'>북마크 리스트</a>
 		</li>
 		</ul>
 		

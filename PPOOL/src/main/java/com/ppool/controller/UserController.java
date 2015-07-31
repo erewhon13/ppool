@@ -76,7 +76,9 @@ public class UserController {
 		if (user != null) {
 			mav.addObject("loginuser", user);
 		}
+		//리퍼러(referer)는 웹 브라우저로 월드 와이드 웹을 서핑할 때, 하이퍼링크를 통해서 각각의 사이트로 방문시 남는 흔적을 말한다.
 		String referer = request.getHeader("referer");
+		//요청이 들어온 url을 읽어서 반환
 		mav.setViewName("redirect:"+referer.substring(27));
 		return mav;
 	}
@@ -86,7 +88,9 @@ public class UserController {
 			SessionStatus status,HttpServletRequest request) {
 		status.setComplete();
 		ModelAndView mav = new ModelAndView();
+		//리퍼러(referer)는 웹 브라우저로 월드 와이드 웹을 서핑할 때, 하이퍼링크를 통해서 각각의 사이트로 방문시 남는 흔적을 말한다.
 		String referer = request.getHeader("referer");
+		//요청이 들어온 url을 읽어서 반환
 		mav.setViewName("redirect:"+referer.substring(27));
 		return mav;
 	}
@@ -94,6 +98,7 @@ public class UserController {
 	@RequestMapping(value = "userinfo.action", method = RequestMethod.GET)
 	public ModelAndView userInfo(int userNo, HttpServletRequest requset) {
 
+		
 		User user = userService.userInfo(userNo);
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays
 				.asList(user.getUserLocation()));
@@ -108,6 +113,11 @@ public class UserController {
 		mav.addObject("locations", locations);
 		mav.addObject("skills", skills);
 		mav.setViewName("users/userinfo");
+		
+		//session값이 없으면 home으로 강제이동
+		// if (loginuser == null) {
+		// mav.setViewName("redirect:/home.action");
+		// }
 		return mav;
 	}
 

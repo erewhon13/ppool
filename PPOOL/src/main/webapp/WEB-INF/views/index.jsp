@@ -8,9 +8,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"
-	type="text/javascript"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.js"></script>
+<!-- <script type="text/javascript">
+$(function(){
+	var userEmail = $("#userEmail").val();
+	console.log(userEmail);
+	var userPasswd = $("#userPasswd").val();
+	var url = "/ppool/userlogin.action?userEmail="+ userEmail+"&userPasswd=" +userPasswd;
+	$("#login").click(function() {
+		$("#login").attr("href",url);
+	})
+})
+</script> -->
 <title>Main Page</title>
 </head>
 

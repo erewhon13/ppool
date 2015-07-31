@@ -54,6 +54,13 @@
 				</select>
 			</div>
 			<div>
+				<label>정보공개여부 :</label> <select name="userOpenLevel">
+					<option value="1">1단계</option>
+					<option value="2">2단계</option>
+					<option value="3">3단계</option>
+				</select>
+			</div>
+			<div>
 				<div class="userskill">
 					<ul>
 						<li><input type="checkbox" name="userSkill" value="100">.NET</li>
@@ -167,10 +174,12 @@
 							해외</li>
 					</ul>
 				</div>
-				<div>
-					<input type="submit" value="OK" />
-				</div>
+
 			</div>
+			<div>
+				<input type="submit" value="OK" />
+			</div>
+		</div>
 	</form>
 </div>
 </body>
