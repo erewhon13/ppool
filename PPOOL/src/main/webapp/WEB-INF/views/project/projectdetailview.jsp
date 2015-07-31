@@ -74,7 +74,6 @@
 		
 		$('.skill input, .location input').attr('disabled','disabled');
 		
-		
 		$("#commentregister").click(function() {
 			if( $('#commentcontent').val().trim() == "" ){
 				alert("댓글을 입력하고 등록하세요")
@@ -97,7 +96,7 @@
 						alert('입력 성공!');
 						$('#commentcontent').val("");
 						$( "#tab" ).append(result);
-						$('#yescomment').css("display", "block");
+						//$('#yescomment').css("display", "block");
 						$('#nocomment').css("display", "none");
 					//}
 				},
@@ -106,6 +105,16 @@
 				}
 			});//ajax
 		});	//click 함수
+		
+		$('#hi').click(function(){
+			$('#hi').css("display","none");
+			$('#bye').css("display","block")
+		})
+		$('#bye').click(function(){
+			$(this).css("display","none");
+			$('#hi').css("display","block")
+		})
+		
 		
 	});//ready
 	
@@ -242,6 +251,9 @@
 </div>
 
 <!--------------------------------------------------- 신고 모달 ------------------------------------------------->
+
+<input type="button" id="hi" value="hi버튼" style="display: block;" />
+<input type="button" id="bye" value="bye버튼" style="display: none;"/>
 
 	<div style="width:72%;float: right" ><br/>
 		<table style="width: 100%; border:groove;" class="table">
@@ -389,11 +401,12 @@
 			<br />
 			<c:set var="comments" value="${project.comments }"/>
 			<table style="width: 750px; border: solid 1px; margin: 0 auto" id="tab">
+			
 			<!-- comment 있을경우 표시 영역 -->
 				<c:if test="${!empty comments}">
 					<c:forEach var="comment" items="${comments }" > 
 		        		<tr>
-		        			<td id="yescomment" style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
+		        			<td id="yescomment${comment.commentContent }" style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
 								<div style="color:#3333dd;font-weight: bold;">${comment.userName }</div><br/><br/>
 								<div >${comment.commentContent }</div><br/><br/>
 								<f:formatDate value="${ comment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
