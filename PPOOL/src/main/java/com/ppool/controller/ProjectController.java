@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -97,7 +98,16 @@ public class ProjectController {
 		
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
-		
+		//userNo와 projectNo로 북마크테이블에서 count를 조회(where userNo =? and projectNo =?)
+				HashMap<String, Object> params = new  HashMap<String, Object>();
+				int userNo = 91;
+				params.put("userNo", userNo);
+				params.put("projectNo", projectNo);
+				int count = projectService.getBookmarkCount(params);
+				System.out.println(count);
+				
+				mav.addObject("bookmarkable", count);
+				////////////////////////////////////////////////////////////////////////////
 		mav.addObject("project", project);
 		mav.addObject("comments", comments);
 		mav.addObject("locations", locations);
@@ -165,5 +175,31 @@ public class ProjectController {
 		mav.setViewName("project/newcomment");
 		return mav;
 	}
+	
+	//북마크 등록
+		@RequestMapping(value = "projectbookmarks.action", method = RequestMethod.GET)
+		public String projectBookmarks(int userNo, int projectNo,Model model) {
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("userNo", userNo);
+			params.put("projectNo", projectNo);
+			projectService.projectBookmarks(params);
+			
+			
+			
+			return "redirect:/projectdetailview.action?projectNo="+projectNo;
+		}
+		//북마크 목록
+		@RequestMapping(value="projectbookmarklist.action" ,method = RequestMethod.GET)
+		public ModelAndView projectBookmarkList(int userNo){
+			
+			//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
+			
+			
+			List<Project> projects = projectService.projectBookmarkList(userNo);
+					
+			mav.setViewName("project/projectbookmarklist");
+			mav.addObject("projects", projects);
+			return mav;
+		}
 	
 }
