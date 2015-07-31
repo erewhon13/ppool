@@ -25,6 +25,7 @@ import com.ppool.dto.History;
 import com.ppool.dto.HistoryUploadFile;
 import com.ppool.service.HistoryService;
 import com.ppool.util.Util;
+import com.ppool.view.DownloadView;
 
 
 @Controller
