@@ -21,7 +21,7 @@
 		</ul>
 	</div>
 	<div id="side">
-<div id="sidelogin"><div id="topbar" class="nonelogined"
+	<div id="sidelogin"><div id="topbar" class="nonelogined"
 		style='display : ${loginuser eq null ? "block" : "none"}'>
 		<form action="userlogin.action" method="POST">
 		<div id="email">
@@ -51,6 +51,7 @@
 		<a href='/ppool/historylist.action'>프로젝트이력등록</a>
 		</li>
 		</ul>
+		
 	</div>
 	</div>
 	<div id="sidemenu">
@@ -65,4 +66,7 @@
 			</c:if>
 		</ul>
 	</div>
+	<div id="sidebottom">
+			<img src="/ppool/resources/images/sidephone.png"/>
+		</div>
 	</div>

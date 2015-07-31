@@ -20,6 +20,10 @@
 #sidelogin{
 	height: 150px;
 }
+#sidebottom img{
+	margin-top : 10px;
+	width: 250px;
+}
 
 #sidemenu {
 	margin-top:2%;

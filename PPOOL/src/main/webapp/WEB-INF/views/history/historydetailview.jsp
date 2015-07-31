@@ -39,7 +39,7 @@
 	  <form action="historyupdate.action" method="post" enctype="multipart/form-data" id="form">
 		<c:set var="history" value="${history}"/>
 		<input type="hidden" name="historyNo" value="${history.historyNo}"/>
-		<%-- <input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo }' /> --%>
+		<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
 		<table style="text-align: center; width: 100%; border:groove;  ">
 			<caption style="color:#FF9147;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
