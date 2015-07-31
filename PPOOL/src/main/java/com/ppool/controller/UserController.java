@@ -64,61 +64,6 @@ public class UserController {
 	public ModelAndView registerUser(User user) {
 		user.setUserPasswd(Util.getHashedString(user.getUserPasswd(), "SHA-1"));
 		userService.registerUser(user);
-		int userNo = user.getUserNo();
-		
-		if(user.getUserLocation() != null && user.getUserLocation().length > 0){
-			for (String locationNo : user.getUserLocation() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("locationNo", locationNo);
-				params.put("userNo", userNo);
-				
-				userService.userLocationRegister(params);
-			}
-		}
-		
-		if(user.getUserSkill() != null && user.getUserSkill().length > 0){
-			for (String skillNo : user.getUserSkill() ) {
-				HashMap<String, Object> params = new HashMap<String, Object>();
-				params.put("skillNo", skillNo);
-				params.put("userNo", userNo);
-				
-				userService.userSkillRegister(params);
-			}
-		}
-		
-		
-		String host = "smtp.gmail.com";
-		String username = "ppoolmanager@gmail.com";
-		String password = "ppoolproject";
-
-		// 메일 내용
-		String recipient = user.getUserEmail();
-		String subject = "회원가입 인증";
-		String body = "<a href='#'>인증페이지</a>";
-
-		// properties 설정
-		Properties props = new Properties();
-		props.put("mail.smtps.auth", "true");
-		// 메일 세션
-		Session session = Session.getDefaultInstance(props);
-		MimeMessage msg = new MimeMessage(session);
-
-		try {
-			// 메일 관련
-			msg.setSubject(subject);
-			msg.setContent(body, "text/html; charset=utf-8");
-			msg.setFrom(new InternetAddress(username));
-			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
-					recipient));
-
-			// 발송 처리
-			Transport transport = session.getTransport("smtps");
-			transport.connect(host, username, password);
-			transport.sendMessage(msg, msg.getAllRecipients());
-			transport.close();
-		} catch (Exception e) {
-
-		}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/home.action");
 		return mav;
@@ -152,17 +97,18 @@ public class UserController {
 	public ModelAndView userInfo(int userNo, HttpServletRequest requset) {
 
 		User user = userService.userInfo(userNo);
-		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserLocation()));
-		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserSkill()));
+		String locations = StringUtils.collectionToCommaDelimitedString(Arrays
+				.asList(user.getUserLocation()));
+		String skills = StringUtils.collectionToCommaDelimitedString(Arrays
+				.asList(user.getUserSkill()));
 		String uri = requset.getRequestURI().toString();
-		
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("user", user);
 		mav.addObject("uri", uri);
-		
-		mav.addObject("locations",locations);
-		mav.addObject("skills",skills);
+
+		mav.addObject("locations", locations);
+		mav.addObject("skills", skills);
 		mav.setViewName("users/userinfo");
 		return mav;
 	}
@@ -171,58 +117,62 @@ public class UserController {
 	public ModelAndView userInfoUpdateForm(int userNo) {
 		User user = userService.userInfo(userNo);
 		ModelAndView mav = new ModelAndView();
-		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserLocation()));
-		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(user.getUserSkill()));
-		mav.addObject("locations",locations);
-		mav.addObject("skills",skills);
+		String locations = StringUtils.collectionToCommaDelimitedString(Arrays
+				.asList(user.getUserLocation()));
+		String skills = StringUtils.collectionToCommaDelimitedString(Arrays
+				.asList(user.getUserSkill()));
+		mav.addObject("locations", locations);
+		mav.addObject("skills", skills);
 		mav.addObject("user", user);
 		mav.setViewName("users/userinfoupdateform");
 		return mav;
 	}
 
 	@RequestMapping(value = "userinfoupdate.action", method = RequestMethod.POST)
-	public ModelAndView userinfoUpdate(MultipartHttpServletRequest request,User user){
-		
+	public ModelAndView userinfoUpdate(MultipartHttpServletRequest request,
+			User user) {
+
 		ServletContext application = request.getSession().getServletContext();
 		String path = application.getRealPath("/resources/images");
 		MultipartFile file = request.getFile("userProfile");
 		String fileName = file.getOriginalFilename();
 		user.setUserPictureSavedName(fileName);
 		user.setUserPictureExist(true);
-		
+
 		int userNo = user.getUserNo();
 		userService.userSkillDelete(userNo);
 		userService.userLocationDelete(userNo);
-		
-		if(user.getUserLocation() != null && user.getUserLocation().length > 0){
-			for (String locationNo : user.getUserLocation() ) {
+
+		if (user.getUserLocation() != null && user.getUserLocation().length > 0) {
+			for (String locationNo : user.getUserLocation()) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("locationNo", locationNo);
 				params.put("userNo", userNo);
-				
+
 				userService.userLocationRegister(params);
 			}
 		}
-		
-		if(user.getUserSkill() != null && user.getUserSkill().length > 0){
-			for (String skillNo : user.getUserSkill() ) {
+
+		if (user.getUserSkill() != null && user.getUserSkill().length > 0) {
+			for (String skillNo : user.getUserSkill()) {
 				HashMap<String, Object> params = new HashMap<String, Object>();
 				params.put("skillNo", skillNo);
 				params.put("userNo", userNo);
-				
+
 				userService.userSkillRegister(params);
 			}
 		}
-		
+
 		userService.userInfoUpdate(user);
-		//파일을 디스크에 저장
+		// 파일을 디스크에 저장
 		try {
-			FileOutputStream ostream = 
-				new FileOutputStream(new File(path, user.getUserPictureSavedName()));
+			FileOutputStream ostream = new FileOutputStream(new File(path,
+					user.getUserPictureSavedName()));
 			InputStream istream = file.getInputStream();
 			while (true) {
 				int data = istream.read();
-				if (data == -1) break;
+				if (data == -1)
+					break;
 				ostream.write(data);
 			}
 			istream.close();
@@ -231,7 +181,7 @@ public class UserController {
 			ex.printStackTrace();
 		}
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/userinfo.action?userNo="+user.getUserNo());
+		mav.setViewName("redirect:/userinfo.action?userNo=" + user.getUserNo());
 		return mav;
 	}
 }
