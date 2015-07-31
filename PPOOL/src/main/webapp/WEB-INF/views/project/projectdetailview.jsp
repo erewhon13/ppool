@@ -167,18 +167,19 @@
 						method:"POST",
 						async:true,
 						data:{
-							userNo : $("#userNo"),
-							projectNo :$("#projectNo"),
-							reportContent : $("#reportContent")
-						},
+							userNo : $("#userNo").val(),
+							projectNo :$("#projectNo").val(),
+							reportContent : $("#reportcontent").val()
+						}, 
 						success: function(result){
 							alert('신고되었습니다');
+							dialog.dialog( "close" );
 						},
 						error:function(){
 							alert('오류');
 						}				
 					})
-					dialog.dialog( "close" );		        
+							        
 			      } 
 		      return valid; 
 		}
@@ -223,8 +224,8 @@
 <div id="dialog-form" title="신고하기">
   <p class="validateTips"></p>
   	  <form id="reportform">
-  	  	  <input type="hidden" name="projectNo" value="${project.projectNo}">
-  	  	  <input type="hidden" name="userNo" value="${loginuser.userNo}">
+  	  	  <input type="hidden" id="projectNo" name="projectNo" value="${project.projectNo}">
+  	  	  <input type="hidden" id="userNo" name="userNo" value="${loginuser.userNo}">
 	      <label for="projectTitle2">제목</label>
 	      <input type="text" name="projectTitle2" id="projecttitle2" value="${project.projectTitle}" style="width: 85%" class="text ui-widget-content ui-corner-all" readonly="readonly">
 	      <br/>
