@@ -27,7 +27,12 @@
 					$(location).attr('href',"historylist.action");
 			   })
 		  $('#delete').click(function(event){
-					$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			  		  
+			  	var yes = confirm("삭제하시겠습니까?");
+			  	if (yes) {
+			  		$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			  	}
+			  	
 			   })
 	   })
    	</script>
