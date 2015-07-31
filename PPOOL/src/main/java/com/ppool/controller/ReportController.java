@@ -1,5 +1,7 @@
 package com.ppool.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,24 @@ public class ReportController {
 		return "success";		
 	}
 	
+	@RequestMapping(value="reportlist.action", method=RequestMethod.GET)
+	public ModelAndView getReportList(){
+		ModelAndView mav= new ModelAndView();
+		List<Report> reports=reportService.getReportList();
+		mav.addObject("reports", reports);
+		mav.setViewName("report/reportlist");
+		return mav;
+	}
+	
+	@RequestMapping(value="minuswarningcount.action", method=RequestMethod.GET)
+	public ModelAndView minusWarningCount(int projectNo, int reportNo){
+		reportService.minusWarningCount(projectNo);
+		reportService.deleteReport(reportNo);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("redirect:/reportlist.action");
+		return mav;
+		
+	}
 	
 	
 }

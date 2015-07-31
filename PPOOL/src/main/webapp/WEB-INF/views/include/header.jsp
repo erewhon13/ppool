@@ -18,6 +18,7 @@
 			<li class='active'><a href='/ppool/notificationlist.action'>공지사항</a></li>
 			<li><a href='/ppool/projectlist.action'>프로젝트</a></li>
 			<li><a href='/ppool/search.action'>인물검색</a></li>
+			<li><a href='/ppool/reportlist.action'>경고목록</a></li>
 		</ul>
 	</div>
 	<div id="side">
