@@ -11,9 +11,9 @@
 	<script src="//code.jquery.com/jquery-1.11.3.js"></script> <!-- jquery 사용하기 위해서 CDN삽입 -->
 	<script type="text/javascript">
 		 $(function(){
-			$(".detailview").click(function(event){
+			$(".button").click(function(event){
 				var projectno=$(this).attr('tag').split('/')
-				var yes = confirm(projectno[0]+" 번 게시글 신고를 취소하시겠습니까?");
+				var yes = confirm(projectno[0]+"번 게시글의 신고를 취소하시겠습니까?");
 			  	if (yes) {
 			  		$(location).attr('href',"minuswarningcount.action?projectNo="+projectno[0]+"&reportNo="+projectno[1]);
 			  	}	
@@ -43,16 +43,17 @@
 								<tbody>
 						
 										<tr>
-											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40"  >경고번호</td>
+											<td style="width:10%; color: white;" align="center"  bgcolor="#FF9147" height="40"  >경고번호</td>
 											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" >게시글 번호</td>
 											<td style="width:35%; color: white;" align="center"  bgcolor="#FF9147" height="40" >신고사유</td>
 											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40">신고자</td>
 											<td style="width:20%; color: white;" align="center"  bgcolor="#FF9147" height="40" >신고일자</td>
+											<td style="width:5%; color: white;" align="center"  bgcolor="#FF9147" height="40"></td>
 										</tr>
 										
 										<c:forEach var="report" items="${reports}">
-										<tr class="detailview" tag="${report.projectNo}/${report.reportNo}">
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" ">${report.reportNo}</td>
+										<tr class="detailview">
+											<td style="width:10%;" align="center"  bgcolor="F8F7F7" height="30" ">${report.reportNo}</td>
 											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" >${report.projectNo}</td>
 											<td style="width:35%;" align="center"  bgcolor="F8F7F7" height="30" >${report.reportContent}</td>
 											
@@ -63,6 +64,9 @@
 											
 											<fmt:formatDate value="${report.reportDay}" pattern="yy년 MM월 dd일" var="reportday"/>
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30">${reportday}</td>
+											<td style="width:5%;" align="center"  bgcolor="F8F7F7" height="30">
+												<input class="button"  tag="${report.projectNo}/${report.reportNo}" type="button" value="취소">
+											</td>
 										
 										</tr>
 										</c:forEach>
