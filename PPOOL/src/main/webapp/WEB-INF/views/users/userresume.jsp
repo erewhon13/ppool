@@ -402,8 +402,9 @@ margin:10px;
 	 	    });
 		});	 
 	
-	
-	
+		$('.ed_bt').click(function(){
+			var no = $(this).attr("id").substr(2);
+		});
 </script>
 
 </head>
@@ -415,12 +416,12 @@ margin:10px;
 		<form id="formResumeSchool" action="formresumeschool.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<label for="resumeUserSchool">학교</label>
-					<input type="text" name="resumeUserSchool" id="resumeUserSchool" value="${resumeSchool.resumeUserSchool}" class="text ui-widget-content ui-corner-all">
+					<input type="text" name="resumeUserSchool" id="resumeUserSchool"  class="text ui-widget-content ui-corner-all">
 					<label for="resumeUserMajor">전공</label>
-					<input type="text" name="resumeUserMajor" id="resumeUserMajor" value="${resumeSchool.resumeUserMajor}" class="text ui-widget-content ui-corner-all" >
+					<input type="text" name="resumeUserMajor" id="resumeUserMajor"  class="text ui-widget-content ui-corner-all" >
 					<label for="resumeMajorDay">기간</label>
-					<input type="date" name="resumeMajorStartDay"  id="resumeMajorStartDay"  value="${resumeSchool.resumeMajorStartDay}" class="text ui-widget-content ui-corner-all" >
-					~<input type="date" name="resumeMajorEndDay"  id="resumeMajorEndDay" value="${resumeSchool.resumeMajorEndDay}" class="text ui-widget-content ui-corner-all">
+					<input type="date" name="resumeMajorStartDay"  id="resumeMajorStartDay"   class="text ui-widget-content ui-corner-all" >
+					~<input type="date" name="resumeMajorEndDay"  id="resumeMajorEndDay"  class="text ui-widget-content ui-corner-all">
 					<!--  <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
 		</form>
 </div>
@@ -458,7 +459,7 @@ margin:10px;
 </div>
 
 
-	<c:set var="resumeSchool" value="${resumeSchool}"/>
+	<c:set var="resumeSchool" value="${resumeSchools}"/>
 	<div id="r_center" ><!-- 가운데 -->
 					<img src="/ppool/resources/images/resume.gif" style="margin-top: 30px;">
 					  <hr border-top:1px solid style="width:93%; float:left;" />
@@ -501,21 +502,25 @@ margin:10px;
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
 											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">기간</td>
+											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
 										</tr>
 								</thead>
-								<tbody>
-								<c:forEach var="resumeSchool" items="${resumeSchool}">
-								<input type="hidden" name="resumeSchoolNo" value="${resumeSchool.resumeSchoolNo}"/>
-										<tr>
-											<td>${resumeSchool.resumeUserSchool}</td>
-											<td>${resumeSchool.resumeUserMajor}</td>
-											<f:formatDate value="${resumeSchool.resumeMajorStartDay}" pattern="yy년 MM월 dd일" var="day1" />
-											<f:formatDate value="${resumeSchool.resumeMajorEndDay}" pattern="yy년 MM월 dd일" var="day2" />
-											<td>${day1}</td><td>~</td>
-											<td>${day2}</td>
-										</tr>
+								<c:forEach var="resumeSchool" items="${resumeSchools}">
+								
+									<input type="hidden" name="resumeSchoolNo" value="${resumeSchool.resumeSchoolNo}"/>
+											<tr>
+												<td>${resumeSchool.resumeUserSchool}</td>
+												<td>${resumeSchool.resumeUserMajor}</td>
+												<f:formatDate value="${resumeSchool.resumeMajorStartDay}" pattern="yy년 MM월 dd일" var="day1" />
+												<f:formatDate value="${resumeSchool.resumeMajorEndDay}" pattern="yy년 MM월 dd일" var="day2" />
+												<td>${day1}</td><td>~</td>
+												<td>${day2}</td>
+												<c:if test="${resumeSchool ne null }">
+										<td><input type="button" class="ed_bt" id="ed${resumeSchool.resumeSchoolNo}"  value="수정">
+												<input type="button" value="삭제"></td>
+								</c:if>
+											</tr>
 								</c:forEach>
-								</tbody>		
 							</table>		
 					</div>
 					
@@ -656,10 +661,6 @@ margin:10px;
 					</div>
 				</form>
 				</div>
-			
-			
-				 
-					
 		</div>
 				
 </body>

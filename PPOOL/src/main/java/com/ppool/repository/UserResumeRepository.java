@@ -19,7 +19,7 @@ public interface UserResumeRepository {
 
 	//보여주기 
 	ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo);
-	List<ResumeSchool>getResumeSchools();
+	List<ResumeSchool>getResumeSchools(int userNo);
 	
 	
 }
