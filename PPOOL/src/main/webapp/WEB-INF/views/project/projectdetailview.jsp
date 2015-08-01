@@ -213,8 +213,6 @@
 						}				
 					})
 							        
-			      } 
->>>>>>> branch 'master' of https://github.com/erewhon13/ppool.git
 		      return valid; 
 		}
 		
