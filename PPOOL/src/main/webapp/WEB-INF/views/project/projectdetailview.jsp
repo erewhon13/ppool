@@ -189,6 +189,9 @@
 			//var form=$('#reportform').serialize();
 			
 			 if ( valid ) {
+				 $("#reportform").submit();
+		        dialog.dialog( "close" );
+		      } 
 				 //$(location).attr('href','insertreport.action?'+form);
 				/*  $("#reportform").submit(); */
 				
@@ -211,6 +214,7 @@
 					})
 							        
 			      } 
+>>>>>>> branch 'master' of https://github.com/erewhon13/ppool.git
 		      return valid; 
 		}
 		

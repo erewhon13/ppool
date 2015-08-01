@@ -7,6 +7,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"
+	type="text/javascript">
+	</script>
+<style type="text/css">
+
+}
+
+ 
+</style>
 <script src="//code.jquery.com/jquery-1.11.3.js"></script>
 <!-- <script type="text/javascript">
 $(function(){

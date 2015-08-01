@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import com.ppool.dto.User;
-import com.ppool.dto.UserResume;
+import com.ppool.dto.ResumeEducation;
+import com.ppool.dto.ResumeIntroduction;
+import com.ppool.dto.ResumeLanguage;
+import com.ppool.dto.ResumeLicense;
+import com.ppool.dto.ResumeSchool;
 import com.ppool.mapper.UserResumeMapper;
-import com.ppool.mapper.UserSearchMapper;
 
 @Repository("userResumeRepository")
 public class OracleUserResumeRepository implements UserResumeRepository {
@@ -23,18 +25,46 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			this.userResumeMapper = userResumeMapper;
 		}
 
-		@Override
-		public void userRegister(UserResume resume) {
-			userResumeMapper.resumeRegister(resume);
-			
-		}
-
-		@Override
-		public UserResume getUserResume(int userNo) {
-			UserResume userResume=userResumeMapper.getUserResume(userNo);
-			return userResume;
-		}
-
+		//등록
 		
+		@Override
+		public void resumeIntroductionRegister(ResumeIntroduction resumeIntroduction){
+			userResumeMapper.resumeIntroductionRegister(resumeIntroduction);
+		}
+
+		@Override
+		public void resumeSchoolRegister(ResumeSchool resumeschool) {
+			userResumeMapper.resumeSchoolRegister(resumeschool);
+		}
+		
+		@Override
+		public void resumeEducationRegister(ResumeEducation resumeeducation) {
+			userResumeMapper.resumeEducationRegister(resumeeducation);
+		}
+		
+		@Override
+		public void resumeLicenseRegister(ResumeLicense resumelicense) {
+			userResumeMapper.resumeLicenseRegister(resumelicense);
+		}
+		@Override
+		public void resumeLanguageRegister(ResumeLanguage resumelanguage) {
+			userResumeMapper.resumeLanguageRegister(resumelanguage);
+		}
+
+		//보여주기 
+		
+		@Override
+		public ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo) {
+				
+			ResumeIntroduction resumeintroduction = userResumeMapper.getResumeIntroduction(resumeIntroductionNo);
+			return resumeintroduction;
+		}
+
+		@Override
+		public List<ResumeSchool> getResumeSchools() {
+			List<ResumeSchool> resumeSchool = userResumeMapper.getResumeSchools();
+			return resumeSchool;
+		}
+
 	
 }
