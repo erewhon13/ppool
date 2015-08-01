@@ -66,6 +66,24 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			return resumeSchool;
 		}
 
+		@Override
+		public List<ResumeEducation> getResumeEducations(int userNo) {
+			List<ResumeEducation> resumeEducation = userResumeMapper.getResumeEducations(userNo);
+			return resumeEducation;
+		}
+
+		@Override
+		public List<ResumeLicense> getResumeLicenses(int userNo) {
+			List<ResumeLicense> resumeLicense = userResumeMapper.getResumeLicenses(userNo);
+			return resumeLicense;
+		}
+
+		@Override
+		public List<ResumeLanguage> getResumeLanguages(int userNo) {
+			List<ResumeLanguage> resumeLanguage = userResumeMapper.getResumeLanguages(userNo);
+			return resumeLanguage;
+		}
+
 		
 		
 		

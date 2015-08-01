@@ -20,10 +20,10 @@ public interface UserResumeMapper {
 	void resumeLanguageRegister(ResumeLanguage resumelanguage);
 	
 	//보여주기
-	
 	ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo);
 	List<ResumeSchool> getResumeSchools(int userNo);
-	
-	
+	List<ResumeEducation> getResumeEducations(int userNo);
+	List<ResumeLicense> getResumeLicenses(int userNo);
+	List<ResumeLanguage> getResumeLanguages(int userNo);
 	
 }

@@ -41,13 +41,20 @@ public class UserResumeController {
 	@RequestMapping(value="resume.action", method=RequestMethod.GET)
 	public ModelAndView getResumeSchools(int userNo){
 		ModelAndView mav = new ModelAndView();
-		//el 문  value값 보내주기 위해 dto객체 가져오기 
-		//ResumeIntroduction userResume  = userResumeService.getUserResume(userNo);
-		//mav.addObject("userResume",userResume);
 		
+		//el 문  value값 보내주기 위해 dto객체 가져오기 
 		List<ResumeSchool> resumeSchools = userResumeService.getResumeSchools(userNo);
-		//ResumeSchool resumeSchool = userResumeService.getResumeSchool(userNo);
 		mav.addObject("resumeSchools",resumeSchools);
+		
+		List<ResumeEducation> resumeEducations = userResumeService.getResumeEducations(userNo);
+		mav.addObject("resumeEducations", resumeEducations);
+		
+		List<ResumeLicense> resumeLicenses = userResumeService.getResumeLicenses(userNo);
+		mav.addObject("resumeLicenses", resumeLicenses);
+		
+		List<ResumeLanguage> resumeLanguages = userResumeService.getResumeLanguages(userNo);
+		mav.addObject("resumeLanguages", resumeLanguages);
+		
 		
 		mav.setViewName("users/userresume");
 		return mav;

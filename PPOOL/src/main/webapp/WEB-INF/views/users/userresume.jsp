@@ -505,8 +505,8 @@ margin:10px;
 											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
 										</tr>
 								</thead>
-								<c:forEach var="resumeSchool" items="${resumeSchools}">
 								
+								<c:forEach var="resumeSchool" items="${resumeSchools}">
 									<input type="hidden" name="resumeSchoolNo" value="${resumeSchool.resumeSchoolNo}"/>
 											<tr>
 												<td>${resumeSchool.resumeUserSchool}</td>
@@ -548,7 +548,7 @@ margin:10px;
 											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">교육기간</td>
 										</tr>
 								</thead>
-								<tbody>
+									<c:forEach var="resumeEducation" items="${resumeEducations}">
 										<tr>
 											<td>${resumeEducation.resumeEducation}</td>
 											<td>${resumeEducation.resumeEducationCenter}</td>
@@ -557,7 +557,7 @@ margin:10px;
 											<td>${day1}</td><td>~</td>
 											<td>${day2}</td>
 										</tr>
-								</tbody>		
+									</c:forEach>
 							</table>		
 					</div>
 						<td style="float:left;">
@@ -587,14 +587,14 @@ margin:10px;
 											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">취득일자</td>
 										</tr>
 								</thead>
-								<tbody>
+								<c:forEach var="resumeLicense" items="${resumeLicenses}">
 										<tr>
 											<td>${resumeLicense.resumeLicense}</td>
 											<td>${resumeLicense.resumeLicenseCenter}</td>
 											<f:formatDate value="${resumeLicense.resumeLicenseDay}" pattern="yy년 MM월 dd일" var="day1" />
 											<td>${day1}</td>
 										</tr>
-								</tbody>
+								</c:forEach>
 							</table>		
 					</div>
 				
@@ -619,12 +619,12 @@ margin:10px;
 											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">수준</td>
 										</tr>
 								</thead>
-								<tbody>
+								<c:forEach var="resumeLanguage" items="${resumeLanguages}">
 										<tr>
 											<td>${resumeLanguage.resumeLanguage}</td>
 											<td>${resumeLanguage.resumeLanguageGrade}</td>
 									   </tr>
-								</tbody>
+								 </c:forEach>
 							</table>		
 					</div>
 					

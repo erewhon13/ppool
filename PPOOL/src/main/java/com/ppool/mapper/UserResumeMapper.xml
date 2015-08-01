@@ -65,6 +65,13 @@
 					#{resumeEducationCenter},
 					#{userNo})
 	</insert>	
+	<select id="getResumeEducations" resultType="resumeEducation" parameterType="int">
+		SELECT RESUMEEDUCATIONNO,RESUMEEDUCATION,RESUMEEDUCATIONSTARTDAY,
+		RESUMEEDUCATIONENDDAY,RESUMEEDUCATIONCENTER FROM RESUMEEDUCATION
+		WHERE USERNO=#{userNo}
+	</select>
+	
+	
 	<insert id="resumeLicenseRegister" parameterType="resumeLicense">
 		INSERT INTO 
 		RESUMELICENSE(
@@ -80,6 +87,13 @@
 					#{resumeLicenseCenter},
 					#{userNo})
 	</insert>	
+	<select id="getResumeLicenses" resultType="resumeLicense" parameterType="int">
+		SELECT RESUMELICENSENO,RESUMELICENSE,RESUMELICENSEDAY,
+		RESUMELICENSECENTER FROM RESUMELICENSE
+		WHERE USERNO=#{userNo}
+	</select>
+	<!-- id값이 mapper.java의 값으로  -->
+	
 	<insert id="resumeLanguageRegister" parameterType="resumeLanguage">
 		INSERT INTO 
 		RESUMELANGUAGE(
@@ -93,25 +107,13 @@
 					#{resumeLanguageGrade},
 					#{userNo})
 	</insert>		
+	<select id="getResumeLanguages" resultType="resumeLanguage" parameterType="int">
+		SELECT RESUMELANGUAGENO,RESUMELANGUAGE,RESUMELANGUAGEGRADE
+		FROM RESUMELANGUAGE
+		WHERE USERNO=#{userNo}
+	</select>
 		
-		<!-- 
-	<select id="getResumeSchool" resultType="resumeSchool" parameterType="int">
-		SELECT RESUMESCHOOLNO,RESUMESCHOOL,RESUMEUSERMAJOR,RESUMEMAJORSTARTDAY,
-		RESUMEMAJORENDDAY,USERNO FROM RESUMESCHOOL
-		WHERE USERNO=#{userNo}
-	</select>	
-	 -->
-					
-		<!-- 			
-		<select id="getUserResume" resultType="UserResume" parameterType="int">
-		SELECT USERRESUMENO,RESUMESCHOOL,RESUMEUSERMAJOR,RESUMEMAJORSTARTDAY,RESUMEMAJORENDDAY,
-		RESUMEMAJORUSEROPENLEVEL,RESUMEEDUCATION,RESUMEEDUCATIONSTARTDAY,RESUMEEDUCATIONENDDAY,
-		RESUMEEDUCATIONCENTER,RESUMEEDUCATIONOPENLEVEL,RESUMELICENSE,RESUMELICENSECENTER,
-		RESUMELICENSEDAY,RESUMELICENSEOPENLEVEL,RESUMELANGUAGE,RESUMELANGUAGEGRADE,RESUMELANGUAGEOPENLEVEL,RESUMEINTRODUCTION,
-		USERNO FROM USERRESUME
-		WHERE USERNO=#{userNo}
-		</select>	
-			 -->		
+		
 	
 	 
 </mapper>

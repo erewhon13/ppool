@@ -60,13 +60,30 @@ public class FinalUserResumeService implements UserResumeService{
 		return resumeSchool;
 	}
 
+	@Override
+	public List<ResumeEducation> getResumeEducations(int userNo) {
+
+		List<ResumeEducation> resumeEducation = userResumeRepository.getResumeEducations(userNo);
+		return resumeEducation;
+	}
+
+	@Override
+	public List<ResumeLicense> getResumeLicenses(int userNo) {
+
+		List<ResumeLicense> resumeLicense = userResumeRepository.getResumeLicenses(userNo);
+		return resumeLicense;
+	}
+
+	@Override
+	public List<ResumeLanguage> getResumeLanguages(int userNo) {
+		
+		List<ResumeLanguage> resumeLanguage = userResumeRepository.getResumeLanguages(userNo);
+		return resumeLanguage;
+	}
+
 	
 	
 	
 	
 	
-//	public List<ResumeSchool> getResumeSchools() {
-//		List<ResumeSchool> resumeSchool = userResumeRepository.getResumeSchools();
-//		return resumeSchool;
-//	}
 }
