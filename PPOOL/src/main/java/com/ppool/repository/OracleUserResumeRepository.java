@@ -1,5 +1,7 @@
 package com.ppool.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -57,5 +59,12 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			ResumeIntroduction resumeintroduction = userResumeMapper.getResumeIntroduction(resumeIntroductionNo);
 			return resumeintroduction;
 		}
+
+		@Override
+		public List<ResumeSchool> getResumeSchools() {
+			List<ResumeSchool> resumeSchool = userResumeMapper.getResumeSchools();
+			return resumeSchool;
+		}
+
 	
 }

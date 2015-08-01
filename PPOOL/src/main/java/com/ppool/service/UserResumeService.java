@@ -1,5 +1,7 @@
 package com.ppool.service;
 
+import java.util.List;
+
 import com.ppool.dto.ResumeEducation;
 import com.ppool.dto.ResumeIntroduction;
 import com.ppool.dto.ResumeLanguage;
@@ -17,5 +19,6 @@ public interface UserResumeService {
 	
 	//보여주기 
 	ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo);
+	List<ResumeSchool>getResumeSchools();
 	
 }

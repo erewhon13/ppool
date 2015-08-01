@@ -1,5 +1,7 @@
 package com.ppool.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -50,5 +52,11 @@ public class FinalUserResumeService implements UserResumeService{
 		
 		ResumeIntroduction resumeintroduction = userResumeRepository.getResumeIntroduction(resumeIntroductionNo);
 		return resumeintroduction;
+	}
+
+	@Override
+	public List<ResumeSchool> getResumeSchools() {
+		List<ResumeSchool> resumeSchool = userResumeRepository.getResumeSchools();
+		return resumeSchool;
 	}
 }

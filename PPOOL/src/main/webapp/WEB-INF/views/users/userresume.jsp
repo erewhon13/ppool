@@ -457,7 +457,8 @@ margin:10px;
 		</form>
 </div>
 
-		
+
+	<c:set var="resumeSchool" value="${resumeSchool}"/>
 	<div id="r_center" ><!-- 가운데 -->
 					<img src="/ppool/resources/images/resume.gif" style="margin-top: 30px;">
 					  <hr border-top:1px solid style="width:93%; float:left;" />
@@ -503,6 +504,8 @@ margin:10px;
 										</tr>
 								</thead>
 								<tbody>
+								<c:forEach var="resumeSchool" items="${resumeSchool}">
+								<input type="hidden" name="resumeSchoolNo" value="${resumeSchool.resumeSchoolNo}"/>
 										<tr>
 											<td>${resumeSchool.resumeUserSchool}</td>
 											<td>${resumeSchool.resumeUserMajor}</td>
@@ -511,6 +514,7 @@ margin:10px;
 											<td>${day1}</td><td>~</td>
 											<td>${day2}</td>
 										</tr>
+								</c:forEach>
 								</tbody>		
 							</table>		
 					</div>

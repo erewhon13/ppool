@@ -2,6 +2,7 @@ package com.ppool.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,8 +42,14 @@ public class UserResumeController {
 	@RequestMapping(value="resume.action", method=RequestMethod.GET)
 	public ModelAndView resumeRegister(int userNo){
 		
+		//el 문  value값 보내주기 위해 dto객체 가져오기 
 		//ResumeIntroduction userResume  = userResumeService.getUserResume(userNo);
 		//mav.addObject("userResume",userResume);
+		
+		List<ResumeSchool> resumeSchools = userResumeService.getResumeSchools();
+		//ResumeSchool resumeSchool = userResumeService.getResumeSchool(userNo);
+		mav.addObject("resumeSchool",resumeSchools);
+		
 		mav.setViewName("users/userresume");
 		return mav;
 		

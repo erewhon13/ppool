@@ -23,6 +23,14 @@
 					#{resumeMajorEndDay},
 					#{userNo})
 	</insert>
+	<select id="getResumeSchools" resultType="resumeSchool" parameterType="int">
+		SELECT RESUMESCHOOLNO,RESUMEUSERSCHOOL,RESUMEUSERMAJOR,
+		RESUMEMAJORSTARTDAY,RESUMEMAJORENDDAY FROM RESUMESCHOOL
+		WHERE USERNO=#{userNo}
+	</select>
+	
+	
+	
 	<insert id="resumeIntroductionRegister" parameterType="resumeIntroduction">
 		INSERT INTO 
 		RESUMEINTRODUCTION(
