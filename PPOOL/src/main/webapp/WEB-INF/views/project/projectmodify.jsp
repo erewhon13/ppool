@@ -39,6 +39,10 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function (){
+		if('${loginuser.userNo}' != '${project.userNo}'){
+			$(location).attr("href", "/ppool/projectdetailview.action?projectNo=${project.projectNo}");
+			return;
+		}
 		if('${skills}'.length >0 ){
 			var skills = '${skills}'.split(",");
 			$.each(skills, function(index, obj){
@@ -60,7 +64,10 @@
 			$(location).attr("href", "/ppool/projectdetailview.action?projectNo=${project.projectNo}");
 		});
 		$('#modify').click(function(){
-			checkFormAndSubmit();	
+			var result = confirm('수정 하시겠습니까?');
+			if(result){
+				checkFormAndSubmit();	
+			}
 		});
 	})
 	</script>

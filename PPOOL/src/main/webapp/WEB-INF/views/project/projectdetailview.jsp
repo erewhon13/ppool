@@ -68,7 +68,10 @@
 			$(location).attr("href", "/ppool/projectmodify.action?projectNo=${project.projectNo}");
 		});
 		$('#delete').click(function(){
-			$(location).attr("href", "/ppool/projectdelete.action?projectNo=${project.projectNo}");
+			var result = confirm('삭제 하시겠습니까?');
+			if(result){
+				$('#deleteform').submit();
+			}
 		});
 		
 		if('${skills}'.length >0 ){
@@ -109,7 +112,6 @@
 						alert('입력 성공!');
 						$('#commentcontent').val("");
 						$( "#tab" ).append(result);
-						
 						$('.nocomment').css("display", "none");
 					//}
 				},
@@ -121,7 +123,7 @@
 		
 		$('.ed_bt').click(function(){
 			var no = $(this).attr("id").substr(2);
-			var hei = $('#a'+no).height();		//px안붙는다
+			var hei = $('#a'+no).height();
 
 			if(hei < 95){
 				$('#b'+no).attr('rows', 5);
@@ -405,10 +407,22 @@
 		</table>
 		<br/>
 		<div style="width:100%;" align="right" >
+			<c:if test="${loginuser.userNo != null}">
+				<c:choose>
+					<c:when test="${loginuser.userNo eq project.userNo}">
+						<form id="deleteform" action="/ppool/projectdelete.action" method="POST">
+							<input type="hidden" name="projectNo" value="${project.projectNo }"/>
+						</form>
+						<img src="/ppool/resources/images/modify.png" id="modify" style="cursor: pointer;">&nbsp;
+						<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">&nbsp;
+					</c:when>
+					<c:when test="${loginuser.userNo ne project.userNo}">
+						<img src="/ppool/resources/images/bookmark.png" id="bookmark" style="cursor: pointer;">&nbsp;
+					</c:when>
+				</c:choose>
+			</c:if>
 			<img src="/ppool/resources/images/list.png" id="list" style="cursor: pointer;">
-			<img src="/ppool/resources/images/bookmark.png" id="bookmark" style="cursor: pointer;">
-			<img src="/ppool/resources/images/modify.png" id="modify" style="cursor: pointer;">
-			<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">
+			
 		</div>
 		
 	
@@ -495,9 +509,6 @@
 				
 			</table>
 				
-			
-				
-			
 			<!------------------ comment 쓰기 영역 시작 -------------------->
 			<br />
 			<br />

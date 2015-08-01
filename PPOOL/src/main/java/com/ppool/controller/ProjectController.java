@@ -30,8 +30,7 @@ import com.ppool.util.Util;
 
 @Controller
 public class ProjectController {
-
-	ModelAndView mav = new ModelAndView();
+	
 	private ProjectService projectService;
 	
 	@InitBinder
@@ -68,7 +67,7 @@ public class ProjectController {
 			int y =(int)((eventDay - nowDay) / (24 * 60 * 60 * 1000));
 			project.setProjectStatus(y);
 		}
-		
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("project/projectlist");
 		mav.addObject("projects", projects);
 		return mav;
@@ -76,6 +75,7 @@ public class ProjectController {
 	
 	@RequestMapping(value="projectregister.action" ,method = RequestMethod.GET)
 	public ModelAndView projectRegisteform(){
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("project/projectregister");
 		return mav;
 	}
@@ -87,6 +87,7 @@ public class ProjectController {
 		
 		projectService.projectRegister(project);
 		
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/projectlist.action");
 		return mav;
 	}
@@ -98,6 +99,8 @@ public class ProjectController {
 		
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getLocation()));
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
+		
+		ModelAndView mav = new ModelAndView();
 		//userNo와 projectNo로 북마크테이블에서 count를 조회(where userNo =? and projectNo =?)
 				HashMap<String, Object> params = new  HashMap<String, Object>();
 				int userNo = 91;
@@ -105,7 +108,6 @@ public class ProjectController {
 				params.put("projectNo", projectNo);
 				int count = projectService.getBookmarkCount(params);
 				System.out.println(count);
-				
 				mav.addObject("bookmarkable", count);
 				////////////////////////////////////////////////////////////////////////////
 		mav.addObject("project", project);
@@ -116,9 +118,16 @@ public class ProjectController {
 		mav.setViewName("project/projectdetailview");
 		return mav;
 	}
-	
-	@RequestMapping(value="projectdelete.action" ,method = RequestMethod.GET)
-	public ModelAndView projectDelete(int projectNo){
+
+	@RequestMapping(value="projectdelete.action" ,method = RequestMethod.POST)
+	public ModelAndView projectDelete(int projectNo, String checkMessage){
+		/************************************
+		 * 									*
+		 * 	  잘못된 요청에 대한 필터링 없음...ㅠㅠ	*
+		 * 									*
+		 ************************************/
+		ModelAndView mav = new ModelAndView();
+		System.out.println("2222");
 		projectService.projectDelete(projectNo);
 		
 		mav.setViewName("redirect:/projectlist.action");
@@ -142,6 +151,7 @@ public class ProjectController {
 		project.setPhone2(phone2);
 		project.setPhone3(phone3);
 		
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("project", project);
 		mav.addObject("locations", locations);
 		mav.addObject("skills", skills);
@@ -157,6 +167,7 @@ public class ProjectController {
 		
 		projectService.projectModify(project);
 		
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/projectdetailview.action?projectNo="+project.getProjectNo());
 		return mav;
 	}
@@ -171,6 +182,7 @@ public class ProjectController {
 		System.out.println(newComment.getCommentRegisterDay());
 		System.out.println(newComment.getUserName());
 		
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("newComment", newComment);
 		mav.setViewName("project/newcomment");
 		return mav;
@@ -197,6 +209,7 @@ public class ProjectController {
 			
 			List<Project> projects = projectService.projectBookmarkList(userNo);
 					
+			ModelAndView mav = new ModelAndView();
 			mav.setViewName("project/projectbookmarklist");
 			mav.addObject("projects", projects);
 			return mav;

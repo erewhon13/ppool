@@ -28,4 +28,6 @@ public interface ProjectMapper {
 	//북마크 중복체크
 	int getBookmarkCount(HashMap<String, Object> params);
 	
+	void projectBookmarkDelete(int projectNo);
+	
 }

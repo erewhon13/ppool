@@ -53,6 +53,7 @@
 			PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTREGISTERDAY, 
 			PROJECTSTATUS, PROJECTPHONE, PROJECTEMAIL
 		FROM PROJECTS
+		WHERE DELETED='0'
 		ORDER BY PROJECTNO DESC
 	</select>
 	<!-- ********************************************* -->
@@ -64,7 +65,7 @@
 			PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTREGISTERDAY, 
 			PROJECTSTATUS, PROJECTPHONE, PROJECTEMAIL
 		FROM PROJECTS
-		WHERE PROJECTNO = #{projectNo}
+		WHERE PROJECTNO = #{projectNo} AND DELETED='0'
 	</select>
 	
 	<resultMap id="detailProject" type="Project">
@@ -124,10 +125,12 @@
 		DELETE FROM projectskill
 		WHERE projectno = #{projectNo}
 	</delete>
-	<delete id="projectDelete" parameterType="int">
-		DELETE FROM projects
+	<update id="projectDelete" parameterType="int">
+		UPDATE PROJECTS
+		SET deleted='1'
 		WHERE projectno = #{projectNo}
-	</delete>
+	</update>
+	
 	<!-- ***************** 프로젝트 삭제 ***************** -->
 	
 	<!-- ***************** 코멘트 등록 ***************** -->

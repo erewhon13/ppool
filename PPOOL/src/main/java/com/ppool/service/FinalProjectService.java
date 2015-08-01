@@ -69,8 +69,6 @@ public class FinalProjectService implements ProjectService {
 
 	@Override
 	public void projectDelete(int projectNo) {
-		projectRepository.projectLocationDelete(projectNo);
-		projectRepository.projectSkillDelete(projectNo);
 		projectRepository.projectDelete(projectNo);
 	}
 
