@@ -46,7 +46,7 @@ $(function() {
 			<div>
 				<label>휴대전화 : </label>${user.getUserPhone()}</div>
 			<div>
-				<label>생년월일 : </label><f:formatDate value="${user.getUserBirth()}" pattern="yy년 MM월 dd일" var="stampDay"/>${stampDay}</div>			<div>
+				<label>생년월일 :</label><f:formatDate value="${user.getUserBirth()}" pattern="yy년 MM월 dd일" var="stampDay"/>${stampDay}</div>			<div>
 				<label>성별 : </label>${user.isUserGender() eq true ? "남" : "여"}</div>
 			<div>
 				<label>주소 : </label>${user.getUserAddress()}</div>
