@@ -22,37 +22,42 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	
-	<div align="center" style="margin-top: 3%" >
+	<div align="center"  style="margin-top: 3%">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
-					<table border="1" >
+					<table style="text-align: center; width: 75%; border:groove;  ">
 						
 						<tr>
-							<th>번호</th>
-							<td>${ notification.notificationNo }</td>
+							<th style="width: 15%" bgcolor="#FF9147">번호</th>
+							<td style="text-align:center;">${ notification.notificationNo }</td>
 						</tr>
-
+						<br />
 						<tr>
-							<th>제목</th>
+							<th style="width: 15%" bgcolor="#FF9147">제목</th>
 							<td>${ notification.notificationTitle }</td>
 						</tr>
-
 						<tr>
-							<th>내용</th>
-							<td>${ notification.notificationContent }</td>
-						</tr>
-						<tr>
-							<th>작성일</th>
+							<th style="width: 15%" bgcolor="#FF9147">작성일</th>
 							<td>
 								${ notification.stampRegisterDay }
 							</td>
 						</tr>
+
+						<tr>
+							<th style="width: 15%" bgcolor="#FF9147">내용</th>
+							<td style="width: 85%" colspan="3">
+								<textarea name="projectContent" id="projectcontent" rows="20" 
+									style="max-height: 600px;width:95%;resize:none;font-size: 15pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
+							</td>
+							
+						</tr>
+						
 						
 					</table>
-					
-					<div style='text-align: center'>
+					<br />
+					<div style='margin-right: -85%;'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
         				</c:url>
