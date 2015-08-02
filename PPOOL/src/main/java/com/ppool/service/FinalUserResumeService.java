@@ -48,9 +48,9 @@ public class FinalUserResumeService implements UserResumeService{
 
 	//보여주기 
 	@Override
-	public ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo) {
+	public ResumeIntroduction getResumeIntroductions(int userNo) {
 		
-		ResumeIntroduction resumeintroduction = userResumeRepository.getResumeIntroduction(resumeIntroductionNo);
+		ResumeIntroduction resumeintroduction = userResumeRepository.getResumeIntroductions(userNo);
 		return resumeintroduction;
 	}
 
@@ -79,6 +79,18 @@ public class FinalUserResumeService implements UserResumeService{
 		
 		List<ResumeLanguage> resumeLanguage = userResumeRepository.getResumeLanguages(userNo);
 		return resumeLanguage;
+	}
+
+	@Override
+	public void deleteResumeSchool(int resumeSchoolNo) {
+		userResumeRepository.deleteResumeSchool(resumeSchoolNo);
+			
+	}
+
+	@Override
+	public void updateResumeSchool(ResumeSchool resumeSchool) {
+		userResumeRepository.updateResumeSchool(resumeSchool);
+		
 	}
 
 	

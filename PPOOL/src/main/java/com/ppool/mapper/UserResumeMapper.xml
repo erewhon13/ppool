@@ -42,7 +42,7 @@
 					#{resumeIntroduction},
 					#{userNo})
 	</insert>
-	<select id="getResumeIntroduction" resultType="resumeIntroduction" parameterType="int">
+	<select id="getResumeIntroductions" resultType="resumeIntroduction" parameterType="int">
 		SELECT RESUMEINTRODUCTIONNO, RESUMEINTRODUCTION FROM RESUMEINTRODUCTION
 		WHERE USERNO=#{userNo}
 	</select>
@@ -112,8 +112,18 @@
 		FROM RESUMELANGUAGE
 		WHERE USERNO=#{userNo}
 	</select>
+	
+	
+	<delete id="deleteResumeSchool" parameterType="int">
+		DELETE FROM resumeSchool WHERE resumeSchoolNo=#{resumeSchoolNo}
+	</delete>
 		
-		
+	<update id="updateResumeSchool" parameterType="ResumeSchool">
+		UPDATE ResumeSchool
+		set resumeSchool=#{resumeSchool}, resumeUserMajor=#{resumeUserMajor}, resumeMajorStartDay=#{resumeMajorStartDay},
+		resumeMajorEndDay=#{resumeMajorEndDay}
+		where resumeSchoolNo=#{resumeSchoolNo}
+	</update>
 	
 	 
 </mapper>

@@ -54,13 +54,6 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 		//보여주기 
 		
 		@Override
-		public ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo) {
-				
-			ResumeIntroduction resumeintroduction = userResumeMapper.getResumeIntroduction(resumeIntroductionNo);
-			return resumeintroduction;
-		}
-
-		@Override
 		public List<ResumeSchool> getResumeSchools(int userNo) {
 			List<ResumeSchool> resumeSchool = userResumeMapper.getResumeSchools(userNo);
 			return resumeSchool;
@@ -84,15 +77,22 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			return resumeLanguage;
 		}
 
-		
-		
-		
-		
-//		@Override
-//		public List<ResumeSchool> getResumeSchools(int userNo) {
-//			List<ResumeSchool> resumeSchool = userResumeMapper.getResumeSchools();
-//			return resumeSchool;
-//		}
+		public ResumeIntroduction getResumeIntroductions(int userNo) {
+			
+			ResumeIntroduction resumeintroduction = userResumeMapper.getResumeIntroductions(userNo);
+			return resumeintroduction;
+		}
 
+		@Override
+		public void deleteResumeSchool(int resumeSchoolNo) {
+			userResumeMapper.deleteResumeSchool(resumeSchoolNo);
+		}
+
+		@Override
+		public void updateResumeSchool(ResumeSchool resumeSchool) {
+			userResumeMapper.updateResumeSchool(resumeSchool);
+		}
+		
+		
 	
 }
