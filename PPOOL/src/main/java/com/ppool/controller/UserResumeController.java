@@ -55,6 +55,9 @@ public class UserResumeController {
 		List<ResumeLanguage> resumeLanguages = userResumeService.getResumeLanguages(userNo);
 		mav.addObject("resumeLanguages", resumeLanguages);
 		
+		ResumeIntroduction resumeIntroductions = userResumeService.getResumeIntroductions(userNo);
+		mav.addObject("resumeIntroductions", resumeIntroductions);
+		
 		
 		mav.setViewName("users/userresume");
 		return mav;
@@ -102,7 +105,25 @@ public class UserResumeController {
 		mav.setViewName("users/userresume");
 		return mav;
 	}
-	
+	// 삭제 
+	@RequestMapping(value="resumedelete.action", method=RequestMethod.GET)
+	public ModelAndView deleteResume(int resumeSchoolNo){
+		ModelAndView mav = new ModelAndView();
+		userResumeService.deleteResumeSchool(resumeSchoolNo);
+		mav.setViewName("redirect:/resume.action");
+		return mav;
+		
+	}
+	//수정 
+	@RequestMapping(value="editformResumeSchool.action", method=RequestMethod.POST)
+	public ModelAndView updateResumeSchool(ResumeSchool resumeSchool){
+		
+			ModelAndView mav = new ModelAndView();
+			userResumeService.updateResumeSchool(resumeSchool);
+			mav.setViewName("redirect:/resume.action");
+			return mav;
+		
+	}
 	
 	
 }

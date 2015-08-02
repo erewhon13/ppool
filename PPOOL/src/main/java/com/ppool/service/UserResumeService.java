@@ -18,11 +18,15 @@ public interface UserResumeService {
 	void resumeLanguageRegister(ResumeLanguage resumelanguage);
 	
 	//보여주기 
-	ResumeIntroduction getResumeIntroduction(int resumeIntroductionNo);
+	ResumeIntroduction getResumeIntroductions(int userNo);
 	List<ResumeSchool>getResumeSchools(int userNo);
 	List<ResumeEducation> getResumeEducations(int userNo);
 	List<ResumeLicense> getResumeLicenses(int userNo);
 	List<ResumeLanguage> getResumeLanguages(int userNo);
 	
-	
+	//삭제 
+	void deleteResumeSchool(int resumeSchoolNo);
+
+	//수정 
+    void updateResumeSchool(ResumeSchool resumeSchool);
 }

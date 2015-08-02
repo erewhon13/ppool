@@ -40,16 +40,23 @@ margin:10px;
 </style>
 
 <script type="text/javascript">
-  
-  
-  
-  
+  	
 	$(function(){
 		
 		$('#writer').click(function(){
 			$("#form123").submit()
 		});
 		
+		$("#delete").click(function(event){
+  			var yes=confirm("삭제하시겠습니까?");
+  			if(yes){
+  				$(location).attr('href',"resumedelete.action?resumeSchoolNo=${resumeSchool.resumeSchoolNo}");
+  			}
+  		});
+  
+  
+		
+		$(function(){
 		var dialog, form,
 	
 		resumeUserSchool = $("#resumeUserSchool"),
@@ -140,6 +147,89 @@ margin:10px;
 	 	     dialog.dialog( 'open' );
 	 	    });
 	});	
+	
+	//수정 버튼
+	$(function(){
+	var editdialog, editform,
+	
+	resumeUserSchool = $("#resumeUserSchool"),
+	resumeUserMajor = $("#resumeUserMajor"),
+	resumeMajorStartDay = $("#resumeMajorStartDay"),
+	resumeMajorEndDay = $("#resumeMajorEndDay"),
+	tips = $( ".validateTips" );
+	allFields = $( [] ).add( resumeUserSchool ).add( resumeUserMajor ).add( resumeMajorStartDay ).add(resumeMajorEndDay);
+	
+ 	
+	 function updateTips( t ) {
+	      tips
+	        .text( t )
+	        .addClass( "ui-state-highlight" );
+	      setTimeout(function() {
+	        tips.removeClass( "ui-state-highlight", 1500 );
+	      }, 500 );
+	    }
+	
+	function checkLength( o, n, min, max ) {
+	      if ( o.val().length > max || o.val().length < min ) {
+	        o.addClass( "ui-state-error" );
+	        updateTips( "에러");
+	        return false;
+	      } else {
+	        return true;
+	      }
+	    }	
+
+	function checkRegexp( o, regexp, n ) {
+	      if ( !( regexp.test( o.val() ) ) ) {
+	        o.addClass( "ui-state-error" );
+	        updateTips( n );
+	        return false;
+	      } else {
+	        return true;
+	      }
+	    }
+	
+	function addEdit(){
+		 var valid = true;
+		allFields.removeClass("ui-state-error");
+		
+		valid = valid && checkLength( resumeUserSchool, "resumeUserSchool",1,50);
+		valid = valid && checkLength( resumeUserMajor, "resumeUserMajor",1,50);
+		valid = valid && checkLength( resumeMajorStartDay, "resumeMajorStartDay",1,50);
+		valid = valid && checkLength( resumeMajorEndDay, "resumeMajorEndDay",1,50);
+		 
+		if ( valid ) {
+	        $( "#editformResumeSchool").submit();
+	        editdialog.dialog( "close" );
+	      } 
+	      return valid; 
+	}
+	
+	
+	editdialog = $("#editdialog-form").dialog({
+ 		  autoOpen: false,
+ 	      height: 550,
+ 	      width: 400,
+ 	      modal: true,
+ 	      buttons: {
+ 	    	  		"수정하기":addEdit,
+ 	    	  		"취소": function(){
+ 	    	  			editdialog.dialog("close");
+ 	    	  		}
+ 	      },
+ 	      close: function(){
+ 	    	 editform[0].reset();
+ 	    	  	allFields.removeClass("ui-state-error");
+ 	      }
+ 	});
+	
+ 	$("#edit").on("click", function(event){
+ 		editdialog.dialog( 'open' );
+ 	    });
+});	
+	
+	
+	
 	
 	////////////////////2번
 	$(function(){
@@ -401,10 +491,7 @@ margin:10px;
 	 	     dialog5.dialog( 'open' );
 	 	    });
 		});	 
-	
-		$('.ed_bt').click(function(){
-			var no = $(this).attr("id").substr(2);
-		});
+	});	 
 </script>
 
 </head>
@@ -425,6 +512,23 @@ margin:10px;
 					<!--  <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
 		</form>
 </div>
+<div id="editdialog-form" title="수정하기">
+		<form id="editformResumeSchool" action="editformResumeSchool.action" method="post">
+			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
+					<label for="resumeUserSchool">학교</label>
+					<input type="text" name="resumeUserSchool" id="resumeUserSchool"  value="${resumeSchool.resumeUserSchool}" class="text ui-widget-content ui-corner-all">
+					<label for="resumeUserMajor">전공</label>
+					<input type="text" name="resumeUserMajor" id="resumeUserMajor" value="${resumeSchool.resumeUserMajor}" class="text ui-widget-content ui-corner-all" >
+					<label for="resumeMajorDay">기간</label>
+					<input type="date" name="resumeMajorStartDay"  id="resumeMajorStartDay"  value="${resumeSchool.resumeMajorStartDay}" class="text ui-widget-content ui-corner-all" >
+					~<input type="date" name="resumeMajorEndDay"  id="resumeMajorEndDay"  value="${resumeSchool.resumeMajorEndDay}" class="text ui-widget-content ui-corner-all">
+					<!--  <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
+		</form>
+</div>
+
+
+
+
 <div id="dialog-form2" title="등록하기">
 		<form id="formResumeEducation" action="formresumeeducation.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
@@ -466,7 +570,6 @@ margin:10px;
 
 		
 				<div id="r_inside" style="margin-top:20px; ">
-					
 						
 						<table style="text-align:center; width:100%; height:80px; ">
 								<tbody>
@@ -507,6 +610,7 @@ margin:10px;
 								</thead>
 								
 								<c:forEach var="resumeSchool" items="${resumeSchools}">
+									<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 									<input type="hidden" name="resumeSchoolNo" value="${resumeSchool.resumeSchoolNo}"/>
 											<tr>
 												<td>${resumeSchool.resumeUserSchool}</td>
@@ -515,15 +619,17 @@ margin:10px;
 												<f:formatDate value="${resumeSchool.resumeMajorEndDay}" pattern="yy년 MM월 dd일" var="day2" />
 												<td>${day1}</td><td>~</td>
 												<td>${day2}</td>
-												<c:if test="${resumeSchool ne null }">
-										<td><input type="button" class="ed_bt" id="ed${resumeSchool.resumeSchoolNo}"  value="수정">
-												<input type="button" value="삭제"></td>
-								</c:if>
+													<c:if test="${resumeSchool ne null}">
+														<td>
+															<input type="button" id="edit"  value="수정">
+															<input type="button" id="delete" value="삭제">
+														</td>
+													</c:if>
 											</tr>
 								</c:forEach>
 							</table>		
 					</div>
-					
+			
 					
 						<div id="users-contain2" class="ui-widget2">	
 							<table style="text-align:center; width:100%; margin-top:10px; ">
@@ -632,14 +738,15 @@ margin:10px;
 					<td style="padding-bottom:3px; float:left;" >
 					2.자기소개서
 					</td>
-			<c:set var="resumeIntroduction" value="${resumeIntroduction}"/>		
+			<c:set var="resumeIntroduction" value="${resumeIntroductions}"/>		
 				<form id="form123" action="resumeintroduction.action" method="post" >
 					<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<div style="margin-top:10px">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td bgcolor="#EEF8F3" style="padding:8px 0 8px 0" align="center" >
-										<textarea name="resumeIntroduction" style="width:665px; height:200px; font-size:9pt;
+									
+										<textarea name="resumeIntroduction"  id="resumeIntroduction" style="width:665px; height:200px; font-size:9pt;
 																	border:1px #DADADA solid; background:#FFFFFF; ">
 																	${resumeIntroduction.resumeIntroduction}
 									    </textarea>
