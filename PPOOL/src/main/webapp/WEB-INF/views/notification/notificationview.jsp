@@ -14,7 +14,6 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
 <title>상세보기</title>
 </head>
 
