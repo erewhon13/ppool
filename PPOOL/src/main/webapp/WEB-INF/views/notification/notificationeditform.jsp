@@ -22,20 +22,20 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	<div>
-		<div align="center" style="margin-top: 3%" >
+		<div align="center" style="margin-top: 4%" >
 			<div id="pageContainer">	
 				<form id="editform" action="notificationupdate.action" method="post">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
 				<table  border="1">
 					<tr>
-		                <th>제목</th>
+		                <th style="width: 15%" bgcolor="#FF9147">제목</th>
 		                <td>
 		                	<input type="text" name="notificationTitle" style='width:580px' value="${ notification.notificationTitle }" />
 		                </td>
 		            </tr>
 		            <tr>
-		                <th>내용</th>
+		                <th style="width: 15%" bgcolor="#FF9147">내용</th>
 		                <td>
 							<textarea 
 		                    	name="notificationContent" style="width:580px" 
