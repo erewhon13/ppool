@@ -13,7 +13,6 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
 
 <title>편집</title>
 </head>
@@ -28,6 +27,7 @@
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
 				<table  border="1">
+				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
 					<tr>
 		                <th style="width: 15%" bgcolor="#FF9147">제목</th>
 		                <td>

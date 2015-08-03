@@ -17,9 +17,8 @@ public interface ProjectRepository{
 	void projectLocationDelete(int projectNo);
 	void projectSkillDelete(int projectNo);
 	void projectModify(Project project);
-	List<ProjectComment> getCommentsByProjectNo(int projectNo);
-	void commentRegister(ProjectComment comment);
-	ProjectComment getCommentsByCommentNo(int commentNo);
+	
+	/////////////////북마크///////////////////////////////
 	//북마크 등록
 	void projectBookmarks(HashMap<String, Object> params);
 	//북마크 목록
@@ -28,4 +27,11 @@ public interface ProjectRepository{
 	int getBookmarkCount(HashMap<String, Object> params);
 	//북마크 삭제
 	void projectBookmarkDelete(int projectNo);
+	////////////////////////////////////////////////////////
+	
+	///////////////코멘트//////////////////////
+	List<ProjectComment> getCommentsByProjectNo(int projectNo);
+	ProjectComment getCommentsByCommentNo(int commentNo);
+	void commentRegister(ProjectComment comment);
+	void commentDelete(int commentNo);
 }

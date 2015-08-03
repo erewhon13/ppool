@@ -74,8 +74,7 @@ public class OracleProjectRepository implements ProjectRepository {
 
 	@Override
 	public List<ProjectComment> getCommentsByProjectNo(int projectNo) {
-		List<ProjectComment> comments = projectMapper
-				.getCommentsByProjectNo(projectNo);
+		List<ProjectComment> comments = projectMapper.getCommentsByProjectNo(projectNo);
 		return comments;
 	}
 
@@ -116,6 +115,11 @@ public class OracleProjectRepository implements ProjectRepository {
 	public void projectBookmarkDelete(int projectNo) {
 		projectMapper.projectBookmarkDelete(projectNo);
 
+	}
+
+	@Override
+	public void commentDelete(int commentNo) {
+		projectMapper.commentDelete(commentNo);
 	}
 
 }

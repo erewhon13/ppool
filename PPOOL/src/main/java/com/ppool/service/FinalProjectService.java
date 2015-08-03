@@ -103,8 +103,7 @@ public class FinalProjectService implements ProjectService {
 
 	@Override
 	public List<ProjectComment> getCommentsByProjectNo(int projectNo) {
-		List<ProjectComment> comments = projectRepository
-				.getCommentsByProjectNo(projectNo);
+		List<ProjectComment> comments = projectRepository.getCommentsByProjectNo(projectNo);
 		return comments;
 	}
 
@@ -115,8 +114,7 @@ public class FinalProjectService implements ProjectService {
 
 	@Override
 	public ProjectComment getCommentsByCommentNo(int commentNo) {
-		ProjectComment newComment = projectRepository
-				.getCommentsByCommentNo(commentNo);
+		ProjectComment newComment = projectRepository.getCommentsByCommentNo(commentNo);
 		return newComment;
 	}
 
@@ -144,6 +142,11 @@ public class FinalProjectService implements ProjectService {
 	//북마크 삭제
 	public void projectBookmarkDelete(int projectNo) {
 		projectRepository.projectBookmarkDelete(projectNo);
+	}
+
+	@Override
+	public void commentDelete(int commentNo) {
+		projectRepository.commentDelete(commentNo);
 	}
 
 }

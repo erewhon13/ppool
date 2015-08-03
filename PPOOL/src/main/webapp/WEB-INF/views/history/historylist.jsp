@@ -5,6 +5,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+
+	.cursor{
+		cursor: pointer;
+	}
+	
+	.history2 tr:HOVER {
+	background:#49505a; 
+}
+.history2 tr:HOVER th{
+	background:#49505a; 
+}
+</style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="/ppool/resources/css/board.css">
    <title>Insert title here</title>
@@ -18,13 +31,16 @@
 					$(location).attr('href',"historyRegister.action");
 			   })	
 		})
+		
 	</script>
+	
+	
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 							<div>
 	<c:set var="histories" value="${histories}"/>
 	
-		<div id="history" style="width: 79%; float: right;">	
+		<div id="history" style="width: 72%; float: right;">	
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
@@ -37,7 +53,7 @@
 											</tr>
 									</tbody>
 							</table>
-							<table style="text-align:center; width:100%;">
+							<table class="history2" style="text-align:center; width:100%;">
 								<tbody>
 						
 										<tr>
@@ -49,10 +65,10 @@
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">
-										<tr class="detailview">
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyNo}</td>
-											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${history.historyTitle}</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">
+										<tr class="detailview cursor" bgcolor="F8F7F7">
+											<th style="width:15%;" align="center"  bgcolor="#e1e1e1" height="30" width="20">${history.historyNo}</th>
+											<td style="width:30%;" align="center"   height="30" width="20">${history.historyTitle}</td>
+											<td style="width:20%;" align="center"   height="30" width="20">
 											
 											<input type="hidden" class="hno" value="${history.historyNo}"/>									
 												<c:choose>
@@ -63,7 +79,7 @@
 											
 											</td>
 											
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">
+											<td style="width:15%;" align="center"  height="30" width="20">
 												<c:choose>
 													<c:when test="${history.historyOpened eq true}">yes</c:when>
 													<c:otherwise>no</c:otherwise>
@@ -72,7 +88,7 @@
 											
 											<fmt:formatDate value="${ history.historyStartDay}" pattern="yy년 MM월 dd일" var="start"/>
 											<fmt:formatDate value="${ history.historyEndDay}" pattern="yy년 MM월 dd일" var="end"/>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">${start}~<br/>${end}</td>
+											<td style="width:20%;" align="center" height="30" width="20">${start}~<br/>${end}</td>
 										
 										</tr>
 										</c:forEach>

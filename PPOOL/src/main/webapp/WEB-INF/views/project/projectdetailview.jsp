@@ -184,7 +184,9 @@
 					}, 
 					success: function(result){
 						alert('프로젝트 참여신청이 완료되었습니다');
-						$("#join").css("display", "none");
+						$("#join").css('display','none');
+						$("#joincancel").css('display','inline');
+						
 					},
 					error:function(){
 						alert('오류');
@@ -194,6 +196,35 @@
 	 		}
 	 		
 	 	})
+	 	
+ 	 $("#joincancel").click(function(event){
+	 		/* $(location).attr("href","insertjoin.action"); */
+	 		//alert($(this).attr("tag"));
+	 		var join=$(this).attr('tag').split('/')
+	 		var yes= confirm('프로젝트에 참여 취소하시겠습니까?')
+	 		if(yes){	 			
+	 			
+	 			$.ajax({
+					url:"/ppool/deletejoin.action",
+					method:"POST",
+					async:true,
+					data:{
+						userNo: join[0],
+						projectNo: join[1]
+					}, 
+					success: function(result){						
+							alert('프로젝트 참여취소가 완료되었습니다');
+							$("#join").css('display','inline');
+							$("#joincancel").css('display','none');
+					},
+					error:function(){
+						alert('오류');
+					}				
+				})
+	 			
+	 		}
+	 		
+	 	}) 
 	 	
 	 	
 	 	    
@@ -232,14 +263,44 @@
 
 	<div class="basic" ><br/>
 		<table class="tech" >
-		
 			<caption >상세뷰
-			<c:if test="${empty joinlists}">
-				<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}"/>
-			 </c:if>
-			<c:forEach var="joinlist" items="${joinlists}">			 
-				<c:if test="${joinlist.userNo ne loginuser.userNo}"> </c:if>
+		
+		
+		
+		<!-- 참여하기  -->
+		
+		<c:set var="showjoinbutton" value="false"></c:set>
+		<c:set var="showcanclebutton" value="false"></c:set>
+		
+		<c:choose>
+			<c:when test="${empty joinlists}">
+				<c:set var="showjoinbutton" value="true"></c:set>
+			 </c:when>
+			 <c:otherwise>			 
+			 <c:set var="count" value="0"></c:set>
+			<c:forEach var="joinlist" items="${joinlists}">	
+				<c:if test="${joinlist.userNo eq loginuser.userNo}">
+					<c:set var="count" value="${count+1}"></c:set>
+				</c:if>
 			</c:forEach>
+				<c:choose>
+					<c:when test="${count>0}">
+						<c:set var="showcanclebutton" value="true"></c:set>
+					</c:when>
+					<c:otherwise>
+					 	<c:set var="showjoinbutton" value="true"></c:set>
+					</c:otherwise>
+				</c:choose>
+				</c:otherwise>
+			</c:choose>	
+			
+			
+			<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showjoinbutton ? 'inline' : 'none'}"/>
+			<input type="button" id="joincancel" value="참여취소" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showcanclebutton ? 'inline' : 'none'}"/>
+			
+			
+		<!-- 참여하기 마무리 -->		
+			
 			
 				<c:if  test="${loginuser.userNo != null}">
 					<c:if test="${loginuser.userNo ne project.userNo}">
@@ -418,14 +479,11 @@
 	<% pageContext.setAttribute("enter", "\n"); %>
 		<!-- comment 있을경우 표시 영역 -->
 		<c:if test="${!empty comments}">
-			<input type="hidden" name="commentNo" value='${comment.userNo }' />
 			<c:forEach var="comment" items="${comments }" > 
-        		<tr>
+        		<tr id="td${comment.commentNo}">
         			<td class="yescomment">
 						<div class="c_name" >${comment.userName }</div>
-						<div id="a${comment.commentNo}" class="a" >
-							${fn:replace(comment.commentContent , enter, '<br/>')}
-						</div>
+						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br/>')}</div>
 						<textarea id="b${comment.commentNo}" class="b" 
 								name="commentContent">${comment.commentContent }</textarea>
 						<br/>
@@ -434,8 +492,11 @@
 						<div class="c_regi" >${registerday}</div>
 	        			<div class="sele" id="aa${comment.commentNo}">
 	        				<c:if test="${loginuser.userNo eq comment.userNo }">
+		        				<form id="fo${comment.commentNo}">
+		        					<input type="hidden" name="commentNo" value="${comment.commentNo}"/>
+		        				</form>
 		        				<input type="button" class="ed_bt" id="ed${comment.commentNo}" value="편집"/>&nbsp;
-		        				<input type="button" class="de_bt" value="삭제"/>&nbsp;
+		        				<input type="button" class="de_bt" id="de${comment.commentNo}" value="삭제"/>&nbsp;
 		        				<input type="button" class="re_bt" value="댓글"/>
 	        				</c:if>
 	        				<c:if test="${loginuser.userNo ne comment.userNo }">
@@ -444,7 +505,7 @@
                 		</div>
                 		<div class="sele2" id="bb${comment.commentNo}">
                 			<input type="button" class="ok_bt" id="ok${comment.commentNo}" value="확인"/>
-                			<input type="button" class="ca_bt" value="취소"/>
+                			<input type="button" class="ca_bt" id="ca${comment.commentNo}" value="취소"/>
                 		</div>
                 	</td>
                 </tr>
