@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.ppool.dto.FavoriteProject;
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 import com.ppool.repository.ProjectRepository;
@@ -138,6 +139,11 @@ public class FinalProjectService implements ProjectService {
 		int count = projectRepository.getBookmarkCount(params);
 		return count;
 
+	}
+	
+	//북마크 삭제
+	public void projectBookmarkDelete(int favoriteNo) {
+		projectRepository.projectBookmarkDelete(favoriteNo);
 	}
 
 }
