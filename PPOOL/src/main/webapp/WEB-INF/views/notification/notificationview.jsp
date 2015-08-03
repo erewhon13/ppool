@@ -22,24 +22,27 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	
-	<div align="center"  style="margin-top: 3%">
+	<div align="center"  style="margin-top: 2%">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
-					<table style="text-align: center; width: 75%; border:groove;  ">
-						
+					<table style=" width: 79%; border:groove;  ">
+						<caption style="text-align: left;">상세보기</caption>
 						<tr>
-							<th style="width: 15%" bgcolor="#FF9147">번호</th>
-							<td style="text-align:center;">${ notification.notificationNo }</td>
+							<th style="width: 10%" bgcolor="#FF9147">번호</th>
+							<td style="text-align: left;">${ notification.notificationNo }</td>
 						</tr>
 						<br />
 						<tr>
-							<th style="width: 15%" bgcolor="#FF9147">제목</th>
-							<td>${ notification.notificationTitle }</td>
+							<th style="width: 10%" bgcolor="#FF9147">제목</th>
+							<td style="width: 85%" colspan="3"> 
+								${ notification.notificationTitle }
+								
+							</td>
 						</tr>
 						<tr>
-							<th style="width: 15%" bgcolor="#FF9147">작성일</th>
+							<th style="width: 10%" bgcolor="#FF9147">작성일</th>
 							<td>
 								${ notification.stampRegisterDay }
 							</td>
@@ -49,7 +52,7 @@
 							<th style="width: 15%" bgcolor="#FF9147">내용</th>
 							<td style="width: 85%" colspan="3">
 								<textarea name="projectContent" id="projectcontent" rows="20" 
-									style="max-height: 600px;width:95%;resize:none;font-size: 15pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
+									style="max-height: 600px;width:99%;resize:none;font-size: 15pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
 							</td>
 							
 						</tr>
@@ -57,7 +60,7 @@
 						
 					</table>
 					<br />
-					<div style='margin-right: -85%;'>
+					<div style='margin-right: -88%;'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
         				</c:url>
