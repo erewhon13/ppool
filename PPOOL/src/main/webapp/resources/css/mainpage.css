@@ -1,25 +1,31 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-#cast{
+#cast {
 	font-family: 'Nanum Gothic', sans-serif;
-    width:1255px;   
-    margin: 0 auto;
+	width: 1240px;
+	margin: 0 auto;
 }
+
 #main {
 	text-align: center;
 	margin-top: 4%;
 	height: 500px;
-/* 	margin-left: 5%;
+	/* 	margin-left: 5%;
 	margin-right: 5%; */
 	font-family: 'Nanum Gothic', serif;
 }
-#imageview{
-	margin :0 auto;
+#user ul li{
+	display: block;
+}
+
+#imageview {
+	margin: 0 auto;
 	width: 130px;
 	height: 150px;
 }
-#defaultimage{
-	margin :0 auto;
+
+#defaultimage {
+	margin: 0 auto;
 	width: 130px;
 	height: 150px;
 }
@@ -40,10 +46,23 @@
 	margin-right: 5%;
 	margin-top: 3%;
 }
-.userlocation ul li{
+#location {
+	border:solid 1px;
+	float:left;
+	width: 20%;
+	height: 70px;
+}
+#skill{
+	border:solid 1px;
+	float:left;
+	width: 20%;
+	height: 70px;
+}
+.userlocation ul li {
 	display: inline;
 }
-.userskill ul li{
+
+.userskill ul li {
 	display: inline;
 }
 
@@ -60,19 +79,24 @@
 }
 
 #logo {
-	width:1255px;   
-    margin: 0 auto;
+	width: 1255px;
+	margin: 0 auto;
 }
 
-#personaldata{
-	text-align: center;
+#personaldata {
 	height: 600px;
 	font-family: 'Nanum Gothic', serif;
-	width:80%;
+	width: 80%;
 	float: right;
-	margin-top: 3%;
+	margin-top: 4%;
 }
-
+#personaldata th {
+	background-color: #FF9147;
+	color: white;
+}
+#test{
+	margin: 0 auto;
+}
 #passwd {
 	display: inline;
 }
@@ -91,7 +115,3 @@ a:visited {
 	text-decoration: none;
 	color: #333333;
 }
-
-
-
-
