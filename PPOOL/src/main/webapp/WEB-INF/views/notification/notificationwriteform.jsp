@@ -21,10 +21,11 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	<div>
 		
-		<div align="center" style="margin-top: 3%" >
+		<div align="center" style="margin-top: 4%" >
 			<div id="pageContainer">	
 				<form id="writeform" action="notificationwrite.action" method="post">
 				<table  border="1">
+				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">글쓰기</caption>
 					<tr>
 						<th>제목</th>
 						<td>
