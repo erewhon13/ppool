@@ -21,16 +21,16 @@
 	</script>
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
-<div>
+							<div>
 	<c:set var="histories" value="${histories}"/>
 	
 		<div id="history" style="width: 79%; float: right;">	
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
-						<td style="width:80%"  align="left"  >
-							<img src="/ppool/resources/images/arrow.gif" height=13px>
-												이력사항
+						<td style="width:80%"  align="left"  >							
+							<img src="/ppool/resources/images/historybanner.png">
+									
 								</td>
 									<td style="width:20%" align="right">
 												</td>

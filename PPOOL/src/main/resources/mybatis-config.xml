@@ -20,6 +20,7 @@
 		<typeAlias type="com.ppool.dto.ResumeLanguage" alias="ResumeLanguage"/>
 		<typeAlias type="com.ppool.dto.ResumeLicense" alias="ResumeLicense"/>
 		<typeAlias type="com.ppool.dto.ResumeSchool" alias="ResumeSchool"/>
+		<typeAlias type="com.ppool.dto.JoinProject" alias="JoinProject"/>
 	</typeAliases>
 	
 	<mappers>
@@ -30,6 +31,7 @@
 		<mapper resource="com/ppool/mapper/UserSearchMapper.xml"/>
 		<mapper resource="com/ppool/mapper/UserResumeMapper.xml"/>
 		<mapper resource="com/ppool/mapper/ReportMapper.xml"/>
+		<mapper resource="com/ppool/mapper/JoinMapper.xml"/>
 	</mappers>
 
 </configuration>

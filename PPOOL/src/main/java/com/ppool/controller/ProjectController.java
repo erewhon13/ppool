@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ppool.dto.JoinProject;
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 import com.ppool.dto.User;
+import com.ppool.service.JoinService;
 import com.ppool.service.ProjectService;
 
 @Controller
@@ -46,7 +49,21 @@ public class ProjectController {
 	@Qualifier("projectService")
 	public void setProjectService(ProjectService projectService) {
 		this.projectService = projectService;
+		
 	}
+	
+	////////////////////////조인 서비스 등록
+	private JoinService joinService;
+	
+	@Autowired
+	@Qualifier("joinService")
+	public void setJoinService(JoinService joinService){
+		this.joinService=joinService;
+	}
+	
+	////////////////////////////////////
+	
+	
 	
 	@RequestMapping(value="projectlist.action" ,method = RequestMethod.GET)
 	public ModelAndView projectList(){
@@ -109,6 +126,14 @@ public class ProjectController {
 				System.out.println(count);
 				mav.addObject("bookmarkable", count);
 		////////////////////////////////////////////////////////////////////////////
+				
+		///////projectNo에 따른 joinList 조회
+				List<JoinProject> joinLists=joinService.getJoinList(projectNo);
+				mav.addObject("joinlists", joinLists);
+				
+		/////////////////////////////////////////////////////////////		
+				
+				
 		mav.addObject("project", project);
 		mav.addObject("comments", comments);
 		mav.addObject("locations", locations);

@@ -18,26 +18,27 @@
 			<li class='active'><a href='/ppool/notificationlist.action'>공지사항</a></li>
 			<li><a href='/ppool/projectlist.action'>프로젝트</a></li>
 			<li><a href='/ppool/search.action'>인물검색</a></li>
-			<li><a href='/ppool/reportlist.action'>경고목록</a></li>
+			<li><a href='/ppool/reportlist.action'>신고목록</a></li>
 		</ul>
 	</div>
 	<div id="side">
-	<div id="sidelogin"><div id="topbar" class="nonelogined"
-		style='display : ${loginuser eq null ? "block" : "none"}'>
-		<form action="userlogin.action" method="POST">
-		<div id="email">
-			<label>이메일 : </label><input type="text" id="userEmail" name="userEmail"/>
-		</div>
-		<div id="passwd">
-			<label>비밀번호 : </label><input type="password" id="userPasswd" name="userPasswd"/>
-		</div>
-		<div id="userinfo">
-			<input type="submit" value="로그인">
-		</div>
-		</form>
-		<div id="userinfo">
-			<a href="/ppool/registerview.action">회원가입</a>
-		</div>
+	<div id="sidelogin" >
+			<div id="topbar" class="nonelogined"
+			style='display : ${loginuser eq null ? "block" : "none"}'>
+			<form action="userlogin.action" method="POST">
+			<div id="email">
+				<label>이메일 : </label><input type="text" id="userEmail" name="userEmail"/>
+			</div>
+			<div id="passwd">
+				<label>비밀번호 : </label><input type="password" id="userPasswd" name="userPasswd"/>
+			</div>
+			<div id="userinfo">
+				<input type="submit" value="로그인">
+			</div>
+			</form>
+			<div id="userinfo">
+				<a href="/ppool/registerview.action">회원가입</a>
+			</div>
 	</div>
 	<div id="topbar" class="logined"
 		style='display : ${loginuser eq null ? "none" : "block"}'>
