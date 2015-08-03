@@ -41,7 +41,6 @@
 		$.each(locations, function(index, obj) {
 			$('.userlocation input[value=' + obj + ']').attr('checked', true);
 		});
-
 	});
 </script>
 <title>Insert title here</title>
@@ -62,11 +61,11 @@
 									<li><input type="file" accept="image/**" id="fileinput"
 										name="userProfile"></li>
 									<li><label>이름 : </label><input type="text"
-										value="${user.getUserName()}" name="userName"></li>
+										value="${user.userName}" name="userName"></li>
 									<li><label>휴대전화 : </label><input type="text"
-										value="${user.getUserPhone()}" name="userPhone"></li>
+										value="${user.userPhone}" name="userPhone"></li>
 									<li><label>생년월일 : </label><input type="date"
-										name="userBirth"></li>
+										name="userBirth" id="userBirth" value="${date}"></li>
 									<li><label>성별 : </label><label>남</label><input
 										type="radio" name="userGender" value="1"> <label>여</label><input
 										type="radio" name="userGender" value="0"></li>
