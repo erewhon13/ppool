@@ -20,7 +20,7 @@
 	</insert>	
 	
 	<delete id="deleteJoin" parameterType="int">
-	 	delete from JOINPROJECT where joinno=#{joinNo}	
+	 	delete from JOINPROJECT where projectno=#{projectNo} AND userno=#{userNo}	
 	</delete>
 	
 	<select id="getJoinList" parameterType="int" resultType="JoinProject">

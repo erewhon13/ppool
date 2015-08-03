@@ -81,21 +81,50 @@ public class FinalUserResumeService implements UserResumeService{
 		return resumeLanguage;
 	}
 
+	
+	//삭제 
 	@Override
 	public void deleteResumeSchool(int resumeSchoolNo) {
 		userResumeRepository.deleteResumeSchool(resumeSchoolNo);
-			
 	}
 
+	@Override
+	public void deleteResumeEducation(int resumeEducationNo) {
+		userResumeRepository.deleteResumeEducation(resumeEducationNo);
+	}
+
+	@Override
+	public void deleteResumeLicense(int resumeLicenseNo) {
+		userResumeRepository.deleteResumeLicense(resumeLicenseNo);
+	}
+
+	@Override
+	public void deleteResumeLanguage(int resumeLanguageNo) {
+		userResumeRepository.deleteResumeLanguage(resumeLanguageNo);
+	}
+	
+	
+	//수정
 	@Override
 	public void updateResumeSchool(ResumeSchool resumeSchool) {
 		userResumeRepository.updateResumeSchool(resumeSchool);
 		
 	}
 
-	
-	
-	
-	
+	@Override
+	public void updateResumeEducation(ResumeEducation resumeEducation) {
+		userResumeRepository.updateResumeEducation(resumeEducation);
+	}
+
+	@Override
+	public void updateResumeLicense(ResumeLicense resumeLicense) {
+		userResumeRepository.updateResumeLicense(resumeLicense);
+	}
+
+	@Override
+	public void updateResumeLanguage(ResumeLanguage resumeLanguage) {
+		userResumeRepository.updateResumeLanguage(resumeLanguage);
+		
+	}
 	
 }

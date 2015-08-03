@@ -238,6 +238,11 @@
 		FROM FAVORITEPROJECT
 		WHERE userNo=#{userNo} AND projectNo=#{projectNo}
 	</select>
+	<!-- 북마크 삭제 -->
+	<delete id="projectBookmarkDelete" parameterType="int">
+		DELETE FROM FAVORITEPROJECT
+		WHERE projectNo = #{projectNo}
+	</delete>
 	<!-- ******************************************************************* -->
 	
 	<!-- *************************** 코멘트 삭제 ****************************** -->

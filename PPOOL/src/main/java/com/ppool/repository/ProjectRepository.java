@@ -3,6 +3,7 @@ package com.ppool.repository;
 import java.util.HashMap;
 import java.util.List;
 
+import com.ppool.dto.FavoriteProject;
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 
@@ -24,6 +25,8 @@ public interface ProjectRepository{
 	List<Project> projectBookmarkList(int userNo);
 	//북마크 중복 체크
 	int getBookmarkCount(HashMap<String, Object> params);
+	//북마크 삭제
+	void projectBookmarkDelete(int projectNo);
 	////////////////////////////////////////////////////////
 	
 	///////////////코멘트//////////////////////

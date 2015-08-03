@@ -14,7 +14,6 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
 <title>상세보기</title>
 </head>
 
@@ -27,16 +26,16 @@
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
-					<table style=" width: 79%; border:groove;  ">
-						<caption style="text-align: left;">상세보기</caption>
+					<table style=" width: 72%; border:groove;margin-left: ">
+						<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">상세보기</caption>
 						<tr>
-							<th style="width: 10%" bgcolor="#FF9147">번호</th>
-							<td style="text-align: left;">${ notification.notificationNo }</td>
+							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147"  >번호</th>
+							<td style="text-align: left;font-size: 15pt">${ notification.notificationNo }</td>
 						</tr>
 						<br />
 						<tr>
 							<th style="width: 10%" bgcolor="#FF9147">제목</th>
-							<td style="width: 85%" colspan="3"> 
+							<td> 
 								${ notification.notificationTitle }
 								
 							</td>
@@ -52,14 +51,14 @@
 							<th style="width: 15%" bgcolor="#FF9147">내용</th>
 							<td style="width: 85%" colspan="3">
 								<textarea name="projectContent" id="projectcontent" rows="20" 
-									style="max-height: 600px;width:99%;resize:none;font-size: 15pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
+									style="max-height: 550px;width:99%;resize:none;font-size: 15pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
 							</td>
 							
 						</tr>
 						
 						
 					</table>
-					<br />
+					
 					<div style='margin-right: -88%;'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />

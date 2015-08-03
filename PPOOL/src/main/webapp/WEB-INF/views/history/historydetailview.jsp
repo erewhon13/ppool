@@ -104,9 +104,9 @@
 		</tr>
 		</table>
 		<div style="float: right;">
-				<input type="button" id="register2" value="수정하기">
-				<input type="button" id="delete" value="삭제">				
-				<input type="button" id="close" value="창닫기">	
+				<img src="/ppool/resources/images/modify.png" id="register2" style="cursor: pointer;">&nbsp;
+				<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">&nbsp;			
+				<img src="/ppool/resources/images/list.png" id="close" style="cursor: pointer;" >
 		</div>		
 		</form>
 	</div>

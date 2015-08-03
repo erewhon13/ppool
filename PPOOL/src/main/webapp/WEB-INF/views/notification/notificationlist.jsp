@@ -15,7 +15,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-<script src="/ppool/resources/js/menuscript.js"></script>
+
 <script type="text/javascript">
 	
 	$(document).ready(function (){
@@ -31,12 +31,11 @@
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	<div style="margin-right: -3%">
-
-		<div align="center" style="margin-top: 3%">
+		<div align="center" style="margin-top: 4%">
 			<form id="notification" action="" method="post">
 				<table width="75%" style="text-align: center;">
-					<caption style="text-align: left;">공지사항</caption>
-					<tr style="background-color: #FF9147; color: #ffffff;">
+					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>
+					<tr style="background-color: #FF9147; color: #ffffff;height: 30px;">
 						<th style="width: 10%">글번호</th>
 						<th style="width: 25%">제목</th>
 						<th style="width: 15%">등록일</th>
