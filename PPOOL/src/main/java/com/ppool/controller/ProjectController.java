@@ -233,7 +233,7 @@ public class ProjectController {
 
 		projectService.projectBookmarkDelete(projectNo);
 
-		return "redirect:projectdetailview.action";
+		return "redirect:/projectdetailview.action?projectNo="+projectNo;
 	}
 
 
