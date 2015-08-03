@@ -142,8 +142,8 @@ public class FinalProjectService implements ProjectService {
 	}
 	
 	//북마크 삭제
-	public void projectBookmarkDelete(int favoriteNo) {
-		projectRepository.projectBookmarkDelete(favoriteNo);
+	public void projectBookmarkDelete(int projectNo) {
+		projectRepository.projectBookmarkDelete(projectNo);
 	}
 
 }

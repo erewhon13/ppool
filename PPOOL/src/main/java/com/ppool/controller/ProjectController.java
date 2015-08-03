@@ -228,9 +228,9 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "projectbookmarkdelete.action", method = RequestMethod.GET)
-	public String projectBookmarkDelete(int favoriteNo) {
+	public String projectBookmarkDelete(int projectNo) {
 
-		projectService.projectBookmarkDelete(favoriteNo);
+		projectService.projectBookmarkDelete(projectNo);
 
 		return "redirect:projectdetailview.action";
 	}

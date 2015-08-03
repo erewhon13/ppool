@@ -113,8 +113,8 @@ public class OracleProjectRepository implements ProjectRepository {
 	
 	//북마크 삭제
 	@Override
-	public void projectBookmarkDelete(int favoriteNo) {
-		projectMapper.projectBookmarkDelete(favoriteNo);
+	public void projectBookmarkDelete(int projectNo) {
+		projectMapper.projectBookmarkDelete(projectNo);
 
 	}
 

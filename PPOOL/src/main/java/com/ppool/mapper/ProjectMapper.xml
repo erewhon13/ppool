@@ -241,7 +241,7 @@
 	<!-- 북마크 삭제 -->
 	<delete id="projectBookmarkDelete" parameterType="int">
 		DELETE FROM FAVORITEPROJECT
-		WHERE favoriteNo = #{favoriteNo}
+		WHERE projectNo = #{projectNo}
 	</delete>
 	<!-- ******************************************************************* -->
 	

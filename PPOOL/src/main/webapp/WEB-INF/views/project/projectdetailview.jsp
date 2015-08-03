@@ -34,7 +34,7 @@
 			 }else if('${favoriteProjects}' == '1'){
 				var result2 = confirm('${project.projectTitle}를 북마크에서 삭제하시겠습니까?');
 				if(result2) {
-					var url ="/ppool/projectbookmarkdelete.action?favoriteNo="+"${favorite.favoriteNo}";
+					var url ="/ppool/projectbookmarkdelete.action?projectNo="+"${project.projectNo}";
 					$(location).attr("href",url);
 				}else{
 				}
