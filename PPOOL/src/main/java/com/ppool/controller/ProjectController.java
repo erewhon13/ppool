@@ -22,10 +22,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ppool.dto.FavoriteProject;
+import com.ppool.dto.JoinProject;
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 import com.ppool.dto.User;
+import com.ppool.service.JoinService;
 import com.ppool.service.ProjectService;
 
 @Controller
@@ -50,10 +51,25 @@ public class ProjectController {
 	@Qualifier("projectService")
 	public void setProjectService(ProjectService projectService) {
 		this.projectService = projectService;
+		
 	}
 
-	@RequestMapping(value = "projectlist.action", method = RequestMethod.GET)
-	public ModelAndView projectList() {
+	
+	////////////////////////조인 서비스 등록
+	private JoinService joinService;
+	
+	@Autowired
+	@Qualifier("joinService")
+	public void setJoinService(JoinService joinService){
+		this.joinService=joinService;
+	}
+	
+	////////////////////////////////////
+	
+	
+	
+	@RequestMapping(value="projectlist.action" ,method = RequestMethod.GET)
+	public ModelAndView projectList(){
 		List<Project> projects = projectService.getProjectList();
 
 		for (Project project : projects) {
@@ -120,7 +136,14 @@ public class ProjectController {
 		} else {
 			mav.addObject("favoriteProjects", 0);
 		}
-		// //////////////////////////////////////////////////////////////////////////
+		
+		///////projectNo에 따른 joinList 조회
+				List<JoinProject> joinLists=joinService.getJoinList(projectNo);
+				mav.addObject("joinlists", joinLists);
+				
+		/////////////////////////////////////////////////////////////		
+				
+
 		mav.addObject("project", project);
 		mav.addObject("comments", comments);
 		mav.addObject("locations", locations);
@@ -202,30 +225,8 @@ public class ProjectController {
 		return mav;
 	}
 
-	// 북마크 등록
-	@RequestMapping(value = "projectbookmarks.action", method = RequestMethod.GET)
-	public String projectBookmarks(int userNo, int projectNo, Model model) {
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("userNo", userNo);
-		params.put("projectNo", projectNo);
-		projectService.projectBookmarks(params);
 
-		return "redirect:/projectdetailview.action?projectNo=" + projectNo;
-	}
 
-	// 북마크 목록
-	@RequestMapping(value = "projectbookmarklist.action", method = RequestMethod.GET)
-	public ModelAndView projectBookmarkList(int userNo) {
-
-		// 사용자의 favorite을 조회(userno로 projectfavorite를 조회)
-
-		List<Project> projects = projectService.projectBookmarkList(userNo);
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("project/projectbookmarklist");
-		mav.addObject("projects", projects);
-		return mav;
-	}
 
 	@RequestMapping(value = "projectbookmarkdelete.action", method = RequestMethod.GET)
 	public String projectBookmarkDelete(int projectNo) {
@@ -235,4 +236,45 @@ public class ProjectController {
 		return "redirect:projectdetailview.action";
 	}
 
+
+	//북마크 등록
+		@RequestMapping(value = "projectbookmarks.action", method = RequestMethod.GET)
+		public String projectBookmarks(int userNo, int projectNo,Model model) {
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("userNo", userNo);
+			params.put("projectNo", projectNo);
+			projectService.projectBookmarks(params);
+			
+			return "redirect:/projectdetailview.action?projectNo="+projectNo;
+		}
+		//북마크 목록
+		@RequestMapping(value="projectbookmarklist.action" ,method = RequestMethod.GET)
+		public ModelAndView projectBookmarkList(int userNo){
+			
+			//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
+			
+			
+			List<Project> projects = projectService.projectBookmarkList(userNo);
+					
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("project/projectbookmarklist");
+			mav.addObject("projects", projects);
+			return mav;
+		}
+	
+		@RequestMapping(value="searchproject.action" ,method = RequestMethod.POST)
+		public ModelAndView searchProject(String[] skill, String[] location){
+			for (String string : skill) {
+				System.out.println(string);
+			}
+			
+			for (String string : location) {
+				System.out.println(string);
+			}
+			
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("redirect:/projectlist.action");
+			return mav;
+		}
+		
 }

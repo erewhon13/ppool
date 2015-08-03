@@ -156,7 +156,7 @@
 						</tr>
 						<tr>
 							<td><input type="checkbox" name="skill" value="112" > JSP</td>
-							<td><input type="checkbox" name="skill" value="113" > tdNUX</td>
+							<td><input type="checkbox" name="skill" value="113" > LINUX</td>
 							<td><input type="checkbox" name="skill" value="114" > PHP</td>
 							<td><input type="checkbox" name="skill" value="115" > PYTHON</td>
 						</tr>
