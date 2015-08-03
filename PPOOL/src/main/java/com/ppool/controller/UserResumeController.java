@@ -68,6 +68,7 @@ public class UserResumeController {
 	//학력사항 등록
 	@RequestMapping(value="formresumeschool.action", method=RequestMethod.POST)
 	public ModelAndView resumeSchoolRegister(ResumeSchool resumeschool){
+		System.out.println(resumeschool.getResumeMajorStartDay());
 		ModelAndView mav = new ModelAndView();
 		userResumeService.resumeSchoolRegister(resumeschool);
 		mav.setViewName("users/userresume");
@@ -106,24 +107,75 @@ public class UserResumeController {
 		return mav;
 	}
 	// 삭제 
-	@RequestMapping(value="resumedelete.action", method=RequestMethod.GET)
-	public ModelAndView deleteResume(int resumeSchoolNo){
+	@RequestMapping(value="resumeschooldelete.action", method=RequestMethod.POST)
+	public ModelAndView deleteResumeSchool(int resumeSchoolNo){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.deleteResumeSchool(resumeSchoolNo);
 		mav.setViewName("redirect:/resume.action");
 		return mav;
-		
 	}
+	@RequestMapping(value="resumeeducationdelete.action", method=RequestMethod.POST)
+	public ModelAndView deleteResumeEducation(int resumeEducationNo){
+		ModelAndView mav = new ModelAndView();
+		userResumeService.deleteResumeEducation(resumeEducationNo);
+		mav.setViewName("redirect:/resume.action");
+		return mav;
+	}
+	@RequestMapping(value="resumelicensedelete.action", method=RequestMethod.POST)
+	public ModelAndView deleteResumeLicense(int resumeLicenseNo){
+		ModelAndView mav = new ModelAndView();
+		userResumeService.deleteResumeLicense(resumeLicenseNo);
+		mav.setViewName("redirect:/resume.action");
+		return mav;
+	}
+	@RequestMapping(value="resumelanguagedelete.action", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView deleteResumeLanguage(int resumeLanguageNo){
+		ModelAndView mav = new ModelAndView();
+		userResumeService.deleteResumeLanguage(resumeLanguageNo);
+		mav.setViewName("redirect:/resume.action");
+		return mav;
+	}
+	
+	
+	
 	//수정 
-	@RequestMapping(value="editformResumeSchool.action", method=RequestMethod.POST)
+	@RequestMapping(value="editformresumeschool.action", method=RequestMethod.POST)
 	public ModelAndView updateResumeSchool(ResumeSchool resumeSchool){
 		
 			ModelAndView mav = new ModelAndView();
 			userResumeService.updateResumeSchool(resumeSchool);
-			mav.setViewName("redirect:/resume.action");
+			mav.setViewName("redirect:/resume.action?userNo="+resumeSchool.getUserNo());
 			return mav;
-		
 	}
+	
+	@RequestMapping(value="editformresumeeducation.action", method=RequestMethod.POST)
+	public ModelAndView updateResumeEducation(ResumeEducation resumeEducation){
+		
+			ModelAndView mav = new ModelAndView();
+			userResumeService.updateResumeEducation(resumeEducation);
+			mav.setViewName("redirect:/resume.action?userNo="+resumeEducation.getUserNo());
+			return mav;
+	}
+	
+	@RequestMapping(value="editformresumeLicense.action", method=RequestMethod.POST)
+	public ModelAndView updateResumeLicense(ResumeLicense resumeLicense){
+		
+			ModelAndView mav = new ModelAndView();
+			userResumeService.updateResumeLicense(resumeLicense);
+			mav.setViewName("redirect:/resume.action?userNo="+resumeLicense.getUserNo());
+			return mav;
+	}
+	
+	@RequestMapping(value="editformresumeLanguage.action", method=RequestMethod.POST)
+	public ModelAndView updateResumeLanguage(ResumeLanguage resumeLanguage){
+		
+			ModelAndView mav = new ModelAndView();
+			userResumeService.updateResumeLanguage(resumeLanguage);
+			mav.setViewName("redirect:/resume.action?userNo="+resumeLanguage.getUserNo());
+			return mav;
+	}
+	
+	
 	
 	
 }
