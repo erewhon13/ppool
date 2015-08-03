@@ -47,30 +47,34 @@ margin-left:64px;
 										</table>
 										</td>
 									</tr>
-									
 								</table>
 								</td>
+							
 								<td width="77%">
-								<table width="100%"  border="0" cellspacing="0" cellpadding="0">
-									<tr><td bgcolor="#F8F7F7" style="padding-left:10px" width="125px">성 명 / 아이디</td>
-																			<td height="28" colspan="3" style="padding-left:8px"></td>
+						<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+									<tr>
+											<td bgcolor="#F8F7F7" style="padding-left:10px" width="125px">성 명 / 아이디</td>
+											<td height="28" colspan="3" style="padding-left:8px"></td>
 									</tr>
-									<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
+									<tr>
+											<td colspan="4" height="1" bgcolor="#DADADA"></td>
+									</tr>
 									<tr>
 										<td  bgcolor="#F8F7F7" style="padding-left:10px">나 이</td>
 										<td colspan="3" height="28" style="padding-left:8px"></td>
 									</tr>
 									<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-									<tr><td bgcolor="#F8F7F7" style="padding-left:10px">연락처</td>
+									<tr>
+										<td bgcolor="#F8F7F7" style="padding-left:10px">연락처</td>
 										<td height="55" style="padding-left:8px" colspan="3">
-										<table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
-											<tr><td width="16%" align="center" bgcolor="#E1D7C5">전&nbsp;&nbsp;화</td>
-												<td width="84%">&nbsp;
-												 <span style="font-size:11px;text-decoration: underline">비공개</span>
-												</td>
-											</tr>
-											<tr><td bgcolor="#FFFFFF" colspan="4"></td></tr>
-										</table>
+											<table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+												<tr><td width="16%" align="center" bgcolor="#E1D7C5">전&nbsp;&nbsp;화</td>
+													<td width="84%">&nbsp;
+												 	<span style="font-size:11px;text-decoration: underline">비공개</span>
+													</td>
+												</tr>
+												<tr><td bgcolor="#FFFFFF" colspan="4"></td></tr>
+											</table>
 										</td>
 									</tr>
 									<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
@@ -97,9 +101,7 @@ margin-left:64px;
 									<tr><td colspan="5" height="1" bgcolor="#DADADA"></td></tr>
 									<tr><td bgcolor="#F8F7F7" style="padding-left:10px">경력년수</td>
 										<td height="28" style="padding-left:8px" colspan="3">
-										
 										</td>
-										
 									</tr>
 									<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
 									<tr><td bgcolor="#F8F7F7" style="padding-left:10px">전문분야</td>
@@ -114,10 +116,7 @@ margin-left:64px;
 						</td>
 					</tr>
 					<tr><td colspan="2" height="2" bgcolor="#83D2A6"></td></tr>
-					<tr><td colspan="2" height="25" align="center">
-					
-						</td>
-					</tr>
+					<tr><td colspan="2" height="25" align="center"></td></tr>
 				</form>
 				</table>
 				</td>
@@ -259,10 +258,7 @@ margin-left:64px;
 									<input type="button" value="목록으로" onclick="location.href='home.action';">
 						</td>
 					</tr>
-										
-										
 	</table>
-	
 </table>
 
 
