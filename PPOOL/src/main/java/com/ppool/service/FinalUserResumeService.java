@@ -126,5 +126,10 @@ public class FinalUserResumeService implements UserResumeService{
 		userResumeRepository.updateResumeLanguage(resumeLanguage);
 		
 	}
+
+	@Override
+	public void updateResumeIntroduction(ResumeIntroduction resumeIntroduction) {
+		userResumeRepository.updateResumeIntroduction(resumeIntroduction);
+	}
 	
 }

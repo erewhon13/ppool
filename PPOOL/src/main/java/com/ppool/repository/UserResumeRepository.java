@@ -35,4 +35,5 @@ public interface UserResumeRepository {
 	void updateResumeEducation(ResumeEducation resumeEducation);
 	void updateResumeLicense(ResumeLicense resumeLicense);
 	void updateResumeLanguage(ResumeLanguage resumeLanguage);
+	void updateResumeIntroduction(ResumeIntroduction resumeIntroduction);
 }

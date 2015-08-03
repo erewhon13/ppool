@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -19,6 +21,7 @@ import com.ppool.dto.ResumeIntroduction;
 import com.ppool.dto.ResumeLanguage;
 import com.ppool.dto.ResumeLicense;
 import com.ppool.dto.ResumeSchool;
+import com.ppool.dto.User;
 import com.ppool.service.UserResumeService;
 
 
@@ -67,72 +70,82 @@ public class UserResumeController {
 	
 	//학력사항 등록
 	@RequestMapping(value="formresumeschool.action", method=RequestMethod.POST)
-	public ModelAndView resumeSchoolRegister(ResumeSchool resumeschool){
-		System.out.println(resumeschool.getResumeMajorStartDay());
+	public ModelAndView resumeSchoolRegister(ResumeSchool resumeschool, HttpSession session){
+
 		ModelAndView mav = new ModelAndView();
 		userResumeService.resumeSchoolRegister(resumeschool);
-		mav.setViewName("users/userresume");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
 	//교육사항 등록
 	@RequestMapping(value="formresumeeducation.action",method=RequestMethod.POST)
-	public ModelAndView resumeEducationRegister(ResumeEducation resumeeducation){
+	public ModelAndView resumeEducationRegister(ResumeEducation resumeeducation,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.resumeEducationRegister(resumeeducation);
-		mav.setViewName("users/userresume");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
 	//자격증 등록 
 	@RequestMapping(value="formresumelicense.action",method=RequestMethod.POST)
-	public ModelAndView resumeLicenseRegister(ResumeLicense resumelicense){
+	public ModelAndView resumeLicenseRegister(ResumeLicense resumelicense, HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.resumeLicenseRegister(resumelicense);
-		mav.setViewName("users/userresume");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
 	//외국어 등록
 	@RequestMapping(value="formresumelanguage.action",method=RequestMethod.POST)
-	public ModelAndView resumeLanguageRegister(ResumeLanguage resumelanguage){
+	public ModelAndView resumeLanguageRegister(ResumeLanguage resumelanguage,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.resumeLanguageRegister(resumelanguage);
-		mav.setViewName("users/userresume");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
 	//자기소개서 등록
 	@RequestMapping(value="resumeintroduction.action", method=RequestMethod.POST)
-	public ModelAndView resumeIntroductionRegister(ResumeIntroduction resumeIntroduction){
+	public ModelAndView resumeIntroductionRegister(ResumeIntroduction resumeIntroduction,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.resumeIntroductionRegister(resumeIntroduction);
-		mav.setViewName("users/userresume");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
+	
 	// 삭제 
-	@RequestMapping(value="resumeschooldelete.action", method=RequestMethod.POST)
-	public ModelAndView deleteResumeSchool(int resumeSchoolNo){
+	@RequestMapping(value="resumeschooldelete.action", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView deleteResumeSchool(int resumeSchoolNo,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.deleteResumeSchool(resumeSchoolNo);
-		mav.setViewName("redirect:/resume.action");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
-	@RequestMapping(value="resumeeducationdelete.action", method=RequestMethod.POST)
-	public ModelAndView deleteResumeEducation(int resumeEducationNo){
+	@RequestMapping(value="resumeeducationdelete.action", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView deleteResumeEducation(int resumeEducationNo,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.deleteResumeEducation(resumeEducationNo);
-		mav.setViewName("redirect:/resume.action");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
-	@RequestMapping(value="resumelicensedelete.action", method=RequestMethod.POST)
-	public ModelAndView deleteResumeLicense(int resumeLicenseNo){
+	@RequestMapping(value="resumelicensedelete.action", method={RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView deleteResumeLicense(int resumeLicenseNo,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.deleteResumeLicense(resumeLicenseNo);
-		mav.setViewName("redirect:/resume.action");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
 	@RequestMapping(value="resumelanguagedelete.action", method={RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView deleteResumeLanguage(int resumeLanguageNo){
+	public ModelAndView deleteResumeLanguage(int resumeLanguageNo,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		userResumeService.deleteResumeLanguage(resumeLanguageNo);
-		mav.setViewName("redirect:/resume.action");
+		User user = (User) session.getAttribute("loginuser");
+		mav.setViewName("redirect:/resume.action?userNo="+user.getUserNo());
 		return mav;
 	}
 	
@@ -172,6 +185,15 @@ public class UserResumeController {
 			ModelAndView mav = new ModelAndView();
 			userResumeService.updateResumeLanguage(resumeLanguage);
 			mav.setViewName("redirect:/resume.action?userNo="+resumeLanguage.getUserNo());
+			return mav;
+	}
+	
+	@RequestMapping(value="editformresumeIntroduction.action", method=RequestMethod.POST)
+	public ModelAndView updateResumeIntroduction(ResumeIntroduction resumeIntroduction){
+		
+			ModelAndView mav = new ModelAndView();
+			userResumeService.updateResumeIntroduction(resumeIntroduction);
+			mav.setViewName("redirect:/resume.action?userNo="+resumeIntroduction.getUserNo());
 			return mav;
 	}
 	

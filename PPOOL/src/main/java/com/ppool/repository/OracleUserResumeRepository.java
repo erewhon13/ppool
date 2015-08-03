@@ -130,5 +130,10 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			userResumeMapper.updateResumeLanguage(resumeLanguage);
 			
 		}
+
+		@Override
+		public void updateResumeIntroduction(ResumeIntroduction resumeIntroduction) {
+			userResumeMapper.updateResumeIntroduction(resumeIntroduction);
+		}
 		
 }
