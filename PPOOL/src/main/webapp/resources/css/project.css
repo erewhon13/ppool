@@ -1,16 +1,72 @@
 @CHARSET "utf-8";
 
-table.ex1 {width:100%; margin:0 auto; text-align:center; border-collapse:collapse}
-.ex1 th, .ex1 td {padding:5px 10px}
-.ex1 caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
-.ex1 thead th {background:#FF9147; color:#fff; text-align:center; border-right:1px solid #fff}
-.ex1 tbody td.projectno {text-align:center; width:8%}
-.ex1 tbody td.date {text-align:center; width:20%}
-.ex1 tbody td.content {text-align:left; width:35%}
-.ex1 tbody td.location {text-align:center; width:9%}
-.ex1 tbody td.dday {text-align:center; width:17%}
-.ex1 tbody td.status {text-align:center; width:10%}
-.ex1 tbody tr.odd {background:#f9f9f9}
-.ex1 tbody tr.odd th {background:#f2f2f2}
-.ex1 tbody tr:hover {background:#49505a; color:#ffffff}
-.ex1 tbody tr:hover th {background:#49505a; color:#ffffff}
+table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separate;}
+.list tr.head {;background:#FF9147; text-align:center; border-right:1px solid #fff; font-size: 13pt;}
+.list tr.head th{width:0%;padding:7px 7px;}
+.list td.projectno {text-align:center; width:8%}
+.list td.date {text-align:center; width:20%}
+.list td.content {text-align:left; width:35%}
+.list td.location {text-align:center; width:9%}
+.list td.dday {text-align:center; width:17%}
+.list td.status {text-align:center; width:11%}
+.list tr.odd {cursor: pointer;background:#f3f3f3}
+.list tr.odd th {background:#e1e1e1;width:8%}
+.list tr.even {cursor: pointer;background:#fff}
+.list tr.even th {background:#e1e1e1;width:8%}
+.list tr.odd:hover {background:#49505a; color:#ffffff}
+.list tr.odd:hover th {background:#49505a; color:#ffffff}
+.list tr.even:hover {background:#49505a; color:#ffffff}
+.list tr.even:hover th {background:#49505a; color:#ffffff}
+.list .dead{color: red;font-weight: bold;}
+.list .com{color: blue;font-weight: bold;}
+div.basic{width:72%;float: right}
+.bookmark{width: 30px;}
+
+
+img{cursor:pointer; ;align:right}
+
+.tech {width:100%; margin:0 auto; text-align:center; border: groove}
+.tech caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+th{margin:5pt;width: 15%;text-align:center;font-weight: normal;background-color: #FF9147;}
+td{text-align:left;font-size:12pt;margin:5px;padding:6px 10px 6px 10px;text-align:left}
+td.w85{width: 85%}
+td.w35{width: 35%}
+td div{width: 100%;}
+td textarea{max-height: 600px;width:100%;resize:none;font-size: 15pt;} 
+.tech .checkbox{list-style:none;text-align: left;width: 100%;padding:2% 10% 2% 10%;}
+.tech .checkbox td{padding: 0;width: 25%;}
+.tech .check{list-style:none;text-align: left;width: 100%;padding:2% 10% 2% 10%;}
+.tech .check  td{padding: 0;}
+
+.tech > tbody > tr > td > input{width: 97%; padding: 5px}
+#phone1, #phone2, #phone3{width: 25%;text-align: center}
+#projectstartday, #projectendday{width: 20%}
+
+caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+input.sub {font-size: 15pt;}
+div .selector{width:100%;text-align: right;}
+
+#tab{width: 100%; border:ridge;}
+.yescomment{display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5px;}
+.nocomment{display:block;text-align:left;margin:5px;padding: 30px;background-color: #d7d7d7;text-align: center;font-size: 18pt;font-weight: bold;}
+.ed_bt{background-color:#fff;border:solid 3px #FF9147;}
+.de_bt{background-color:#fff;border:solid 3px #ff2828;}
+.re_bt{background-color:#fff;border:solid 3px #58b3e9;}
+.ok_bt{background-color:#fff;border:solid 3px #64d81f;}
+.ca_bt{background-color:#fff;border:solid 3px #bd95f9;}
+.c_name{color:#3333dd;font-weight: bold;}
+.c_regi{color:#bfbfbf; ;}
+.a{width:100%;background-color:#D4D4D4;display: block}
+.sele{text-align: right;display: block}
+.b{width:100%;background-color: lightyellow;resize:vertical ;display: none}
+.sele2{text-align: right;display: none}
+
+#re_form{border:ridge;width: 100%;}
+#re_form #w90{width: 90%;}
+#re_form #w10{width: 10%;}
+#re_con{width: 100%;resize:vertical;}
+
+
+#email1{width: 25%}
+#email2{width: 25%;  border: solid #CECFD0 1px; font-size: 10pt;}
+#emailSelect{width: 20%; font-size: 12px;}

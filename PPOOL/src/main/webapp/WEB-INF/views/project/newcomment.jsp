@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>    
+
 <tr>
 	<td style='display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5pt;'>
 		<div style="color:#3333dd;font-weight: bold;">${newComment.userName }</div><br/>

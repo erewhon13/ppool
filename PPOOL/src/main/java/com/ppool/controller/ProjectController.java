@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.mail.search.IntegerComparisonTerm;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -25,8 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 import com.ppool.service.ProjectService;
-import com.ppool.service.UserService;
-import com.ppool.util.Util;
 
 @Controller
 public class ProjectController {
@@ -109,7 +105,7 @@ public class ProjectController {
 				int count = projectService.getBookmarkCount(params);
 				System.out.println(count);
 				mav.addObject("bookmarkable", count);
-				////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 		mav.addObject("project", project);
 		mav.addObject("comments", comments);
 		mav.addObject("locations", locations);
@@ -195,8 +191,6 @@ public class ProjectController {
 			params.put("userNo", userNo);
 			params.put("projectNo", projectNo);
 			projectService.projectBookmarks(params);
-			
-			
 			
 			return "redirect:/projectdetailview.action?projectNo="+projectNo;
 		}
