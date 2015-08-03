@@ -23,7 +23,9 @@
 	<script type="text/javascript">
 	$(document).ready(function (){
 		$(".bookmark").click(function(){
-			if ('${bookmarkable}' == '0') { 
+
+			if ('${favoriteProjects}' == '0') { 
+
 		        var result = confirm('${project.projectTitle}를 북마크에 등록하시겠습니까?');
 		        if(result) {
 		        	//yes
@@ -31,10 +33,11 @@
 		        	$(location).attr("href",url);
 		        }else{
 		        }
-			 }else if('${bookmarkable}' == '1'){
+			 }else if('${favoriteProjects}' == '1'){
 				var result2 = confirm('${project.projectTitle}를 북마크에서 삭제하시겠습니까?');
 				if(result2) {
-					alert("안댐 ㅋ");
+					var url ="/ppool/projectbookmarkdelete.action?projectNo="+"${project.projectNo}";
+					$(location).attr("href",url);
 				}else{
 				}
 			 }
@@ -302,10 +305,10 @@
 			
 				<c:if  test="${loginuser.userNo != null}">
 					<c:if test="${loginuser.userNo ne project.userNo}">
-							<c:if test="${bookmarkable == '1'}">
+							<c:if test="${favoriteProjects == '1'}">
 								<img src="/ppool/resources/images/bookmark_on.png" align="right" class="bookmark">&nbsp;
 							</c:if>
-							<c:if test="${bookmarkable == '0'}">
+							<c:if test="${favoriteProjects == '0'}">
 								<img src="/ppool/resources/images/bookmark_off.png" align="right" class="bookmark">&nbsp;
 							</c:if>
 					</c:if>

@@ -5,18 +5,18 @@ import java.util.Date;
 public class ResumeEducation {
 
 	private int userNo;
-	private int resumeEducationNO;
+	private int resumeEducationNo;
 	private String resumeEducation;
 	private Date resumeEducationStartDay;
 	private Date resumeEducationEndDay;
 	private String resumeEducationCenter;
 	
 	
-	public int getResumeEducationNO() {
-		return resumeEducationNO;
+	public int getResumeEducationNo() {
+		return resumeEducationNo;
 	}
-	public void setResumeEducationNO(int resumeEducationNO) {
-		this.resumeEducationNO = resumeEducationNO;
+	public void setResumeEducationNo(int resumeEducationNo) {
+		this.resumeEducationNo = resumeEducationNo;
 	}
 	public int getUserNo() {
 		return userNo;
