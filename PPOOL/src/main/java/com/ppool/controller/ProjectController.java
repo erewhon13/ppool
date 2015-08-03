@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
+import com.ppool.dto.User;
 import com.ppool.service.ProjectService;
 
 @Controller
@@ -89,7 +91,7 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value="projectdetailview.action" ,method = RequestMethod.GET)
-	public ModelAndView projectDetailView(int projectNo){
+	public ModelAndView projectDetailView(int projectNo,HttpSession session){
 		Project project = projectService.getProjectByProjectNo(projectNo);
 		List<ProjectComment> comments = projectService.getCommentsByProjectNo(projectNo);
 		
@@ -99,7 +101,8 @@ public class ProjectController {
 		ModelAndView mav = new ModelAndView();
 		//userNo와 projectNo로 북마크테이블에서 count를 조회(where userNo =? and projectNo =?)
 				HashMap<String, Object> params = new  HashMap<String, Object>();
-				int userNo = 91;
+				User user = (User) session.getAttribute("loginuser");
+				int userNo = user.getUserNo();
 				params.put("userNo", userNo);
 				params.put("projectNo", projectNo);
 				int count = projectService.getBookmarkCount(params);
