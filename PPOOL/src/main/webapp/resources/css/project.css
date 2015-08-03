@@ -65,8 +65,7 @@ div .selector{width:100%;text-align: right;}
 #re_form{border:ridge;width: 100%;}
 #re_form #w90{width: 90%;}
 #re_form #w10{width: 10%;}
-#re_con{width: 100%;resize:vertical;}
-
+#commentcontent{width: 100%;resize:vertical;}
 
 #email1{width: 25%}
 #email2{width: 25%;  border: solid #CECFD0 1px; font-size: 10pt;}
