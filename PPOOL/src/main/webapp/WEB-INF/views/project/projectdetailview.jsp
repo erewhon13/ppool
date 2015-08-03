@@ -259,11 +259,11 @@
 <!--------------------------------------------------- 신고 모달 ------------------------------------------------->
 
 	<div class="basic" ><br/>
-		<table class="tech">
+		<table class="tech" >
 			<caption >상세뷰
+				<input type="button" id="join" value="참여하기" />
 				<c:if  test="${loginuser.userNo != null}">
 					<c:if test="${loginuser.userNo ne project.userNo}">
-					${bookmarkable}
 							<c:if test="${bookmarkable == '1'}">
 								<img src="/ppool/resources/images/bookmark_on.png" align="right" class="bookmark">&nbsp;
 							</c:if>

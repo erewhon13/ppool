@@ -21,7 +21,8 @@ table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separa
 .list .com{color: blue;font-weight: bold;}
 div.basic{width:72%;float: right}
 .bookmark{width: 30px;}
-
+#report{width: 30px;}
+#join{background-color: #fff; border:#ccffcc solid 3px;cursor: pointer;}
 
 img{cursor:pointer; ;align:right}
 
