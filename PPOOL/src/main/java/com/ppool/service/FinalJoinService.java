@@ -27,8 +27,8 @@ public class FinalJoinService implements JoinService{
 	}
 
 	@Override
-	public void deleteJoin(int joinNo) {
-		joinRepository.deleteJoin(joinNo);
+	public void deleteJoin(int projectNo, int userNo) {
+		joinRepository.deleteJoin(projectNo,userNo);
 		
 	}
 

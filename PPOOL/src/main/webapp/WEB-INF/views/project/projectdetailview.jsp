@@ -257,6 +257,34 @@
 	 		
 	 	})
 	 	
+ 	 		 	$("#joincancle").click(function(event){
+	 		/* $(location).attr("href","insertjoin.action"); */
+	 		//alert($(this).attr("tag"));
+	 		var join=$(this).attr('tag').split('/')
+	 		var yes= confirm('프로젝트에 참여 취소하시겠습니까?')
+	 		if(yes){	 			
+	 			
+	 			$.ajax({
+					url:"/ppool/deletejoin.action",
+					method:"POST",
+					async:true,
+					data:{
+						userNo: join[0],
+						projectNo: join[1]
+					}, 
+					success: function(result){
+						alert('프로젝트 참여취소가 완료되었습니다');
+						/* $(location).attr('href',"projectlist.action"); */
+					},
+					error:function(){
+						alert('오류');
+					}				
+				})
+	 			
+	 		}
+	 		
+	 	}) 
+	 	
 	 	
 	 	    
 	});	
@@ -296,12 +324,27 @@
 		<table class="tech" >
 		
 			<caption >상세뷰
+		
+		<!-- 참여하기  -->
 			<c:if test="${empty joinlists}">
 				<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}"/>
 			 </c:if>
-			<c:forEach var="joinlist" items="${joinlists}">			 
-				<c:if test="${joinlist.userNo ne loginuser.userNo}"> </c:if>
+			 <c:set var="count" value="0"></c:set>
+			<c:forEach var="joinlist" items="${joinlists}">		
+				<c:if test="${joinlist.userNo eq loginuser.userNo}">
+					<c:set var="count" value="${count+1}"></c:set>
+				</c:if>
 			</c:forEach>
+				<c:choose>
+					<c:when test="${count>0}">
+						<input type="button" id="joincancle" value="참여취소" tag="${loginuser.userNo}/${project.projectNo}"/>
+					</c:when>
+					<c:otherwise>
+					 	<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}"/>
+					</c:otherwise>
+				</c:choose>
+		<!-- 참여하기 마무리 -->		
+			
 			
 				<c:if  test="${loginuser.userNo != null}">
 					<c:if test="${loginuser.userNo ne project.userNo}">

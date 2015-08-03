@@ -1,5 +1,6 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,14 @@ public class OracleJoinRepository implements JoinRepository{
 	}
 
 	@Override
-	public void deleteJoin(int joinNo) {
-		joinMapper.deleteJoin(joinNo);		
+	public void deleteJoin(int projectNo, int userNo) {
+		
+		HashMap<String, Object> params=new HashMap<>();
+		params.put("userNo", userNo);
+		params.put("projectNo", projectNo);
+		
+		
+		joinMapper.deleteJoin(params);		
 	}
 
 	@Override

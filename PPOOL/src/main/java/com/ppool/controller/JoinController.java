@@ -28,5 +28,12 @@ public class JoinController {
 		return "success";
 	}
 	
+	@RequestMapping(value="deletejoin.action", method=RequestMethod.POST)
+	@ResponseBody
+	public String deleteJoin(int projectNo, int userNo){
+		joinService.deleteJoin(projectNo, userNo);
+		return "success";
+	}
+	
 	
 }
