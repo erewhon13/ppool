@@ -116,15 +116,16 @@ public class ProjectController {
 		String skills = StringUtils.collectionToCommaDelimitedString(Arrays.asList(project.getSkill()));
 		
 		ModelAndView mav = new ModelAndView();
+		
 		//userNo와 projectNo로 북마크테이블에서 count를 조회(where userNo =? and projectNo =?)
-				HashMap<String, Object> params = new  HashMap<String, Object>();
-				User user = (User) session.getAttribute("loginuser");
-				int userNo = user.getUserNo();
-				params.put("userNo", userNo);
-				params.put("projectNo", projectNo);
-				int count = projectService.getBookmarkCount(params);
-				System.out.println(count);
-				mav.addObject("bookmarkable", count);
+//				HashMap<String, Object> params = new  HashMap<String, Object>();
+//				User user = (User) session.getAttribute("loginuser");
+//				int userNo = user.getUserNo();
+//				params.put("userNo", userNo);
+//				params.put("projectNo", projectNo);
+//				int count = projectService.getBookmarkCount(params);
+//				System.out.println(count);
+//				mav.addObject("bookmarkable", count);
 		////////////////////////////////////////////////////////////////////////////
 				
 		///////projectNo에 따른 joinList 조회
@@ -237,4 +238,19 @@ public class ProjectController {
 			return mav;
 		}
 	
+		@RequestMapping(value="searchproject.action" ,method = RequestMethod.POST)
+		public ModelAndView searchProject(String[] skill, String[] location){
+			for (String string : skill) {
+				System.out.println(string);
+			}
+			
+			for (String string : location) {
+				System.out.println(string);
+			}
+			
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("redirect:/projectlist.action");
+			return mav;
+		}
+		
 }

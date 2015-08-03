@@ -19,7 +19,7 @@
 		});
 		
 		$('#search').click(function(){
-			alert("미구현입니다");
+			$('#searchfield').submit();
 		});
 		$('#writer').click(function(){
 			if('${loginuser.userNo }' == ""){
@@ -38,6 +38,7 @@
 <c:set var="projects" value="${projects }"/>
 
 <div  class="basic" ><br/>
+	<form id="searchfield" action="searchproject.action" method="POST">
 	<table class="tech">
 	<caption>테스트</caption>
 		<tr>
@@ -64,7 +65,7 @@
 					</tr>
 					<tr>
 						<td><input type="checkbox" name="skill" value="112" > JSP</td>
-						<td><input type="checkbox" name="skill" value="113" > tdNUX</td>
+						<td><input type="checkbox" name="skill" value="113" > LINUX</td>
 						<td><input type="checkbox" name="skill" value="114" > PHP</td>
 						<td><input type="checkbox" name="skill" value="115" > PYTHON</td>
 					</tr>
@@ -132,6 +133,8 @@
 			</td>
 		</tr>
 	</table>
+	</form>
+	
 	<hr/>
 	<table class="list">
 			<tr class="head">
