@@ -48,7 +48,7 @@
 			<c:set var="r" value="1"/>
 			<c:forEach var="project" items="${projects }" >
 				<c:choose>
-					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr style="font-size: 15pt" class="odd" id="${project.projectNo}" style="cursor: pointer;" ></c:when>
+					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr style="font-size: 15pt"  class="odd" id="${project.projectNo}" style="cursor: pointer;" ></c:when>
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr style="font-size: 15pt" class="even" id="${project.projectNo}" style="cursor: pointer;" ></c:when>
 				</c:choose>
 					
@@ -58,7 +58,7 @@
 						<f:formatDate value="${ project.projectEndDay}" pattern="yy년 MM월 dd일" var="end"/>
 						${start} ~ <br/> ${end}
 					</td>
-					<td class="content">[${project.projectTeamCount}명] ${project.projectTitle}<br/>${project.projectContent}</td>
+					<td class="content" style="height: 60px;">[${project.projectTeamCount}명] ${project.projectTitle}<br/>${project.projectContent}</td>
 					<td class="location" style="text-align: center;">서울</td>
 					
 					<c:choose>
