@@ -196,7 +196,33 @@ public class ProjectController {
 		mav.setViewName("redirect:/projectdetailview.action?projectNo="+project.getProjectNo());
 		return mav;
 	}
-	
+
+	/////////////////////////////////////////////////////////////////////////////////////
+	//북마크 등록
+	@RequestMapping(value = "projectbookmarks.action", method = RequestMethod.GET)
+	public String projectBookmarks(int userNo, int projectNo,Model model) {
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userNo", userNo);
+		params.put("projectNo", projectNo);
+		projectService.projectBookmarks(params);
+		
+		return "redirect:/projectdetailview.action?projectNo="+projectNo;
+	}
+	//북마크 목록
+	@RequestMapping(value="projectbookmarklist.action" ,method = RequestMethod.GET)
+	public ModelAndView projectBookmarkList(int userNo){
+		
+		//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
+		
+		List<Project> projects = projectService.projectBookmarkList(userNo);
+				
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("project/projectbookmarklist");
+		mav.addObject("projects", projects);
+		return mav;
+	}
+	/////////////////////////////////////////////////////////////////////////////////////
+	////////////////코멘트 영역///////////////////////	
 	@RequestMapping(value="commentregister.action",method = RequestMethod.POST, produces="text/plain;charset=utf-8")
 	@ResponseBody
 	public ModelAndView commentRegister(ProjectComment comment){
@@ -212,45 +238,37 @@ public class ProjectController {
 		mav.setViewName("project/newcomment");
 		return mav;
 	}
+		
+	@RequestMapping(value="commentdelete.action",method = RequestMethod.POST)
+	@ResponseBody
+	public String commentDelete(int commentNo){
+		projectService.commentDelete(commentNo);
+		return "delete";
+	}	
+		
 	
-	//북마크 등록
-		@RequestMapping(value = "projectbookmarks.action", method = RequestMethod.GET)
-		public String projectBookmarks(int userNo, int projectNo,Model model) {
-			HashMap<String, Object> params = new HashMap<String, Object>();
-			params.put("userNo", userNo);
-			params.put("projectNo", projectNo);
-			projectService.projectBookmarks(params);
-			
-			return "redirect:/projectdetailview.action?projectNo="+projectNo;
-		}
-		//북마크 목록
-		@RequestMapping(value="projectbookmarklist.action" ,method = RequestMethod.GET)
-		public ModelAndView projectBookmarkList(int userNo){
-			
-			//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
-			
-			
-			List<Project> projects = projectService.projectBookmarkList(userNo);
-					
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("project/projectbookmarklist");
-			mav.addObject("projects", projects);
-			return mav;
-		}
 	
-		@RequestMapping(value="searchproject.action" ,method = RequestMethod.POST)
-		public ModelAndView searchProject(String[] skill, String[] location){
-			for (String string : skill) {
-				System.out.println(string);
-			}
-			
-			for (String string : location) {
-				System.out.println(string);
-			}
-			
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("redirect:/projectlist.action");
-			return mav;
+	
+	
+	
+	
+	
+	//////////////////미구현/////////////////////////////////////////
+	@RequestMapping(value="searchproject.action" ,method = RequestMethod.POST)
+	public ModelAndView searchProject(String[] skill, String[] location){
+		for (String string : skill) {
+			System.out.println(string);
 		}
+		
+		for (String string : location) {
+			System.out.println(string);
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/projectlist.action");
+		return mav;
+	}
+		
+		
 		
 }

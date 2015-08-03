@@ -229,7 +229,6 @@
 
 	<div class="basic" ><br/>
 		<table class="tech" >
-		
 			<caption >상세뷰
 			<c:if test="${empty joinlists}">
 				<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}"/>
@@ -415,14 +414,11 @@
 	<% pageContext.setAttribute("enter", "\n"); %>
 		<!-- comment 있을경우 표시 영역 -->
 		<c:if test="${!empty comments}">
-			<input type="hidden" name="commentNo" value='${comment.userNo }' />
 			<c:forEach var="comment" items="${comments }" > 
-        		<tr>
+        		<tr id="td${comment.commentNo}">
         			<td class="yescomment">
 						<div class="c_name" >${comment.userName }</div>
-						<div id="a${comment.commentNo}" class="a" >
-							${fn:replace(comment.commentContent , enter, '<br/>')}
-						</div>
+						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br/>')}</div>
 						<textarea id="b${comment.commentNo}" class="b" 
 								name="commentContent">${comment.commentContent }</textarea>
 						<br/>
@@ -431,8 +427,11 @@
 						<div class="c_regi" >${registerday}</div>
 	        			<div class="sele" id="aa${comment.commentNo}">
 	        				<c:if test="${loginuser.userNo eq comment.userNo }">
+		        				<form id="fo${comment.commentNo}">
+		        					<input type="hidden" name="commentNo" value="${comment.commentNo}"/>
+		        				</form>
 		        				<input type="button" class="ed_bt" id="ed${comment.commentNo}" value="편집"/>&nbsp;
-		        				<input type="button" class="de_bt" value="삭제"/>&nbsp;
+		        				<input type="button" class="de_bt" id="de${comment.commentNo}" value="삭제"/>&nbsp;
 		        				<input type="button" class="re_bt" value="댓글"/>
 	        				</c:if>
 	        				<c:if test="${loginuser.userNo ne comment.userNo }">
@@ -441,7 +440,7 @@
                 		</div>
                 		<div class="sele2" id="bb${comment.commentNo}">
                 			<input type="button" class="ok_bt" id="ok${comment.commentNo}" value="확인"/>
-                			<input type="button" class="ca_bt" value="취소"/>
+                			<input type="button" class="ca_bt" id="ca${comment.commentNo}" value="취소"/>
                 		</div>
                 	</td>
                 </tr>

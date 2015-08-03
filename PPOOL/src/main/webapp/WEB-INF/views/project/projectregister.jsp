@@ -75,7 +75,7 @@
 				<th >이메일</th>
 				<td class="w15" colspan="3">
 					<input id="email1" type="text" name="email1" value="" > @ 
-					<input id="email2" type="text" name="email2" value=""  readonly="false"> 
+					<input id="email2" type="text" name="email2" value="" readonly="readonly"> 
 					<select id="emailSelect" >
 						<option value="">선택해주세요</option>
 						<option value="etc">직접입력</option>

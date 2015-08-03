@@ -110,4 +110,9 @@ public class OracleProjectRepository implements ProjectRepository {
 		return count;
 	}
 
+	@Override
+	public void commentDelete(int commentNo) {
+		projectMapper.commentDelete(commentNo);
+	}
+
 }
