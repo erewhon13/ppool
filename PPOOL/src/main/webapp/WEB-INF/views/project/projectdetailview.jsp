@@ -160,6 +160,40 @@
 	 	$("#report").on("click", function(event){
 	 	     dialog.dialog( 'open' );
 	 	    });
+	 	    
+	 	    
+	 	    
+	 	//////////////////////////////////////////프로젝트 참여//////////////////////////
+	 	$("#join").click(function(event){
+	 		/* $(location).attr("href","insertjoin.action"); */
+	 		//alert($(this).attr("tag"));
+	 		var join=$(this).attr('tag').split('/')
+	 		var yes= confirm('프로젝트에 참여하시겠습니까?')
+	 		if(yes){	 			
+	 			
+	 			$.ajax({
+					url:"/ppool/insertjoin.action",
+					method:"POST",
+					async:true,
+					data:{
+						userNo: join[0],
+						projectNo: join[1]
+					}, 
+					success: function(result){
+						alert('프로젝트 참여신청이 완료되었습니다');
+						$("#join").css("display", "none");
+					},
+					error:function(){
+						alert('오류');
+					}				
+				})
+	 			
+	 		}
+	 		
+	 	})
+	 	
+	 	
+	 	    
 	});	
 	
 	</script>
@@ -193,22 +227,29 @@
 
 <!--------------------------------------------------- 신고 모달 ------------------------------------------------->
 
-<div class="basic" ><br/>
-	<table class="tech" >
-		<caption >상세뷰
-			<input type="button" id="join" value="참여하기" />
-			<c:if  test="${loginuser.userNo != null}">
-				<c:if test="${loginuser.userNo ne project.userNo}">
-						<c:if test="${bookmarkable == '1'}">
-							<img src="/ppool/resources/images/bookmark_on.png" align="right" class="bookmark">&nbsp;
-						</c:if>
-						<c:if test="${bookmarkable == '0'}">
-							<img src="/ppool/resources/images/bookmark_off.png" align="right" class="bookmark">&nbsp;
-						</c:if>
+	<div class="basic" ><br/>
+		<table class="tech" >
+		
+			<caption >상세뷰
+			<c:if test="${empty joinlists}">
+				<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}"/>
+			 </c:if>
+			<c:forEach var="joinlist" items="${joinlists}">			 
+				<c:if test="${joinlist.userNo ne loginuser.userNo}"> </c:if>
+			</c:forEach>
+			
+				<c:if  test="${loginuser.userNo != null}">
+					<c:if test="${loginuser.userNo ne project.userNo}">
+							<c:if test="${bookmarkable == '1'}">
+								<img src="/ppool/resources/images/bookmark_on.png" align="right" class="bookmark">&nbsp;
+							</c:if>
+							<c:if test="${bookmarkable == '0'}">
+								<img src="/ppool/resources/images/bookmark_off.png" align="right" class="bookmark">&nbsp;
+							</c:if>
+					</c:if>
 				</c:if>
-			</c:if>
-			<img src="/ppool/resources/images/report.png" id="report" align="right">
-		</caption>
+				<img src="/ppool/resources/images/report.png" id="report" align="right">
+			</caption>
 		<tr>
 			<th >프로젝트명</th>
 			<td class="w85" colspan="3">
