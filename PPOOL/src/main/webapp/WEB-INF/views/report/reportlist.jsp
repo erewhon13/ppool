@@ -26,7 +26,7 @@
 <div>
 	<c:set var="reports" value="${reports}"/>
 	
-		<div style="width: 79%; float: right;">	
+		<div style="width: 72%; float: right;">	
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
