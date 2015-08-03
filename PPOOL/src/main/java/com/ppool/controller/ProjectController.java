@@ -255,6 +255,19 @@ public class ProjectController {
 			
 			
 			List<Project> projects = projectService.projectBookmarkList(userNo);
+			for (Project project : projects) {
+				Calendar cal = Calendar.getInstance();
+				long nowDay = cal.getTimeInMillis();
+
+				int year = project.getProjectExpire().getYear();
+				int month = project.getProjectExpire().getMonth();
+				int date = project.getProjectExpire().getDate();
+
+				cal.set(year + 1900, month, date);// 목표일
+				long eventDay = cal.getTimeInMillis();
+				int y = (int) ((eventDay - nowDay) / (24 * 60 * 60 * 1000));
+				project.setProjectStatus(y);
+			}
 					
 			ModelAndView mav = new ModelAndView();
 			mav.setViewName("project/projectbookmarklist");
