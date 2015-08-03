@@ -28,8 +28,13 @@ public interface UserResumeMapper {
 	
 	//삭제 
 	void deleteResumeSchool(int resumeSchoolNo);
+	void deleteResumeEducation(int resumeEducationNo);
+	void deleteResumeLicense(int resumeLicenseNo);
+	void deleteResumeLanguage(int resumeLanguageNo);
 	
 	//수정 
 	void updateResumeSchool(ResumeSchool resumeSchool);
-	
+	void updateResumeEducation(ResumeEducation resumeEducation);
+	void updateResumeLicense(ResumeLicense resumeLicense);
+	void updateResumeLanguage(ResumeLanguage resumeLanguage);
 }

@@ -113,16 +113,50 @@
 		WHERE USERNO=#{userNo}
 	</select>
 	
-	
+	<!-- 삭제 -->
 	<delete id="deleteResumeSchool" parameterType="int">
 		DELETE FROM resumeSchool WHERE resumeSchoolNo=#{resumeSchoolNo}
 	</delete>
-		
+	
+	<delete id="deleteResumeEducation" parameterType="int">
+		DELETE FROM resumeEducation WHERE resumeEducationNo=#{resumeEducationNo}
+	</delete>
+	
+	<delete id="deleteResumeLicense" parameterType="int">
+		DELETE FROM resumeLicense WHERE resumeLicenseNo=#{resumeLicenseNo}
+	</delete>
+	
+	<delete id="deleteResumeLanguage" parameterType="int">
+		DELETE FROM resumeLanguage WHERE resumeLanguageNo=#{resumeLanguageNo}
+	</delete>
+	
+	
+	<!-- 수정 -->
 	<update id="updateResumeSchool" parameterType="ResumeSchool">
 		UPDATE ResumeSchool
-		set resumeSchool=#{resumeSchool}, resumeUserMajor=#{resumeUserMajor}, resumeMajorStartDay=#{resumeMajorStartDay},
+		set resumeUserSchool=#{resumeUserSchool}, resumeUserMajor=#{resumeUserMajor}, resumeMajorStartDay=#{resumeMajorStartDay},
 		resumeMajorEndDay=#{resumeMajorEndDay}
 		where resumeSchoolNo=#{resumeSchoolNo}
+	</update>
+	
+	<update id="updateResumeEducation" parameterType="ResumeEducation">
+		UPDATE ResumeEducation
+		set resumeEducation=#{resumeEducation}, resumeEducationStartDay=#{resumeEducationStartDay}, resumeEducationEndDay=#{resumeEducationEndDay},
+		resumeEducationCenter=#{resumeEducationCenter}
+		where resumeEducationNo=#{resumeEducationNo}
+	</update>
+	
+	<update id="updateResumeLicense" parameterType="ResumeLicense">
+		UPDATE ResumeLicense
+		set resumeLicense=#{resumeLicense}, resumeLicenseDay=#{resumeLicenseDay},
+		resumeLicenseCenter=#{resumeLicenseCenter}
+		where resumeLicenseNo=#{resumeLicenseNo}
+	</update>
+	
+	<update id="updateResumeLanguage" parameterType="ResumeLanguage">
+		UPDATE ResumeLanguage
+		set resumeLanguage=#{resumeLanguage}, resumeLanguageGrade=#{resumeLanguageGrade}
+		where resumeLanguageNo=#{resumeLanguageNo}
 	</update>
 	
 	 

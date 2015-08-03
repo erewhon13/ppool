@@ -32,7 +32,7 @@
 					<tr>
 						<td style="width:80%"  align="left"  >
 							<!-- <img src="/ppool/resources/images/arrow.gif" height=13px> -->
-												경고목록
+												신고목록
 								</td>
 									<td style="width:20%" align="right">
 												</td>
@@ -43,7 +43,7 @@
 								<tbody>
 						
 										<tr>
-											<td style="width:10%; color: white;" align="center"  bgcolor="#FF9147" height="40"  >경고번호</td>
+											<td style="width:10%; color: white;" align="center"  bgcolor="#FF9147" height="40"  >신고번호</td>
 											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" >게시글 번호</td>
 											<td style="width:35%; color: white;" align="center"  bgcolor="#FF9147" height="40" >신고사유</td>
 											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40">신고자</td>

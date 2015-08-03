@@ -21,7 +21,6 @@ public class User {
 	private boolean userPictureExist;
 	private String userPictureSavedName;
 	private String stampRegisterDay;
-	
 	private String lo;
 	
 	public String getLo() {

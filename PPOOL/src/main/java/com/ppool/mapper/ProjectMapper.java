@@ -3,6 +3,7 @@ package com.ppool.mapper;
 import java.util.HashMap;
 import java.util.List;
 
+import com.ppool.dto.FavoriteProject;
 import com.ppool.dto.History;
 import com.ppool.dto.HistoryUploadFile;
 import com.ppool.dto.Project;
@@ -27,7 +28,7 @@ public interface ProjectMapper {
 	List<Project> projectBookmarkList(int userNo);
 	//북마크 중복체크
 	int getBookmarkCount(HashMap<String, Object> params);
-	
+	//북마크 삭제
 	void projectBookmarkDelete(int projectNo);
 	
 }

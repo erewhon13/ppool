@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.ppool.dto.FavoriteProject;
 import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 import com.ppool.mapper.ProjectMapper;
@@ -108,6 +109,13 @@ public class OracleProjectRepository implements ProjectRepository {
 	public int getBookmarkCount(HashMap<String, Object> params) {
 		int count = projectMapper.getBookmarkCount(params);
 		return count;
+	}
+	
+	//북마크 삭제
+	@Override
+	public void projectBookmarkDelete(int projectNo) {
+		projectMapper.projectBookmarkDelete(projectNo);
+
 	}
 
 }

@@ -61,4 +61,9 @@
 		<property name="sqlSessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="joinMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.ppool.mapper.JoinMapper" />
+		<property name="sqlSessionFactory" ref="sessionFactory" />
+	</bean>
+	
 </beans>

@@ -82,17 +82,53 @@ public class OracleUserResumeRepository implements UserResumeRepository {
 			ResumeIntroduction resumeintroduction = userResumeMapper.getResumeIntroductions(userNo);
 			return resumeintroduction;
 		}
-
+		//삭제 
 		@Override
 		public void deleteResumeSchool(int resumeSchoolNo) {
 			userResumeMapper.deleteResumeSchool(resumeSchoolNo);
 		}
 
 		@Override
-		public void updateResumeSchool(ResumeSchool resumeSchool) {
-			userResumeMapper.updateResumeSchool(resumeSchool);
+		public void deleteResumeEducation(int resumeEducationNo) {
+			userResumeMapper.deleteResumeEducation(resumeEducationNo);
+		}
+
+		@Override
+		public void deleteResumeLicense(int resumeLicenseNo) {
+			userResumeMapper.deleteResumeLicense(resumeLicenseNo);
+		}
+
+		@Override
+		public void deleteResumeLanguage(int resumeLanguageNo) {
+			userResumeMapper.deleteResumeLanguage(resumeLanguageNo);
 		}
 		
 		
-	
+		
+		
+		
+		//수정
+		@Override
+		public void updateResumeSchool(ResumeSchool resumeSchool) {
+			userResumeMapper.updateResumeSchool(resumeSchool);
+		}
+
+		@Override
+		public void updateResumeEducation(ResumeEducation resumeEducation) {
+			userResumeMapper.updateResumeEducation(resumeEducation);
+			
+		}
+
+		@Override
+		public void updateResumeLicense(ResumeLicense resumeLicense) {
+			userResumeMapper.updateResumeLicense(resumeLicense);
+			
+		}
+
+		@Override
+		public void updateResumeLanguage(ResumeLanguage resumeLanguage) {
+			userResumeMapper.updateResumeLanguage(resumeLanguage);
+			
+		}
+		
 }

@@ -36,7 +36,7 @@
 			<form id="notification" action="" method="post">
 				<table width="75%" style="text-align: center;">
 					<caption style="text-align: left;">공지사항</caption>
-					<tr style="background-color: #FF9147; color: #ffffff;">
+					<tr style="background-color: #FF9147; color: #ffffff;height: 30px;">
 						<th style="width: 10%">글번호</th>
 						<th style="width: 25%">제목</th>
 						<th style="width: 15%">등록일</th>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
+
+<mapper namespace="com.ppool.mapper.JoinMapper">
+
+	<insert id="insertJoin" parameterType="JoinProject">
+		INSERT INTO JOINPROJECT
+			(JOINNO,
+			 USERNO,
+			 PROJECTNO
+			)
+		VALUES(
+			JOINNO_SEQUENCE.NEXTVAL,
+			#{userNo},
+			#{projectNo}			
+		)
+	</insert>	
+	
+	<delete id="deleteJoin" parameterType="int">
+	 	delete from JOINPROJECT where joinno=#{joinNo}	
+	</delete>
+	
+	<select id="getJoinList" parameterType="int" resultType="JoinProject">
+		SELECT * FROM JOINPROJECT WHERE projectno=#{projectNo}			
+	</select>
+	
+<!-- <update id="joinSelected" parameterType="int">
+	</update> -->
+	
+</mapper>
