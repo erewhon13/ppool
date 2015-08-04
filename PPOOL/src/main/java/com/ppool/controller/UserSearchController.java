@@ -36,5 +36,17 @@ public class UserSearchController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "userdetailview.action", method = RequestMethod.GET)
+	public ModelAndView userSearchDetailView() {
+		ModelAndView mav = new ModelAndView();
+		List<User> users = userSearchService.getUserSearchList();
+		
+		mav.addObject("users",users); //getattribute (데이터 출력을 위해 데이터 가져오기)
+		mav.setViewName("users/userdetailview");
+		return mav;
+	}
+	
+	
+	
 }
 

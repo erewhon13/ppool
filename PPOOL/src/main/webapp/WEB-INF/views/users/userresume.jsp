@@ -954,10 +954,10 @@
 							<table id="users"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
-											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">기간</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
+											<td style="width:50%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">기간</td>
+											<td style="width:10%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
 										</tr>
 								</thead>
 								
