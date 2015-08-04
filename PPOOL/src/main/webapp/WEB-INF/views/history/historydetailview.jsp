@@ -111,5 +111,7 @@
 		</form>
 	</div>
 </div>
+	<c:import url="/WEB-INF/views/include/footer.jsp"/>
+
 </body>
 </html>

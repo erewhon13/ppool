@@ -44,8 +44,8 @@
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
-						<td style="width:80%"  align="left"  >							
-							<img src="/ppool/resources/images/historybanner.png">
+						<td align="left"   >							
+							<img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >
 									
 								</td>
 									<td style="width:20%" align="right">
@@ -115,5 +115,7 @@
 		</jsp:include> --%>
 	
 	</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp"/>
+	
 </body>
 </html>
