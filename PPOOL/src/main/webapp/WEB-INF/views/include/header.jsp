@@ -44,8 +44,8 @@
 			</div>
 			<div id="topbar" class="logined"
 				style='display : ${loginuser eq null ? "none" : "block"}'>
-				<span id="mid"> <a
-					href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
+				<span id="mid"> 
+				<a href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
 				환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
 			</div>
 		</div>
