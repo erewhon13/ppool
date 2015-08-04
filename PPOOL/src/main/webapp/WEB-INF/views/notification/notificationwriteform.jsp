@@ -24,39 +24,39 @@
 		<div align="center" style="margin-top: 4%" >
 			<div id="pageContainer">	
 				<form id="writeform" action="notificationwrite.action" method="post">
-				<table  border="1">
+				<table style="border: ridge;">
 				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">글쓰기</caption>
 					<tr>
-						<th>제목</th>
+						<th bgcolor="#FF9147" style="font-size: 14pt"  >제목</th>
 						<td>
-							<input type="text" name="notificationTitle" style="width:280px" />
+							<input type="text" name="notificationTitle" style="width:702px; font-size: 14pt" />
 						</td>
 					</tr>
 					<tr>
-						<th>관리번호</th>
+						<th bgcolor="#FF9147" style="font-size: 14pt">관리번호</th>
 						<td>
-						<input type="text" name="adminNo" style="width:280px" value="1" readonly="readonly"/>
+						<input type="text" name="adminNo" style="width:702px; font-size: 14pt" value="1" readonly="readonly"/>
 						</td>
 					</tr>
 					<tr>
-						<th>작성일</th>
+						<th bgcolor="#FF9147" style="font-size: 14pt">작성일</th>
 						<td>
-							<input type="date" name="notificationRegisterDay" style="width:280px" />
+							<input type="date" name="notificationRegisterDay" style="width:702px; font-size: 14pt" />
 						</td>
 					</tr>
 					<tr>
-						<th>내용</th>
+						<th bgcolor="#FF9147" style="font-size: 14pt">내용</th>
 						<td>		                    
 							<textarea 
-								name="notificationContent" cols="76" rows="15"></textarea>
+								name="notificationContent" cols="85" rows="20" style="font-size: 12pt"></textarea>
 						</td>
 					</tr>
 				</table>
-				<br /><br />
+				<br />
 				<div class="buttons">	        	
-					<input type='submit' value='등록' style='height:25px' />
+					<input type='submit' value='등록' style='height:30px; margin-left: 300px' />
 					&nbsp;&nbsp;
-					<input type="button" value="취소" style="height: 25px" 
+					<input type="button" value="취소" style="height: 30px" 
 						onclick="location.href='notificationlist.action';"/>
 				</div>
 				</form>
