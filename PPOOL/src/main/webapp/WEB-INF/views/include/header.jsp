@@ -56,9 +56,6 @@
 						</span>님 환영합니다.
 							<a href='/ppool/userlogout.action'>로그아웃</a>
 					</c:when>
-					<c:otherwise>
-						<div>승인을 받지 않은 이메일입니다.</div>
-					</c:otherwise>
 				</c:choose>
 				
 			</div>
