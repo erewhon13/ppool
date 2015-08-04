@@ -208,6 +208,7 @@ public class UserController {
 		params.put("userNo", userNo);
 		params.put("userStatus", true);
 		userService.userStatusUpdate(params);
+		mav.setViewName("redirect:/home.action");
 		return mav;
 	}
 }

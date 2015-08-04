@@ -48,11 +48,19 @@
 					<a href="/ppool/registerview.action">이메일/비밀번호 찾기</a>
 				</div>
 			</div>
-			<div id="topbar" class="logined"
-				style='display : ${loginuser eq null ? "none" : "block"}'>
-				<span id="mid"> <a
-					href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
-				환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
+			<div id="topbar" class="logined" style='display : ${loginuser eq null ? "none" : "block"}'>
+				<c:choose>
+					<c:when test="${loginuser.userStatus eq true}">
+						<span id="mid"> 
+							<a href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a>
+						</span>님 환영합니다.
+							<a href='/ppool/userlogout.action'>로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<div>승인을 받지 않은 이메일입니다.</div>
+					</c:otherwise>
+				</c:choose>
+				
 			</div>
 		</div>
 		<div id="sidemenu">
