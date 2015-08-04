@@ -36,39 +36,39 @@
 	  <form action="historywrite.action" method="post" enctype="multipart/form-data" id="form">
 	 	 <input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo }'/>
 			<table style="text-align: center; width: 100%; border:groove;  ">
-			<caption style="color:#FF9147;text-align: left;">프로젝트 이력등록</caption>
+			<caption style="color:#7d97d3;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
-				<td style="width: 15%; background-color:#FF9147">프로젝트명</td>
+				<td style="width: 15%; background-color:#7d97d3">프로젝트명</td>
 				<td style="width: 85%; text-align:center;" colspan="3">
 					<input type="text" style="width:98%" name="historyTitle">
 				</td>
 			</tr>
 			<tr>
-				<td style="background-color:#FF9147; width: 15%">작업구분</td>
+				<td style="background-color:#7d97d3; width: 15%">작업구분</td>
 				<td>
 				개발<input type="radio" name="historyWork" value="developer"> 				
 				디자인<input	type="radio" name="historyWork" value="designer"> 
 				기타<input type="radio"	name="historyWork" value="etc"></td>
-				<td style="background-color:#FF9147">공개여부</td>
+				<td style="background-color:#7d97d3">공개여부</td>
 				<td>공개<input type="radio" name="historyOpened" value="true"> 
 				        비공개<input type="radio" name="historyOpened" value="false"></td>				
 			</tr>
 			<tr>
-				<td style="background-color:#FF9147">담당업무</td>
+				<td style="background-color:#7d97d3">담당업무</td>
 				<td><input type="text" style="width:98%" name="historyService"></td>
-				<td style="background-color:#FF9147">참여인원</td>
+				<td style="background-color:#7d97d3">참여인원</td>
 				<td><input type="text" id="historystaff" style="width:95%" name="historyStaff"/></td>				
 			</tr>
 			<tr>
-				<td style="background-color:#FF9147">프로젝트<br/>상세설명</td>
+				<td style="background-color:#7d97d3">프로젝트<br/>상세설명</td>
 				<td colspan="3"><textarea name="historyContent" rows="20" style="max-height: 600px;width:98%; resize:none"></textarea></td>
 			</tr>		
 			<tr>
-				<td style="background-color:#FF9147">기간</td>
+				<td style="background-color:#7d97d3">기간</td>
 				<td><input type="date" name="historyStartDay"> ~ <input type="date" name="historyEndDay"></td>
 			</tr>			
 			<tr>
-				<td style="background-color:#FF9147">첨부파일</td>
+				<td style="background-color:#7d97d3">첨부파일</td>
 				<td><input type="file" name="attach"></td>
 			</tr>
 					
