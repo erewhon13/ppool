@@ -480,17 +480,16 @@
 		<!-- comment 있을경우 표시 영역 -->
 		<c:if test="${!empty comments}">
 			<c:forEach var="comment" items="${comments }" > 
-        		<tr id="td${comment.commentNo}">
+        		<tr id="tr${comment.commentNo}">
         			<td class="yescomment">
 						<div class="c_name" >${comment.userName }</div>
 						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br/>')}</div>
 						<form id="fo${comment.commentNo}">
-						<textarea id="b${comment.commentNo}" class="b" 
-								name="commentContent">${comment.commentContent }</textarea>
-						<input type="hidden" name="commentNo" value="${comment.commentNo}"/>		
-						<br/>
-						
+							<textarea id="b${comment.commentNo}" class="b" 
+									name="commentContent">${comment.commentContent }</textarea>
+							<input type="hidden" name="commentNo" value="${comment.commentNo}"/>		
 						</form>
+						<br/>
 						<f:formatDate value="${ comment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
 						<div class="c_regi" >${registerday}</div>
 	        			<div class="sele" id="aa${comment.commentNo}">
@@ -541,5 +540,6 @@
 	</form>
 	<br/><br/>
 </div>
+
 </body>
 </html>
