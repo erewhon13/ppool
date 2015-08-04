@@ -30,19 +30,18 @@
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
-						<td style="width:80%"  align="left"  >
-							<!-- <img src="/ppool/resources/images/arrow.gif" height=13px> -->
-												신고목록
+						<td align="left" >
+							<img src="/ppool/resources/images/reportlogo.png" style="height:40px; margin-top: 8px;"  >
 								</td>
 									<td style="width:20%" align="right">
 												</td>
 											</tr>
 									</tbody>
 							</table>
+							
 							<table style="text-align:center; width:100%;">
 								<tbody>
-						
-										<tr>
+								<tr>
 											<td style="width:10%; color: white;" align="center"  bgcolor="black" height="40"  >신고번호</td>
 											<td style="width:15%; color: white;" align="center"  bgcolor="black" height="40" >게시글 번호</td>
 											<td style="width:35%; color: white;" align="center"  bgcolor="black" height="40" >신고사유</td>
