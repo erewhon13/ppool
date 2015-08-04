@@ -30,15 +30,16 @@ margin-left:64px;
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 		
 	<c:set var="users"  value="${users}"/>
- 		<div id="s_top"></div> <!-- 공간바 -->
+ 		<!-- <div id="s_top"></div> 공간바 -->
 		
+		<!-- 	
+			<div id="s_center" >가운데
 			
-			<div id="s_center" ><!-- 가운데 -->
-			<img src="/ppool/resources/images/search.gif">
 			<hr border-top:1px solid />
-					
+					 -->
 			<div  class="basic" ><br/>
 				<form id="searchfield" action="searchUser.action" method="POST">
+				<img src="/ppool/resources/images/usersearchlogo.png" style="height:40px; margin-top: 8px;" >
 				<table class="tech">
 					<tr>
 						<th >개발</th>
@@ -146,14 +147,14 @@ margin-left:64px;
 						</tr>
 						<c:forEach var="user" items="${ users }">
 						<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
-							<td>
+							<td style="text-align: center">
 									<c:url value="userdetailview.action" var="viewUrl">
-										<c:param name="userEmail"  value="${ user.userEmail }"/>
-									</c:url> <a href='${viewUrl}'> ${user.userName} </a>
+										<c:param name="userNo"  value="${ user.userNo }"/>
+									</c:url> <a href='${viewUrl}'> ${user.userEmail} </a>
 							</td>
-							<td>${ user.userSkill }</td>
-							<td>${ user.userAddress }</td>
-							<td>${ user.userExperience }</td>
+							<td style="text-align: center">${ user.userSkill }</td>
+							<td style="text-align: center">${ user.userAddress }</td>
+							<td style="text-align: center">${ user.userExperience }</td>
 						</tr>
 					</c:forEach>
 						

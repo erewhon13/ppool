@@ -26,10 +26,9 @@
 	</div>
 	<div id="side">
 		<div id="sidelogin">
-			<div id="topbar" class="nonelogined" style='display : ${loginuser eq null ? "block" : "none"};'>
-				<div id="stst" style="display: none">
-					승인되지 않았소
-				</div>
+			<div id="topbar" class="nonelogined"
+				style='display : ${loginuser eq null ? "block" : "none"};'>
+				<div id="stst" style="display: none">승인되지 않았소</div>
 				<form action="userlogin.action" method="POST">
 					<div id="userinfo">
 						<div>
@@ -47,23 +46,29 @@
 				</form>
 				<br>
 				<div>
-					<a href="/ppool/registerview.action">회원가입</a> 
-					<a href="/ppool/registerview.action">이메일/비밀번호 찾기</a>
+					<a href="/ppool/registerview.action">회원가입</a> <a
+						href="/ppool/registerview.action">이메일/비밀번호 찾기</a>
 				</div>
 			</div>
-				<c:choose>
-					<c:when test="${loginuser.userStatus eq true}">
-					<div id="topbar" class="logined" style='display : ${loginuser eq null ? "none" : "block"}'>
-						<span id="mid"> 
-							<a href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a>
-						</span>님 환영합니다.
-							<a href='/ppool/userlogout.action'>로그아웃</a>
-					</div>		
-					</c:when>
-					<c:when test="${loginuser.userStatus eq false}">
-							<div>asd</div>
-					</c:when>
-				</c:choose>
+			<c:choose>
+				<c:when test="${loginuser.userStatus eq true}">
+					<div id="topbar" class="logined"
+						style='display : ${loginuser eq null ? "none" : "block"}'>
+						<span id="mid"> <a
+							href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a>
+						</span>님 환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
+					</div>
+				</c:when>
+				<c:when test="${loginuser.userStatus eq false}">
+					<div>asd</div>
+				</c:when>
+			</c:choose>
+			<div id="topbar" class="logined"
+				style='display : ${loginuser eq null ? "none" : "block"}'>
+				<span id="mid"> <a
+					href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
+				환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
+			</div>
 		</div>
 		<div id="sidemenu">
 			<ul>

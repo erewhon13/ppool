@@ -11,16 +11,11 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-
-
 <title>등록하기</title>
 </head>
-
 <body>
-	
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div>
-		
+	<div>		
 		<div align="center" style="margin-top: 4%" >
 			<div id="pageContainer">	
 				<form id="writeform" action="notificationwrite.action" method="post">
@@ -35,7 +30,7 @@
 					<tr>
 						<th bgcolor="#7d97d3" style="font-size: 14pt; color: #ffffff;">관리번호</th>
 						<td>
-						<input type="text" name="adminNo" style="width:702px; font-size: 14pt" value="1" readonly="readonly"/>
+						<input type="text" name="adminNo" style="width:702px; font-size: 14pt" />
 						</td>
 					</tr>
 					<tr>
@@ -62,9 +57,6 @@
 				</form>
 			</div>
 		</div>   	
-	
 	</div>
-			
-
 </body>
 </html>

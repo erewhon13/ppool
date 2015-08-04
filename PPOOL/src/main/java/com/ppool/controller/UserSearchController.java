@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ppool.dto.History;
+import com.ppool.dto.ResumeEducation;
+import com.ppool.dto.ResumeLanguage;
+import com.ppool.dto.ResumeLicense;
+import com.ppool.dto.ResumeSchool;
 import com.ppool.dto.User;
 import com.ppool.service.UserSearchService;
 
@@ -28,6 +33,7 @@ public class UserSearchController {
 	
 	@RequestMapping(value = "search.action", method = RequestMethod.GET)
 	public ModelAndView userSearchList() {
+		
 		ModelAndView mav = new ModelAndView();
 		List<User> users = userSearchService.getUserSearchList();
 		
@@ -37,14 +43,32 @@ public class UserSearchController {
 	}
 	
 	@RequestMapping(value = "userdetailview.action", method = RequestMethod.GET)
-	public ModelAndView userSearchDetailView() {
-		ModelAndView mav = new ModelAndView();
-		List<User> users = userSearchService.getUserSearchList();
+	public ModelAndView userSearchDetailView(int userNo) {
 		
+		ModelAndView mav = new ModelAndView();
+		User users = userSearchService.getUserDetailView(userNo);
 		mav.addObject("users",users); //getattribute (데이터 출력을 위해 데이터 가져오기)
+		
+		List<ResumeSchool> resumeSchools = userSearchService.getResumeSchools(userNo);
+		mav.addObject("resumeSchools", resumeSchools);
+		
+		List<ResumeEducation> resumeEducations = userSearchService.getResumeEducations(userNo);
+		mav.addObject("resumeEducations", resumeEducations);
+		
+		List<ResumeLicense> resumeLicenses = userSearchService.getResumeLicenses(userNo);
+		mav.addObject("resumeLicenses", resumeLicenses);
+		
+		List<ResumeLanguage> resumeLanguages = userSearchService.getResumeLanguages(userNo);
+		mav.addObject("resumeLanguages",resumeLanguages);
+		
+		List<History> historys = userSearchService.getHistoryList(userNo);
+		mav.addObject("historys", historys);
+		
 		mav.setViewName("users/userdetailview");
 		return mav;
 	}
+	
+	
 	
 	
 	

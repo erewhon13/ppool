@@ -61,6 +61,10 @@
 		
 	});//ready
 	
+	
+	
+	
+	
 	////////////////////////////////////////////////////////// 신고기능
 	
 	$(function(){
@@ -110,9 +114,9 @@
 			//var form=$('#reportform').serialize();
 			
 			 if ( valid ) {
-				 $("#reportform").submit();
-		        dialog.dialog( "close" );
-		      } 
+				// $("#reportform").submit();
+		       
+		     
 				 //$(location).attr('href','insertreport.action?'+form);
 				/*  $("#reportform").submit(); */
 				
@@ -133,6 +137,7 @@
 							alert('오류');
 						}				
 					})
+			 }
 							        
 		      return valid; 
 		}
