@@ -52,7 +52,7 @@
 		<input type="hidden" value="${user.getUserNo()}" name="userNo">
 		<div id="personaldata">
 			<div align="center">
-				<table style="width: 100%">
+				<table style="width: 100%;margin-top: 6%">
 					<caption>회원정보수정</caption>
 					<tr>
 						<th>기본</th>
