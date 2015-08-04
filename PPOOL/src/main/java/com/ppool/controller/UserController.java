@@ -194,14 +194,20 @@ public class UserController {
 		mav.setViewName("redirect:/userinfo.action?userNo=" + user.getUserNo());
 		return mav;
 	}
-	@RequestMapping(value="active.action",method=RequestMethod.GET)
-	public ModelAndView userActive(int userNo,String userStatus){
+	@RequestMapping(value="activeview.action",method=RequestMethod.GET)
+	public ModelAndView userActiveView(int userNo){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("userNo",userNo);
+		mav.setViewName("users/useractive");
+		return mav;
+	}
+	@RequestMapping(value="approval.action",method=RequestMethod.POST)
+	public ModelAndView userActive(int userNo){
+		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userNo", userNo);
-		params.put("userStatus", userStatus);
+		params.put("userStatus", true);
 		userService.userStatusUpdate(params);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("users/useractive");
 		return mav;
 	}
 }

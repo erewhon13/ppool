@@ -8,8 +8,9 @@
 </head>
 <body>
 	<div>
-	<form action="approval.action">
-	<input type="hidden" name="userStatus"> 
+	<form action="approval.action" method="POST">
+	<input type="hidden" name="userNo" value="${userNo}">
+	<input type="submit" value="승인">
 	</form>
 	</div>
 </body>

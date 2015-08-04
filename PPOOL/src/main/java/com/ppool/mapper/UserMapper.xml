@@ -27,7 +27,7 @@
 		SET USERNAME = #{userName},USERPHONE = #{userPhone},USERBIRTH = #{userBirth},USERGENDER = #{userGender},USERADDRESS = #{userAddress},USEREXPERIENCE = #{userExperience},USERACADEMIC = #{userAcademic},USERMAJOR = #{userMajor},USERPICTUREEXIST = #{userPictureExist},USERPICTURESAVEDNAME = #{userPictureSavedName}
 		WHERE USERNO=#{userNo}
 	</update>
-	<update id="userStatusUpdate" parameterType="User">
+	<update id="userStatusUpdate" parameterType="hashMap">
 		UPDATE USERS
 		SET USERSTATUS = #{userStatus}
 		WHERE USERNO=#{userNo}
