@@ -66,7 +66,7 @@
 							<td class="dday" style="text-align: center;">D - ${project.projectStatus}</td>
 						</c:when>
 						<c:when test="${project.projectStatus eq 0}">
-							<td class="dday" style="color: red;font-weight: bold;">마감일</td>
+							<td class="dday" style="color: red;font-weight: bold;text-align: center;">마감일</td>
 						</c:when>
 						<c:when test="${project.projectStatus lt 0}">
 							<f:formatDate value="${ project.projectExpire}" pattern="yy년 MM월 dd일" var="expire"/>

@@ -214,47 +214,35 @@ public class ProjectController {
 		
 		return "redirect:/projectdetailview.action?projectNo="+projectNo;
 	}
+	
+	
 	//북마크 목록
 	@RequestMapping(value="projectbookmarklist.action" ,method = RequestMethod.GET)
 	public ModelAndView projectBookmarkList(int userNo){
 		
 		//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
 		
+		
 		List<Project> projects = projectService.projectBookmarkList(userNo);
+		for (Project project : projects) {
+			Calendar cal = Calendar.getInstance();
+			long nowDay = cal.getTimeInMillis();
+
+			int year = project.getProjectExpire().getYear();
+			int month = project.getProjectExpire().getMonth();
+			int date = project.getProjectExpire().getDate();
+
+			cal.set(year + 1900, month, date);// 목표일
+			long eventDay = cal.getTimeInMillis();
+			int y = (int) ((eventDay - nowDay) / (24 * 60 * 60 * 1000));
+			project.setProjectStatus(y);
+		}
 				
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("project/projectbookmarklist");
 		mav.addObject("projects", projects);
 		return mav;
 	}
-	
-//	//북마크 목록
-//	@RequestMapping(value="projectbookmarklist.action" ,method = RequestMethod.GET)
-//	public ModelAndView projectBookmarkList(int userNo){
-//		
-//		//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
-//		
-//		
-//		List<Project> projects = projectService.projectBookmarkList(userNo);
-//		for (Project project : projects) {
-//			Calendar cal = Calendar.getInstance();
-//			long nowDay = cal.getTimeInMillis();
-//
-//			int year = project.getProjectExpire().getYear();
-//			int month = project.getProjectExpire().getMonth();
-//			int date = project.getProjectExpire().getDate();
-//
-//			cal.set(year + 1900, month, date);// 목표일
-//			long eventDay = cal.getTimeInMillis();
-//			int y = (int) ((eventDay - nowDay) / (24 * 60 * 60 * 1000));
-//			project.setProjectStatus(y);
-//		}
-//				
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("project/projectbookmarklist");
-//		mav.addObject("projects", projects);
-//		return mav;
-//	}
 	
 	@RequestMapping(value = "projectbookmarkdelete.action", method = RequestMethod.GET)
 	public String projectBookmarkDelete(int projectNo) {
