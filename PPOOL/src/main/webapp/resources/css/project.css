@@ -1,7 +1,7 @@
 @CHARSET "utf-8";
 
 table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separate;}
-.list tr.head {;background:#FF9147; text-align:center; border-right:1px solid #fff; font-size: 13pt;}
+.list tr.head {;background:#7d97d3; text-align:center; border-right:1px solid #fff; font-size: 13pt;}
 .list tr.head th{width:0%;padding:7px 7px;}
 .list td.projectno {text-align:center; width:8%}
 .list td.date {text-align:center; width:20%}
@@ -28,7 +28,7 @@ img{cursor:pointer; ;align:right}
 
 .tech {width:100%; margin:0 auto; text-align:center; border: groove}
 .tech caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
-th{margin:5pt;width: 15%;text-align:center;font-weight: normal;background-color: #FF9147;}
+th{margin:5pt;width: 15%;text-align:center;font-weight: normal;background-color: #7d97d3;}
 td{text-align:left;font-size:12pt;margin:5px;padding:6px 10px 6px 10px;text-align:left}
 td.w85{width: 85%}
 td.w35{width: 35%}
@@ -50,11 +50,11 @@ div .selector{width:100%;text-align: right;}
 #tab{width: 100%; border:ridge;}
 .yescomment{display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5px;}
 .nocomment{display:block;text-align:left;margin:5px;padding: 30px;background-color: #d7d7d7;text-align: center;font-size: 18pt;font-weight: bold;}
-.ed_bt{background-color:#fff;border:solid 3px #FF9147;}
-.de_bt{background-color:#fff;border:solid 3px #ff2828;}
-.re_bt{background-color:#fff;border:solid 3px #58b3e9;}
-.ok_bt{background-color:#fff;border:solid 3px #64d81f;}
-.ca_bt{background-color:#fff;border:solid 3px #bd95f9;}
+.ed_bt{background-color:#fff;border:solid 3px #7d97d3;cursor: pointer;}
+.de_bt{background-color:#fff;border:solid 3px #ff2828;cursor: pointer;}
+.re_bt{background-color:#fff;border:solid 3px #58b3e9;cursor: pointer;}
+.ok_bt{background-color:#fff;border:solid 3px #64d81f;cursor: pointer;}
+.ca_bt{background-color:#fff;border:solid 3px #bd95f9;cursor: pointer;}
 .c_name{color:#3333dd;font-weight: bold;}
 .c_regi{color:#bfbfbf; ;}
 .a{width:100%;background-color:#D4D4D4;display: block}
