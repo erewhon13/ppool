@@ -39,7 +39,7 @@
 									</tbody>
 							</table>
 							
-							<table style="text-align:center; width:100%;">
+							<table style="width:100%; margin:0 auto; text-align:center; border: groove">
 								<tbody>
 								<tr>
 											<td style="width:10%; color: white;" align="center"  bgcolor="black" height="40"  >신고번호</td>
