@@ -30,16 +30,16 @@
 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div style="margin-right: -3%">
+	<div style="margin-right: -9.5%">
 		<div align="center" style="margin-top: 4%">
 			<form id="notification" action="" method="post">
-				<table width="75%" style="text-align: center;">
+				<table width="65%" style="text-align: center;">
 					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>
 					<tr style="background-color: #FF9147; color: #ffffff;height: 30px;">
-						<th style="width: 10%">글번호</th>
-						<th style="width: 25%">제목</th>
-						<th style="width: 15%">등록일</th>
-						<th style="width: 10%">관리자번호</th>
+						<th style="width: 5%">글번호</th>
+						<th style="width: 20%">제목</th>
+						<th style="width: 10%">등록일</th>
+						<th style="width: 5%">관리자번호</th>
 					</tr>
 
 					<c:forEach var="notification" items="${ notifications }">
@@ -60,7 +60,7 @@
 				<div style='text-align: center'>${pager.toString()}</div>
 
 				<br />
-				<div style="width: 94%;" align="right">
+				<div style="width: 83%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 				</div>
 			</form>

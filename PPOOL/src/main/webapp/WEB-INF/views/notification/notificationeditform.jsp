@@ -21,29 +21,29 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	<div>
-		<div align="center" style="margin-top: 4%" >
+		<div align="center" style="margin-top: 4%; margin-left: 30%;" >
 			<div id="pageContainer">	
 				<form id="editform" action="notificationupdate.action" method="post">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
-				<table  border="1">
+				<table  style="border: ridge;">
 				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
 					<tr>
-		                <th style="width: 15%" bgcolor="#FF9147">제목</th>
+		                <th bgcolor="#FF9147" style="font-size: 14pt; width: 100pt">제목</th>
 		                <td>
-		                	<input type="text" name="notificationTitle" style='width:580px' value="${ notification.notificationTitle }" />
+		                	<input type="text" name="notificationTitle" style='width:702px; font-size: 13pt' value="${ notification.notificationTitle }" />
 		                </td>
 		            </tr>
 		            <tr>
-		                <th style="width: 15%" bgcolor="#FF9147">내용</th>
+		                <th bgcolor="#FF9147" style="font-size: 14pt">내용</th>
 		                <td>
 							<textarea 
-		                    	name="notificationContent" style="width:580px" 
-		                    	rows="15">${ notification.notificationContent }</textarea>
+		                    	name="notificationContent" style="width:702px; font-size: 13pt" 
+		                    	rows="20" >${ notification.notificationContent }</textarea>
 		                </td>
 		            </tr>
 				</table>
-				<br /><br />
+				<br />
 				<div class="buttons">	        	
 					<input type='submit' value='수정' style='height:25px' />
 					&nbsp;&nbsp;

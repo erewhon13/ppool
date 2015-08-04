@@ -30,19 +30,19 @@
 						<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">상세보기</caption>
 						<tr>
 							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147"  >번호</th>
-							<td style="text-align: left;font-size: 13pt">${ notification.notificationNo }</td>
+							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0;">${ notification.notificationNo }</td>
 						</tr>
 						<br />
 						<tr>
-							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">제목</th>
-							<td style="text-align: left;font-size: 13pt;background-color: "> 
+							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147;">제목</th>
+							<td style="text-align: left;font-size: 13pt;"> 
 								${ notification.notificationTitle }
 								
 							</td>
 						</tr>
 						<tr>
 							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">작성일</th>
-							<td style="text-align: left;font-size: 13pt">
+							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0">
 								${ notification.stampRegisterDay }
 							</td>
 						</tr>
@@ -51,7 +51,7 @@
 							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">내용</th>
 							<td style="width: 85%" colspan="3">
 								<textarea name="projectContent" id="projectcontent" rows="20" 
-									style="max-height: 550px;width:99%;resize:none;font-size: 15pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
+									style="max-height: 400px;width:99%;resize:none;font-size: 14pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
 							</td>
 							
 						</tr>
