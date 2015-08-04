@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="/ppool/resources/css/sidemenustyles.css">
 
 <div align="left">
-	<div id="logo">
-		<img src="/ppool/resources/images/PPOOL.png"
-			onclick="location.href='/ppool/home.action'">
+	<div id="logo" >
+		<img src="/ppool/resources/images/ppoollogo.png"
+			onclick="location.href='/ppool/home.action'" style="width:250px; margin-left: 2%;">
 	</div>
 </div>
 <div id="cast">
