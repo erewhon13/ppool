@@ -154,7 +154,14 @@ margin-left:64px;
 							</td>
 							<td style="text-align: center">${ user.userSkill }</td>
 							<td style="text-align: center">${ user.userAddress }</td>
-							<td style="text-align: center">${ user.userExperience }</td>
+							
+							<td style="text-align: center">
+							<c:choose>
+							<c:when test="${user.userExperience == 'true' }"> 있음</c:when>
+							<c:otherwise>없음</c:otherwise>
+							</c:choose>
+							</td>
+							
 						</tr>
 					</c:forEach>
 						

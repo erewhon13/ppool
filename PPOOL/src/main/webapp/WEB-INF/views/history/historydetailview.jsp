@@ -46,7 +46,6 @@
 		<input type="hidden" name="historyNo" value="${history.historyNo}"/>
 		<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
 		
-	<c:if test="${loginuser.userNo ne history.userNo }" >
 		<table style="text-align: center; width: 100%; border:groove;  ">
 			<caption style="color:#7d97d3;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
@@ -105,7 +104,6 @@
 				
 		</tr>
 		</table>
-	</c:if>	
 <c:if test="${loginuser.userNo != null}">		
 	<c:if test="${loginuser.userNo eq history.userNo}">
 		<div style="float: right;">

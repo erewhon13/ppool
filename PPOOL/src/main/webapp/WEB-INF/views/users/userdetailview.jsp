@@ -236,8 +236,6 @@ margin-left:64px;
 																		<c:when test="${resumeLanguage.resumeLanguageGrade ==3}">상</c:when>
 																		<c:when test="${resumeLanguage.resumeLanguageGrade ==2}">중</c:when>
 																	    <c:otherwise>하</c:otherwise>
-																		
-																		
 																		</c:choose>
 																		</td>
 																		
