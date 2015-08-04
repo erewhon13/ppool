@@ -1,5 +1,6 @@
 package com.ppool.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.ppool.dto.History;
@@ -21,5 +22,5 @@ public interface UserSearchMapper {
 	List<ResumeLanguage> getResumeLanguages(int userNo);
 	List<Project> getProjectInfo(int userNo);
 	List<History> getHistoryList(int userNo);
-
+	String[] searchUsers(HashMap<String, Object> params);
 }

@@ -46,13 +46,16 @@ public class UserSearchController {
 	}
 
 	@RequestMapping(value = "searchuser.action", method = RequestMethod.POST)
-	public ModelAndView userSearch(String[] skill,String[] loaction) {
+	public ModelAndView userSearch(String[] skill,String[] location) {
 		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> params = new HashMap<String, Object>();
-		for (String userSkill : skill) {
-			params.put("skill", userSkill);
+		params.put("skills", skill);
+		params.put("locations", location);
+		System.out.println(skill);
+		String[] list = userSearchService.searchUsers(params);
+		for (String string : list) {
+			System.out.println(string);
 		}
-		
 		return mav;
 	}
 

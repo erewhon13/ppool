@@ -57,4 +57,19 @@
 		WHERE USERNO = #{userNo} and HISTORYOPENED = 1
 	</select>
 	
+	<select id="searchUsers" parameterType="hashMap" resultType="String">
+		SELECT DISTINCT U.USERNO
+		FROM USERS U
+			INNER JOIN USERSKILL US
+				ON U.USERNO = US.USERNO
+			INNER JOIN USERLOCATION UL 
+				ON U.USERNO = UL.USERNO 
+				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
+					US.SKILLNO = #{skill}
+				</foreach>
+				<foreach collection="locations" item="location" index="index" open=" and " separator=" and ">
+					UL.LOCATIONNO = #{location}
+				</foreach>
+	</select>
+	
 </mapper>
