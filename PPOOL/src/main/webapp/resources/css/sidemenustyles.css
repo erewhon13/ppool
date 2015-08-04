@@ -20,12 +20,20 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 }
 #sidelogin{
 	height: 80px;
-	background-color: #FF9147;
 }
+
 #sidelogin ul li{
 	display: inline-block;
 	text-align: center;
 	margin-right: 35px;	
+}
+
+#userinfo {
+	float:left;
+	display: inline;
+}
+#userinfo div{
+	padding: 1px;
 }
 
 #sidebottom img{

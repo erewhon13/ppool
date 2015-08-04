@@ -38,10 +38,10 @@
 <c:set var="projects" value="${projects }"/>
 
 <div  class="basic" ><br/>
-	<form id="searchfield" action="searchproject.action" method="POST">
+<img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >
+	<form id="searchfield" action="searchproject.action" method="POST">	
 	<table class="tech">
-	<caption>테스트</caption>
-		<tr>
+			<tr>
 			<th >개발</th>
 				<td class="w85" colspan="3">
 				<table class="checkbox skill">
@@ -192,5 +192,7 @@
 		<img src="/ppool/resources/images/writer.png" id="writer">
 	</div>
 </div>
+
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

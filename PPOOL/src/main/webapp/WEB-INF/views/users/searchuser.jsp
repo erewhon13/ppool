@@ -30,15 +30,16 @@ margin-left:64px;
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 		
 	<c:set var="users"  value="${users}"/>
- 		<div id="s_top"></div> <!-- 공간바 -->
+ 		<!-- <div id="s_top"></div> 공간바 -->
 		
+		<!-- 	
+			<div id="s_center" >가운데
 			
-			<div id="s_center" ><!-- 가운데 -->
-			<img src="/ppool/resources/images/search.gif">
 			<hr border-top:1px solid />
-					
+					 -->
 			<div  class="basic" ><br/>
 				<form id="searchfield" action="searchUser.action" method="POST">
+				<img src="/ppool/resources/images/usersearchlogo.png" style="height:40px; margin-top: 8px;" >
 				<table class="tech">
 					<tr>
 						<th >개발</th>

@@ -41,19 +41,12 @@ public class ProjectController {
 				true));
 	}
 
-	// private UserService userService;
-	// @Autowired
-	// @Qualifier("userService")
-	// public void setUserService(UserService userService) {
-	// this.userService = userService;
-	// }
 	@Autowired
 	@Qualifier("projectService")
 	public void setProjectService(ProjectService projectService) {
 		this.projectService = projectService;
 		
 	}
-
 	
 	////////////////////////조인 서비스 등록
 	private JoinService joinService;
@@ -63,10 +56,7 @@ public class ProjectController {
 	public void setJoinService(JoinService joinService){
 		this.joinService=joinService;
 	}
-	
 	////////////////////////////////////
-	
-	
 	
 	@RequestMapping(value="projectlist.action" ,method = RequestMethod.GET)
 	public ModelAndView projectList(){
@@ -137,9 +127,7 @@ public class ProjectController {
 		///////projectNo에 따른 joinList 조회
 				List<JoinProject> joinLists=joinService.getJoinList(projectNo);
 				mav.addObject("joinlists", joinLists);
-				
 		/////////////////////////////////////////////////////////////		
-				
 
 		mav.addObject("project", project);
 		mav.addObject("comments", comments);
@@ -200,6 +188,7 @@ public class ProjectController {
 		return mav;
 	}
 
+	
 	/** *********************************************************************************** **/ 
 	
 	
@@ -221,7 +210,6 @@ public class ProjectController {
 	public ModelAndView projectBookmarkList(int userNo){
 		
 		//사용자의 favorite을 조회(userno로 projectfavorite를 조회)
-		
 		
 		List<Project> projects = projectService.projectBookmarkList(userNo);
 		for (Project project : projects) {
@@ -255,8 +243,6 @@ public class ProjectController {
 	
 	
 	
-	
-	
 	/** *********************************************************************************** **/ 
 	
 	////////////////코멘트 영역///////////////////////	
@@ -283,15 +269,9 @@ public class ProjectController {
 	
 	@RequestMapping(value="commentupdate.action",method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView commentUpdate(ProjectComment comment){
+	public String commentUpdate(ProjectComment comment){
 		projectService.commentUpdate(comment);
-		int commentNo = comment.getCommentNo();
-		
-		ProjectComment newComment = projectService.getCommentByCommentNo(commentNo);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("newComment", newComment);
-		mav.setViewName("project/newcomment");
-		return mav;
+		return "update";
 	}	
 	////////////////코멘트 영역///////////////////////
 	

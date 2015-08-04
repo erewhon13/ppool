@@ -47,43 +47,43 @@
 		<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
 		
 	<c:if test="${loginuser.userNo ne history.userNo }" >
-		<table style="text-align: center; width: 100%; border:groove; ">
-			<caption style="color:#FF9147;text-align: left;">프로젝트 이력등록</caption>
+		<table style="text-align: center; width: 100%; border:groove;  ">
+			<caption style="color:#7d97d3;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
-				<td style="width: 15%; background-color:#FF9147">프로젝트명</td>
+				<td style="width: 15%; background-color:#7d97d3">프로젝트명</td>
 				<td style="width: 85%; text-align:center;" colspan="3">
 					<input type="text" style="width:98%" name="historyTitle" value="${history.historyTitle}"  ${ loginuser.userNo ne history.userNo ? "readonly" : ""}   >
 				</td>
 			</tr>
 			<tr>
-				<td style="background-color:#FF9147; width: 15%">작업구분</td>
+				<td style="background-color:#7d97d3; width: 15%">작업구분</td>
 				<td>
 					개발<input type="radio" name="historyWork" value="developer" ${ history.historyWork eq "developer" ? "checked" : ""  } ${ loginuser.userNo ne history.userNo ? "disabled" : ""}> 				
 					디자인<input	type="radio" name="historyWork" value="designer" ${history.historyWork eq 'designer' ? "checked" : "" }${ loginuser.userNo ne history.userNo ? "disabled" : ""}> 
 					기타<input type="radio"	name="historyWork" value="etc" ${history.historyWork eq 'etc' ? "checked" : ""} ${ loginuser.userNo ne history.userNo ? "disabled" : ""}>
 				</td>
-				<td style="background-color:#FF9147">공개여부</td>
+				<td style="background-color:#7d97d3">공개여부</td>
 				<td>공개<input type="radio" name="historyOpened" value="true" ${history.historyOpened eq "true" ?  "checked" :""} ${ loginuser.userNo ne history.userNo ? "disabled" : ""}> 
-				        비공개<input type="radio" name="historyOpened" value="false" ${history.historyOpened eq "false" ? "checked" :""} ${ loginuser.userNo ne history.userNo ? "disabled" : ""}></td>				
+				        비공개<input type="radio" name="historyOpened" value="false" ${history.historyOpened eq "false" ? "checked" :""}${ loginuser.userNo ne history.userNo ? "disabled" : ""}></td>				
 			</tr>
 			<tr>
-				<td style="background-color:#FF9147">담당업무</td>
-				<td><input type="text" style="width:98%" name="historyService" value="${history.historyService}" ${ loginuser.userNo ne history.userNo ? "readonly" : ""}></td>
-				<td style="background-color:#FF9147">참여인원</td>
-				<td><input type="text" id="historystaff" style="width:95%" name="historyStaff" value="${history.historyStaff}" ${ loginuser.userNo ne history.userNo ? "readonly" : ""}/></td>				
+				<td style="background-color:#7d97d3">담당업무</td>
+				<td><input type="text" style="width:98%" name="historyService" value="${history.historyService}" ${ loginuser.userNo ne history.userNo ? "readonly" : ""} ></td>
+				<td style="background-color:#7d97d3">참여인원</td>
+				<td><input type="text" id="historystaff" style="width:95%" name="historyStaff" value="${history.historyStaff}" ${ loginuser.userNo ne history.userNo ? "readonly" : ""} /></td>				
 			</tr>
 			<tr>
-				<td style="background-color:#FF9147">프로젝트<br/>상세설명</td>
-				<td colspan="3"><textarea name="historyContent" rows="20" style="max-height: 600px;width:98%; resize:none" ${ loginuser.userNo ne history.userNo ? "readonly" : ""}>${history.historyContent} </textarea></td>
+				<td style="background-color:#7d97d3">프로젝트<br/>상세설명</td>
+				<td colspan="3"><textarea name="historyContent" rows="20" style="max-height: 600px;width:98%; resize:none" ${ loginuser.userNo ne history.userNo ? "readonly" : ""} >${history.historyContent}</textarea></td>
 			</tr>		
 			<tr>
-				<td style="background-color:#FF9147">기간</td>
+				<td style="background-color:#7d97d3">기간</td>
 				<fmt:formatDate value="${history.historyStartDay}" pattern="yyyy-MM-dd" var="startdate"/>
 				<fmt:formatDate value="${history.historyEndDay}" pattern="yyyy-MM-dd" var="enddate"/>
 				<td><input type="date" name="historyStartDay" value="${startdate}" ${ loginuser.userNo ne history.userNo ? "disabled" : ""}> ~ <input type="date" name="historyEndDay" value="${enddate}" ${ loginuser.userNo ne history.userNo ? "disabled" : ""}></td>
 			</tr>			
 			<tr>
-				<td style="background-color:#FF9147">첨부파일</td>
+				<td style="background-color:#7d97d3">첨부파일</td>
 				<td>
 					<c:choose>
 					<c:when test="${history.file.uploadUserFileName ne null}">
@@ -119,5 +119,7 @@
 		</form>
 	</div>
 </div>
+	<c:import url="/WEB-INF/views/include/footer.jsp"/>
+
 </body>
 </html>

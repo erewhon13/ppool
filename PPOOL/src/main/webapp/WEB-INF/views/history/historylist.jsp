@@ -44,8 +44,8 @@
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
-						<td style="width:80%"  align="left"  >							
-							<img src="/ppool/resources/images/historybanner.png">
+						<td align="left"   >							
+							<img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >
 									
 								</td>
 									<td style="width:20%" align="right">
@@ -57,11 +57,11 @@
 								<tbody>
 						
 										<tr>
-											<td style="width:15%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20" >순번</td>
-											<td style="width:30%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">프로젝트명</td>
-											<td style="width:20%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">역할</td>
-											<td style="width:15%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">공개</td>
-											<td style="width:20%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">수행기간</td>
+											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20" >순번</td>
+											<td style="width:30%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">프로젝트명</td>
+											<td style="width:20%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">역할</td>
+											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">공개</td>
+											<td style="width:20%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">수행기간</td>
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">
@@ -115,5 +115,7 @@
 		</jsp:include> --%>
 	
 	</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp"/>
+	
 </body>
 </html>

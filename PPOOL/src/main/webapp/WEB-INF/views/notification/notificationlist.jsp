@@ -16,14 +16,19 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 
-<script type="text/javascript">
-	
+<script type="text/javascript">	
 	$(document).ready(function (){
 		$('#writer').click(function(){
 			$(location).attr("href", "/ppool/notificationwriteform.action");
 		});
-	});
-		
+	});	
+	</script>
+<script type="text/javascript">	
+	$(document).ready(function (){
+		$('#writer2').click(function(){
+			$(location).attr("href", "/ppool/registeradminform.action");
+		});
+	});	
 	</script>
 <title>목록보기</title>
 </head>
@@ -35,7 +40,7 @@
 			<form id="notification" action="" method="post">
 				<table width="65%" style="text-align: center;">
 					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>
-					<tr style="background-color: #FF9147; color: #ffffff;height: 30px;">
+					<tr style="background-color: #7d97d3; color: #ffffff;height: 30px;">
 						<th style="width: 5%">글번호</th>
 						<th style="width: 20%">제목</th>
 						<th style="width: 10%">등록일</th>
@@ -63,6 +68,9 @@
 				<div style="width: 83%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 				</div>
+				<!-- <div style="width: 83%;" align="right">
+					<img src="/ppool/resources/images/writer.png" id="writer2" style="cursor: pointer;">
+				</div> -->
 			</form>
 		</div>
 	</div>

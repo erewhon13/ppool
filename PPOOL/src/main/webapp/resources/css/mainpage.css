@@ -78,10 +78,6 @@
 	display: inline;
 }
 
-#email {
-	display: inline;
-}
-
 #logo {
 	width: 1255px;
 	margin: 0 auto;
@@ -98,19 +94,6 @@
 #personaldata th {
 	background-color: #FF9147;
 	color: white;
-}
-
-#test {
-	margin: 0 auto;
-}
-
-#passwd {
-	display: inline;
-}
-
-#userinfo {
-	display: inline;
-	margin: 5px;
 }
 
 a:link {

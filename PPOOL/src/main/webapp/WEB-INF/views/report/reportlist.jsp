@@ -43,12 +43,12 @@
 								<tbody>
 						
 										<tr>
-											<td style="width:10%; color: white;" align="center"  bgcolor="#FF9147" height="40"  >신고번호</td>
-											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" >게시글 번호</td>
-											<td style="width:35%; color: white;" align="center"  bgcolor="#FF9147" height="40" >신고사유</td>
-											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40">신고자</td>
-											<td style="width:20%; color: white;" align="center"  bgcolor="#FF9147" height="40" >신고일자</td>
-											<td style="width:5%; color: white;" align="center"  bgcolor="#FF9147" height="40"></td>
+											<td style="width:10%; color: white;" align="center"  bgcolor="black" height="40"  >신고번호</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="black" height="40" >게시글 번호</td>
+											<td style="width:35%; color: white;" align="center"  bgcolor="black" height="40" >신고사유</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="black" height="40">신고자</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="black" height="40" >신고일자</td>
+											<td style="width:5%; color: white;" align="center"  bgcolor="black" height="40"></td>
 										</tr>
 										
 										<c:forEach var="report" items="${reports}">

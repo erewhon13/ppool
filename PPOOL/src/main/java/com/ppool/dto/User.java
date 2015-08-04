@@ -7,7 +7,7 @@ public class User {
 	private String userEmail;
 	private String userPasswd;
 	private String userName;
-	private String userStatus;
+	private boolean userStatus;
 	private String userPhone;
 	private Date userBirth;
 	private boolean userGender;
@@ -21,15 +21,6 @@ public class User {
 	private boolean userPictureExist;
 	private String userPictureSavedName;
 	private String stampRegisterDay;
-	private String lo;
-	
-	public String getLo() {
-		return lo;
-	}
-
-	public void setLo(String lo) {
-		this.lo = lo;
-	}
 
 	///1:M관계 형성 필드
 	private String[] userSkill;
@@ -67,11 +58,11 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getUserStatus() {
+	public boolean isUserStatus() {
 		return userStatus;
 	}
 
-	public void setUserStatus(String userStatus) {
+	public void setUserStatus(boolean userStatus) {
 		this.userStatus = userStatus;
 	}
 
