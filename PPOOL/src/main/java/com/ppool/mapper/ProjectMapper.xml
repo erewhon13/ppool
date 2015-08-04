@@ -132,6 +132,84 @@
 	</update>
 	
 	<!-- ***************** 프로젝트 삭제 ***************** -->
+	
+	<select id="searchProject" parameterType="java.util.HashMap" resultType="int">
+		SELECT DISTINCT po.projectno 
+		FROM projects po
+			INNER JOIN projectskill sk
+				ON po.projectno = sk.projectno
+			INNER JOIN projectlocation lo 
+				ON po.projectno=lo.projectno 
+
+			
+				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
+					sk.skillno = #{skill.valus}
+				</foreach>
+				<!-- <foreach collection="locations" item="location" index="index" open=" and " separator=" and ">
+					lo.locationno = 3
+				</foreach> 
+ -->
+	</select>
+	
+	
+	 <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
+		SELECT DISTINCT po.projectno 
+		FROM projects po
+			INNER JOIN projectskill sk
+				ON po.projectno = sk.projectno
+				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
+					sk.skillno = #{skill}
+				</foreach>
+	
+	</select> 
+	<!-- <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
+		SELECT DISTINCT po.projectno 
+		FROM projects po
+			INNER JOIN projectskill sk
+				ON po.projectno = sk.projectno
+				<foreach collection="skill" item="ski" index="index" open=" WHERE " separator=" and ">
+					sk.skillno = #{ski}
+				</foreach>
+	
+	</select> -->
+	
+	<select id="searchProject3" parameterType="java.util.List" resultType="int">
+		SELECT DISTINCT po.projectno 
+		FROM projects po
+			INNER JOIN projectskill sk
+				ON po.projectno = sk.projectno
+		<foreach collection="list" item="params" >
+			<foreach collection="params" item="skills">
+				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
+					sk.skillno = #{skill}
+				</foreach>
+			</foreach>
+		</foreach>
+	
+	</select>
+	
+	 <select id="searchProject4" parameterType="java.util.List" resultType="int">
+		SELECT DISTINCT po.projectno 
+		FROM projects po
+			INNER JOIN projectskill sk
+				ON po.projectno = sk.projectno
+		<foreach collection="skill" index="index" open=" WHERE " separator=" and ">
+			sk.skillno = #{skill}
+		</foreach>
+	
+	</select> 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 <!-- 프로젝트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	
 	

@@ -28,7 +28,7 @@
 		$('#search').click(function() {
 			$('#searchfield').submit();
 		});
-	});
+	})
 </script>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />

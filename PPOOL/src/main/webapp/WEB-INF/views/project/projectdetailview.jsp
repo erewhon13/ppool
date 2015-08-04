@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-	<script src='/ppool/resources/js/projectcomment.js'></script>
+	<script src='/ppool/resources/js/projectdetail.js'></script>
 	
 	<script type="text/javascript">
 	$(document).ready(function (){
@@ -60,6 +60,10 @@
 		$('.skill input, .location input').attr('disabled','disabled');
 		
 	});//ready
+	
+	
+	
+	
 	
 	////////////////////////////////////////////////////////// 신고기능
 	
@@ -110,9 +114,9 @@
 			//var form=$('#reportform').serialize();
 			
 			 if ( valid ) {
-				 $("#reportform").submit();
-		        dialog.dialog( "close" );
-		      } 
+				// $("#reportform").submit();
+		       
+		     
 				 //$(location).attr('href','insertreport.action?'+form);
 				/*  $("#reportform").submit(); */
 				
@@ -133,6 +137,7 @@
 							alert('오류');
 						}				
 					})
+			 }
 							        
 		      return valid; 
 		}

@@ -16,14 +16,19 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 
-<script type="text/javascript">
-	
+<script type="text/javascript">	
 	$(document).ready(function (){
 		$('#writer').click(function(){
 			$(location).attr("href", "/ppool/notificationwriteform.action");
 		});
-	});
-		
+	});	
+	</script>
+<script type="text/javascript">	
+	$(document).ready(function (){
+		$('#writer2').click(function(){
+			$(location).attr("href", "/ppool/registeradminform.action");
+		});
+	});	
 	</script>
 <title>목록보기</title>
 </head>
@@ -63,6 +68,9 @@
 				<div style="width: 83%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 				</div>
+				<!-- <div style="width: 83%;" align="right">
+					<img src="/ppool/resources/images/writer.png" id="writer2" style="cursor: pointer;">
+				</div> -->
 			</form>
 		</div>
 	</div>

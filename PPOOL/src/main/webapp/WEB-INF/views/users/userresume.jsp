@@ -34,7 +34,7 @@
 		margin:10px;
 		}
 		
-		    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+		input.text { margin-bottom:12px; width:95%; padding: .4em; }
 
 </style>
  
@@ -1004,10 +1004,10 @@
 							<table id="users2"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육과정</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육기관명</td>
-											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">교육기간</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육과정</td>
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육기관명</td>
+											<td style="width:50%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">교육기간</td>
+											<td style="width:10%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
 										</tr>
 								</thead>
 									<c:forEach var="resumeEducation" items="${resumeEducations}">

@@ -1,5 +1,6 @@
 package com.ppool.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -127,6 +128,29 @@ public class OracleProjectRepository implements ProjectRepository {
 	@Override
 	public void commentUpdate(ProjectComment comment) {
 		projectMapper.commentUpdate(comment);
+	}
+
+	@Override
+	public int[] searchProject(HashMap<String, Object> params) {
+		int[] nos = projectMapper.searchProject(params);
+		return nos;
+	}
+
+	@Override
+	public int[] searchProject2(int[] skill) {
+		int[] nos = projectMapper.searchProject2(skill);
+		return nos;
+	}
+
+	@Override
+	public int[] searchProject3(List<HashMap<String, Object>> list) {
+		int[] nos = projectMapper.searchProject3(list);
+		return nos;
+	}
+
+	@Override
+	public void searchProject4(List<ArrayList<String>> ll) {
+		projectMapper.searchProject4(ll);
 	}
 
 }
