@@ -33,7 +33,7 @@
 
 	<div id="personaldata">
 		<div align="center">
-			<table>
+			<table style="width: 100%">
 				<caption>회원정보</caption>
 				<tr>
 					<th>기본</th>
