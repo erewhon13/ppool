@@ -152,7 +152,7 @@
 	</select>
 	
 	
-	 <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
+	 <!-- <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
 		SELECT DISTINCT po.projectno 
 		FROM projects po
 			INNER JOIN projectskill sk
@@ -161,7 +161,7 @@
 					sk.skillno = #{skill}
 				</foreach>
 	
-	</select> 
+	</select> --> 
 	<!-- <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
 		SELECT DISTINCT po.projectno 
 		FROM projects po
