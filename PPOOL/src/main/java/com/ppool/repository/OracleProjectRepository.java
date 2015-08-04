@@ -122,4 +122,9 @@ public class OracleProjectRepository implements ProjectRepository {
 		projectMapper.commentDelete(commentNo);
 	}
 
+	@Override
+	public void commentUpdate(ProjectComment comment) {
+		projectMapper.commentUpdate(comment);
+	}
+
 }

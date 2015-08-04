@@ -149,4 +149,9 @@ public class FinalProjectService implements ProjectService {
 		projectRepository.commentDelete(commentNo);
 	}
 
+	@Override
+	public void commentUpdate(ProjectComment comment) {
+		projectRepository.commentUpdate(comment);
+	}
+
 }

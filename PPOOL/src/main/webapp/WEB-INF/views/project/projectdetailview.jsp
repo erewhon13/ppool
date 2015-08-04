@@ -484,17 +484,17 @@
         			<td class="yescomment">
 						<div class="c_name" >${comment.userName }</div>
 						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br/>')}</div>
+						<form id="fo${comment.commentNo}">
 						<textarea id="b${comment.commentNo}" class="b" 
 								name="commentContent">${comment.commentContent }</textarea>
+						<input type="hidden" name="commentNo" value="${comment.commentNo}"/>		
 						<br/>
 						
+						</form>
 						<f:formatDate value="${ comment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
 						<div class="c_regi" >${registerday}</div>
 	        			<div class="sele" id="aa${comment.commentNo}">
 	        				<c:if test="${loginuser.userNo eq comment.userNo }">
-		        				<form id="fo${comment.commentNo}">
-		        					<input type="hidden" name="commentNo" value="${comment.commentNo}"/>
-		        				</form>
 		        				<input type="button" class="ed_bt" id="ed${comment.commentNo}" value="편집"/>&nbsp;
 		        				<input type="button" class="de_bt" id="de${comment.commentNo}" value="삭제"/>&nbsp;
 		        				<input type="button" class="re_bt" value="댓글"/>

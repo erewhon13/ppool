@@ -34,4 +34,5 @@ public interface ProjectRepository{
 	ProjectComment getCommentsByCommentNo(int commentNo);
 	void commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
+	void commentUpdate(ProjectComment comment);
 }

@@ -30,5 +30,6 @@ public interface ProjectService {
 	///////////////코멘트//////////////////////
 	void commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
+	void commentUpdate(ProjectComment comment);
 	
 }
