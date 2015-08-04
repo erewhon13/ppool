@@ -10,6 +10,7 @@ import com.ppool.dto.Project;
 import com.ppool.dto.ProjectComment;
 
 public interface ProjectMapper {
+	///////////////////////////프로젝트///////////////////////////////
 	void projectRegister(Project project);
 	List<Project> getProjectList();
 	Project getProjectByProjectNo(int projectNo);
@@ -19,7 +20,8 @@ public interface ProjectMapper {
 	void projectLocationDelete(int projectNo);
 	void projectSkillDelete(int projectNo);
 	void projectModify(Project project);
-	/////////////////북마크///////////////////////////////
+	
+	///////////////////////////북마크///////////////////////////////
 	//북마크 등록
 	void projectBookmarks(HashMap<String, Object> params);
 	//북마크 목록
@@ -30,10 +32,11 @@ public interface ProjectMapper {
 	void projectBookmarkDelete(int projectNo);
 	////////////////////////////////////////////////////////
 	
-	///////////////코멘트//////////////////////
+	////////////////////////////코멘트////////////////////////////
 	List<ProjectComment> getCommentsByProjectNo(int projectNo);
-	ProjectComment getCommentsByCommentNo(int commentNo);
+	ProjectComment getCommentByCommentNo(int commentNo);
 	void commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
+	void commentUpdate(ProjectComment comment);
 	
 }

@@ -42,8 +42,10 @@ $(document).ready(function (){
 						$('.nocomment').css("display", "none");
 						
 						addEditListener(tr.find(".ed_bt"));
+						okListener(tr.find(".ok_bt"));
 						cancelListener(tr.find(".ca_bt"));
 						deleteListener(tr.find(".de_bt"));
+						commentReplyListener(tr.find(".re_bt"));
 					}
 				},
 				error : function(xhr, status, error) {
@@ -73,8 +75,38 @@ $(document).ready(function (){
 		})
 	}
 	
+	function okListener(target){
+		$(target).click(function(){
+			var result = confirm('댓글을 수정하시겠습니까?');
+			if(result) {
+				var no = $(this).attr("id").substr(2);
+				var form = $('#fo'+no).serialize();
+			
+				$.ajax({
+					url : "/ppool/commentupdate.action",
+					async : true,
+					method : "POST",
+					data : form,
+					success : function(result) {
+						if (result != "delete") {
+							alert('수정 실패!');
+							console.log(data);
+						} else { 
+							alert('수정 성공!');
+	//						$('#commentcontent').val("");
+	//						var tr = $(result.substr(result.indexOf("<tr>")));
+	//						$('#td'+no).css("display", "none");
+						}
+					},
+					error : function(xhr, status, error) {
+						alert('에러발생!!');
+					}
+				});//ajax
+			}
+		})
+	}
+	
 	function cancelListener(target){
-		
 		$(target).click(function(){
 			var no = $(this).attr("id").substr(2);
 			$('#b'+no).val($("#a"+no).text().trim());
@@ -116,10 +148,18 @@ $(document).ready(function (){
 			}
 		})
 	}
+	
+	function commentReplyListener(target){
+		$(target).click(function(){
+			alert('미구현')
+		})
+	}
+	
 
 	addEditListener(".ed_bt");
+	okListener(".ok_bt");
 	cancelListener(".ca_bt");
 	deleteListener(".de_bt");
-	
+	commentReplyListener(".re_bt")
 });
 

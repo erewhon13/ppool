@@ -30,8 +30,8 @@ public class FinalHistoryService implements HistoryService{
 	}
 
 	@Override
-	public List<History> getHistoryList() {
-		List<History> histories=historyRepository.selectHistoryList();
+	public List<History> getHistoryList(int userNo) {
+		List<History> histories=historyRepository.selectHistoryList(userNo);
 		
 		for (History history:histories){
 			history.setStartDay(ChangeWord.dateToString(history.getHistoryStartDay()));

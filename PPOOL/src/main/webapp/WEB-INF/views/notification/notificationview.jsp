@@ -34,8 +34,8 @@
 						</tr>
 						<br />
 						<tr>
-							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147;">제목</th>
-							<td style="text-align: left;font-size: 13pt;"> 
+							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">제목</th>
+							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0""> 
 								${ notification.notificationTitle }
 								
 							</td>
@@ -59,7 +59,7 @@
 						
 					</table>
 					
-					<div style='margin-right: -89%;'>
+					<div style='margin-right: -69%;'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
         				</c:url>

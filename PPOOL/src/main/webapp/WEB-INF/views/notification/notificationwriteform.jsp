@@ -24,10 +24,10 @@
 		<div align="center" style="margin-top: 4%" >
 			<div id="pageContainer">	
 				<form id="writeform" action="notificationwrite.action" method="post">
-				<table style="border: ridge;">
+				<table style="border: ridge; margin-left: 129px">
 				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">글쓰기</caption>
 					<tr>
-						<th bgcolor="#FF9147" style="font-size: 14pt"  >제목</th>
+						<th bgcolor="#FF9147" style="font-size: 14pt; width: 140px"  >제목</th>
 						<td>
 							<input type="text" name="notificationTitle" style="width:702px; font-size: 14pt" />
 						</td>
@@ -54,7 +54,7 @@
 				</table>
 				<br />
 				<div class="buttons">	        	
-					<input type='submit' value='등록' style='height:30px; margin-left: 300px' />
+					<input type='submit' value='등록' style='height:30px; margin-left: 450px' />
 					&nbsp;&nbsp;
 					<input type="button" value="취소" style="height: 30px" 
 						onclick="location.href='notificationlist.action';"/>

@@ -6,6 +6,7 @@
 <success/>
 <link rel="stylesheet" href="resources/css/project.css" />
 
+<% pageContext.setAttribute("enter", "\n"); %>
 <tr id="td${newComment.commentNo}">
 	<td class="yescomment">
 		<div class="c_name" >${newComment.userName }</div>

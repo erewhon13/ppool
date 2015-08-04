@@ -1,6 +1,6 @@
 
 #cssmenu {
-	background: #FF9147;
+	background: #002E8A;
 	height: 50px;
 }
 #cssmenu ul{
@@ -13,14 +13,14 @@
 	float: left;
 }
 #cssmenu ul li a{
-	background-color: #FF9147;
+	background-color: #002E8A;
 	color:white;
 	width: 5px;
 }
 #cssmenu a:link {
     display: block;
     width: 120px;
-    background-color: #FF9147;
+    background-color: #002E8A;
     text-align: center;
     padding: 14px;
 }

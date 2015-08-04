@@ -104,6 +104,9 @@ $(document).ready(function (){
 			$('#projectendday').focus();
 			return;
 		}
-		$('#submitForm').submit();
+		var result = confirm('글을 작성하시겠습니까?');
+		if(result){
+			$('#submitForm').submit();
+		}
 		return;
 	}

@@ -36,8 +36,8 @@ public class OracleHistoryRepository implements HistoryRepository{
 
 
 	@Override
-	public List<History> selectHistoryList() {
-		List<History> histories=historyMapper.getHistoryList();
+	public List<History> selectHistoryList(int userNo) {
+		List<History> histories=historyMapper.getHistoryList(userNo);
 		return histories;
 	}
 

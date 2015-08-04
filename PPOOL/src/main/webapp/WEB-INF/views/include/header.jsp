@@ -9,6 +9,8 @@
 	<div id="logo" >
 		<img src="/ppool/resources/images/ppoollogo.png"
 			onclick="location.href='/ppool/home.action'" style="width:250px; margin-left: 2%;">
+			<img src="/ppool/resources/images/ppoollogo2.png"
+			 style="width:400px;  margin-bottom:2px; ">
 	</div>
 </div>
 <div id="cast">
@@ -57,7 +59,7 @@
 
 					<li><a href='/ppool/resume.action?userNo=${loginuser.userNo}'>이력/경력사항
 							관리</a></li>
-					<li><a href='/ppool/historylist.action'>프로젝트이력등록</a></li>
+					<li><a href='/ppool/historylist.action?userNo=${loginuser.userNo}'>프로젝트이력등록</a></li>
 					<li><a
 						href='/ppool/projectbookmarklist.action?userNo=${loginuser.userNo }'>북마크
 							리스트</a></li>

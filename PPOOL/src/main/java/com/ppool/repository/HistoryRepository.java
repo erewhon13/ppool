@@ -10,7 +10,7 @@ public interface HistoryRepository {
 	
 	int insertHistory(History history);
 	void insertHistoryFile(HistoryUploadFile file);
-	List<History> selectHistoryList();
+	List<History> selectHistoryList(int userNo);
 	History getHistoryByHistoryNo(int historyNo);
 	HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo);
 	void updateHistory(History history);

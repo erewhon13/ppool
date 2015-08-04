@@ -57,11 +57,11 @@
 								<tbody>
 						
 										<tr>
-											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20" >순번</td>
-											<td style="width:30%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">프로젝트명</td>
-											<td style="width:20%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">역할</td>
-											<td style="width:15%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">공개</td>
-											<td style="width:20%; color: white;" align="center"  bgcolor="#FF9147" height="40" width="20">수행기간</td>
+											<td style="width:15%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20" >순번</td>
+											<td style="width:30%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">프로젝트명</td>
+											<td style="width:20%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">역할</td>
+											<td style="width:15%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">공개</td>
+											<td style="width:20%; color: black;" align="center"  bgcolor="#002E8A" height="40" width="20">수행기간</td>
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">

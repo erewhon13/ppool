@@ -9,7 +9,7 @@ import com.ppool.dto.HistoryUploadFile;
 public interface HistoryService {
 	int insertHistory(History history);
 	void insertHistoryFile(HistoryUploadFile file);
-	List<History> getHistoryList();
+	List<History> getHistoryList(int userNo);
 	History getHistoryByHistoryNo(int historyNo);
 	HistoryUploadFile getHistoryUploadFileByUploadFileNo(int uploadFileNo);
 	void updateHistory(History history);

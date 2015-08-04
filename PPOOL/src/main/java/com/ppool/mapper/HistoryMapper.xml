@@ -50,9 +50,10 @@
 	</insert>
 	
 	<!-- pager없는 list -->
-	<select id="getHistoryList" resultType="History">
+	<select id="getHistoryList" parameterType="int" resultType="History">
 		SELECT HISTORYNO, HISTORYOPENED, HISTORYTITLE, HISTORYSTARTDAY, HISTORYENDDAY, HISTORYWORK
 		FROM HISTORY
+		WHERE USERNO = #{userNo}
 	</select>
 	
 	<!-- pager 있는 list -->
