@@ -29,26 +29,26 @@
 					<table style=" width: 72%; border:groove;margin-left:100px; ">
 						<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">상세보기</caption>
 						<tr>
-							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147"  >번호</th>
+							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3"   >번호</th>
 							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0;">${ notification.notificationNo }</td>
 						</tr>
 						<br />
 						<tr>
-							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">제목</th>
+							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3">제목</th>
 							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0""> 
 								${ notification.notificationTitle }
 								
 							</td>
 						</tr>
 						<tr>
-							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">작성일</th>
+							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3">작성일</th>
 							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0">
 								${ notification.stampRegisterDay }
 							</td>
 						</tr>
 
 						<tr>
-							<th style="width: 100; font-size: 15pt" bgcolor="#FF9147">내용</th>
+							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3">내용</th>
 							<td style="width: 85%" colspan="3">
 								<textarea name="projectContent" id="projectcontent" rows="20" 
 									style="max-height: 400px;width:99%;resize:none;font-size: 14pt;" readonly="readonly;">${ notification.notificationContent }</textarea>
@@ -59,7 +59,7 @@
 						
 					</table>
 					
-					<div style='margin-right: -69%;'>
+					<div style='margin-left: 1100px'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
         				</c:url>

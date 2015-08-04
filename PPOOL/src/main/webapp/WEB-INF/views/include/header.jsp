@@ -29,7 +29,7 @@
 				<form action="userlogin.action" method="POST">
 					<div id="email">
 						<label>이메일 : </label><input type="text" id="userEmail"
-							name="userEmail" />
+							name="userEmail"/>
 					</div>
 					<div id="passwd">
 						<label>비밀번호 : </label><input type="password" id="userPasswd"

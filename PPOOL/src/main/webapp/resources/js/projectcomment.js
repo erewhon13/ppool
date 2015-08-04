@@ -56,7 +56,6 @@ $(document).ready(function (){
 	});	//click 함수
 	
 	function addEditListener(target){
-		
 		$(target).click(function(){
 			var no = $(this).attr("id").substr(2);
 			var hei = $('#a'+no).height();
@@ -74,28 +73,30 @@ $(document).ready(function (){
 			$('#bb'+no).css('display', 'block');
 		})
 	}
-	
 	function okListener(target){
 		$(target).click(function(){
 			var result = confirm('댓글을 수정하시겠습니까?');
 			if(result) {
 				var no = $(this).attr("id").substr(2);
 				var form = $('#fo'+no).serialize();
-			
 				$.ajax({
 					url : "/ppool/commentupdate.action",
 					async : true,
 					method : "POST",
 					data : form,
 					success : function(result) {
-						if (result != "delete") {
+						if (result != "update") {
 							alert('수정 실패!');
 							console.log(data);
 						} else { 
 							alert('수정 성공!');
-	//						$('#commentcontent').val("");
-	//						var tr = $(result.substr(result.indexOf("<tr>")));
-	//						$('#td'+no).css("display", "none");
+							$('#a'+no).html($('#b'+no).val().replace(/\n/g, "<br/>"));
+							
+							$('#a'+no).css('display', 'block');
+							$('#aa'+no).css('display', 'block');
+							$('#b'+no).css('display', 'none');
+							$('#bb'+no).css('display', 'none');
+							
 						}
 					},
 					error : function(xhr, status, error) {
@@ -136,9 +137,8 @@ $(document).ready(function (){
 							console.log(data);
 						} else { 
 							alert('삭제 성공!');
-							$('#commentcontent').val("");
-							var tr = $(result.substr(result.indexOf("<tr>")));
-							$('#td'+no).css("display", "none");
+							var tr = $(result.substr(result.indexOf("<tr")));
+							$('#tr'+no).css("display", "none");
 						}
 					},
 					error : function(xhr, status, error) {
@@ -154,12 +154,11 @@ $(document).ready(function (){
 			alert('미구현')
 		})
 	}
-	
 
 	addEditListener(".ed_bt");
 	okListener(".ok_bt");
 	cancelListener(".ca_bt");
 	deleteListener(".de_bt");
-	commentReplyListener(".re_bt")
+	commentReplyListener(".re_bt");
 });
 

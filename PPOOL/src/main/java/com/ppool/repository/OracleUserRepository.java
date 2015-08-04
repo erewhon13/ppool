@@ -65,4 +65,9 @@ public class OracleUserRepository implements UserRepository {
 		userMapper.userSkillDelete(userNo);
 		
 	}
+
+	@Override
+	public void userStatusUpdate(HashMap<String, Object> params) {
+		userMapper.userStatusUpdate(params);
+	}
 }
