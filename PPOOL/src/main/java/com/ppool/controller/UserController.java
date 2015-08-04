@@ -123,6 +123,7 @@ public class UserController {
 	@RequestMapping(value = "userinfoupdateform.action", method = RequestMethod.GET)
 	public ModelAndView userInfoUpdateForm(int userNo) {
 		User user = userService.userInfo(userNo);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		ModelAndView mav = new ModelAndView();
 		// user.getUserLocation() 배열을 스트링으로 변환하는 작업
 		String locations = StringUtils.collectionToCommaDelimitedString(Arrays
@@ -132,6 +133,8 @@ public class UserController {
 		mav.addObject("locations", locations);
 		mav.addObject("skills", skills);
 		mav.addObject("user", user);
+		mav.addObject("date",sdf.format(user.getUserBirth()));
+
 		mav.setViewName("users/userinfoupdateform");
 		return mav;
 	}

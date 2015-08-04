@@ -11,23 +11,24 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
 #side{
 	text-align:center;
 	float: left;
 	width: 20%;
-	margin-top: 4%;
+	margin-top: 90px;
 }
 #sidelogin{
-	height: 150px;
+	height: 80px;
+	background-color: #FF9147;
 }
 #sidelogin ul li{
 	display: inline-block;
 	text-align: center;
-	margin-right: 35px;
+	margin-right: 35px;	
 }
 
 #sidebottom img{
-	margin-top : 10px;
 	width: 252px;
 }
 

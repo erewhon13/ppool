@@ -52,14 +52,14 @@
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr style="font-size: 15pt; background-color: #c0c0c0" class="even" id="${project.projectNo}" style="cursor: pointer;" ></c:when>
 				</c:choose>
 					
-					<td class="projectno" style="text-align: center; font-size: 17pt">${project.projectNo}</td>
+					<td class="projectno" style="text-align: center; font-size: 14pt">${project.projectNo}</td>
 					<td style="font-size: 12pt" class="date" style="text-align: center;">
 						<f:formatDate value="${ project.projectStartDay}" pattern="yy년 MM월 dd일" var="start"/>
 						<f:formatDate value="${ project.projectEndDay}" pattern="yy년 MM월 dd일" var="end"/>
 						${start} ~ <br/> ${end}
 					</td>
 					<td class="content" style="height: 60px;">[${project.projectTeamCount}명] ${project.projectTitle}<br/>${project.projectContent}</td>
-					<td class="location" style="text-align: center; font-size: 16pt">서울</td>
+					<td class="location" style="text-align: center; font-size: 14pt">서울</td>
 					
 					<c:choose>
 						<c:when  test="${project.projectStatus gt 0}">

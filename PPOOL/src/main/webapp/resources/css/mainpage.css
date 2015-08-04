@@ -8,13 +8,14 @@
 
 #main {
 	text-align: center;
-	margin-top: 4%;
+	margin-top: 90px;
 	height: 500px;
 	/* 	margin-left: 5%;
 	margin-right: 5%; */
 	font-family: 'Nanum Gothic', serif;
 }
-#user ul li{
+
+#user ul li {
 	display: block;
 }
 
@@ -46,18 +47,21 @@
 	margin-right: 5%;
 	margin-top: 3%;
 }
+
 #location {
-	border:solid 1px;
-	float:left;
+	border: solid 1px;
+	float: left;
 	width: 20%;
 	height: 70px;
 }
-#skill{
-	border:solid 1px;
-	float:left;
+
+#skill {
+	border: solid 1px;
+	float: left;
 	width: 20%;
 	height: 70px;
 }
+
 .userlocation ul li {
 	display: inline;
 }
@@ -90,13 +94,16 @@
 	float: right;
 	margin-top: 4%;
 }
+
 #personaldata th {
 	background-color: #FF9147;
 	color: white;
 }
-#test{
+
+#test {
 	margin: 0 auto;
 }
+
 #passwd {
 	display: inline;
 }
@@ -114,4 +121,13 @@ a:link {
 a:visited {
 	text-decoration: none;
 	color: #333333;
+}
+
+caption {
+	font-weight: 700;
+	font-size: 20px;
+	padding: 5px;
+	color: #1BA6B2;
+	text-align: left;
+	margin-bottom: 5px
 }

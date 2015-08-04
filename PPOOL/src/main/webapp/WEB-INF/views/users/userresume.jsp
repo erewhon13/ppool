@@ -37,7 +37,7 @@
 		    input.text { margin-bottom:12px; width:95%; padding: .4em; }
 
 </style>
-
+ 
 <script type="text/javascript">
   	
 	$(document).ready(function (){
@@ -45,31 +45,55 @@
 		$('#writer').click(function(){
 			$("#form123").submit()
 		});
+		
+		$('#editIntroduction').click(function(){
+			$("#").submit()
+		});
+		
+		function mySubmit(index){
+			if(index==1){
+				document.form123.action="resumeintroduction.action";
+				document.form123.submit();
+			}
+			else if(index==2){
+				document.form123.action="editformresumeIntroduction.action";
+				document.form123.submit();
+			}
+			
+		}
+		
+		
+		
 	
 		$(".deleteSchool").click(function(){
   			var yes=confirm('삭제하시겠습니까?');
   			if(yes){
-				$('#deleteform').submit();
-  				//$(location).attr('href',"resumedelete.action?resumeSchoolNo=${resumeSchool.resumeSchoolNo}");
+  				var no = $(this).attr("id").substr(2);
+				//$('#deleteform').submit();
+  				$(location).attr('href',"resumeschooldelete.action?resumeSchoolNo="+no);
   			}
   		});
-		$("#deleteEducation").click(function(){
+		
+		$(".deleteEducation").click(function(){
   			var yes=confirm('삭제하시겠습니까?');
   			if(yes){
-  				$(location).attr('href',"resumeeducationdelete.action?resumeEudcationNo=");
+  				var no = $(this).attr("id").substr(2);
+  				$(location).attr('href',"resumeeducationdelete.action?resumeEducationNo="+no);
   			}
   		});
-		$("#deleteLicense").click(function(){
+		$(".deleteLicense").click(function(){
   			var yes=confirm('삭제하시겠습니까?');
   			if(yes){
-  				$(location).attr('href',"resumelicensedelete.action?resumeLicenseNo=${resumeSchool.resumeLicenseNo}");
+  				var no = $(this).attr("id").substr(2);
+  				$(location).attr('href',"resumelicensedelete.action?resumeLicenseNo="+no);
   			}
   		});
   
-		$("#deleteLanguage").click(function(){
+		$(".deleteLanguage").click(function(){
   			var yes=confirm('삭제하시겠습니까?');
   			if(yes){
-  				$(location).attr('href',"resumelanguagedelete.action?resumeLanguageNo=${resumeLanguage.resumeLanguageNo}");
+  				var no = $(this).attr("id").substr(2);
+  				$(location).attr('href',"resumelanguagedelete.action?resumeLanguageNo="+no);
   			}
   		});
 		
@@ -885,7 +909,7 @@
 <div>
 <form id="deleteform" action="/ppool/resumeschooldelete.action" method="POST">
 			<input type="hidden" name="resumeSchoolNo" value="${resumeSchool.resumeSchoolNo }"/>
-			
+			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 </form>
 </div>
 
@@ -930,10 +954,10 @@
 							<table id="users"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
-											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">기간</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
+											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
+											<td style="width:50%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">기간</td>
+											<td style="width:10%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
 										</tr>
 								</thead>
 								
@@ -998,7 +1022,7 @@
 													<c:if test="${resumeEducation ne null}">
 																<td>
 																	<input type="button" class="editEducation"  id="s1${resumeEducation.resumeEducationNo}" value="수정">
-																	<input type="button" class="deleteEducation" value="삭제">
+																	<input type="button" class="deleteEducation" id="s1${resumeEducation.resumeEducationNo}" value="삭제">
 																</td>
 													</c:if>
 										</tr>
@@ -1042,7 +1066,7 @@
 											 	<c:if test="${resumeLicense ne null}">
 														<td>
 																<input type="button" class="editLicense"  id="s1${resumeLicense.resumeLicenseNo}" value="수정">
-																<input type="button" class="deleteLicense" value="삭제">
+																<input type="button" class="deleteLicense"  id="s1${resumeLicense.resumeLicenseNo}" value="삭제">
 														</td>
 												</c:if>
 										</tr>
@@ -1079,7 +1103,7 @@
 												<c:if test="${resumeLanguage ne null}">
 														<td>
 																<input type="button" class="editLanguage"  id="s1${resumeLanguage.resumeLanguageNo}" value="수정">
-																<input type="button" class="deleteLanguage" value="삭제">
+																<input type="button" class="deleteLanguage" id="s1${resumeLanguage.resumeLanguageNo}"  value="삭제">
 														</td>
 												</c:if>
 									   </tr>
@@ -1087,22 +1111,22 @@
 								 </c:forEach>
 							</table>		
 					</div>
-					
+					 
 					<hr border-top:1px solid />
 					<td style="padding-bottom:3px; float:left;" >
 					2.자기소개서
 					</td>
 			<c:set var="resumeIntroduction" value="${resumeIntroductions}"/>		
-				<form id="form123" action="resumeintroduction.action" method="post" >
+				<form id="form123" name="form123" method="post" >
 					<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<div style="margin-top:10px">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td bgcolor="#EEF8F3" style="padding:8px 0 8px 0" align="center" >
-									
-										<textarea name="resumeIntroduction"  id="resumeIntroduction" style="width:665px; height:200px; font-size:9pt;
-																	border:1px #DADADA solid; background:#FFFFFF; ">
-																	${resumeIntroduction.resumeIntroduction}
+										<textarea name="resumeIntroduction"  id="resumeIntroduction" 
+														style="width:665px; height:200px; font-size:9pt;
+														border:1px #DADADA solid; background:#FFFFFF; ">
+											${resumeIntroduction.resumeIntroduction}
 									    </textarea>
 								</td>
 							</tr>
@@ -1112,16 +1136,21 @@
 						<table>
 							<tr>
 								<td height="65" align="center">
-								<input type="button" value="등록하기" id="writer" style="cursor: pointer;">
-								
-									<input type="button" value="취소"
-										onclick="location.href='resume.action';">
+								<c:choose>
+									<c:when test="${resumeIntroduction.resumeIntroduction eq null }">
+										<input type="button" value="등록하기" onclick="mySubmit(1);" style="cursor: pointer;">
+									</c:when>
+									<c:otherwise>
+										<input type="button" value="수정하기"  onclick="mySubmit(2);" style="cursor: pointer;">
+									</c:otherwise>
+								</c:choose>
+									<input type="button" value="취소" onclick="location.href='home.action';">
 								</td>
 							</tr>
 						</table>
 					</div>
 				</form>
-				</div>
+			</div>
 		</div>
 				
 </body>

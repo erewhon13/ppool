@@ -159,5 +159,11 @@
 		where resumeLanguageNo=#{resumeLanguageNo}
 	</update>
 	
+	<update id="updateResumeIntroduction" parameterType="ResumeIntroduction">
+		UPDATE ResumeIntroduction
+		set resumeIntroduction=#{resumeIntroduction}
+		where resumeIntroductionNo=#{resumeIntroductionNo}
+	</update>
+	
 	 
 </mapper>
