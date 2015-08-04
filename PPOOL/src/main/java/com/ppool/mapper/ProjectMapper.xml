@@ -232,7 +232,7 @@
 			COMMENTNO_SEQUENCE.CURRVAL, 1, 1)
 	</insert>
 		<!-- ***************** 신규 코멘트 조회 ***************** -->
-		<select id="getCommentsByCommentNo" parameterType="int" resultMap="newComment">
+		<select id="getCommentByCommentNo" parameterType="int" resultMap="newComment">
 			SELECT 
 				COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
 				COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP, COMMENTCLOSED, COMMENTREGISTERDAY

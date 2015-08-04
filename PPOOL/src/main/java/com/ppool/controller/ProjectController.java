@@ -278,7 +278,7 @@ public class ProjectController {
 		projectService.commentRegister(comment);
 		int commentNo = comment.getCommentNo();
 
-		ProjectComment newComment = projectService.getCommentsByCommentNo(commentNo);
+		ProjectComment newComment = projectService.getCommentByCommentNo(commentNo);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("newComment", newComment);
@@ -299,7 +299,7 @@ public class ProjectController {
 		projectService.commentUpdate(comment);
 		int commentNo = comment.getCommentNo();
 		
-		ProjectComment newComment = projectService.getCommentsByCommentNo(commentNo);
+		ProjectComment newComment = projectService.getCommentByCommentNo(commentNo);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("newComment", newComment);
 		mav.setViewName("project/newcomment");
