@@ -19,8 +19,26 @@
 		});
 		
 		$('#search').click(function(){
-			$('#searchfield').submit();
+			var form = $('#searchfield').serialize();
+			$.ajax({
+				url : "/ppool/searchproject.action",
+				async : false,
+				method : "POST",
+				data : form,
+				success : function(result) {
+					if (result != "success") {
+						alert('검색 실패!');
+						console.log(data);
+					} else { 
+						alert('검색 성공!');
+					}
+				},
+				error : function(xhr, status, error) {
+					alert('에러 발생!!');
+				}
+			});
 		});
+			
 		$('#writer').click(function(){
 			if('${loginuser.userNo }' == ""){
 				alert('로그인 해주세요')
@@ -38,7 +56,7 @@
 <c:set var="projects" value="${projects }"/>
 
 <div  class="basic" ><br/>
-	<form id="searchfield" action="searchproject.action" method="POST">
+	<form id="searchfield" >
 	<table class="tech">
 	<caption>테스트</caption>
 		<tr>
@@ -134,8 +152,10 @@
 		</tr>
 	</table>
 	</form>
-	
-	<hr/>
+	<div class="selector">
+		<img src="/ppool/resources/images/search.png" id="search">
+		<img src="/ppool/resources/images/writer.png" id="writer">
+	</div>
 	<table class="list">
 			<tr class="head">
 				<th id="pno">글번호</th>
@@ -187,10 +207,7 @@
 			</c:forEach>
 	</table>
 	<br/>
-	<div class="selector">
-		<img src="/ppool/resources/images/search.png" id="search">
-		<img src="/ppool/resources/images/writer.png" id="writer">
-	</div>
+	
 </div>
 
 <c:import url="/WEB-INF/views/include/footer.jsp"/>

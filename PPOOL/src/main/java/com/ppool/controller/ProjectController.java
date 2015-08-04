@@ -1,14 +1,17 @@
 package com.ppool.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.tribes.group.interceptors.FragmentationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -282,19 +285,35 @@ public class ProjectController {
 	
 	
 	//////////////////미구현/////////////////////////////////////////
-	@RequestMapping(value="searchproject.action" ,method = RequestMethod.POST)
-	public ModelAndView searchProject(String[] skill, String[] location){
-		for (String string : skill) {
-			System.out.println(string);
+	@RequestMapping(value="searchproject.action", method = RequestMethod.POST)
+	public String searchProject(ArrayList<String> skill, ArrayList<String> location){
+		HashMap<String, Object> params = new HashMap<String, Object>(); 
+		params.put("skills", skill);
+		List<HashMap<String, Object>> list= new ArrayList<HashMap<String, Object>>();
+		list.add(params);
+		
+		List<ArrayList<String>> ll = new ArrayList<>();
+		ll.add(skill);
+		
+		//params.put("locations", location);
+		
+		for (String i : skill) {
+			System.out.println(i);
 		}
 		
-		for (String string : location) {
-			System.out.println(string);
-		}
 		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/projectlist.action");
-		return mav;
+		int[] nos = projectService.searchProject(params);
+		//int[] nos = projectService.searchProject2(skill);
+		//int[] nos = projectService.searchProject3(list);
+		projectService.searchProject4(ll);
+		
+//		for (int i : nos) {
+//			System.out.println(i);
+//		}
+		
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("redirect:/projectlist.action");
+		return "success";
 	}
 		
 		

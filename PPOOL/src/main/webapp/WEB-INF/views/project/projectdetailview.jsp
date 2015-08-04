@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-	<script src='/ppool/resources/js/projectcomment.js'></script>
+	<script src='/ppool/resources/js/projectdetail.js'></script>
 	
 	<script type="text/javascript">
 	$(document).ready(function (){
