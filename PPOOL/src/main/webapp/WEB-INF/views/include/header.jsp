@@ -51,17 +51,20 @@
 		</div>
 		<div id="sidemenu">
 			<ul>
-				<li><a href='#'><span>홈</span></a></li>
+				<li><a href='/ppool/home.action'><span>홈</span></a></li>
+				<li><a href='/ppool/notificationlist.action'>공지사항</a></li>
+				<c:if test="${loginuser ne null}">
 
-				<li><a href='/ppool/resume.action?userNo=${loginuser.userNo}'>이력/경력사항
-						관리</a></li>
-				<li><a href='/ppool/historylist.action'>프로젝트이력등록</a></li>
-				<li><a
-					href='/ppool/projectbookmarklist.action?userNo=${loginuser.userNo }'>북마크
-						리스트</a></li>
-				<c:if test="${uri eq '/ppool/userinfo.action'}">
+					<li><a href='/ppool/resume.action?userNo=${loginuser.userNo}'>이력/경력사항
+							관리</a></li>
+					<li><a href='/ppool/historylist.action'>프로젝트이력등록</a></li>
 					<li><a
-						href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
+						href='/ppool/projectbookmarklist.action?userNo=${loginuser.userNo }'>북마크
+							리스트</a></li>
+					<c:if test="${uri eq '/ppool/userinfo.action'}">
+						<li><a
+							href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
+					</c:if>
 				</c:if>
 			</ul>
 		</div>
