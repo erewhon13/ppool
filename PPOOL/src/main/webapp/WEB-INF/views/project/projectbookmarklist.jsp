@@ -35,7 +35,7 @@
 	<table class="ex1">
 		<caption>북마크목록</caption>
 		<thead>
-			<tr style="background-color: #FF9147">			
+			<tr style="background-color: #7d97d3">			
 				<th style="font-size: 17pt" scope="col">글번호</th>
 				<th style="font-size: 17pt" scope="col">프로젝트기간</th>
 				<th style="font-size: 17pt" scope="col">프로젝트정보</th>

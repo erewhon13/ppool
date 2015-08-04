@@ -28,14 +28,14 @@
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
 				<table  style="border: ridge;">
 				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
-					<tr>
-		                <th bgcolor="#FF9147" style="font-size: 14pt; width: 100pt">제목</th>
+					<tr style="color: #ffffff">
+		                <th bgcolor="#7d97d3" style="font-size: 14pt; width: 100pt;">제목</th>
 		                <td>
 		                	<input type="text" name="notificationTitle" style='width:702px; font-size: 13pt' value="${ notification.notificationTitle }" />
 		                </td>
 		            </tr>
-		            <tr>
-		                <th bgcolor="#FF9147" style="font-size: 14pt">내용</th>
+		            <tr style="color: #ffffff">
+		                <th bgcolor="#7d97d3" style="font-size: 14pt">내용</th>
 		                <td>
 							<textarea 
 		                    	name="notificationContent" style="width:702px; font-size: 13pt" 
