@@ -19,7 +19,8 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	margin-top: 90px;
 }
 #sidelogin{
-	height: 80px;
+	height: 90px;
+	border: ridge;
 }
 
 #sidelogin ul li{
@@ -45,6 +46,7 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	font-family: Raleway, sans-serif;
 	color: #ffffff;
 	text-align: center;
+	
 }
 
 #sidemenu ul ul {

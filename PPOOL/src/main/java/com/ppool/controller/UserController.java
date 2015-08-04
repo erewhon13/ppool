@@ -72,7 +72,9 @@ public class UserController {
 		params.put("userPasswd", Util.getHashedString(userPasswd, "SHA-1"));
 		User user = userService.userLogin(params);
 		if (user != null) {
-			mav.addObject("loginuser", user);
+			if (user.isUserStatus() == true) {
+				mav.addObject("loginuser", user);
+			}
 		}
 		// 리퍼러(referer)는 웹 브라우저로 월드 와이드 웹을 서핑할 때, 하이퍼링크를 통해서 각각의 사이트로 방문시 남는 흔적을
 		// 말한다.
@@ -133,7 +135,7 @@ public class UserController {
 		mav.addObject("locations", locations);
 		mav.addObject("skills", skills);
 		mav.addObject("user", user);
-		mav.addObject("date",sdf.format(user.getUserBirth()));
+		mav.addObject("date", sdf.format(user.getUserBirth()));
 
 		mav.setViewName("users/userinfoupdateform");
 		return mav;
@@ -194,15 +196,17 @@ public class UserController {
 		mav.setViewName("redirect:/userinfo.action?userNo=" + user.getUserNo());
 		return mav;
 	}
-	@RequestMapping(value="activeview.action",method=RequestMethod.GET)
-	public ModelAndView userActiveView(int userNo){
+
+	@RequestMapping(value = "activeview.action", method = RequestMethod.GET)
+	public ModelAndView userActiveView(int userNo) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("userNo",userNo);
+		mav.addObject("userNo", userNo);
 		mav.setViewName("users/useractive");
 		return mav;
 	}
-	@RequestMapping(value="approval.action",method=RequestMethod.POST)
-	public ModelAndView userActive(int userNo){
+
+	@RequestMapping(value = "approval.action", method = RequestMethod.POST)
+	public ModelAndView userActive(int userNo) {
 		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userNo", userNo);
