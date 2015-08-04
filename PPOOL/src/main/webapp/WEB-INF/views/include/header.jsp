@@ -25,8 +25,7 @@
 	</div>
 	<div id="side">
 		<div id="sidelogin">
-			<div id="topbar" class="nonelogined"
-				style='display : ${loginuser eq null ? "block" : "none"}'>
+			<div id="topbar" class="nonelogined" style='display : ${loginuser eq null ? "block" : "none"};'>
 				<form action="userlogin.action" method="POST">
 					<div id="email">
 						<label>이메일 : </label><input type="text" id="userEmail"
