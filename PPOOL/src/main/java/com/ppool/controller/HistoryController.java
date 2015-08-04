@@ -49,7 +49,7 @@ public class HistoryController {
 	
 	
 	@RequestMapping(value = "historylist.action", method = RequestMethod.GET)
-	public ModelAndView historyList(Integer pageNo) {
+	public ModelAndView historyList(int userNo) {
 		
 //		int pageSize = 10;
 //		
@@ -61,12 +61,12 @@ public class HistoryController {
 //
 //		int first = (pageNo - 1) * pageSize + 1;
 		
-		
+		System.out.println(userNo);
 		
 		ModelAndView mav = new ModelAndView();
 //		List<History> histories=historyService.historyList(first, first+pageSize);
 		
-		List<History> histories=historyService.getHistoryList();
+		List<History> histories=historyService.getHistoryList(userNo);
 		
 		mav.addObject("histories",histories);
 		//mav.addObject("paging",paging);
@@ -135,7 +135,7 @@ public class HistoryController {
 			}
 		}
 		
-		return "redirect:/historylist.action";
+		return "redirect:/historylist.action?userNo="+history.getUserNo();
 		
 	}
 	
