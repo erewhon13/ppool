@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-Mapper.dtd">
 
 <mapper namespace="com.ppool.mapper.ProjectMapper">
-	
+<!-- 프로젝트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	<!-- ***************** 프로젝트 등록 및 수정***************** -->
 	<insert id="projectRegister" parameterType="Project">
 		<selectKey keyProperty="projectNo" order="AFTER" resultType="int" >
@@ -132,42 +132,12 @@
 	</update>
 	
 	<!-- ***************** 프로젝트 삭제 ***************** -->
+<!-- 프로젝트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	
-	<!-- ***************** 코멘트 등록 ***************** -->
-	<insert id="commentRegister" parameterType="ProjectComment">
-		<selectKey keyProperty="commentNo" order="AFTER" resultType="int" >
-			SELECT COMMENTNO_SEQUENCE.CURRVAL FROM DUAL
-		</selectKey>
-		INSERT INTO COMMENTS
-			(COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
-			COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP)
-		VALUES
-			(COMMENTNO_SEQUENCE.NEXTVAL, #{projectNo}, #{userNo}, #{commentContent}, 
-			COMMENTNO_SEQUENCE.CURRVAL, 1, 1)
-	</insert>
-		<!-- ***************** 신규 코멘트 조회 ***************** -->
-		<select id="getCommentsByCommentNo" parameterType="int" resultMap="newComment">
-			SELECT 
-				COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
-				COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP, COMMENTCLOSED, COMMENTREGISTERDAY
-			FROM COMMENTS
-			WHERE commentno=#{commentNo}
-		</select>
-		
-		<resultMap id="newComment" type="ProjectComment">
-			<id column="commentno" property="commentNo"/>
-			<result column="projectno" property="projectNo"/>
-			<result column="userno" property="userNo"/>
-			<result column="commentcontent" property="commentContent"/>
-			<result column="commentgroupno" property="commentGroupNo"/>
-			<result column="commentstep" property="commentStep"/>
-			<result column="commentdepth" property="commentDepth"/>
-			<result column="commentclosed" property="commentClosed"/>
-			<result column="commentregisterday" property="commentRegisterDay"/>
-			<association column="userno" property="userName" select="getUserName"/>
-		</resultMap>
-	<!-- ***************** 코멘트 등록 ***************** -->
 	
+	
+	
+<!-- 북마크 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->		
 	<!-- ******************프로젝트 북마크 등록*************** -->
 	<insert id='projectBookmarks' parameterType='Project'>
 	<selectKey keyProperty="projectNo" order="AFTER" resultType="int" >
@@ -244,6 +214,46 @@
 		WHERE projectNo = #{projectNo}
 	</delete>
 	<!-- ******************************************************************* -->
+<!-- 북마크 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+<!-- 코멘트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
+	<!-- ***************** 코멘트 등록 ***************** -->
+	<insert id="commentRegister" parameterType="ProjectComment">
+		<selectKey keyProperty="commentNo" order="AFTER" resultType="int" >
+			SELECT COMMENTNO_SEQUENCE.CURRVAL FROM DUAL
+		</selectKey>
+		INSERT INTO COMMENTS
+			(COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
+			COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP)
+		VALUES
+			(COMMENTNO_SEQUENCE.NEXTVAL, #{projectNo}, #{userNo}, #{commentContent}, 
+			COMMENTNO_SEQUENCE.CURRVAL, 1, 1)
+	</insert>
+		<!-- ***************** 신규 코멘트 조회 ***************** -->
+		<select id="getCommentByCommentNo" parameterType="int" resultMap="newComment">
+			SELECT 
+				COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
+				COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP, COMMENTCLOSED, COMMENTREGISTERDAY
+			FROM COMMENTS
+			WHERE commentno=#{commentNo}
+		</select>
+		
+		<resultMap id="newComment" type="ProjectComment">
+			<id column="commentno" property="commentNo"/>
+			<result column="projectno" property="projectNo"/>
+			<result column="userno" property="userNo"/>
+			<result column="commentcontent" property="commentContent"/>
+			<result column="commentgroupno" property="commentGroupNo"/>
+			<result column="commentstep" property="commentStep"/>
+			<result column="commentdepth" property="commentDepth"/>
+			<result column="commentclosed" property="commentClosed"/>
+			<result column="commentregisterday" property="commentRegisterDay"/>
+			<association column="userno" property="userName" select="getUserName"/>
+		</resultMap>
+		<!-- ***************** 신규 코멘트 조회 ***************** -->
+	<!-- ***************** 코멘트 등록 ***************** -->
 	
 	<!-- *************************** 코멘트 삭제 ****************************** -->
 	<delete id="commentDelete" parameterType="int">
@@ -252,5 +262,14 @@
 	</delete>
 	<!-- ******************************************************************* -->
 	
+	<!-- *************************** 코멘트 수정 ****************************** -->
+	<update id="commentUpdate" parameterType="ProjectComment">
+		UPDATE comments
+		SET commentcontent = #{commentContent}
+		WHERE commentno = #{commentNo}
+	</update>
+	<!-- ******************************************************************* -->
+
+<!-- 코멘트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	
 </mapper>

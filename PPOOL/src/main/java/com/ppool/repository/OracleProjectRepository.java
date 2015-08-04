@@ -78,17 +78,6 @@ public class OracleProjectRepository implements ProjectRepository {
 		return comments;
 	}
 
-	@Override
-	public void commentRegister(ProjectComment comment) {
-		projectMapper.commentRegister(comment);
-	}
-
-	@Override
-	public ProjectComment getCommentsByCommentNo(int commentNo) {
-		ProjectComment newComment = projectMapper
-				.getCommentsByCommentNo(commentNo);
-		return newComment;
-	}
 
 	// 북마크 등록
 	@Override
@@ -117,9 +106,27 @@ public class OracleProjectRepository implements ProjectRepository {
 
 	}
 
+	
+	//////////////////////////////////////////////////////////////////////////////
+	@Override
+	public void commentRegister(ProjectComment comment) {
+		projectMapper.commentRegister(comment);
+	}
+
+	@Override
+	public ProjectComment getCommentByCommentNo(int commentNo) {
+		ProjectComment newComment = projectMapper.getCommentByCommentNo(commentNo);
+		return newComment;
+	}
+	
 	@Override
 	public void commentDelete(int commentNo) {
 		projectMapper.commentDelete(commentNo);
+	}
+
+	@Override
+	public void commentUpdate(ProjectComment comment) {
+		projectMapper.commentUpdate(comment);
 	}
 
 }

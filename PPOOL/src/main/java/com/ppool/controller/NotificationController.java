@@ -23,17 +23,18 @@ import com.ppool.service.ProjectService;
 
 @Controller
 public class NotificationController {
-	
+	//날자 변환
 	@InitBinder
 	protected void initBinder(WebDataBinder binder){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
-
+	//서비스 연결
 	@Autowired
 	@Qualifier("notificationService")
 	private NotificationService notificationService;
 
+	//공지사항 목록
 	@RequestMapping(value = "notificationlist.action", method = RequestMethod.GET)
 	public ModelAndView notificationList() {
 
@@ -47,7 +48,7 @@ public class NotificationController {
 	}
 	
 	
-
+	//글쓰기 양식 연결
 	@RequestMapping(value = "notificationwriteform.action", method = RequestMethod.GET)
 	public ModelAndView notificationWriteForm() {
 
@@ -56,13 +57,14 @@ public class NotificationController {
 
 		return mav;
 	}
+	//글쓰기
 	@RequestMapping(value = "notificationwrite.action", method = RequestMethod.POST)
 	public String insertNotification(@ModelAttribute Notification notification) {
 		
 		notificationService.insertNotification(notification);
 		return "redirect:/notificationlist.action";
 	}
-	
+	//상세보기
 	@RequestMapping(value = "notificationview.action", method = RequestMethod.GET)
 	public ModelAndView notificationView(int notificationNo) {
 		
@@ -74,17 +76,17 @@ public class NotificationController {
 		
 		return mav;
 	}
-	
+	//수정 양식 연결
 	@RequestMapping(value = "notificationeditform.action", method = RequestMethod.GET)
 	public ModelAndView notificationEditForm(int notificationNo) {
-		//상세보기의 정보를 
+		 
 		Notification notification = notificationService.notificationView(notificationNo);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("notification/notificationeditform");
 		mav.addObject("notification", notification);
 		return mav;
 	}
-	
+	//수정하기
 	@RequestMapping(value = "notificationupdate.action", method = RequestMethod.POST)
 	public String notificationUpdate(int notificationNo, Notification notification) {
 		
@@ -92,7 +94,7 @@ public class NotificationController {
 		
 		return "redirect:notificationlist.action";
 	}
-	
+	//삭제하기
 	@RequestMapping(value = "notificationdelete.action", method = RequestMethod.GET)
 	public String notificationDelete(int notificationNo) {
 		

@@ -14,7 +14,7 @@ public interface ProjectService {
 	void projectDelete(int projectNo);
 	void projectModify(Project project);
 	List<ProjectComment> getCommentsByProjectNo(int projectNo);
-	ProjectComment getCommentsByCommentNo(int commentNo);
+	ProjectComment getCommentByCommentNo(int commentNo);
 	
 	/////////////////북마크///////////////////////////////
 	//북마크 등록
@@ -30,5 +30,7 @@ public interface ProjectService {
 	///////////////코멘트//////////////////////
 	void commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
+	void commentUpdate(ProjectComment comment);
+	////////////////////////////////////////////////////////
 	
 }
