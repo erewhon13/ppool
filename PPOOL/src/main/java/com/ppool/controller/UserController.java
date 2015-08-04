@@ -173,7 +173,6 @@ public class UserController {
 				userService.userSkillRegister(params);
 			}
 		}
-
 		userService.userInfoUpdate(user);
 		// 파일을 디스크에 저장
 		try {
@@ -193,6 +192,16 @@ public class UserController {
 		}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/userinfo.action?userNo=" + user.getUserNo());
+		return mav;
+	}
+	@RequestMapping(value="active.action",method=RequestMethod.GET)
+	public ModelAndView userActive(int userNo,String userStatus){
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userNo", userNo);
+		params.put("userStatus", userStatus);
+		userService.userStatusUpdate(params);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("users/useractive");
 		return mav;
 	}
 }
