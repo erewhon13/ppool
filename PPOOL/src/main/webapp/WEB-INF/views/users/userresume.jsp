@@ -925,19 +925,16 @@
 
 	<c:set var="resumeSchool" value="${resumeSchools}"/>
 	<div id="r_center" style=" width:80%; float:left;"><!-- 가운데 -->
-				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 33px;">
+				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 50px;">
 
 		
 				<div id="r_inside" style="margin-top:5px; width:99% ">
 						
-						<table style="text-align:center; width:100%; height:80px; ">
+						<table style="text-align:center; width:100%; height:20px; ">
 								<tbody>
 									<tr>
-										<td style="padding-bottom:3px; float:left;" >
+										<td style="padding-bottom:3px; float:left; font-size:20px; margin-top:10px; font-style: italic;" >
 										1. 개인 이력정보
-										</td><br>
-										<td style="float:left;">
-											<img src="/ppool/resources/images/topbar.png" width="100%" >
 										</td>
 									</tr>
 								</tbody>
@@ -1038,9 +1035,6 @@
 									</c:forEach>
 							</table>		
 					</div>
-						<td style="float:left; " >
-									<img src="/ppool/resources/images/topbar2.png" width="100%" style="margin-top: 20px;" >
-						</td>
 				
 					<div id="users-contain4" class="ui-widget4">	
 						<table style="text-align:center; width:100%; margin-top:10px; ">

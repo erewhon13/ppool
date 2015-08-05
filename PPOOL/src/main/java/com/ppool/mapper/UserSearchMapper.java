@@ -22,4 +22,5 @@ public interface UserSearchMapper {
 	List<ResumeLanguage> getResumeLanguages(int userNo);
 	List<History> getHistoryList(int userNo);
 	List<User> searchUsers(HashMap<String, Object> params);
+	User getUserDetail(int userNo);
 }

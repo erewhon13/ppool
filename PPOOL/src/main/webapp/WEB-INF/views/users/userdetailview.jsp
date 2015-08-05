@@ -299,11 +299,10 @@ margin-left:64px;
 														</tr>
 														
 														<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-														<c:forEach var="user" items="${ list }">
-																<tr><td align="center" height="28">${ user.skillNames }</td>
+																<tr>
+																		<td align="center" height="28">${ user.skillNames }</td>
 																		<td align="center">${user.locationNames}</td>
 																</tr>
-														</c:forEach>
 														<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
 														<tr><td height="65" align="center" style="position: relative">
 												</table>

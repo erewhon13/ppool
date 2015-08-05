@@ -64,6 +64,9 @@ public class UserSearchController {
 		
 		
 		
+		User user = userSearchService.getUserDetail(userNo);
+		mav.addObject("user", user);
+	
 		
 		mav.setViewName("users/userdetailview");
 		return mav;

@@ -86,4 +86,11 @@ public class FinalUserSearchService implements UserSearchService {
 		List<User> users = userSearchRepository.searchUsers(params);
 		return users;
 	}
+
+	@Override
+	public User getUserDetail(int userNo) {
+		
+		User user = userSearchRepository.getUserDetail(userNo);
+		return user;
+	}
 }

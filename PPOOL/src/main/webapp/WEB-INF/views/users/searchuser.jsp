@@ -200,22 +200,22 @@
 							<th style="width: 10%">프로젝트 경험여부</th>
 						</tr>
 						<c:forEach var="user" items="${ list }">
-						<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
-							<td style="text-align: center">
-									<c:url value="userdetailview.action" var="viewUrl">
-										<c:param name="userNo"  value="${ user.userNo }"/>
-									</c:url> <a href='${viewUrl}'> ${user.userName} </a>
-							</td>
-							<td style="text-align: center">${ user.skillNames }</td>
-							<td style="text-align: center">${ user.locationNames }</td>
-							
-							<td style="text-align: center">
-							<c:choose>
-							<c:when test="${user.userExperience == 'true' }"> 있음</c:when>
-							<c:otherwise>없음</c:otherwise>
-							</c:choose>
-							</td>
-						</tr>
+							<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
+								<td style="text-align: center">
+										<c:url value="userdetailview.action" var="viewUrl">
+											<c:param name="userNo"  value="${ user.userNo }"/>
+										</c:url> <a href='${viewUrl}'> ${user.userName} </a>
+								</td>
+								<td style="text-align: center">${ user.skillNames }</td>
+								<td style="text-align: center">${ user.locationNames }</td>
+								
+								<td style="text-align: center">
+								<c:choose>
+								<c:when test="${user.userExperience == 'true' }"> 있음</c:when>
+								<c:otherwise>없음</c:otherwise>
+								</c:choose>
+								</td>
+							</tr>
 						</c:forEach>
 						</table>	
 			</div>

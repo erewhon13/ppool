@@ -86,4 +86,11 @@ public class OracleUserSearchRepository implements UserSearchRepository {
 		return users;
 	}
 
+	@Override
+	public User getUserDetail(int userNo) {
+		
+		User user = userSearchMapper.getUserDetail(userNo);
+		return user;
+	}
+
 }
