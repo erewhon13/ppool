@@ -39,7 +39,6 @@
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
-	<div id="sidemenu">사이드 메뉴</div>
 	<div id="history" style="width:72%; margin-right:5%;float: right"><br/>
 	  <form action="historyupdate.action" method="post" enctype="multipart/form-data" id="form">
 		<c:set var="history" value="${history}"/>
@@ -48,6 +47,7 @@
 		
 		<table style="text-align: center; width: 100%; border:groove;  ">
 			<caption style="color:#7d97d3;text-align: left;">프로젝트 이력등록</caption>
+			
 			<tr>
 				<td style="width: 15%; background-color:#7d97d3">프로젝트명</td>
 				<td style="width: 85%; text-align:center;" colspan="3">
