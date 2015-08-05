@@ -40,7 +40,7 @@
 							<div>
 	<c:set var="histories" value="${histories}"/>
 	
-		<div id="history" style="width: 72%; float: right;">	
+		<div id="history" style="width: 79%; float: right;">	
 				
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
@@ -54,7 +54,7 @@
 											</tr>
 									</tbody>
 							</table>
-							<table class="history2" style="text-align:center; width:100%;">
+							<table class="history2" style="text-align:center; width:100%; ">
 								<tbody>
 									<input type="hidden" value="${user.userNo}"/>		
 										<tr>

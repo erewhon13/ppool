@@ -45,7 +45,7 @@ $(function(){
 
 <body>
 	<%pageContext.include("/WEB-INF/views/include/header.jsp"); %>
-	<div id="main" style="float: right; width: 72%;">
+	<div id="main" style="float: right; width: 79%;">
 		<img src="/ppool/resources/images/main.png" style="width: 100%">
 		
 	<hr style="border-bottom-style:ridge;"/>	
