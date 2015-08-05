@@ -306,7 +306,7 @@
 			
 			
 		<!-- 참여하기 마무리 -->		
-			
+			<input type="button" value="신청자 보기">
 			
 				<c:if  test="${loginuser.userNo != null}">
 					<c:if test="${loginuser.userNo ne project.userNo}">
@@ -475,6 +475,30 @@
 		</c:if>
 		<img src="/ppool/resources/images/list.png" id="list" >
 	</div>
+	
+	<!----------------------------------------- 참여자 확인 ------------------------------------------------>
+	<table id="tab2">
+		<!-- 신청자 있을 때 표시 영역 -->	
+		<c:if test="${!empty joinlists}">
+			<c:forEach var="joinlist" items="${joinlists}">
+				<tr>
+					<td>이름 : ${joinlist.userNo}</td>
+				</tr>
+			</c:forEach>
+	
+		</c:if>
+		<!-- 신청자 없을 때 보여줄 목록 -->
+		<c:if test="${empty joinlists}">
+				<tr >
+	       			<td class="nocomment" >
+						참여신청자가 없습니다.
+	               	</td>
+	               </tr>
+			</c:if>
+	</table>
+	
+	<br/>
+	<br/>
 	
 	<!------------------ comment 보여주기 영역 시작 -------------------->
 	<c:set var="comments" value="${project.comments }"/>

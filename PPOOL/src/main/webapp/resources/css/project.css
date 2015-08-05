@@ -48,6 +48,7 @@ input.sub {font-size: 15pt;}
 div .selector{width:100%;text-align: right;margin-top: 20px;margin-bottom:  20px;}
 
 #tab{width: 100%; border:ridge;}
+#tab2{width: 100%; border:ridge;}
 .yescomment{display:block;text-align:left;margin:5px;border-bottom: groove 1px;padding: 5px;}
 .nocomment{display:block;text-align:left;margin:5px;padding: 30px;background-color: #d7d7d7;text-align: center;font-size: 18pt;font-weight: bold;}
 .ed_bt{background-color:#fff;border:solid 3px #7d97d3;cursor: pointer;}
