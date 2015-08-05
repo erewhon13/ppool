@@ -204,7 +204,7 @@
 								<td style="text-align: center">
 										<c:url value="userdetailview.action" var="viewUrl">
 											<c:param name="userNo"  value="${ user.userNo }"/>
-										</c:url> <a href='${viewUrl}'> ${user.userName} </a>
+										</c:url> <a href='${viewUrl}'> ${user.userName} </a> 
 								</td>
 								<td style="text-align: center">${ user.skillNames }</td>
 								<td style="text-align: center">${ user.locationNames }</td>
