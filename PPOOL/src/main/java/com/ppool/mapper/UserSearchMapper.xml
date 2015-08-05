@@ -126,7 +126,7 @@
 		<collection column="userno" property="skillNames" select="getSkillNames"/>
 		<collection column="userno" property="locationNames" select="getLocationNames"/>
 	</resultMap>
-	
+	 
 	<select id="getSkillNames" parameterType="int" resultType="String">
 		SELECT skillname
 		FROM skillcode s, userskill us
