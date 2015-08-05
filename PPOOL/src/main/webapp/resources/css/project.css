@@ -1,5 +1,5 @@
 @CHARSET "utf-8";
-
+ 
 table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separate; border-bottom: double ;}
 .list tr.head {background:#7d97d3; text-align:center; border-right:1px solid #fff; font-size: 13pt;}
 .list tr.head th{width:0%;padding:7px 7px;}
