@@ -31,7 +31,7 @@
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:set var="projects" value="${projects }"/>
 
-<div style="width:72%;margin-right:0%;margin-top:4%;float: right;" >
+<div style="width:79%;margin-left:1%; margin-top:2.6%;float: right;" >
 	<table class="ex1">
 		<caption>북마크목록</caption>
 		<thead>
