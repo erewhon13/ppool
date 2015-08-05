@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  
 </div>
-<div style="margin-top:30px;width: 100%;min-width:1240px ;background-color: #eeeeee;float: left; border-top:groove 2px; padding: 5px; font-size: 9pt;">
+<div style="margin-top:30px;width: 99%;min-width:1240px ;background-color: #eeeeee;float: left; border-top:groove 2px; padding: 5px; font-size: 9pt;">
 	<div style="float: left;width: 10%;min-width: 124px" ><br/></div>
 	<div style="float: left;width: 20%;min-width: 248px" ><img src="/ppool/resources/images/ppoollogo.png" style="width: 240px; margin-top: 15px;"></div>    
 	<div style="float: left;width: 50%;min-width: 620px;" >
