@@ -1122,9 +1122,13 @@
 					</div>
 					 
 					<hr border-top:1px solid />
-					<td style="padding-bottom:3px; float:left;" >
-					2.자기소개서
-					</td>
+					<table style="margin-top: 10px;">
+						<tr>
+							<td style="padding-bottom:3px; float:left; font-size:20px; margin-top:10px; font-style: italic;" >
+								2.자기소개서
+							</td>
+						</tr>
+					</table>
 			<c:set var="resumeIntroduction" value="${resumeIntroductions}"/>		
 				<form id="form123" name="form123" method="post" >
 					<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
@@ -1162,6 +1166,6 @@
 				</form>
 			</div>
 		</div>
-				
+		<c:import url="/WEB-INF/views/include/footer.jsp"/>		
 </body>
 </html>
