@@ -11,7 +11,7 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+caption {font-weight:700; font-size:15px; padding:1px; color:#1BA6B2; text-align:left;margin-top: 4px;}
 #side{
 	text-align:center;
 	float: left;
