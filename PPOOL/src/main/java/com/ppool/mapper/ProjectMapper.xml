@@ -130,85 +130,67 @@
 		SET deleted='1'
 		WHERE projectno = #{projectNo}
 	</update>
-	
 	<!-- ***************** 프로젝트 삭제 ***************** -->
 	
-	<select id="searchProject" parameterType="java.util.HashMap" resultType="int">
-		SELECT DISTINCT po.projectno 
+	<!-- <select id="searchProject" parameterType="hashMap" resultType="Project">
+		SELECT DISTINCT 
+			po.PROJECTNO, po.USERNO, po.PROJECTTITLE, po.PROJECTCONTENT, po.PROJECTTEAMCOUNT, 
+			po.PROJECTSTARTDAY, po.PROJECTENDDAY, po.PROJECTEXPIRE, po.PROJECTREGISTERDAY, 
+			po.PROJECTSTATUS, po.PROJECTPHONE, po.PROJECTEMAIL
 		FROM projects po
 			INNER JOIN projectskill sk
 				ON po.projectno = sk.projectno
 			INNER JOIN projectlocation lo 
 				ON po.projectno=lo.projectno 
-
-			
-				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
-					sk.skillno = #{skill.valus}
+		<where>
+			<if test="skills != null">
+				<foreach collection="skills" item="skill" separator="and" close="and">
+					sk.skillno = #{skill}
 				</foreach>
-				<!-- <foreach collection="locations" item="location" index="index" open=" and " separator=" and ">
-					lo.locationno = 3
+			</if>
+			<if test="locations != null">	
+				<foreach collection="locations" item="location" separator="and" close="and">
+					lo.locationno = #{location}
 				</foreach> 
- -->
-	</select>
-	
-	
-	 <!-- <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
-		SELECT DISTINCT po.projectno 
-		FROM projects po
-			INNER JOIN projectskill sk
-				ON po.projectno = sk.projectno
-				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
-					sk.skillno = #{skill}
-				</foreach>
-	
-	</select> --> 
-	<!-- <select id="searchProject2" parameterType="com.ppool.dto.SkillList" resultType="int">
-		SELECT DISTINCT po.projectno 
-		FROM projects po
-			INNER JOIN projectskill sk
-				ON po.projectno = sk.projectno
-				<foreach collection="skill" item="ski" index="index" open=" WHERE " separator=" and ">
-					sk.skillno = #{ski}
-				</foreach>
-	
+			</if>	
+			DELETED = '0'
+		</where>	
+		ORDER BY PROJECTNO DESC
 	</select> -->
-	
-	<select id="searchProject3" parameterType="java.util.List" resultType="int">
-		SELECT DISTINCT po.projectno 
-		FROM projects po
-			INNER JOIN projectskill sk
-				ON po.projectno = sk.projectno
-		<foreach collection="list" item="params" >
-			<foreach collection="params" item="skills">
-				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
-					sk.skillno = #{skill}
-				</foreach>
+
+	<select id="searchProject" parameterType="hashMap" resultType="Project">
+		SELECT 
+			PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
+			PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTREGISTERDAY, 
+			PROJECTSTATUS, PROJECTPHONE, PROJECTEMAIL
+		FROM PROJECTS
+		WHERE PROJECTNO IN
+		(
+		<if test="locations != null">
+			<foreach collection="locations" item="location" >
+				( SELECT projectno FROM projectlocation WHERE projectno IN 
 			</foreach>
-		</foreach>
-	
+		</if>
+		<if test="skills != null">
+			<foreach collection="skills" item="skill" >
+				( SELECT projectno FROM projectskill WHERE projectno IN 
+			</foreach>
+		</if>
+		( SELECT projectno FROM projects p)
+		<if test="skills != null">
+			<foreach collection="skills" item="skill" >
+				AND skillno IN #{skill} )
+			</foreach>
+		</if>
+		<if test="locations != null">
+			<foreach collection="locations" item="location" >
+				and locationno in ${location} )
+			</foreach>
+		</if>
+		) AND DELETED='0'
+		ORDER BY PROJECTNO DESC
 	</select>
-	
-	 <select id="searchProject4" parameterType="java.util.List" resultType="int">
-		SELECT DISTINCT po.projectno 
-		FROM projects po
-			INNER JOIN projectskill sk
-				ON po.projectno = sk.projectno
-		<foreach collection="skill" index="index" open=" WHERE " separator=" and ">
-			sk.skillno = #{skill}
-		</foreach>
-	
-	</select> 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 <!-- 프로젝트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	

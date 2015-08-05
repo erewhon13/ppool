@@ -64,12 +64,20 @@
 				ON U.USERNO = US.USERNO
 			INNER JOIN USERLOCATION UL 
 				ON U.USERNO = UL.USERNO 
-				<foreach collection="skills" item="skill" index="index" open=" WHERE " separator=" and ">
+		<where>
+			<if test="skills != null">
+				<foreach collection="skills" item="skill" index="index" separator=" and ">
 					US.SKILLNO = #{skill}
 				</foreach>
-				<foreach collection="locations" item="location" index="index" open=" and " separator=" and ">
+			</if>
+			<if test="skills != null">
+				<foreach collection="locations" item="location" index="index" open="and" separator=" and ">
 					UL.LOCATIONNO = #{location}
 				</foreach>
+			</if>
+		</where>		
 	</select>
+	
+	
 	
 </mapper>

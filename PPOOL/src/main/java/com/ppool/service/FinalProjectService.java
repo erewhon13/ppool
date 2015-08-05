@@ -159,26 +159,15 @@ public class FinalProjectService implements ProjectService {
 	}
 
 	@Override
-	public int[] searchProject(HashMap<String, Object> params) {
-		int[] nos = projectRepository.searchProject(params);
-		return nos;
+	public List<Project> searchProject(HashMap<String, Object> params) {
+		List<Project> projects = projectRepository.searchProject(params);
+		return projects;
 	}
-
+	
 	@Override
-	public int[] searchProject2(int[] skill) {
-		int[] nos = projectRepository.searchProject2(skill);
-		return nos;
-	}
-
-	@Override
-	public int[] searchProject3(List<HashMap<String, Object>> list) {
-		int[] nos = projectRepository.searchProject3(list);
-		return nos;
-	}
-
-	@Override
-	public void searchProject4(List<ArrayList<String>> ll) {
-		projectRepository.searchProject4(ll);
+	public String[] searchProject2(HashMap<String, Object> params) {
+		String[] projects = projectRepository.searchProject2(params);
+		return projects;
 	}
 
 }

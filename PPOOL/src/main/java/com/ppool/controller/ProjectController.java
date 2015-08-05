@@ -286,36 +286,33 @@ public class ProjectController {
 	
 	//////////////////미구현/////////////////////////////////////////
 	@RequestMapping(value="searchproject.action", method = RequestMethod.POST)
-	public String searchProject(ArrayList<String> skill, ArrayList<String> location){
-		HashMap<String, Object> params = new HashMap<String, Object>(); 
+	public ModelAndView searchProject(String[] skill, String[] location){
+		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("skills", skill);
-		List<HashMap<String, Object>> list= new ArrayList<HashMap<String, Object>>();
-		list.add(params);
+		params.put("locations", location);
+
+		List<Project> projects = projectService.searchProject(params);
+		//String[] projects = projectService.searchProject2(params);
 		
-		List<ArrayList<String>> ll = new ArrayList<>();
-		ll.add(skill);
-		
-		//params.put("locations", location);
-		
-		for (String i : skill) {
-			System.out.println(i);
+		for (Project project : projects) {
+			System.out.println(project.getProjectNo());
+			Calendar cal = Calendar.getInstance();
+			long nowDay = cal.getTimeInMillis();
+
+			int year = project.getProjectExpire().getYear();
+			int month = project.getProjectExpire().getMonth();
+			int date = project.getProjectExpire().getDate();
+
+			cal.set(year + 1900, month, date);// 목표일
+			long eventDay = cal.getTimeInMillis();
+			int y = (int) ((eventDay - nowDay) / (24 * 60 * 60 * 1000));
+			project.setProjectStatus(y);
 		}
 		
-		
-		int[] nos = projectService.searchProject(params);
-		//int[] nos = projectService.searchProject2(skill);
-		//int[] nos = projectService.searchProject3(list);
-		projectService.searchProject4(ll);
-		
-//		for (int i : nos) {
-//			System.out.println(i);
-//		}
-		
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("redirect:/projectlist.action");
-		return "success";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("project/projectlist");
+		mav.addObject("projects", projects);
+		return mav;
 	}
-		
-		
 		
 }

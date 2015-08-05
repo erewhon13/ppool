@@ -43,6 +43,10 @@
 			 }
 		});
 		
+		$('#modify').click(function(){
+			$(location).attr("href", "/ppool/projectmodify.action?projectNo=${project.projectNo}");
+		});
+		
 		if('${skills}'.length >0 ){
 			var skills = '${skills}'.split(",");
 			$.each(skills, function(index, obj){
@@ -462,7 +466,6 @@
 			</td>
 		</tr>
 	</table>
-	<br/>
 	<div class="selector">
 		<c:if test="${loginuser.userNo != null}">
 			<c:if test="${loginuser.userNo eq project.userNo}">
@@ -477,8 +480,6 @@
 	</div>
 	
 	<!------------------ comment 보여주기 영역 시작 -------------------->
-	<br />
-	<br />
 	<c:set var="comments" value="${project.comments }"/>
 	<table id="tab">
 	<% pageContext.setAttribute("enter", "\n"); %>
@@ -543,8 +544,7 @@
 			</tr>
 		</table>
 	</form>
-	<br/><br/>
 </div>
-
+<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

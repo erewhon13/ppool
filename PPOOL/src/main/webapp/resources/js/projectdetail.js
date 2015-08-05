@@ -2,9 +2,7 @@ $(document).ready(function (){
 	$('#list').click(function(){
 		$(location).attr("href", "/ppool/projectlist.action");
 	});
-	$('#modify').click(function(){
-		$(location).attr("href", "/ppool/projectmodify.action?projectNo=${project.projectNo}");
-	});
+	
 	$('#delete').click(function(){
 		var result = confirm('삭제 하시겠습니까?');
 		if(result){
