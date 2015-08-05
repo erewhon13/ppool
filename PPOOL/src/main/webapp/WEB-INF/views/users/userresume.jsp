@@ -922,10 +922,10 @@
 
 	<c:set var="resumeSchool" value="${resumeSchools}"/>
 	<div id="r_center" ><!-- 가운데 -->
-				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 8px;">
+				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 33px;">
 
 		
-				<div id="r_inside" style="margin-top:20px; ">
+				<div id="r_inside" style="margin-top:5px; ">
 						
 						<table style="text-align:center; width:100%; height:80px; ">
 								<tbody>

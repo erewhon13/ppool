@@ -40,10 +40,10 @@
 
 	<div id="s_center">
 		<!-- 가운데 -->
-		<img src="/ppool/resources/images/search.gif">
-		<hr border-top:1px solid />
-
+		
 		<div class="basic">
+		<img src="/ppool/resources/images/usersearchlogo.png" style="height:40px; margin-top: 33px;">
+		
 			<br />
 			<form id="searchfield" action="searchuser.action" method="POST">
 				<table class="tech">
