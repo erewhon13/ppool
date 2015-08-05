@@ -25,19 +25,19 @@
 				<form id="editform" action="notificationupdate.action" method="post">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
-				<table  style="border: groove;">
+				<table  style="border: groove; width: 79%; margin-left: 1%">
 				<caption style="text-align:left;font-size:14pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
 					<tr style="color: #ffffff; width: 100%" >
 		                <th bgcolor="#7d97d3" style="font-size: 14pt; width: 100pt;">제목</th>
 		                <td>
-		                	<input type="text" name="notificationTitle" style='width:702px; font-size: 13pt' value="${ notification.notificationTitle }" />
+		                	<input type="text" name="notificationTitle" style='width:825px; font-size: 13pt' value="${ notification.notificationTitle }" />
 		                </td>
 		            </tr>
 		            <tr style="color: #ffffff">
 		                <th bgcolor="#7d97d3" style="font-size: 14pt">내용</th>
 		                <td>
 							<textarea 
-		                    	name="notificationContent" style="width:702px; font-size: 13pt" 
+		                    	name="notificationContent" style="width:825px; font-size: 13pt" 
 		                    	rows="20" >${ notification.notificationContent }</textarea>
 		                </td>
 		            </tr>
