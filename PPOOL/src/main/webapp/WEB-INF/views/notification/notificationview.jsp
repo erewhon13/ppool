@@ -26,7 +26,7 @@
 
 				<form action='notificationupdate.action' method='post'>
 					<!-- 상대경로표시 -->
-					<table style=" width: 72%; border:groove;margin-left:100px; ">
+					<table style=" width: 79%; border:groove;margin-left: 1%; ">
 						<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">상세보기</caption>
 						<tr>
 							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3"   >번호</th>
