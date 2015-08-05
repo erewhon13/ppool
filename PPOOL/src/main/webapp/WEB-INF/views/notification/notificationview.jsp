@@ -21,7 +21,7 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	
-	<div align="center"  style="margin-top: 2%">
+	<div align="center"  style="margin-top: 1.1%">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 
 				<form action='notificationupdate.action' method='post'>
