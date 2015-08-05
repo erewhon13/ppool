@@ -10,9 +10,9 @@ table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separa
 .list td.dday {text-align:center; width:17%}
 .list td.status {text-align:center; width:11%}
 .list tr.odd {cursor: pointer;background:#f3f3f3}
-.list tr.odd th {background:#e1e1e1;width:8%}
-.list tr.even {cursor: pointer;background:#fff}
-.list tr.even th {background:#e1e1e1;width:8%}
+.list tr.odd th {background:#e1e1e1;width:8%;color:black;}
+.list tr.even {cursor: pointer;background:#fff;}
+.list tr.even th {background:#e1e1e1;width:8%;color:black;}
 .list tr.odd:hover {background:#49505a; color:#ffffff}
 .list tr.odd:hover th {background:#49505a; color:#ffffff}
 .list tr.even:hover {background:#49505a; color:#ffffff}

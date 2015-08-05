@@ -6,9 +6,7 @@
 <meta charset='utf-8'>
 <title>Main Page</title>
 </head>
-<%
-	pageContext.include("/WEB-INF/views/include/header.jsp");
-%>
+<c:import url="/WEB-INF/views/include/header.jsp" />%>
 <div>
 <div id="sidemenu">
 사이드 메뉴
