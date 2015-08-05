@@ -28,8 +28,8 @@
 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div>
-		<div align="center" style="margin-top: 2.9%">
+	<div style="margin-top: 2%">
+		<div align="center">
 			<form id="notification" action="" method="post">
 				<table width="79%"
 					style="text-align: center; border: groove; margin-left: 1%">
@@ -61,7 +61,7 @@
 				<div style='text-align: center'>${pager.toString()}</div>
 
 				<br />
-				<div style="width: 100%;" align="right">
+				<div style="width: 99%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer"
 						style="cursor: pointer;">
 				</div>
