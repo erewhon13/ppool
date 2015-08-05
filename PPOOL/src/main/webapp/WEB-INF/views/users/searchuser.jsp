@@ -36,7 +36,7 @@
 	<c:set var="users" value="${users}" />
 	<div id="s_top"></div>
 	<!-- 공간바 -->
-
+ 
 
 	<div id="s_center">
 		<!-- 가운데 -->
