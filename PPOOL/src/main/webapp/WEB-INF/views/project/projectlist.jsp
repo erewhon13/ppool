@@ -3,6 +3,7 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     
 <!DOCTYPE html>
 <html>
@@ -146,6 +147,7 @@
 				<th id="pno">글번호</th>
 				<th >프로젝트기간</th>
 				<th >프로젝트정보</th>
+				<th >지역</th>
 				<th >마감일</th>
 				<th >상태</th>
 			</tr>
@@ -162,6 +164,14 @@
 						${start} ~ <br/> ${end}
 					</td>
 					<td class="content">[${project.projectTeamCount}명] ${project.projectTitle}<br/>${project.projectContent}</td>
+					<td class="location">
+						<c:forEach var="name" varStatus="status" items="${project.locationNames }">
+							${name}
+							<c:if test="${status.index+1 < fn:length(project.locationNames)}">
+							,
+							</c:if>
+						</c:forEach>
+					</td>
 					<c:choose>
 						<c:when  test="${project.projectStatus gt 0}">
 							<td class="dday">D - ${project.projectStatus}</td>

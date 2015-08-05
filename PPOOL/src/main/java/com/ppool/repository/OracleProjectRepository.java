@@ -136,10 +136,4 @@ public class OracleProjectRepository implements ProjectRepository {
 		return projects;
 	}
 	
-	@Override
-	public String[] searchProject2(HashMap<String, Object> params) {
-		String[] projects = projectMapper.searchProject2(params);
-		return projects;
-	}
-
 }

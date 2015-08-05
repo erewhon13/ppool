@@ -21,13 +21,13 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	<div>
-		<div align="center" style="margin-top: 4%; margin-left: 30%;" >
+		<div align="center" style="margin-top: 2.7%; margin-left: 25%;" >
 			<div id="pageContainer">	
 				<form id="editform" action="notificationupdate.action" method="post">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
-				<table  style="border: ridge;">
-				<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
+				<table  style="border: groove;">
+				<caption style="text-align:left;font-size:14pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
 					<tr style="color: #ffffff">
 		                <th bgcolor="#7d97d3" style="font-size: 14pt; width: 100pt;">제목</th>
 		                <td>

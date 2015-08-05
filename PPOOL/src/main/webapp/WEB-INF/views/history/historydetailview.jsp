@@ -22,18 +22,18 @@
 					$('#form').submit();
 					/*$(location).attr('href',"historylist.action"); */
 					return;
-		  })
+		  }) 
 		   $('#close').click(function(event){
-					$(location).attr('href',"historylist.action");
+					$(location).attr('href',"historylist.action?userNo=${history.userNo}");
 			   })
 		  $('#delete').click(function(event){
 			  		  
 			  	var yes = confirm("삭제하시겠습니까?");
 			  	if (yes) {
-			  		$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			  		$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}&userNo=${history.userNo}");
 			  	}
 			  	
-			   })
+		   })
 	   })
    	</script>
 </head>
@@ -46,7 +46,6 @@
 		<input type="hidden" name="historyNo" value="${history.historyNo}"/>
 		<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
 		
-	<c:if test="${loginuser.userNo ne history.userNo }" >
 		<table style="text-align: center; width: 100%; border:groove;  ">
 			<caption style="color:#7d97d3;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
@@ -105,8 +104,7 @@
 				
 		</tr>
 		</table>
-	</c:if>	
-<c:if test="${loginuser.userNo != null}">		
+ <c:if test="${loginuser.userNo != null}">		
 	<c:if test="${loginuser.userNo eq history.userNo}">
 		<div style="float: right;">
 			<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
@@ -116,9 +114,10 @@
 		</div>
 	</c:if>
 </c:if>	
-		</form>
+</form>
 	</div>
 </div>
+
 	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 
 </body>

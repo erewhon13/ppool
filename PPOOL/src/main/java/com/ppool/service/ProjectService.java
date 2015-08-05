@@ -18,7 +18,6 @@ public interface ProjectService {
 	ProjectComment getCommentByCommentNo(int commentNo);
 	
 	List<Project> searchProject(HashMap<String, Object> params);
-	String[] searchProject2(HashMap<String, Object> params);
 	
 	/////////////////북마크///////////////////////////////
 	//북마크 등록

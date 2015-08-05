@@ -36,13 +36,13 @@ public class Project {
 	private String[] skill;
 	private String[] location;
 	
-	private String add;
+	private List<String> locationNames;
 	
-public String getAdd() {
-		return add;
+	public List<String> getLocationNames() {
+		return locationNames;
 	}
-	public void setAdd(String add) {
-		this.add = add;
+	public void setLocationNames(List<String> locationNames) {
+		this.locationNames = locationNames;
 	}
 	//////////////////////////////////////////////////////////////
 	public String getUserName() {

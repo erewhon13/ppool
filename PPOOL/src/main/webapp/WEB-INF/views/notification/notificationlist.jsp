@@ -36,7 +36,7 @@
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	<div style="margin-right: -4%">
-		<div align="center" style="margin-top: 2.2%">
+		<div align="center" style="margin-top: 2.5%">
 			<form id="notification" action="" method="post">
 				<table width="65%" style="text-align: center; border: groove;">
 					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>

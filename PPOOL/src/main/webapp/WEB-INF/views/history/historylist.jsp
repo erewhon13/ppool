@@ -40,7 +40,8 @@
 							<div>
 	<c:set var="histories" value="${histories}"/>
 	
-		<div id="history" style="width: 72%; float: right;">	
+		<div id="history" style="width: 79%; float: right;">	
+				
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
@@ -53,9 +54,9 @@
 											</tr>
 									</tbody>
 							</table>
-							<table class="history2" style="text-align:center; width:100%;">
+							<table class="history2" style="text-align:center; width:100%; ">
 								<tbody>
-						
+									<input type="hidden" value="${user.userNo}"/>		
 										<tr>
 											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20" >순번</td>
 											<td style="width:30%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">프로젝트명</td>

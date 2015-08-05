@@ -43,7 +43,7 @@ margin-left:64px;
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 												<tr><td align="center">
 													<table width="138" border="0" cellpadding="0" cellspacing="1" bgcolor="#DCD1BC">
-														<tr><td height="158" align="center" bgcolor="#FFFFFF"><img name="IMG1" src="/ppool/resources/images/${users.userPictureSavedName}"></td></tr>
+													 <tr><td height="158" align="center" bgcolor="#FFFFFF"><img name="IMG1" src="/ppool/resources/images/${users.userPictureSavedName}"></td></tr> 	
 													</table>
 													</td>
 												</tr>
@@ -236,8 +236,6 @@ margin-left:64px;
 																		<c:when test="${resumeLanguage.resumeLanguageGrade ==3}">상</c:when>
 																		<c:when test="${resumeLanguage.resumeLanguageGrade ==2}">중</c:when>
 																	    <c:otherwise>하</c:otherwise>
-																		
-																		
 																		</c:choose>
 																		</td>
 																		
@@ -267,18 +265,18 @@ margin-left:64px;
 													    </tr>
 													   
 														<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
-														<c:forEach var="history" items="${historys}">
+														<c:forEach var="histories" items="${histories}">
 																<tr><td align="center" height="28">
 																			<c:url value="historydetailview.action" var="viewUrl">
-																				<c:param name="historyNo" value="${history.historyNo}"/>
-																			</c:url><a href='${viewUrl}'>${history.historyTitle}</a>
+																				<c:param name="historyNo" value="${histories.historyNo}"/>
+																			</c:url><a href='${viewUrl}'>${histories.historyTitle}</a>
 																		</td>
-																		<f:formatDate value="${history.historyStartDay}" pattern="yyyy년 MM월 dd일" var="day1" />
-																		<f:formatDate value="${history.historyEndDay}" pattern="yyyy년 MM월 dd일" var="day2" />
+																		<f:formatDate value="${histories.historyStartDay}" pattern="yyyy년 MM월 dd일" var="day1" />
+																		<f:formatDate value="${histories.historyEndDay}" pattern="yyyy년 MM월 dd일" var="day2" />
 																	   <td align="center">${day1}</td><td>~</td>
 																	   <td align="center">${day2}</td>
-																	   <td align="center">${history.historyWork}</td>
-																	   <td align="center">${history.historyService}</td>
+																	   <td align="center">${histories.historyWork}</td>
+																	   <td align="center">${histories.historyService}</td>
 																</tr>
 														</c:forEach>	
 														<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
