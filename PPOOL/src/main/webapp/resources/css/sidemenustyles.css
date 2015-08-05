@@ -19,7 +19,7 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	margin-top: 30px;
 }
 #sidelogin{
-	height: 90px;
+	height: 120px;
 	border: groove;
 }
 
@@ -27,6 +27,9 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	display: inline-block;
 	text-align: center;
 	margin-right: 35px;	
+}
+#loginbutton{
+	margin-top: 20px;
 }
 
 #userinfo {
