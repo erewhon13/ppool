@@ -139,8 +139,8 @@
 	</table>
 	</form>
 	<div class="selector" >
-		<img src="/ppool/resources/images/search.png" id="search">
-		<img src="/ppool/resources/images/writer.png" id="writer">
+		<input type="button" class="btn" id="search" value="검 색"/>
+		<input type="button" class="btn" id="writer" value="글쓰기"/>
 	</div>
 	<table class="list">
 			<tr class="head">

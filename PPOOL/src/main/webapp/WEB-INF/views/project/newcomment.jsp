@@ -5,11 +5,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <success/>
 <link rel="stylesheet" href="resources/css/project.css" />
-<% pageContext.setAttribute("enter", "\n"); %>
+<% pageContext.setAttribute("enter", "\r\n"); %>
 <tr id="tr${newComment.commentNo}">
 	<td class="yescomment">
 		<div class="c_name" >${newComment.userName }</div>
-		<div id="a${newComment.commentNo}" class="a" >${fn:replace(newComment.commentContent , enter, '<br/>')}</div>
+		<br/>
+		<div id="a${newComment.commentNo}" class="a" >${fn:replace(newComment.commentContent , enter, '<br>')}</div>
 		<form id="fo${newComment.commentNo}">
 			<textarea id="b${newComment.commentNo}" class="b" 
 					name="commentContent">${newComment.commentContent }</textarea>

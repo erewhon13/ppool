@@ -38,6 +38,10 @@ $(document).ready(function (){
 						var tr = $(result.substr(result.indexOf("<tr")));
 						$( "#tab" ).append(tr);
 						$('.nocomment').css("display", "none");
+						$('.a').css('display', 'block');
+						$('.sele').css('display', 'block');
+						$('.b').css('display', 'none');
+						$('.sele2').css('display', 'none');
 						
 						addEditListener(tr.find(".ed_bt"));
 						okListener(tr.find(".ok_bt"));
@@ -57,7 +61,7 @@ $(document).ready(function (){
 		$(target).click(function(){
 			var no = $(this).attr("id").substr(2);
 			var hei = $('#a'+no).height();
-	
+			$('#b'+no).val($("#a"+no).html().replace(/<br>/g, "\n"));
 			if(hei < 95){
 				$('#b'+no).attr('rows', 5);
 			}
@@ -65,6 +69,10 @@ $(document).ready(function (){
 				$('#b'+no).height(hei);
 			}
 			
+			$('.a').css('display', 'block');
+			$('.sele').css('display', 'block');
+			$('.b').css('display', 'none');
+			$('.sele2').css('display', 'none');
 			$('#a'+no).css('display', 'none');
 			$('#aa'+no).css('display', 'none');
 			$('#b'+no).css('display', 'block');
@@ -88,7 +96,7 @@ $(document).ready(function (){
 							console.log(data);
 						} else { 
 							alert('수정 성공!');
-							$('#a'+no).html($('#b'+no).val().replace(/\n/g, "<br/>"));
+							$('#a'+no).html($('#b'+no).val().replace(/\n/g, "<br>"));
 							
 							$('#a'+no).css('display', 'block');
 							$('#aa'+no).css('display', 'block');
@@ -108,7 +116,7 @@ $(document).ready(function (){
 	function cancelListener(target){
 		$(target).click(function(){
 			var no = $(this).attr("id").substr(2);
-			$('#b'+no).val($("#a"+no).text().trim());
+			//$('#b'+no).val($("#a"+no).text().replace(/<br>/g, "\n"));
 		
 			$('#a'+no).css('display', 'block');
 			$('#aa'+no).css('display', 'block');
