@@ -14,7 +14,11 @@ $(document).ready(function (){
 		checkFormAndSubmit();
 	});
 	$('#rewriter').click(function(){
-		alert("다시쓰기 미구현");
+		var result = confirm('초기화 하시겠습니까?');
+		if(result){
+			$('#submitForm')[0].reset();
+		}
+		
 	});
 	$('#cancel').click(function(){
 		$(location).attr("href", "/ppool/projectlist.action");

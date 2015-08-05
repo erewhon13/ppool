@@ -251,8 +251,8 @@
 			</tr>
 		</table>
 		<div class="selector" >
-			<img src="/ppool/resources/images/cancel.png" id="cancel" >
-			<img src="/ppool/resources/images/modify.png" id="modify" >
+			<input type="button" class="btn" id="cancel" value="취 소"/>
+			<input type="button" class="btn" id="modify" value="수 정"/>
 		</div>
 	</div>
 	</form>

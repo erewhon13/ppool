@@ -300,8 +300,7 @@
 				</c:otherwise>
 			</c:choose>	
 			
-			
-			<input type="button" id="join" value="참여하기" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showjoinbutton ? 'inline' : 'none'}"/>
+			<input type="button" class="btn" id="join" value="참 여" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showjoinbutton ? 'inline' : 'none'}"/>
 			<input type="button" id="joincancel" value="참여취소" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showcanclebutton ? 'inline' : 'none'}"/>
 			
 			
@@ -469,11 +468,11 @@
 				<form id="deleteform" action="/ppool/projectdelete.action" method="POST">
 					<input type="hidden" name="projectNo" value="${project.projectNo }"/>
 				</form>
-				<img src="/ppool/resources/images/modify.png" id="modify">&nbsp;
-				<img src="/ppool/resources/images/delete.png" id="delete">&nbsp;
+				<input type="button" class="btn" id="modify" value="수 정"/>
+				<input type="button" class="btn" id="delete" value="삭 제"/>
 			</c:if>
 		</c:if>
-		<img src="/ppool/resources/images/list.png" id="list" >
+		<input type="button" class="btn" id="list" value="목 록"/>
 	</div>
 	
 	<!----------------------------------------- 참여자 확인 ------------------------------------------------>
@@ -503,14 +502,15 @@
 	<!------------------ comment 보여주기 영역 시작 -------------------->
 	<c:set var="comments" value="${project.comments }"/>
 	<table id="tab">
-	<% pageContext.setAttribute("enter", "\n"); %>
+	<% pageContext.setAttribute("enter", "\r\n"); %>
 		<!-- comment 있을경우 표시 영역 -->
 		<c:if test="${!empty comments}">
 			<c:forEach var="comment" items="${comments }" > 
         		<tr id="tr${comment.commentNo}">
         			<td class="yescomment">
 						<div class="c_name" >${comment.userName }</div>
-						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br/>')}</div>
+						<br/>
+						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br>')}</div>
 						<form id="fo${comment.commentNo}">
 							<textarea id="b${comment.commentNo}" class="b" 
 									name="commentContent">${comment.commentContent }</textarea>
@@ -519,7 +519,7 @@
 						<br/>
 						<f:formatDate value="${ comment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
 						<div class="c_regi" >${registerday}</div>
-	        			<div class="sele" id="aa${comment.commentNo}">
+	        			<div class="sele" id="aa${comment.commentNo}" >
 	        				<c:if test="${loginuser.userNo eq comment.userNo }">
 		        				<input type="button" class="ed_bt" id="ed${comment.commentNo}" value="편집"/>&nbsp;
 		        				<input type="button" class="de_bt" id="de${comment.commentNo}" value="삭제"/>&nbsp;
@@ -529,7 +529,7 @@
 			                    <input type="button" class="re_bt" value="댓글"/>
 		                    </c:if>
                 		</div>
-                		<div class="sele2" id="bb${comment.commentNo}">
+                		<div class="sele2" id="bb${comment.commentNo}" >
                 			<input type="button" class="ok_bt" id="ok${comment.commentNo}" value="확인"/>
                 			<input type="button" class="ca_bt" id="ca${comment.commentNo}" value="취소"/>
                 		</div>

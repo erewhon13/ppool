@@ -216,9 +216,9 @@
 			</tr>
 		</table>
 		<div class="selector">
-			<img src="/ppool/resources/images/register.png" id="writer" >
-			<img src="/ppool/resources/images/rewriter.png"  id="rewriter" >
-			<img src="/ppool/resources/images/cancel.png" id="cancel" >
+			<input type="button" class="btn" id="writer" value="등 록"/>
+			<input type="button" class="btn" id="rewriter" value="초기화"/>
+			<input type="button" class="btn" id="cancel" value="취 소"/>
 		</div>
 	</div>
 	</form>
