@@ -104,7 +104,6 @@
 				
 		</tr>
 		</table>
-<c:if test="${loginuser.userNo != null}">		
 	<c:if test="${loginuser.userNo eq history.userNo}">
 		<div style="float: right;">
 			<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
@@ -113,7 +112,6 @@
 				<img src="/ppool/resources/images/list.png" id="close" style="cursor: pointer;" >
 		</div>
 	</c:if>
-</c:if>	
 		</form>
 	</div>
 </div>
