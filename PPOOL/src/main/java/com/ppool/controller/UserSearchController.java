@@ -32,7 +32,7 @@ public class UserSearchController {
 	}
 
 	@RequestMapping(value = "search.action", method = RequestMethod.GET)
-	public ModelAndView userSearchList() {
+	public ModelAndView getUserSearchList() {
 		ModelAndView mav = new ModelAndView();
 		List<User> users = userSearchService.getUserSearchList();
 
