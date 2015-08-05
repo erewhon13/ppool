@@ -74,9 +74,6 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	transition: color .2s ease;
 }
 
-#sidemenu>ul>li>a:hover {
-	color: #d8f3f0;
-}
 
 #sidemenu ul>li.has-sub>a:after {
 	position: absolute;

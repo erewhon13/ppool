@@ -88,11 +88,11 @@
 	font-family: 'Nanum Gothic', serif;
 	width: 80%;
 	float: right;
-	margin-top: 4%;
+	margin-top: 31px;
 }
 
 #personaldata th {
-	background-color: #002E8A;
+	background-color: #7d97d3;
 	color: white;
 }
 
