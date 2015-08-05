@@ -23,9 +23,35 @@
 	 	delete from JOINPROJECT where projectno=#{projectNo} AND userno=#{userNo}	
 	</delete>
 	
-	<select id="getJoinList" parameterType="int" resultType="JoinProject">
-		SELECT * FROM JOINPROJECT WHERE projectno=#{projectNo}			
+	<select id="getJoinList" parameterType="int" resultMap="selectJoinList">
+		SELECT J.*, U.USEREMAIL, U.USERNAME, U.USERGENDER, U.USEREXPERIENCE
+		FROM JOINPROJECT J 
+		LEFT OUTER JOIN
+			USERS U
+		ON J.USERNO=U.USERNO	
+		WHERE projectno=#{projectNo}			
 	</select>
+	
+	<resultMap id="selectJoinList" type="JoinProject">
+		<id column="joinno" property="joinNo"/>
+		<result column="userno" property="userNo"/>
+		<result column="projectno" property="projectNo"/>
+		<result column="joinselected" property="joinSelected"/>
+		<association property="user" column="userno" resultMap="joinUserList"/>
+	</resultMap>
+	
+	<resultMap id="joinUserList" type="User">
+		<id column="userno" property="userNo"/>
+		<result column="useremail" property="userEmail"/>
+		<result column="username" property="userName"/>
+		<result column="usergender" property="userGender"/>
+		<result column="userexperience" property="userExperience"/>	
+	</resultMap>
+	
+	<update id="userSelect" parameterType="int">
+		 update JOINPROJECT set JOINSELECTED=1 where joinno = #{joinNo};
+	</update>
+	
 	
 <!-- <update id="joinSelected" parameterType="int">
 	</update> -->
