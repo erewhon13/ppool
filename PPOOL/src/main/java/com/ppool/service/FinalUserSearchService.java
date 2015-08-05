@@ -82,8 +82,8 @@ public class FinalUserSearchService implements UserSearchService {
 	}
 
 	@Override
-	public String[] searchUsers(HashMap<String, Object> params) {
-		String[] users = userSearchRepository.searchUsers(params);
+	public List<User> searchUsers(HashMap<String, Object> params) {
+		List<User> users = userSearchRepository.searchUsers(params);
 		return users;
 	}
 }

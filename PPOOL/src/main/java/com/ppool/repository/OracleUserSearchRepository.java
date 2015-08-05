@@ -81,8 +81,8 @@ public class OracleUserSearchRepository implements UserSearchRepository {
 	}
 
 	@Override
-	public String[] searchUsers(HashMap<String, Object> params) {
-		String[] users = userSearchMapper.searchUsers(params);
+	public List<User> searchUsers(HashMap<String, Object> params) {
+		List<User> users = userSearchMapper.searchUsers(params);
 		return users;
 	}
 

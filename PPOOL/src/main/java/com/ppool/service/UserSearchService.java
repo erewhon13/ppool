@@ -20,5 +20,5 @@ public interface UserSearchService {
 	List<ResumeLicense> getResumeLicenses(int userNo);
 	List<ResumeLanguage> getResumeLanguages(int userNo);
 	List<History> getHistoryList(int userNo);
-	String[] searchUsers(HashMap<String, Object> params);
+	List<User> searchUsers(HashMap<String, Object> params);
 }

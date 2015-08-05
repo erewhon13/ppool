@@ -51,10 +51,9 @@ public class UserSearchController {
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("skills", skill);
 		params.put("locations", location);
-		System.out.println(skill);
-		String[] list = userSearchService.searchUsers(params);
-		for (String string : list) {
-			System.out.println(string);
+		List<User> list = userSearchService.searchUsers(params);
+		for (User user : list) {
+			System.out.println(user.getUserName());
 		}
 		return mav;
 	}

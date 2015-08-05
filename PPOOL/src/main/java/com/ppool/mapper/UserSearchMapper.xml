@@ -7,77 +7,125 @@
 <mapper namespace="com.ppool.mapper.UserSearchMapper">
 
 	<select id="getUserSearchList" resultType="User">
-		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
-					 USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR 
+		SELECT
+		USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
+		USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR
 		FROM USERS
 	</select>
-	
+
 	<select id="getUserDetailView" resultType="User">
-		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
-					 USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR
+		SELECT
+		USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
+		USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR
 		FROM USERS
 		WHERE USERNO = #{userNo}
 	</select>
-	
+
 	<select id="getUserDetailResumeView" resultType="User">
-		SELECT USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
-					 USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR
+		SELECT
+		USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
+		USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR
 		FROM USERS
 		WHERE USERNO = #{userNo}
 	</select>
-	
-	<select id="getResumeSchools" resultType="resumeSchool" parameterType="int">
+
+	<select id="getResumeSchools" resultType="resumeSchool"
+		parameterType="int">
 		SELECT RESUMESCHOOLNO,RESUMEUSERSCHOOL,RESUMEUSERMAJOR,
 		RESUMEMAJORSTARTDAY,RESUMEMAJORENDDAY FROM RESUMESCHOOL
-		WHERE USERNO=#{userNo}
+		WHERE
+		USERNO=#{userNo}
 	</select>
-	
-	<select id="getResumeEducations" resultType="resumeEducation" parameterType="int">
-		SELECT RESUMEEDUCATIONNO,RESUMEEDUCATION,RESUMEEDUCATIONSTARTDAY,
+
+	<select id="getResumeEducations" resultType="resumeEducation"
+		parameterType="int">
+		SELECT
+		RESUMEEDUCATIONNO,RESUMEEDUCATION,RESUMEEDUCATIONSTARTDAY,
 		RESUMEEDUCATIONENDDAY,RESUMEEDUCATIONCENTER FROM RESUMEEDUCATION
-		WHERE USERNO=#{userNo}
+		WHERE
+		USERNO=#{userNo}
 	</select>
-	
-	<select id="getResumeLicenses" resultType="resumeLicense" parameterType="int">
+
+	<select id="getResumeLicenses" resultType="resumeLicense"
+		parameterType="int">
 		SELECT RESUMELICENSENO,RESUMELICENSE,RESUMELICENSEDAY,
 		RESUMELICENSECENTER FROM RESUMELICENSE
 		WHERE USERNO=#{userNo}
 	</select>
-	
-	<select id="getResumeLanguages" resultType="resumeLanguage" parameterType="int">
-		SELECT RESUMELANGUAGENO,RESUMELANGUAGE,RESUMELANGUAGEGRADE
+
+	<select id="getResumeLanguages" resultType="resumeLanguage"
+		parameterType="int">
+		SELECT
+		RESUMELANGUAGENO,RESUMELANGUAGE,RESUMELANGUAGEGRADE
 		FROM RESUMELANGUAGE
 		WHERE USERNO=#{userNo}
 	</select>
-	
+
 	<select id="getHistoryList" parameterType="int" resultType="History">
-		SELECT HISTORYNO, HISTORYOPENED, HISTORYTITLE, HISTORYSTARTDAY, 
+		SELECT HISTORYNO, HISTORYOPENED, HISTORYTITLE, HISTORYSTARTDAY,
 		HISTORYENDDAY, HISTORYWORK, HISTORYCONTENT, HISTORYSERVICE
 		FROM HISTORY
 		WHERE USERNO = #{userNo} and HISTORYOPENED = 1
 	</select>
-	
-	<select id="searchUsers" parameterType="hashMap" resultType="String">
-		SELECT DISTINCT U.USERNO
-		FROM USERS U
-			INNER JOIN USERSKILL US
-				ON U.USERNO = US.USERNO
-			INNER JOIN USERLOCATION UL 
-				ON U.USERNO = UL.USERNO 
-		<where>
-			<if test="skills != null">
-				<foreach collection="skills" item="skill" index="index" separator=" and ">
-					US.SKILLNO = #{skill}
-				</foreach>
-			</if>
-			<if test="skills != null">
-				<foreach collection="locations" item="location" index="index" open="and" separator=" and ">
-					UL.LOCATIONNO = #{location}
-				</foreach>
-			</if>
-		</where>		
+
+	<!-- <select id="searchUsers" parameterType="hashMap" resultType="User"> 
+		SELECT DISTINCT U.USERNO,U.USERNAME FROM USERS U INNER JOIN USERSKILL US 
+		ON U.USERNO = US.USERNO INNER JOIN USERLOCATION UL ON U.USERNO = UL.USERNO 
+		<where> <if test="skills != null"> <foreach collection="skills" item="skill" 
+		index="index" separator=" and "> US.SKILLNO = #{skill} </foreach> </if> <if 
+		test="skills != null"> <foreach collection="locations" item="location" index="index" 
+		open="and" separator=" and "> UL.LOCATIONNO = #{location} </foreach> </if> 
+		</where> </select> -->
+
+	<select id="searchUsers" parameterType="hashMap" resultType="User">
+		SELECT
+		USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
+		USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR,USERPICTUREEXIST
+		FROM USERS
+		WHERE USERNO IN
+		(
+		<if test="locations != null">
+			<foreach collection="locations" item="location">
+				( SELECT
+				USERNO FROM
+				USERLOCATION WHERE USERNO IN
+			</foreach>
+		</if>
+		<if test="skills != null">
+			<foreach collection="skills" item="skill">
+				( SELECT USERNO
+				FROM
+				USERSKILL WHERE USERNO IN
+			</foreach>
+		</if>
+		<if test="skills != null">
+			<foreach collection="skills" item="skill">
+				( SELECT USERNO
+				FROM
+				USERSKILL WHERE USERNO IN
+			</foreach>
+		</if>
+		( SELECT USERNO FROM USERS U)
+		<if test="skills != null">
+			<foreach collection="skills" item="skill">
+				AND skillno IN
+				#{skill} )
+			</foreach>
+		</if>
+		<if test="skills != null">
+			<foreach collection="skills" item="skill">
+				AND skillno IN
+				#{skill} )
+			</foreach>
+		</if>
+		<if test="locations != null">
+			<foreach collection="locations" item="location">
+				and
+				locationno in
+				${location} )
+			</foreach>
+		</if>
+		)
+		ORDER BY USERNO DESC
 	</select>
-	
-	
-	
 </mapper>
