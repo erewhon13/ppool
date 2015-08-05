@@ -24,13 +24,13 @@
 					return;
 		  }) 
 		   $('#close').click(function(event){
-					$(location).attr('href',"historylist.action");
+					$(location).attr('href',"historylist.action?userNo=${history.userNo}");
 			   })
 		  $('#delete').click(function(event){
 			  		  
 			  	var yes = confirm("삭제하시겠습니까?");
 			  	if (yes) {
-			  		$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
+			  		$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}&userNo=${history.userNo}");
 			  	}
 			  	
 		   })
@@ -104,6 +104,7 @@
 				
 		</tr>
 		</table>
+ <c:if test="${loginuser.userNo != null}">		
 	<c:if test="${loginuser.userNo eq history.userNo}">
 		<div style="float: right;">
 			<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
@@ -112,9 +113,11 @@
 				<img src="/ppool/resources/images/list.png" id="close" style="cursor: pointer;" >
 		</div>
 	</c:if>
-		</form>
+</c:if>	
+</form>
 	</div>
 </div>
+
 	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 
 </body>
