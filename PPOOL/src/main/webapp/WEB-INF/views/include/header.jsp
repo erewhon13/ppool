@@ -20,7 +20,7 @@
 			<li><a href='/ppool/notificationlist.action'>공지사항</a></li>
 			<li><a href='/ppool/projectlist.action'>프로젝트</a></li>
 			<li><a href='/ppool/search.action'>인물검색</a></li>
-			<li><a href='/ppool/reportlist.action'>신고목록</a></li>
+
 		</ul>
 	</div>
 	<div id="side">
@@ -37,8 +37,8 @@
 				<form action="userlogin.action" method="POST">
 					<div id="userinfo">
 						<div>
-							&nbsp;&nbsp;&nbsp;<label>이메일 : </label> <input type="text" id="userEmail"
-								name="userEmail" size="10" />
+							&nbsp;&nbsp;&nbsp;<label>이메일 : </label> <input type="text"
+								id="userEmail" name="userEmail" size="10" />
 						</div>
 						<div>
 							<label>비밀번호 : </label> <input type="password" id="userPasswd"
@@ -82,6 +82,9 @@
 					<c:if test="${uri eq '/ppool/userinfo.action'}">
 						<li><a
 							href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
+					</c:if>
+					<c:if test="${loginuser.userNo == 1}">
+						<li><a href='/ppool/reportlist.action'>신고목록</a></li>
 					</c:if>
 				</c:if>
 			</ul>
