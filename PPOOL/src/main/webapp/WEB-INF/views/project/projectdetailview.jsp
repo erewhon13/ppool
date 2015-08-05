@@ -305,7 +305,6 @@
 			
 			
 		<!-- 참여하기 마무리 -->		
-			<input type="button" value="신청자 보기">
 			
 				<c:if  test="${loginuser.userNo != null}">
 					<c:if test="${loginuser.userNo ne project.userNo}">
@@ -481,7 +480,20 @@
 		<c:if test="${!empty joinlists}">
 			<c:forEach var="joinlist" items="${joinlists}">
 				<tr>
-					<td>이름 : ${joinlist.userNo}</td>
+					<td>이름 :${joinlist.user.userName}</td>
+					<td>이메일 :${joinlist.user.userEmail}</td>
+					<td>프로젝트 경험여부: 
+						<c:choose>
+							<c:when test="${joinlist.user.userExperience eq true}"> yes </c:when>
+							<c:otherwise>no</c:otherwise>						
+						</c:choose>
+					</td>
+					<td>성별:
+						<c:choose>
+							<c:when test="${joinlist.user.userGender eq true}">남자</c:when>
+							<c:otherwise>여자</c:otherwise>
+						</c:choose>
+					</td>
 				</tr>
 			</c:forEach>
 	
