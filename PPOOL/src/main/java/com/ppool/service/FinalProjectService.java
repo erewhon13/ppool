@@ -1,6 +1,7 @@
 package com.ppool.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -155,6 +156,29 @@ public class FinalProjectService implements ProjectService {
 	public ProjectComment getCommentByCommentNo(int commentNo) {
 		ProjectComment newComment = projectRepository.getCommentByCommentNo(commentNo);
 		return newComment;
+	}
+
+	@Override
+	public int[] searchProject(HashMap<String, Object> params) {
+		int[] nos = projectRepository.searchProject(params);
+		return nos;
+	}
+
+	@Override
+	public int[] searchProject2(int[] skill) {
+		int[] nos = projectRepository.searchProject2(skill);
+		return nos;
+	}
+
+	@Override
+	public int[] searchProject3(List<HashMap<String, Object>> list) {
+		int[] nos = projectRepository.searchProject3(list);
+		return nos;
+	}
+
+	@Override
+	public void searchProject4(List<ArrayList<String>> ll) {
+		projectRepository.searchProject4(ll);
 	}
 
 }

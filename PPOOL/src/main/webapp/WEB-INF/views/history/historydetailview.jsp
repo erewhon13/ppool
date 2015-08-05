@@ -22,7 +22,7 @@
 					$('#form').submit();
 					/*$(location).attr('href',"historylist.action"); */
 					return;
-		  })
+		  }) 
 		   $('#close').click(function(event){
 					$(location).attr('href',"historylist.action");
 			   })

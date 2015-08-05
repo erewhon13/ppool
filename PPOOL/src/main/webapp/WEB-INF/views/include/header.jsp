@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
 <link rel="stylesheet" href="/ppool/resources/css/sidemenustyles.css">
-
 <div align="left">
 	<div id="logo">
 		<img src="/ppool/resources/images/ppoollogo.png"
@@ -25,12 +24,20 @@
 		</ul>
 	</div>
 	<div id="side">
+		<c:choose>
+			<c:when test="${message eq true}">
+				<script type="text/javascript">
+					alert('asd');
+				</script>
+			</c:when>
+		</c:choose>
 		<div id="sidelogin">
-			<div id="topbar" class="nonelogined" style='display : ${loginuser eq null ? "block" : "none"};'>
+			<div id="topbar" class="nonelogined"
+				style='display : ${loginuser eq null ? "block" : "none"};'>
 				<form action="userlogin.action" method="POST">
 					<div id="userinfo">
 						<div>
-							<label>이메일 : </label> <input type="text" id="userEmail"
+							&nbsp;&nbsp;&nbsp;<label>이메일 : </label> <input type="text" id="userEmail"
 								name="userEmail" size="10" />
 						</div>
 						<div>
@@ -44,16 +51,20 @@
 				</form>
 				<br>
 				<div>
-					<a href="/ppool/registerview.action">회원가입</a> 
-					<a href="/ppool/registerview.action">이메일/비밀번호 찾기</a>
+					<a href="/ppool/registerview.action">회원가입</a> <a
+						href="/ppool/registerview.action">이메일/비밀번호 찾기</a>
 				</div>
 			</div>
-			<div id="topbar" class="logined"
-				style='display : ${loginuser eq null ? "none" : "block"}'>
-				<span id="mid"> <a
-					href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
-				환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
-			</div>
+			<c:choose>
+				<c:when test="${loginuser.userStatus eq true}">
+					<div id="topbar" class="logined"
+						style='display : ${loginuser eq null ? "none" : "block"}'>
+						<span id="mid"> <a
+							href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
+						환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
+					</div>
+				</c:when>
+			</c:choose>
 		</div>
 		<div id="sidemenu">
 			<ul>

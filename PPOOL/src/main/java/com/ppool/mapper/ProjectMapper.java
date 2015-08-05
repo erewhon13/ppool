@@ -1,5 +1,6 @@
 package com.ppool.mapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +21,10 @@ public interface ProjectMapper {
 	void projectLocationDelete(int projectNo);
 	void projectSkillDelete(int projectNo);
 	void projectModify(Project project);
-	
+	int[] searchProject(HashMap<String, Object> params);
+	int[] searchProject2(int[] skill);
+	int[] searchProject3(List<HashMap<String, Object>> list);
+	void searchProject4(List<ArrayList<String>> ll);
 	///////////////////////////북마크///////////////////////////////
 	//북마크 등록
 	void projectBookmarks(HashMap<String, Object> params);

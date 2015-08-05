@@ -1,5 +1,6 @@
 package com.ppool.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.ListModel;
@@ -18,16 +19,17 @@ import com.ppool.dto.User;
 import com.ppool.repository.UserSearchRepository;
 
 @Service("userSearchService")
-public class FinalUserSearchService implements UserSearchService{
-	
+public class FinalUserSearchService implements UserSearchService {
+
 	private UserSearchRepository userSearchRepository;
 
 	@Autowired
 	@Qualifier("userSearchRepository")
-	public void setUserSearchRepository(UserSearchRepository userSearchRepository){
+	public void setUserSearchRepository(
+			UserSearchRepository userSearchRepository) {
 		this.userSearchRepository = userSearchRepository;
 	}
-	
+
 	@Override
 	public List<User> getUserSearchList() {
 		List<User> users = userSearchRepository.getUserSearchList();
@@ -43,42 +45,45 @@ public class FinalUserSearchService implements UserSearchService{
 	@Override
 	public List<ResumeSchool> getResumeSchools(int userNo) {
 
-	    List<ResumeSchool> resumeSchool = userSearchRepository.getResumeSchools(userNo);
+		List<ResumeSchool> resumeSchool = userSearchRepository
+				.getResumeSchools(userNo);
 		return resumeSchool;
 	}
 
 	@Override
 	public List<ResumeEducation> getResumeEducations(int userNo) {
 
-		List<ResumeEducation> resumeEducation = userSearchRepository.getResumeEducations(userNo);
+		List<ResumeEducation> resumeEducation = userSearchRepository
+				.getResumeEducations(userNo);
 		return resumeEducation;
 	}
 
 	@Override
 	public List<ResumeLicense> getResumeLicenses(int userNo) {
 
-		List<ResumeLicense> resumeLicense = userSearchRepository.getResumeLicenses(userNo);
+		List<ResumeLicense> resumeLicense = userSearchRepository
+				.getResumeLicenses(userNo);
 		return resumeLicense;
 	}
 
 	@Override
 	public List<ResumeLanguage> getResumeLanguages(int userNo) {
 
-		List<ResumeLanguage> resumeLanguage = userSearchRepository.getResumeLanguages(userNo);
+		List<ResumeLanguage> resumeLanguage = userSearchRepository
+				.getResumeLanguages(userNo);
 		return resumeLanguage;
 	}
 
 	@Override
 	public List<History> getHistoryList(int userNo) {
-		
+
 		List<History> history = userSearchRepository.getHistoryList(userNo);
 		return history;
 	}
 
-	
-
-
-
-	
-
+	@Override
+	public String[] searchUsers(HashMap<String, Object> params) {
+		String[] users = userSearchRepository.searchUsers(params);
+		return users;
+	}
 }

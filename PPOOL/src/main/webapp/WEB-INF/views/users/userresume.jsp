@@ -819,12 +819,12 @@
 		<form id="editformResumeSchool" action="editformresumeschool.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<label for="resumeUserSchool">학교</label>
-					<input type="text" name="resumeUserSchool" id="resumeUserSchool"  value="" class="text ui-widget-content ui-corner-all">
+					<input type="text" name="resumeUserSchool" id="resumeUserSchool"  class="text ui-widget-content ui-corner-all">
 					<label for="resumeUserMajor">전공</label>
-					<input type="text" name="resumeUserMajor" id="resumeUserMajor" value="" class="text ui-widget-content ui-corner-all" >
+					<input type="text" name="resumeUserMajor" id="resumeUserMajor" class="text ui-widget-content ui-corner-all" >
 					<label for="resumeMajorDay">기간</label>
-					<input type="date" name="resumeMajorStartDay"  id="resumeMajorStartDay"  value="" class="text ui-widget-content ui-corner-all" >
-					~<input type="date" name="resumeMajorEndDay"  id="resumeMajorEndDay"  value="" class="text ui-widget-content ui-corner-all">
+					<input type="date" name="resumeMajorStartDay"  id="resumeMajorStartDay"  class="text ui-widget-content ui-corner-all" >
+					~<input type="date" name="resumeMajorEndDay"  id="resumeMajorEndDay"  class="text ui-widget-content ui-corner-all">
 					<input type="hidden" name="resumeSchoolNo" id="resumeSchoolNo" class="text ui-widget-content ui-corner-all" >
 		</form>
 </div>
@@ -846,12 +846,12 @@
 		<form id="editformResumeEducation" action="editformresumeeducation.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<label for="resumeEducation">교육과정</label>
-					<input type="text" name="resumeEducation" id="resumeEducation"  value="" class="text ui-widget-content ui-corner-all">
+					<input type="text" name="resumeEducation" id="resumeEducation"  class="text ui-widget-content ui-corner-all">
 					<label for="resumeEducationCenter">교육기관명</label>
-					<input type="text" name="resumeEducationCenter" id="resumeEducationCenter" value="" class="text ui-widget-content ui-corner-all" >
+					<input type="text" name="resumeEducationCenter" id="resumeEducationCenter"  class="text ui-widget-content ui-corner-all" >
 					<label for="resumeEducationDay">교육기간</label>
-					<input type="date" name="resumeEducationStartDay"  id="resumeEducationStartDay"  value="" class="text ui-widget-content ui-corner-all" >
-					~<input type="date" name="resumeEducationEndDay"  id="resumeEducationEndDay"  value="" class="text ui-widget-content ui-corner-all">
+					<input type="date" name="resumeEducationStartDay"  id="resumeEducationStartDay"  class="text ui-widget-content ui-corner-all" >
+					~<input type="date" name="resumeEducationEndDay"  id="resumeEducationEndDay"  class="text ui-widget-content ui-corner-all">
 					<input type="hidden" name="resumeEducationNo" id="resumeEducationNo" class="text ui-widget-content ui-corner-all" >
 		</form>
 </div>
@@ -861,44 +861,51 @@
 		<form id="formResumeLicense" action="formresumelicense.action" method="post" >	
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 				<label for="resumeLicense">자격증명</label>
-				<input type="text" name="resumeLicense" id="resumeLicense" value="${resumeLicense.resumeLicense}" class="text ui-widget-content ui-corner-all4" >
+				<input type="text" name="resumeLicense" id="resumeLicense" class="text ui-widget-content ui-corner-all4" >
 				<label for="resumeLicenseCenter">발행처</label>
-				<input type="text" name="resumeLicenseCenter" id="resumeLicenseCenter" value="${resumeLicense.resumeLicenseCenter}" class="text ui-widget-content ui-corner-all4">
+				<input type="text" name="resumeLicenseCenter" id="resumeLicenseCenter" class="text ui-widget-content ui-corner-all4">
 				<label for="resumeLicenseDay">취득일자</label>
-				<input type="date" name="resumeLicenseDay" id="resumeLicenseDay" value="${resumeLicense.resumeLicenseDay}"class="text ui-widget-content ui-corner-all4" >
+				<input type="date" name="resumeLicenseDay" id="resumeLicenseDay" class="text ui-widget-content ui-corner-all4" >
 		</form>
 </div>
 <div id="editdialog-form4" title="수정하기">
 		<form id="editformResumeLicense" action="editformresumeLicense.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<label for="resumeLicense">자격증명</label>
-					<input type="text" name="resumeLicense" id="resumeLicense"  value="" class="text ui-widget-content ui-corner-all">
+					<input type="text" name="resumeLicense" id="resumeLicense" class="text ui-widget-content ui-corner-all">
 					<label for="resumeLicenseCenter">발행처</label>
-					<input type="text" name="resumeLicenseCenter" id="resumeLicenseCenter" value="" class="text ui-widget-content ui-corner-all" >
+					<input type="text" name="resumeLicenseCenter" id="resumeLicenseCenter" class="text ui-widget-content ui-corner-all" >
 					<label for="resumeLicenseDay">취득일자</label>
-					<input type="date" name="resumeLicenseDay"  id="resumeLicenseDay"  value="" class="text ui-widget-content ui-corner-all" >
+					<input type="date" name="resumeLicenseDay"  id="resumeLicenseDay"  class="text ui-widget-content ui-corner-all" >
 					<input type="hidden" name="resumeLicenseNo" id="resumeLicenseNo" class="text ui-widget-content ui-corner-all" >
 		</form>
 </div>
-
 
 
 <div id="dialog-form5" title="등록하기">
 		<form id="formResumeLanguage" action="formresumelanguage.action" method="post" >
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 				<label for="resumeLanguage">외국어명</label>
-				<input type="text" name="resumeLanguage" id="resumeLanguage" value="${resumeLanguage.resumeLanguage}"class="text ui-widget-content ui-corner-all4" >
+				<input type="text" name="resumeLanguage" id="resumeLanguage" class="text ui-widget-content ui-corner-all4" >
 				<label for="resumeLanguageGrade">외국어수준</label>
-				<input type="text" name="resumeLanguageGrade" id="resumeLanguageGrade" value="${resumeLanguage.resumeLanguageGrade}"class="text ui-widget-content ui-corner-all4" >
+				<select name="resumeLanguageGrade" id="resumeLanguageGrade">
+					<option value=1>상</option>
+					<option value=2>중</option>
+					<option value=3>하</option>
+				</select>
 		</form>
 </div>
 <div id="editdialog-form5" title="수정하기">
 		<form id="editformResumeLanguage" action="editformresumeLanguage.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
 					<label for="resumeLanguage">외국어명</label>
-					<input type="text" name="resumeLanguage" id="resumeLanguage"  value="" class="text ui-widget-content ui-corner-all">
+					<input type="text" name="resumeLanguage" id="resumeLanguage" class="text ui-widget-content ui-corner-all">
 					<label for="resumeLanguageGrade">외국어수준</label>
-					<input type="text" name="resumeLanguageGrade" id="resumeLanguageGrade" value="" class="text ui-widget-content ui-corner-all" >
+					<select name="resumeLanguageGrade" id="resumeLanguageGrade">
+						<option value=1>상</option>
+						<option value=2>중</option>
+						<option value=3>하</option>
+					</select>
 					<input type="hidden" name="resumeLanguageNo" id="resumeLanguageNo" class="text ui-widget-content ui-corner-all" >
 		</form>
 </div>
@@ -1099,7 +1106,10 @@
 								<c:forEach var="resumeLanguage" items="${resumeLanguages}">
 										<tr>
 											<td>${resumeLanguage.resumeLanguage}</td>
-											<td>${resumeLanguage.resumeLanguageGrade}</td>
+											<c:choose>
+											
+												<td>${resumeLanguage.resumeLanguageGrade}</td>
+											</c:choose>
 												<c:if test="${resumeLanguage ne null}">
 														<td>
 																<input type="button" class="editLanguage"  id="s1${resumeLanguage.resumeLanguageNo}" value="수정">
@@ -1132,7 +1142,7 @@
 							</tr>
 						</table>
 					</div>
-					<div align="center">
+				<div align="center">
 						<table>
 							<tr>
 								<td height="65" align="center">

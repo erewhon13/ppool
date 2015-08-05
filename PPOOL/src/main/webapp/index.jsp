@@ -12,11 +12,19 @@
 	type="text/javascript">
 	</script>
 <style type="text/css">
-
-}
-
- 
+p{
+	display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+} 
 </style>
+
+
 <script src="//code.jquery.com/jquery-1.11.3.js"></script>
 <!-- <script type="text/javascript">
 $(function(){
@@ -37,8 +45,18 @@ $(function(){
 
 <body>
 	<%pageContext.include("/WEB-INF/views/include/header.jsp"); %>
-	<div id="main" style="float: right; width: 79%;">
+	<div id="main" style="float: right; width: 72%;">
 		<img src="/ppool/resources/images/main.png" style="width: 100%">
+		
+	<hr style="border-bottom-style:ridge;"/>	
+	<div>
+		<p style="color: #FF9147;font-size:38px;font-weight: bold; "> DESIGN · PROGRAM · APPLICATION & WEB</p>
+		<p style="color: #bfbfbf;font-size:35px; font-weight: bold;">DEVELOPER</p>
+		<p style="font-size: 35px; line-height: 55px;">
+				프로젝트 진행에 가장 <b>안전하고, 확실</b>한 방법!
+			</p>
+	</div>	
+		
 	</div>
 	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 	

@@ -1,6 +1,7 @@
 package com.ppool.mapper;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.ppool.dto.User;
 
@@ -14,4 +15,5 @@ public interface UserMapper {
 	void userLocationDelete(int userNo);
 	void userSkillDelete(int userNo);
 	void userStatusUpdate(HashMap<String, Object> params);
+	
 }

@@ -55,6 +55,7 @@
 		WHERE USERNO = #{userNo}
 	</delete>
 	
+	
 	<resultMap id="detailUser" type="User">
 		<id column="userno" property="userNo"/>
 		<result column="useremail" property="userEmail"/>

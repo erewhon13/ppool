@@ -1,5 +1,6 @@
 package com.ppool.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.ppool.dto.History;
@@ -19,4 +20,5 @@ public interface UserSearchRepository {
 	List<ResumeLicense> getResumeLicenses(int userNo);
 	List<ResumeLanguage> getResumeLanguages(int userNo);
 	List<History> getHistoryList(int userNo);
+	String[] searchUsers(HashMap<String, Object> params);
 }
