@@ -139,5 +139,4 @@
 		WHERE ul.userno=#{userNo} and ul.locationno=l.locationno
 	</select>
 		
-		
 </mapper>

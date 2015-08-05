@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.ppool.dto.Admins;
 import com.ppool.dto.User;
 import com.ppool.mapper.UserMapper;
 import com.ppool.repository.UserRepository;
@@ -60,7 +61,8 @@ public class FinalUserService implements UserService {
 		// 메일 내용
 		String recipient = user.getUserEmail();
 		String subject = "회원가입 인증";
-		String body = "<a href='http://localhost:8081/ppool/activeview.action?userNo="+ userNo +"'>인증페이지</a>";
+		String body = "<a href='http://localhost:8081/ppool/activeview.action?userNo="
+				+ userNo + "'>인증페이지</a>";
 
 		// properties 설정
 		Properties props = new Properties();
