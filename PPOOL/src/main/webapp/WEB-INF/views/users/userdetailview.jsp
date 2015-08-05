@@ -29,9 +29,8 @@ margin-left:64px;
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div id="s_top"></div>
-<img src="/ppool/resources/images/search.gif">
-<hr border-top:1px solid />
-			
+			<img src="/ppool/resources/images/usersearchlogo.png" style="height:40px;  margin-left:10px;  margin-top: 10px;">
+	
 	<table width="75%" border="0" align="center" cellpadding="0" cellspacing="0"  style="margin-top: 22px">
 		<tr><td style="padding-bottom:3px">&nbsp;<B>1. 개인 기본정보 </B></td></tr>             
 			<tr><td>
@@ -53,24 +52,24 @@ margin-left:64px;
 								<td width="77%">
 								<table width="100%"  border="0" cellspacing="0" cellpadding="0">
 											<tr>
-													<td bgcolor="#F8F7F7" style="padding-left:10px" width="125px">성 명 / 아이디</td>
+													<td bgcolor="#7d97d3" style="padding-left:10px" width="125px">성 명 / 아이디</td>
 													<td height="28" colspan="3" style="padding-left:8px">${users.userName}</td>
 											</tr>
 											<tr>
 													<td colspan="4" height="1" bgcolor="#DADADA"></td>
 											</tr>
 											<tr>
-												<td  bgcolor="#F8F7F7" style="padding-left:10px">생년월일</td>
-												<td colspan="3" height="28" style="padding-left:8px">${users.userBirth}</td>
+												<td  bgcolor="#7d97d3" style="padding-left:10px">생년월일</td>
+												<f:formatDate value="${users.userBirth}" pattern="yyyy년 MM월 dd일" var="day1" />
+												<td colspan="3" height="28" style="padding-left:8px">${day1}</td>
 											</tr>
 											<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
 											<tr>
-												<td bgcolor="#F8F7F7" style="padding-left:10px">연락처</td>
+												<td bgcolor="#7d97d3" style="padding-left:10px">연락처</td>
 												<td height="55" style="padding-left:8px" colspan="3">
 													<table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
 														<tr><td width="30%" align="center" bgcolor="#E1D7C5">${users.userPhone}</td>
 															<td width="84%">&nbsp;
-														 	<span style="font-size:11px;text-decoration: underline">비공개</span>
 															</td>
 														</tr>
 														<tr><td bgcolor="#FFFFFF" colspan="4"></td></tr>
@@ -78,30 +77,33 @@ margin-left:64px;
 												</td>
 											</tr>
 											<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-											<tr><td rowspan="2" bgcolor="#F8F7F7" style="padding-left:10px">E-Mail</td>
+											<tr><td rowspan="2" bgcolor="#7d97d3" style="padding-left:10px">E-Mail</td>
 											</tr>
 											<tr>
 												<td height="25" colspan="3" style="padding-bottom:3px;">&nbsp;&nbsp;${users.userEmail}
-												<span style="font-size:11px;text-decoration: underline">비공개</span>
 												</td>
 											</tr>
 											<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-											<tr><td rowspan="1" bgcolor="#F8F7F7" style="padding-left:10px">주 소</td>
+											<tr><td rowspan="1" bgcolor="#7d97d3" style="padding-left:10px">주 소</td>
 												<td height="25" colspan="3" style="padding-top:3px">&nbsp;&nbsp;${users.userAddress}
-												&nbsp;&nbsp;<span style="font-size:11px;text-decoration: underline">비공개</span>
 												</td>
 											</tr>
 											
 											<tr><td colspan="4" bgcolor="#DADADA" height="1"></td></tr>
-											<tr><td height="30" bgcolor="#F8F7F7" style="padding-left:10px">프로젝트 경험</td>
-												<td colspan="4">&nbsp;&nbsp;${users.userExperience }<span style="font-size:11px;text-decoration: underline">&nbsp;&nbsp;비공개</span></td>
+											<tr><td height="30" bgcolor="#7d97d3" style="padding-left:10px">프로젝트 경험</td>
+												   <td colspan="4">&nbsp;
+													<c:choose>
+														<c:when test="${user.userExperience == 'true' }"> 있음</c:when>
+														<c:otherwise>없음</c:otherwise>
+													</c:choose>
+													</td>
 											</tr>
 											<tr><td colspan="5" height="1" bgcolor="#DADADA"></td></tr>
-											<tr><td bgcolor="#F8F7F7" style="padding-left:10px">최종학력</td>
+											<tr><td bgcolor="#7d97d3" style="padding-left:10px">최종학력</td>
 												   <td height="28" style="padding-left:8px" colspan="3">${users.userAcademic}</td>
 											</tr>
 											<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-											<tr><td bgcolor="#F8F7F7" style="padding-left:10px">전공</td>
+											<tr><td bgcolor="#7d97d3" style="padding-left:10px">전공</td>
 												   <td height="28" colspan="3"  style="padding-left:8px">${users.userMajor}</td>
 											</tr>
 										</table>
@@ -133,9 +135,9 @@ margin-left:64px;
 														  </td>
 													</tr>
 													<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
-													<tr><td width="20%" align="center" width="" bgcolor="#F8F7F7" height="30">학교명</td>
-														   <td width="20%" align="center" width="" bgcolor="#F8F7F7">전 공</td>
-														   <td width="40%" align="center" width="" bgcolor="#F8F7F7" colspan="3">기 간</td>
+													<tr><td width="20%" align="center" width="" bgcolor="#7d97d3" height="30">학교명</td>
+														   <td width="20%" align="center" width="" bgcolor="#7d97d3">전 공</td>
+														   <td width="40%" align="center" width="" bgcolor="#7d97d3" colspan="3">기 간</td>
 													</tr>
 													<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
 													<c:forEach var="resumeSchool" items="${resumeSchools}">
@@ -164,9 +166,9 @@ margin-left:64px;
 														</td>
 													</tr>
 													<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
-													<tr><td width="20%" align="center" width="" bgcolor="#F8F7F7" height="30">교육과정</td>
-														   <td width="20%" align="center" width="" bgcolor="#F8F7F7">교육기관명</td>
-														   <td width="40%" align="center" width="" bgcolor="#F8F7F7" colspan="3">기간</td>
+													<tr><td width="20%" align="center" width="" bgcolor="#7d97d3" height="30">교육과정</td>
+														   <td width="20%" align="center" width="" bgcolor="#7d97d3">교육기관명</td>
+														   <td width="40%" align="center" width="" bgcolor="#7d97d3" colspan="3">기간</td>
 													</tr>
 													<c:forEach var="resumeEducation" items="${resumeEducations}">
 													<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
@@ -195,9 +197,9 @@ margin-left:64px;
 														</td>
 													</tr>
 													<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
-													<tr><td align="center" width="" bgcolor="#F8F7F7" height="30">자격증명</td>
-														<td align="center" width="" bgcolor="#F8F7F7">발행처</td>
-														<td align="center" width="" bgcolor="#F8F7F7">취득일자</td>
+													<tr><td align="center" width="" bgcolor="#7d97d3" height="30">자격증명</td>
+														<td align="center" width="" bgcolor="#7d97d3">발행처</td>
+														<td align="center" width="" bgcolor="#7d97d3">취득일자</td>
 													
 													</tr>
 													<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
@@ -224,8 +226,8 @@ margin-left:64px;
 														</td>
 													</tr>
 													<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-													<tr><td align="center" width="" bgcolor="#F8F7F7" height="30">외국어명</td>
-															<td align="center" width="" bgcolor="#F8F7F7">수준</td>
+													<tr><td align="center" width="" bgcolor="#7d97d3" height="30">외국어명</td>
+															<td align="center" width="" bgcolor="#7d97d3">수준</td>
 													</tr>
 													<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
 															<c:forEach var="resumeLanguage" items="${resumeLanguages}">
@@ -258,10 +260,10 @@ margin-left:64px;
 														</tr>
 														<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
 														
-														<tr><td align="center" width="15%" bgcolor="#F8F7F7" height="30">프로젝트명</td>
-															   <td align="center" width="30%" bgcolor="#F8F7F7" colspan="3">참여기간</td>
-														       <td align="center" width="15%" bgcolor="#F8F7F7">작업구분</td>
-														       <td align="center" width="15%" bgcolor="#F8F7F7">담당업무</td>
+														<tr><td align="center" width="15%" bgcolor="#7d97d3" height="30">프로젝트명</td>
+															   <td align="center" width="30%" bgcolor="#7d97d3" colspan="3">참여기간</td>
+														       <td align="center" width="15%" bgcolor="#7d97d3">작업구분</td>
+														       <td align="center" width="15%" bgcolor="#7d97d3">담당업무</td>
 													    </tr>
 													   
 														<tr><td colspan="7" height="1" bgcolor="#DADADA"></td></tr>
@@ -292,13 +294,16 @@ margin-left:64px;
 															</td>
 														</tr>
 														<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-														<tr><td align="center" width="" bgcolor="#F8F7F7" height="30">보유기술</td>
-													  	   		<td align="center" width="" bgcolor="#F8F7F7">희망지역</td>
+														<tr><td align="center" width="" bgcolor="#7d97d3" height="30">보유기술</td>
+													  	   		<td align="center" width="" bgcolor="#7d97d3">희망지역</td>
 														</tr>
+														
 														<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
-																<tr><td align="center" height="28"></td>
-																		<td align="center"></td>
+														<c:forEach var="user" items="${ list }">
+																<tr><td align="center" height="28">${ user.skillNames }</td>
+																		<td align="center">${user.locationNames}</td>
 																</tr>
+														</c:forEach>
 														<tr><td colspan="4" height="1" bgcolor="#DADADA"></td></tr>
 														<tr><td height="65" align="center" style="position: relative">
 												</table>

@@ -50,19 +50,22 @@
 			$("#").submit()
 		});
 		
-		function mySubmit(index){
-			if(index==1){
-				document.form123.action="resumeintroduction.action";
-				document.form123.submit();
-			}
-			else if(index==2){
-				document.form123.action="editformresumeIntroduction.action";
-				document.form123.submit();
-			}
-			
+		$("#introinsert").click(function(){
+			$("#form123").attr("action","resumeintroduction.action").submit();
+		})
+
+		$("#introedit").click(function(){
+			$("#form123").attr("action","editformresumeIntroduction.action").submit();
+		})
+		
+		/* if(index==1){
+			document.forms['form123'].action="resumeintroduction.action";
+			document.forms['form123'].submit();
 		}
-		
-		
+		else if(index==2){
+			document.form123.action="editformresumeIntroduction.action";
+			document.form123.submit();
+		} */
 		
 	
 		$(".deleteSchool").click(function(){
@@ -921,11 +924,11 @@
 </div>
 
 	<c:set var="resumeSchool" value="${resumeSchools}"/>
-	<div id="r_center" ><!-- 가운데 -->
+	<div id="r_center" style=" width:80%; float:left;"><!-- 가운데 -->
 				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 33px;">
 
 		
-				<div id="r_inside" style="margin-top:5px; ">
+				<div id="r_inside" style="margin-top:5px; width:99% ">
 						
 						<table style="text-align:center; width:100%; height:80px; ">
 								<tbody>
@@ -960,8 +963,8 @@
 							<table id="users"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">학교</td>
-											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">전공</td>
+											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20">학교</td>
+											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20">전공</td>
 											<td style="width:50%;" align="center"  bgcolor="#7d97d3" height="30" width="20" colspan="3">기간</td>
 											<td style="width:10%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
@@ -1010,8 +1013,8 @@
 							<table id="users2"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">교육과정</td>
-											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">교육기관명</td>
+											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20">교육과정</td>
+											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20">교육기관명</td>
 											<td style="width:50%;" align="center"  bgcolor="#7d97d3" height="30" width="20" colspan="3">교육기간</td>
 											<td style="width:10%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
@@ -1060,7 +1063,7 @@
 											<td style="width:25%;" align="center"  bgcolor="#7d97d3" height="30" width="20">자격증명</td>
 											<td style="width:25%;" align="center"  bgcolor="#7d97d3" height="30" width="20">발행처</td>
 											<td style="width:30%;" align="center"  bgcolor="#7d97d3" height="30" width="20">취득일자</td>
-											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
+											<td style="width:10%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
 								</thead>
 								<c:forEach var="resumeLicense" items="${resumeLicenses}">
@@ -1099,7 +1102,7 @@
 										<tr>
 											<td style="width:40%;" align="center"  bgcolor="#7d97d3" height="30" width="20">외국어명</td>
 											<td style="width:40%;" align="center"  bgcolor="#7d97d3" height="30" width="20">수준</td>
-											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
+											<td style="width:10%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
 								</thead>
 								<c:forEach var="resumeLanguage" items="${resumeLanguages}">
@@ -1131,6 +1134,7 @@
 			<c:set var="resumeIntroduction" value="${resumeIntroductions}"/>		
 				<form id="form123" name="form123" method="post" >
 					<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
+					<input type="hidden" name="resumeIntroductionNo" value="${resumeIntroduction.resumeIntroductionNo}"/>
 					<div style="margin-top:10px">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
@@ -1150,10 +1154,10 @@
 								<td height="65" align="center">
 								<c:choose>
 									<c:when test="${resumeIntroduction.resumeIntroduction eq null }">
-										<input type="button" value="등록하기" onclick="mySubmit(1);" style="cursor: pointer;">
+										<input type="button" value="등록하기" id="introinsert" style="cursor: pointer;">
 									</c:when>
 									<c:otherwise>
-										<input type="button" value="수정하기"  onclick="mySubmit(2);" style="cursor: pointer;">
+										<input type="button" value="수정하기"  id="introedit" style="cursor: pointer;">
 									</c:otherwise>
 								</c:choose>
 									<input type="button" value="취소" onclick="location.href='home.action';">

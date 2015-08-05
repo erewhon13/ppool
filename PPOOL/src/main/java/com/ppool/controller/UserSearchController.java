@@ -62,6 +62,9 @@ public class UserSearchController {
 		List<History> histories = userSearchService.getHistoryList(userNo);
 		mav.addObject("histories", histories);
 		
+		
+		
+		
 		mav.setViewName("users/userdetailview");
 		return mav;
 	}
@@ -73,9 +76,8 @@ public class UserSearchController {
 		params.put("skills", skill);
 		params.put("locations", location);
 		List<User> list = userSearchService.searchUsers(params);
-		for (User user : list) {
-			System.out.println(user.getUserName());
-		}
+		mav.addObject("list", list);
+		mav.setViewName("users/searchuser");
 		return mav;
 	}
 

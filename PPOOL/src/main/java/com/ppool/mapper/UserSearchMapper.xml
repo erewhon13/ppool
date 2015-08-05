@@ -76,55 +76,67 @@
 		open="and" separator=" and "> UL.LOCATIONNO = #{location} </foreach> </if> 
 		</where> </select> -->
 
-	<select id="searchUsers" parameterType="hashMap" resultType="User">
-		SELECT
-		USERNO,USEREMAIL,USERPASSWD,USERNAME,USERPHONE,USERBIRTH,
-		USERGENDER,USERADDRESS,USEREXPERIENCE,USERACADEMIC,USERMAJOR,USERPICTUREEXIST
-		FROM USERS
-		WHERE USERNO IN
-		(
-		<if test="locations != null">
-			<foreach collection="locations" item="location">
-				( SELECT
-				USERNO FROM
-				USERLOCATION WHERE USERNO IN
-			</foreach>
-		</if>
-		<if test="skills != null">
-			<foreach collection="skills" item="skill">
-				( SELECT USERNO
-				FROM
-				USERSKILL WHERE USERNO IN
-			</foreach>
-		</if>
-		<if test="skills != null">
-			<foreach collection="skills" item="skill">
-				( SELECT USERNO
-				FROM
-				USERSKILL WHERE USERNO IN
-			</foreach>
-		</if>
-		( SELECT USERNO FROM USERS U)
-		<if test="skills != null">
-			<foreach collection="skills" item="skill">
-				AND skillno IN
-				#{skill} )
-			</foreach>
-		</if>
-		<if test="skills != null">
-			<foreach collection="skills" item="skill">
-				AND skillno IN
-				#{skill} )
-			</foreach>
-		</if>
-		<if test="locations != null">
-			<foreach collection="locations" item="location">
-				and
-				locationno in
-				${location} )
-			</foreach>
-		</if>
-		)
-		ORDER BY USERNO DESC
+		
+		<!-- 검색  
+		U.USERNO,U.USEREMAIL,U.USERPASSWD,U.USERNAME,U.USERPHONE,U.USERBIRTH,U.USERGENDER,U.USERADDRESS,
+						U.USEREXPERIENCE,U.USERACADEMIC,U.USERMAJOR,U.USERPICTUREEXIST,U.USERPICTURESAVEDNAME
+		-->
+		<select id="searchUsers" parameterType="hashMap" resultMap="searchedUser">
+		SELECT DISTINCT
+			U.USERNO, U.USEREMAIL,U.USERPASSWD,U.USERNAME,U.USERPHONE,U.USERBIRTH,U.USERGENDER,U.USERADDRESS,
+						U.USEREXPERIENCE,U.USERACADEMIC,U.USERMAJOR,U.USERPICTUREEXIST,U.USERPICTURESAVEDNAME
+			FROM USERS U, userlocation ul, locationcode l
+			WHERE ul.userno = U.USERNO AND ul.locationno = l.locationno AND U.USERNO IN
+			<if test="locations != null" >
+				<foreach collection="locations" item="location">
+					(SELECT userno FROM userlocation WHERE userno IN
+				</foreach>
+			</if>
+			<if test="skills != null">
+				<foreach collection="skills" item="skill">
+					(SELECT userno FROM userskill WHERE userno IN
+				</foreach>
+			</if>
+			(SELECT DISTINCT userno FROM users)
+			<if test="skills != null">
+				<foreach collection="skills" item="skill">	
+					AND skillno IN #{skill} )
+				</foreach>
+			</if>		
+			<if test="locations != null">
+				<foreach collection="locations" item="location">
+					and locationno in #{location} )
+				</foreach>
+			</if>
+			ORDER BY USERNO DESC
 		</select>
+		
+	<resultMap id="searchedUser" type="User">
+		<id column="userno" property="userNo"/>
+		<result column="useremail" property="userEmail"/>
+		<result column="userpasswd" property="userPasswd"/>
+		<result column="username" property="userName"/>
+		<result column="userphone" property="userPhone"/>
+		<result column="userbirth" property="userBirth"/>
+		<result column="usergender" property="userGender"/>
+		<result column="useraddress" property="userAddress"/>
+		<result column="userexperience" property="userExperience"/>
+		<result column="useracademic" property="userAcademic"/>
+		<result column="usermajor" property="userMajor"/>
+		<collection column="userno" property="skillNames" select="getSkillNames"/>
+		<collection column="userno" property="locationNames" select="getLocationNames"/>
+	</resultMap>
+	 
+	<select id="getSkillNames" parameterType="int" resultType="String">
+		SELECT skillname
+		FROM skillcode s, userskill us
+		WHERE us.userno=#{userNo} and us.skillno=s.skillno
+	</select>
+	
+	<select id="getLocationNames" parameterType="int" resultType="String">
+		SELECT locationname
+		FROM locationcode l, userlocation ul
+		WHERE ul.userno=#{userNo} and ul.locationno=l.locationno
+	</select>
+		
 </mapper>

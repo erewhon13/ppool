@@ -1,6 +1,7 @@
 package com.ppool.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
 	private int userNo;
@@ -25,6 +26,27 @@ public class User {
 	///1:M관계 형성 필드
 	private String[] userSkill;
 	private String[] userLocation;
+	
+	private List<String> locationNames;
+	private List<String> skillNames;
+	
+	
+
+	public List<String> getSkillNames() {
+		return skillNames;
+	}
+
+	public void setSkillNames(List<String> skillNames) {
+		this.skillNames = skillNames;
+	}
+
+	public List<String> getLocationNames() {
+		return locationNames;
+	}
+
+	public void setLocationNames(List<String> locationNames) {
+		this.locationNames = locationNames;
+	}
 
 	public int getUserNo() {
 		return userNo;
