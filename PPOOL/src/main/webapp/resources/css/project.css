@@ -3,11 +3,12 @@
 table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separate; border-bottom: double ;}
 .list tr.head {background:#7d97d3; text-align:center; border-right:1px solid #fff; font-size: 13pt;}
 .list tr.head th{width:0%;padding:7px 7px;}
-.list td.projectno {text-align:center; width:10%}
-.list td.date {text-align:center; width:20%}
-.list td.content {text-align:left; width:35%}
-.list td.dday {text-align:center; width:22%}
-.list td.status {text-align:center; width:13%}
+.list td.projectno {text-align:center; width:8%}
+.list td.date {text-align:center; width:18%}
+.list td.content {text-align:left; width:25%}
+.list td.location {text-align:center; width:21%}
+.list td.dday {text-align:center; width:17%}
+.list td.status {text-align:center; width:11%}
 .list tr.odd {cursor: pointer;background:#f3f3f3}
 .list tr.odd th {background:#e1e1e1;width:8%}
 .list tr.even {cursor: pointer;background:#fff}

@@ -292,7 +292,6 @@ public class ProjectController {
 		params.put("locations", location);
 
 		List<Project> projects = projectService.searchProject(params);
-		//String[] projects = projectService.searchProject2(params);
 		
 		for (Project project : projects) {
 			System.out.println(project.getProjectNo());
