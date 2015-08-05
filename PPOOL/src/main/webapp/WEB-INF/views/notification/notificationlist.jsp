@@ -26,7 +26,7 @@
 <script type="text/javascript">	
 	$(document).ready(function (){
 		$('#writer2').click(function(){
-			$(location).attr("href", "/ppool/registeradminform.action");
+			$(location).attr("href", "/ppool/adminloginform.action");
 		});
 	});	
 	</script>
@@ -35,10 +35,10 @@
 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div style="margin-right: -9.5%">
-		<div align="center" style="margin-top: 4%">
+	<div style="margin-right: -4%">
+		<div align="center" style="margin-top: 2.2%">
 			<form id="notification" action="" method="post">
-				<table width="65%" style="text-align: center;">
+				<table width="65%" style="text-align: center; border: groove;">
 					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>
 					<tr style="background-color: #7d97d3; color: #ffffff;height: 30px;">
 						<th style="width: 5%">글번호</th>
@@ -68,9 +68,9 @@
 				<div style="width: 83%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 				</div>
-				<!-- <div style="width: 83%;" align="right">
+				<div style="width: 83%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer2" style="cursor: pointer;">
-				</div> -->
+				</div>
 			</form>
 		</div>
 	</div>
