@@ -33,7 +33,7 @@
 			  		$(location).attr('href',"historydelete.action?historyNo=${history.historyNo}");
 			  	}
 			  	
-			   })
+		   })
 	   })
    	</script>
 </head>

@@ -922,8 +922,7 @@
 
 	<c:set var="resumeSchool" value="${resumeSchools}"/>
 	<div id="r_center" ><!-- 가운데 -->
-					<img src="/ppool/resources/images/resume.gif" style="margin-top: 30px;">
-					  <hr border-top:1px solid style="width:93%; float:left;" />
+				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 8px;">
 
 		
 				<div id="r_inside" style="margin-top:20px; ">
@@ -961,10 +960,10 @@
 							<table id="users"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">학교</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">전공</td>
-											<td style="width:50%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">기간</td>
-											<td style="width:10%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">학교</td>
+											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">전공</td>
+											<td style="width:50%;" align="center"  bgcolor="#7d97d3" height="30" width="20" colspan="3">기간</td>
+											<td style="width:10%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
 								</thead>
 								
@@ -1011,10 +1010,10 @@
 							<table id="users2"  class="ui-widget ui-widget-content2" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육과정</td>
-											<td style="width:15%;" align="center"  bgcolor="F8F7F7" height="30" width="20">교육기관명</td>
-											<td style="width:50%;" align="center"  bgcolor="F8F7F7" height="30" width="20" colspan="3">교육기간</td>
-											<td style="width:10%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">교육과정</td>
+											<td style="width:15%;" align="center"  bgcolor="#7d97d3" height="30" width="20">교육기관명</td>
+											<td style="width:50%;" align="center"  bgcolor="#7d97d3" height="30" width="20" colspan="3">교육기간</td>
+											<td style="width:10%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
 								</thead>
 									<c:forEach var="resumeEducation" items="${resumeEducations}">
@@ -1036,8 +1035,8 @@
 									</c:forEach>
 							</table>		
 					</div>
-						<td style="float:left;">
-									<img src="/ppool/resources/images/topbar2.png" width="100%" >
+						<td style="float:left; " >
+									<img src="/ppool/resources/images/topbar2.png" width="100%" style="margin-top: 20px;" >
 						</td>
 				
 					<div id="users-contain4" class="ui-widget4">	
@@ -1058,10 +1057,10 @@
 							<table id="users4"  class="ui-widget ui-widget-content4" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:25%;" align="center"  bgcolor="F8F7F7" height="30" width="20">자격증명</td>
-											<td style="width:25%;" align="center"  bgcolor="F8F7F7" height="30" width="20">발행처</td>
-											<td style="width:30%;" align="center"  bgcolor="F8F7F7" height="30" width="20">취득일자</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:25%;" align="center"  bgcolor="#7d97d3" height="30" width="20">자격증명</td>
+											<td style="width:25%;" align="center"  bgcolor="#7d97d3" height="30" width="20">발행처</td>
+											<td style="width:30%;" align="center"  bgcolor="#7d97d3" height="30" width="20">취득일자</td>
+											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
 								</thead>
 								<c:forEach var="resumeLicense" items="${resumeLicenses}">
@@ -1098,18 +1097,21 @@
 							<table id="users5" class="ui-widget ui-widget-content5" style="text-align:center; width:100%;">
 								<thead>
 										<tr>
-											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20">외국어명</td>
-											<td style="width:40%;" align="center"  bgcolor="F8F7F7" height="30" width="20">수준</td>
-											<td style="width:20%;" align="center"  bgcolor="F8F7F7" height="30" width="20"></td>
+											<td style="width:40%;" align="center"  bgcolor="#7d97d3" height="30" width="20">외국어명</td>
+											<td style="width:40%;" align="center"  bgcolor="#7d97d3" height="30" width="20">수준</td>
+											<td style="width:20%;" align="center"  bgcolor="#7d97d3" height="30" width="20"></td>
 										</tr>
 								</thead>
 								<c:forEach var="resumeLanguage" items="${resumeLanguages}">
 										<tr>
 											<td>${resumeLanguage.resumeLanguage}</td>
+											<td>
 											<c:choose>
-											
-												<td>${resumeLanguage.resumeLanguageGrade}</td>
+												<c:when test="${resumeLanguage.resumeLanguageGrade==1}">상</c:when>
+												<c:when test="${resumeLanguage.resumeLanguageGrade==2}">중</c:when>
+												<c:when test="${resumeLanguage.resumeLanguageGrade==3}">하</c:when>
 											</c:choose>
+											</td>
 												<c:if test="${resumeLanguage ne null}">
 														<td>
 																<input type="button" class="editLanguage"  id="s1${resumeLanguage.resumeLanguageNo}" value="수정">
@@ -1132,7 +1134,7 @@
 					<div style="margin-top:10px">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td bgcolor="#EEF8F3" style="padding:8px 0 8px 0" align="center" >
+								<td bgcolor="#7d97d3" style="padding:8px 0 8px 0" align="center" >
 										<textarea name="resumeIntroduction"  id="resumeIntroduction" 
 														style="width:665px; height:200px; font-size:9pt;
 														border:1px #DADADA solid; background:#FFFFFF; ">
