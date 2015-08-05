@@ -22,6 +22,9 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	height: 120px;
 	border: groove;
 }
+#topbar{
+	margin-top: 50px;
+}
 
 #sidelogin ul li{
 	display: inline-block;

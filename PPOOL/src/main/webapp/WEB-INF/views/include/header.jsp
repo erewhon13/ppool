@@ -32,7 +32,7 @@
 			</c:when>
 		</c:choose>
 		<div id="sidelogin">
-			<div id="topbar" class="nonelogined"
+			<div class="nonelogined"
 				style='display : ${loginuser eq null ? "block" : "none"};'>
 				<form action="userlogin.action" method="POST">
 					<div id="userinfo">
