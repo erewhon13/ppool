@@ -36,7 +36,15 @@ public class Project {
 	private String[] skill;
 	private String[] location;
 	
-//////////////////////////////////////////////////////////////
+	private String add;
+	
+public String getAdd() {
+		return add;
+	}
+	public void setAdd(String add) {
+		this.add = add;
+	}
+	//////////////////////////////////////////////////////////////
 	public String getUserName() {
 		return userName;
 	}

@@ -104,7 +104,7 @@ $(document).ready(function (){
 			$('#projectendday').focus();
 			return;
 		}
-		var result = confirm('글을 작성하시겠습니까?');
+		var result = confirm('입력하겠습니다');
 		if(result){
 			$('#submitForm').submit();
 		}

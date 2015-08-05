@@ -19,24 +19,7 @@
 		});
 		
 		$('#search').click(function(){
-			var form = $('#searchfield').serialize();
-			$.ajax({
-				url : "/ppool/searchproject.action",
-				async : false,
-				method : "POST",
-				data : form,
-				success : function(result) {
-					if (result != "success") {
-						alert('검색 실패!');
-						console.log(data);
-					} else { 
-						alert('검색 성공!');
-					}
-				},
-				error : function(xhr, status, error) {
-					alert('에러 발생!!');
-				}
-			});
+			$('#searchfield').submit();
 		});
 			
 		$('#writer').click(function(){
@@ -46,6 +29,7 @@
 			}
 			$(location).attr("href", "/ppool/projectregister.action");
 		});
+		
 	});
 		
 	</script>
@@ -153,7 +137,7 @@
 		</tr>
 	</table>
 	</form>
-	<div class="selector">
+	<div class="selector" >
 		<img src="/ppool/resources/images/search.png" id="search">
 		<img src="/ppool/resources/images/writer.png" id="writer">
 	</div>
@@ -162,7 +146,6 @@
 				<th id="pno">글번호</th>
 				<th >프로젝트기간</th>
 				<th >프로젝트정보</th>
-				<th >지역</th>
 				<th >마감일</th>
 				<th >상태</th>
 			</tr>
@@ -172,7 +155,6 @@
 					<c:when test="${r == 0 }"><c:set var="r" value="1"/><tr class="odd" id="${project.projectNo}"  ></c:when>
 					<c:when test="${r == 1 }"><c:set var="r" value="0"/><tr class="even" id="${project.projectNo}" ></c:when>
 				</c:choose>
-					
 					<th class="projectno" >${project.projectNo}</th>
 					<td class="date">
 						<f:formatDate value="${ project.projectStartDay}" pattern="yy년 MM월 dd일" var="start"/>
@@ -180,8 +162,6 @@
 						${start} ~ <br/> ${end}
 					</td>
 					<td class="content">[${project.projectTeamCount}명] ${project.projectTitle}<br/>${project.projectContent}</td>
-					<td class="location">서울</td>
-					
 					<c:choose>
 						<c:when  test="${project.projectStatus gt 0}">
 							<td class="dday">D - ${project.projectStatus}</td>
@@ -207,10 +187,7 @@
 				</tr>
 			</c:forEach>
 	</table>
-	<br/>
-	
 </div>
-
 <c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

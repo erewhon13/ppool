@@ -131,26 +131,15 @@ public class OracleProjectRepository implements ProjectRepository {
 	}
 
 	@Override
-	public int[] searchProject(HashMap<String, Object> params) {
-		int[] nos = projectMapper.searchProject(params);
-		return nos;
+	public List<Project> searchProject(HashMap<String, Object> params) {
+		List<Project> projects = projectMapper.searchProject(params);
+		return projects;
 	}
-
+	
 	@Override
-	public int[] searchProject2(int[] skill) {
-		int[] nos = projectMapper.searchProject2(skill);
-		return nos;
-	}
-
-	@Override
-	public int[] searchProject3(List<HashMap<String, Object>> list) {
-		int[] nos = projectMapper.searchProject3(list);
-		return nos;
-	}
-
-	@Override
-	public void searchProject4(List<ArrayList<String>> ll) {
-		projectMapper.searchProject4(ll);
+	public String[] searchProject2(HashMap<String, Object> params) {
+		String[] projects = projectMapper.searchProject2(params);
+		return projects;
 	}
 
 }

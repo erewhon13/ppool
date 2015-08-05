@@ -250,12 +250,12 @@
 				</td>
 			</tr>
 		</table>
-		<br/>
 		<div class="selector" >
 			<img src="/ppool/resources/images/cancel.png" id="cancel" >
 			<img src="/ppool/resources/images/modify.png" id="modify" >
 		</div>
 	</div>
 	</form>
+<c:import url="/WEB-INF/views/include/footer.jsp"/>	
 </body>
 </html>

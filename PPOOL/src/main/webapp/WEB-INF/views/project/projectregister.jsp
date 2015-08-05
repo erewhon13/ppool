@@ -194,7 +194,7 @@
 			<tr>
 				<th >프로젝트 설명</th>
 				<td class="w85" colspan="3">
-					<textarea name="projectContent" id="projectcontent" rows="20" >1. 프로젝트 설명 : </textarea>
+					<textarea name="projectContent" id="projectcontent" rows="20" >프로젝트 설명 : </textarea>
 				</td>
 			</tr>
 			<tr>
@@ -215,7 +215,6 @@
 				</td>
 			</tr>
 		</table>
-		<br/>
 		<div class="selector">
 			<img src="/ppool/resources/images/register.png" id="writer" >
 			<img src="/ppool/resources/images/rewriter.png"  id="rewriter" >
@@ -224,5 +223,6 @@
 	</div>
 	</form>
 	
+<c:import url="/WEB-INF/views/include/footer.jsp"/>	
 </body>
 </html>
