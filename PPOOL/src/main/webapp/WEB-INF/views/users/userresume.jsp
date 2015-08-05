@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>User Resume</title>
-
+ 
   <link rel="stylesheet" href="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.css">
   <link rel="stylesheet" href="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.theme.css">
   <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
