@@ -47,7 +47,7 @@
 	<!-- ********************************************* -->
 	
 	<!-- ***************** 프로젝트 리스트 ***************** -->
-	<select id="getProjectList" resultType="Project">
+	<select id="getProjectList" resultMap="detailProject">
 		SELECT 
 			PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
 			PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTREGISTERDAY, 
@@ -85,6 +85,7 @@
 		<collection column="projectno" property="skill" select="getSkillNoByProjectNo"/>
 		<collection column="projectno" property="location" select="getLocationNoByProjectNo"/>
 		<collection column="projectno" property="comments" select="getCommentsByProjectNo"/>
+		<collection column="projectno" property="locationNames" select="getLocationNames"/>
 	</resultMap>
 	
 	<select id="getUserName" parameterType="int" resultType="String">
@@ -131,41 +132,14 @@
 		WHERE projectno = #{projectNo}
 	</update>
 	<!-- ***************** 프로젝트 삭제 ***************** -->
-	
-	<!-- <select id="searchProject" parameterType="hashMap" resultType="Project">
-		SELECT DISTINCT 
-			po.PROJECTNO, po.USERNO, po.PROJECTTITLE, po.PROJECTCONTENT, po.PROJECTTEAMCOUNT, 
-			po.PROJECTSTARTDAY, po.PROJECTENDDAY, po.PROJECTEXPIRE, po.PROJECTREGISTERDAY, 
-			po.PROJECTSTATUS, po.PROJECTPHONE, po.PROJECTEMAIL
-		FROM projects po
-			INNER JOIN projectskill sk
-				ON po.projectno = sk.projectno
-			INNER JOIN projectlocation lo 
-				ON po.projectno=lo.projectno 
-		<where>
-			<if test="skills != null">
-				<foreach collection="skills" item="skill" separator="and" close="and">
-					sk.skillno = #{skill}
-				</foreach>
-			</if>
-			<if test="locations != null">	
-				<foreach collection="locations" item="location" separator="and" close="and">
-					lo.locationno = #{location}
-				</foreach> 
-			</if>	
-			DELETED = '0'
-		</where>	
-		ORDER BY PROJECTNO DESC
-	</select> -->
 
-	<select id="searchProject" parameterType="hashMap" resultType="Project">
+	<select id="searchProject" parameterType="hashMap" resultMap="getSearchedProject">
 		SELECT 
-			PROJECTNO, USERNO, PROJECTTITLE, PROJECTCONTENT, PROJECTTEAMCOUNT, 
-			PROJECTSTARTDAY, PROJECTENDDAY, PROJECTEXPIRE, PROJECTREGISTERDAY, 
-			PROJECTSTATUS, PROJECTPHONE, PROJECTEMAIL
-		FROM PROJECTS
-		WHERE PROJECTNO IN
-		(
+			p.PROJECTNO, p.USERNO, p.PROJECTTITLE, p.PROJECTCONTENT, p.PROJECTTEAMCOUNT, 
+			p.PROJECTSTARTDAY, p.PROJECTENDDAY, p.PROJECTEXPIRE, p.PROJECTREGISTERDAY, 
+			p.PROJECTSTATUS, p.PROJECTPHONE, p.PROJECTEMAIL
+		FROM PROJECTS p, projectlocation pl, locationcode l
+		WHERE pl.projectno = p.projectno AND pl.locationno = l.locationno AND p.PROJECTNO IN 
 		<if test="locations != null">
 			<foreach collection="locations" item="location" >
 				( SELECT projectno FROM projectlocation WHERE projectno IN 
@@ -176,7 +150,7 @@
 				( SELECT projectno FROM projectskill WHERE projectno IN 
 			</foreach>
 		</if>
-		( SELECT projectno FROM projects p)
+		( SELECT DISTINCT projectno FROM projects p)
 		<if test="skills != null">
 			<foreach collection="skills" item="skill" >
 				AND skillno IN #{skill} )
@@ -187,10 +161,32 @@
 				and locationno in ${location} )
 			</foreach>
 		</if>
-		) AND DELETED='0'
+		AND DELETED='0'
 		ORDER BY PROJECTNO DESC
 	</select>
-
+	
+	<resultMap id="getSearchedProject" type="Project">
+		<id column="projectno" property="projectNo"/>
+		<result column="userno" property="userNo"/>
+		<result column="projecttitle" property="projectTitle"/>
+		<result column="projectcontent" property="projectContent"/>
+		<result column="projectteamcount" property="projectTeamCount"/>
+		<result column="projectstartday" property="projectStartDay"/>
+		<result column="projectendday" property="projectEndDay"/>
+		<result column="projectexpire" property="projectExpire"/>
+		<result column="projectregisterday" property="projectRegisterDay"/>
+		<result column="projectstatus" property="projectStatus"/>
+		<result column="projectphone" property="projectPhone"/>
+		<result column="projectemail" property="projectEmail"/>
+		<collection column="projectno" property="locationNames" select="getLocationNames"/>
+	</resultMap>
+	
+	<select id="getLocationNames" parameterType="int" resultType="String">
+		SELECT locationname
+		FROM locationcode l, projectlocation pl
+		WHERE pl.projectno=#{projectNo} and pl.locationno=l.locationno
+	</select>
+	
 	
 <!-- 프로젝트 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 	

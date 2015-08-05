@@ -164,10 +164,5 @@ public class FinalProjectService implements ProjectService {
 		return projects;
 	}
 	
-	@Override
-	public String[] searchProject2(HashMap<String, Object> params) {
-		String[] projects = projectRepository.searchProject2(params);
-		return projects;
-	}
 
 }
