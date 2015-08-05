@@ -301,7 +301,7 @@
 			</c:choose>	
 			
 			<input type="button" class="btn" id="join" value="참 여" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showjoinbutton ? 'inline' : 'none'}"/>
-			<input type="button" id="joincancel" value="참여취소" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showcanclebutton ? 'inline' : 'none'}"/>
+			<input type="button" class="btn" id="joincancel" value="취 소" tag="${loginuser.userNo}/${project.projectNo}" style="display: ${showcanclebutton ? 'inline' : 'none'}"/>
 			
 			
 		<!-- 참여하기 마무리 -->		
@@ -572,7 +572,7 @@
 					<textarea id="commentcontent" name="commentContent" rows="5" ></textarea>
 				</td>
 				<td id="w10" >
-					<img src="/ppool/resources/images/register.png" id="commentregister" >
+					<input type="button" class="btn" id="commentregister" value="등 록"/>
 				</td>
 			</tr>
 		</table>
