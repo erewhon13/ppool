@@ -166,24 +166,21 @@ public class HistoryController {
 	}
 	
 	@RequestMapping(value="historyupdate.action", method=RequestMethod.POST)
-	public ModelAndView updateHistory(History history){
+	public String updateHistory(History history){
 		
-		ModelAndView mav=new ModelAndView();
+		//ModelAndView mav=new ModelAndView();
 		//history.setUserNo(94);
 		
 		historyService.updateHistory(history);
-		mav.setViewName("redirect:/historylist.action");
-		return mav;
+		return "redirect:/historylist.action?userNo="+history.getUserNo();
 		
 	}
 	
 	@RequestMapping(value="historydelete.action", method=RequestMethod.GET)
-	public ModelAndView deleteHistory(int historyNo){
-		ModelAndView mav=new ModelAndView();
+	public String deleteHistory(int historyNo,int userNo){
 		historyService.deleteHistoryUploadFile(historyNo);
 		historyService.deleteHistory(historyNo);
-		mav.setViewName("redirect:/historylist.action");
-		return mav;
+		return "redirect:/historylist.action?userNo="+userNo;
 	}
 	
 
