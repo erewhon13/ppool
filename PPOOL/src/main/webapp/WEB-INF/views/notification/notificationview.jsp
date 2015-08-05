@@ -12,8 +12,22 @@
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
 
-<script src="http://code.jquery.com/jquery-latest.min.js"
-	type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript">
+	$(document).ready(function() {
+		$("#delete").click(function(){
+			if ('${deleted}' == '0') { 
+
+		        var result = confirm('${notification.notificationTitle}를 삭제하시겠습니까?');
+		        if(result) {
+		        	//yes
+		        	var url = "/ppool/projectbookmarks.action?userNo=" + "${loginuser.userNo ==1}" + "&projectNo="+"${project.projectNo}";
+		        	$(location).attr("href",url);
+		        }else{
+		        }
+			}
+		 });
+	});
+</script>
 <title>상세보기</title>
 </head>
 
@@ -21,7 +35,7 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	
-	<div align="center"  style="margin-top: 1.1%">
+	<div align="center" style="margin-top: 0.5%">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 
 				<form action='notificationupdate.action' method='post'>
@@ -30,19 +44,19 @@
 						<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">상세보기</caption>
 						<tr>
 							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3"   >번호</th>
-							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0;">${ notification.notificationNo }</td>
+							<b><td style="text-align: left;font-size: 13pt; color:  #008000;">${ notification.notificationNo }</td></b>
 						</tr>
 						<br />
 						<tr>
 							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3">제목</th>
-							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0""> 
+							<td style="text-align: left;font-size: 13pt; color:  #008000""> 
 								${ notification.notificationTitle }
 								
 							</td>
 						</tr>
 						<tr>
 							<th style="width: 100; color: #ffffff; font-size: 15pt" bgcolor="#7d97d3">작성일</th>
-							<td style="text-align: left;font-size: 13pt; background-color: #c0c0c0">
+							<td style="text-align: left;font-size: 13pt; color:  #008000">
 								${ notification.stampRegisterDay }
 							</td>
 						</tr>
@@ -58,7 +72,6 @@
 						
 						
 					</table>
-					
 					<div style='margin-left: 1100px'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
@@ -67,7 +80,7 @@
 						<c:url value="notificationdelete.action" var="deleteUrl">
 							<c:param name="notificationNo" value="${ notification.notificationNo }" />
 						</c:url>
-						[<a href="${ deleteUrl }">삭제</a>]
+						[<a id="delete" href="${ deleteUrl }">삭제</a>]
 						<c:url value="notificationlist.action" var="cancel">
 						</c:url>
 						[<a href="${ cancel }">취소</a>]

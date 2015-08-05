@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 
@@ -21,14 +20,14 @@
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	
 	<div>
-		<div align="center" style="margin-top: 2.7%; margin-left: 25%;" >
+		<div align="center" style="margin-top: 2%;" >
 			<div id="pageContainer">	
 				<form id="editform" action="notificationupdate.action" method="post">
 				<input type="hidden" c:out value="${ requestScope.notification}"/>
 				<input type="hidden" name="notificationNo" value="${ notification.notificationNo }" />
 				<table  style="border: groove;">
 				<caption style="text-align:left;font-size:14pt; color:#1BA6B2;font-weight: 700;">수정하기</caption>
-					<tr style="color: #ffffff">
+					<tr style="color: #ffffff; width: 100%" >
 		                <th bgcolor="#7d97d3" style="font-size: 14pt; width: 100pt;">제목</th>
 		                <td>
 		                	<input type="text" name="notificationTitle" style='width:702px; font-size: 13pt' value="${ notification.notificationTitle }" />

@@ -34,12 +34,11 @@
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 	<c:set var="projects" value="${projects }" />
 
-	<div
-		style="width: 79%; margin-left: 1%; margin-top: 2.6%; float: right;">
-		<table class="ex1">
-			<caption>북마크목록</caption>
-			<thead>
-				<tr style="background-color: #7d97d3">
+	<div>
+		<table style="margin-top: 2%; width: 80%">
+			<caption style="text-align: left; font-size: 15pt; color: #1BA6B2; font-weight: 700;">북마크목록</caption>
+			<thead style="margin-left: 20%">
+				<tr style="background-color: #7d97d3; width: 150px">
 					<th style="font-size: 17pt" scope="col">글번호</th>
 					<th style="font-size: 17pt" scope="col">프로젝트기간</th>
 					<th style="font-size: 17pt" scope="col">프로젝트정보</th>
