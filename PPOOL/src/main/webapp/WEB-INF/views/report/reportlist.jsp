@@ -26,7 +26,7 @@
 <div>
 	<c:set var="reports" value="${reports}"/>
 	
-		<div style="width: 72%; float: right;">	
+		<div style="width: 79%; float: right;">	
 			<table style="text-align:center; width:100%; margin-top:10px; ">
 				<tbody>
 					<tr>
@@ -39,7 +39,7 @@
 									</tbody>
 							</table>
 							
-							<table style="width:100%; margin:0 auto; text-align:center; border: groove">
+							<table style="width:100%; margin:0 auto; text-align:center; border-bottom-style: double;">
 								<tbody>
 								<tr>
 											<td style="width:10%; color: white;" align="center"  bgcolor="#191919" height="40"  >신고번호</td>

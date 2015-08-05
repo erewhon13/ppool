@@ -23,7 +23,7 @@
 					return;
 		  })
 		   $('#close').click(function(event){
-					$(location).attr('href',"historylist.action");
+					$(location).attr('href',"historylist.action?userNo=${loginuser.userNo}");
 			   })
 		  
 	   })
@@ -31,11 +31,10 @@
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
-	<div id="sidemenu">사이드 메뉴</div>
-	<div id="history" style="width:72%; margin-right:5%;float: right"><br/>
+	<div id="history" style="width:79%;float: right"><br/>
 	  <form action="historywrite.action" method="post" enctype="multipart/form-data" id="form">
 	 	 <input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo }'/>
-			<table style="text-align: center; width: 100%; border:groove;  ">
+			<table style="width:100%; margin:0 auto; text-align:center; border: groove">
 			<caption style="color:#7d97d3;text-align: left;">프로젝트 이력등록</caption>
 			<tr>
 				<td style="width: 15%; background-color:#7d97d3">프로젝트명</td>
