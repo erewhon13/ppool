@@ -36,14 +36,14 @@
 	<c:set var="users" value="${users}" />
 	<div id="s_top"></div>
 	<!-- 공간바 -->
-
+ 
 
 	<div id="s_center">
 		<!-- 가운데 -->
-		<img src="/ppool/resources/images/search.gif">
-		<hr border-top:1px solid />
-
+		
 		<div class="basic">
+		<img src="/ppool/resources/images/usersearchlogo.png" style="height:40px; margin-top: 33px;">
+		
 			<br />
 			<form id="searchfield" action="searchuser.action" method="POST">
 				<table class="tech">
@@ -187,33 +187,37 @@
 						</td>
 					</tr>
 				</table>
-			</form>
-			<div class="selector" style="margin-top: 10px">
-				<img src="/ppool/resources/images/search.png" id="search">
-			</div>
-			<div style="margin-top: 20px">
-				<table>
-					<tr
-						style="background-color: #FF9147; color: #ffffff; height: 30px;">
-						<th style="width: 10%">회원정보</th>
-						<th style="width: 25%">이력사항</th>
-						<th style="width: 10%">희망지역</th>
-						<th style="width: 10%">프로젝트 경험여부</th>
-					</tr>
-					<c:forEach var="user" items="${ users }">
-						<tr
-							style='text-align: center; height: 30px; background-color: #F1F1F1;'>
-							<td><c:url value="userdetailview.action" var="viewUrl">
-									<c:param name="userEmail" value="${ user.userEmail }" />
-								</c:url> <a href='${viewUrl}'> ${user.userName} </a></td>
-							<td>${ user.userSkill }</td>
-							<td>${ user.userAddress }</td>
-							<td>${ user.userExperience }</td>
+		    </form>		
+		  		 <div class="selector" style="margin-top:10px">
+					<img src="/ppool/resources/images/search.png" id="search">
+				</div>		
+				<div style="margin-top:20px">
+	   				 <table>
+	   					 <tr style="background-color: #FF9147; color: #ffffff;height: 30px;">
+							<th style="width: 10%">회원정보</th>
+							<th style="width: 25%">이력사항</th>
+							<th style="width: 10%">희망지역</th>
+							<th style="width: 10%">프로젝트 경험여부</th>
 						</tr>
-					</c:forEach>
-
-
-				</table>
+						<c:forEach var="user" items="${ users }">
+						<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
+							<td style="text-align: center">
+									<c:url value="userdetailview.action" var="viewUrl">
+										<c:param name="userNo"  value="${ user.userNo }"/>
+									</c:url> <a href='${viewUrl}'> ${user.userEmail} </a>
+							</td>
+							<td style="text-align: center">${ user.userSkill }</td>
+							<td style="text-align: center">${ user.userAddress }</td>
+							
+							<td style="text-align: center">
+							<c:choose>
+							<c:when test="${user.userExperience == 'true' }"> 있음</c:when>
+							<c:otherwise>없음</c:otherwise>
+							</c:choose>
+							</td>
+						</tr>
+						</c:forEach>
+						</table>	
 			</div>
 		</div>
 

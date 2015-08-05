@@ -20,7 +20,6 @@ public interface UserSearchMapper {
 	List<ResumeEducation> getResumeEducations(int userNo);
 	List<ResumeLicense> getResumeLicenses(int userNo);
 	List<ResumeLanguage> getResumeLanguages(int userNo);
-	List<Project> getProjectInfo(int userNo);
 	List<History> getHistoryList(int userNo);
 	String[] searchUsers(HashMap<String, Object> params);
 }
