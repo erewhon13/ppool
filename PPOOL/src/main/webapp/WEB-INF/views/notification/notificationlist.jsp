@@ -29,7 +29,7 @@
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	<div>
-		<div align="center" style="margin-top: 2.5%">
+		<div align="center" style="margin-top: 2.9%">
 			<form id="notification" action="" method="post">
 				<table width="79%" style="text-align: center; border: groove;margin-left: 1%">
 					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>
@@ -58,7 +58,7 @@
 				<div style='text-align: center'>${pager.toString()}</div>
 
 				<br />
-				<div style="width: 83%;" align="right">
+				<div style="width: 100%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 				</div>
 			</form>
