@@ -64,7 +64,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 						</c:when>
 						<c:when test="${r == 1 }">
 							<c:set var="r" value="0" />
-							<tr style="font-size: 15pt; background-color: #c0c0c0"
+							<tr style="font-size: 15pt; background-color: #f8f8f8"
 								class="even" id="${project.projectNo}" style="cursor: pointer;">
 						</c:when>
 					</c:choose>
