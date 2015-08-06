@@ -310,7 +310,7 @@ margin-left:64px;
 									
 								</div>
 											<input  type="button" value="목록으로" onclick="location.href='search.action';">
-						 </td>
+						 </td> 
 				   </tr>
 			</table>
 		</table>
