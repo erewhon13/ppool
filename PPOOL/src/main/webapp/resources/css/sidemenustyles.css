@@ -19,6 +19,8 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	margin-top: 30px;
 }
 #sidelogin{
+	padding-top: 20px;
+    padding-bottom: 10px;
 	height: 90px;
 	border: groove;
 }
@@ -147,4 +149,9 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 #sidemenu ul ul>li.has-sub>a:before {
 	top: 20px;
 	background: #ffffff;
+}
+
+#mid{
+	text-decoration:underline;
+	font-weight: bold;
 }

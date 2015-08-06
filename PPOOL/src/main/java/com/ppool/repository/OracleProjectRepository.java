@@ -135,5 +135,16 @@ public class OracleProjectRepository implements ProjectRepository {
 		List<Project> projects = projectMapper.searchProject(params);
 		return projects;
 	}
+
+	@Override
+	public void commentReply(ProjectComment comment) {
+		projectMapper.commentReply(comment);
+	}
+
+	@Override
+	public int getCommentLastStep(int commentGroupNo) {
+		int groupNo = projectMapper.getCommentLastStep(commentGroupNo);
+		return groupNo;
+	}
 	
 }

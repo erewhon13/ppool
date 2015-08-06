@@ -33,9 +33,11 @@ public interface ProjectMapper {
 	
 	////////////////////////////코멘트////////////////////////////
 	List<ProjectComment> getCommentsByProjectNo(int projectNo);
+	
 	ProjectComment getCommentByCommentNo(int commentNo);
 	void commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
 	void commentUpdate(ProjectComment comment);
-	
+	void commentReply(ProjectComment comment);
+	int getCommentLastStep(int commentGroupNo);
 }

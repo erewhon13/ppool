@@ -22,6 +22,7 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function (){
+		
 		$(".bookmark").click(function(){
 
 			if ('${favoriteProjects}' == '0') { 
@@ -510,7 +511,10 @@
 	
 	<br/>
 	<br/>
-	
+	<%-- <%for(int i=0; i<board.getDepth();i++) {%>
+								&nbsp;&nbsp;
+							<%} %> --%>
+							
 	<!------------------ comment 보여주기 영역 시작 -------------------->
 	<c:set var="comments" value="${project.comments }"/>
 	<table id="tab">
@@ -519,15 +523,16 @@
 		<c:if test="${!empty comments}">
 			<c:forEach var="comment" items="${comments }" > 
         		<tr id="tr${comment.commentNo}">
-        			<td class="yescomment">
+        			<td class="yescomment" style="padding-left:${comment.commentDepth > 1? '10%' : '5px'};padding-right:5px">
 						<div class="c_name" >${comment.userName }</div>
 						<br/>
-						<div id="a${comment.commentNo}" class="a">${fn:replace(comment.commentContent , enter, '<br>')}</div>
+						<div id="a${comment.commentNo}" class="a" style="${loginuser.userNo eq project.userNo ? 'background-color:#ffeeee' : '' }">${fn:replace(comment.commentContent , enter, '<br>')}</div>
 						<form id="fo${comment.commentNo}">
 							<textarea id="b${comment.commentNo}" class="b" 
 									name="commentContent">${comment.commentContent }</textarea>
 							<input type="hidden" name="commentNo" value="${comment.commentNo}"/>		
 						</form>
+						
 						<br/>
 						<f:formatDate value="${ comment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
 						<div class="c_regi" >${registerday}</div>
@@ -535,19 +540,39 @@
 	        				<c:if test="${loginuser.userNo eq comment.userNo }">
 		        				<input type="button" class="ed_bt" id="ed${comment.commentNo}" value="편집"/>&nbsp;
 		        				<input type="button" class="de_bt" id="de${comment.commentNo}" value="삭제"/>&nbsp;
-		        				<input type="button" class="re_bt" value="댓글"/>
 	        				</c:if>
-	        				<c:if test="${loginuser.userNo ne comment.userNo }">
-			                    <input type="button" class="re_bt" value="댓글"/>
-		                    </c:if>
+	        				<c:if test="${comment.commentDepth <= 1}">
+			                	<input type="button" class="re_bt" id="re${comment.commentNo}" value="댓글"/>
+	        				</c:if>
+			                
                 		</div>
                 		<div class="sele2" id="bb${comment.commentNo}" >
                 			<input type="button" class="ok_bt" id="ok${comment.commentNo}" value="확인"/>
                 			<input type="button" class="ca_bt" id="ca${comment.commentNo}" value="취소"/>
                 		</div>
+                		
+                		<form id="commentform${comment.commentNo}">
+                			<input type="hidden" id="projectno" name="projectNo" value='${project.projectNo }' />
+	                		<input type="hidden" name="userNo" value='${loginuser.userNo}' />
+	                		<input type="hidden" name="commentGroupNo" value='${comment.commentGroupNo}' />
+	                		<input type="hidden" name="commentStep" value='${comment.commentStep}' />
+	                		<input type="hidden" name="commentDepth" value='${comment.commentDepth}' />
+	                		<table id="reta${comment.commentNo}" class="reta" style="width: 100%;border-top:solid 2px;margin-top:5px ;display: none">
+	                			<tr class="recom${comment.commentNo}" style="width: 100%">
+	                				<td style="width: 10%">
+	                					<div style="text-align: center">+</div>
+	                				</td>
+		                			<td style="width: 80%">
+										<textarea id="commentcontent${comment.commentNo}" name="commentContent" rows="5" style="background-color:#eeffec;max-height: 600px;width:100%;resize:none;font-size: 15pt;"></textarea>
+									</td>
+									<td style="width: 10%">
+										<input type="button" class="rr_bt" id="rr${comment.commentNo}" value="등 록" style="background-color:#7d97d3;border:solid 3px #7d97d3;color:#fff;font-weight:bold;"/>
+									</td>
+	                			</tr>
+	                		</table>
+                		</form>
                 	</td>
                 </tr>
-               
 			</c:forEach>
 		</c:if>
 		
@@ -563,20 +588,22 @@
 		
 	<!------------------ comment 쓰기 영역 시작 -------------------->
 	<br /><br />
-	<form id="commentform">
-		<input type="hidden" id="projectno" name="projectNo" value='${project.projectNo }' />
-		<input type="hidden" id="userno" name="userNo" value='${loginuser.userNo }' />
-		<table id="re_form" >
-			<tr>
-				<td id="w90">
-					<textarea id="commentcontent" name="commentContent" rows="5" ></textarea>
-				</td>
-				<td id="w10" >
-					<input type="button" class="btn" id="commentregister" value="등 록"/>
-				</td>
-			</tr>
-		</table>
-	</form>
+	<c:if test="${loginuser.userNo != null}">
+		<form class="commentform">
+			<input type="hidden" name="projectNo" value='${project.projectNo}' />
+			<input type="hidden" name="userNo" value='${loginuser.userNo }' />
+			<table id="re_form" >
+				<tr>
+					<td id="w90">
+						<textarea class="commentcontent" name="commentContent" rows="5" ></textarea>
+					</td>
+					<td id="w10" >
+						<input type="button" class="btn" id="commentregister" value="등 록"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</c:if>
 </div>
 <c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>

@@ -191,9 +191,36 @@ public class ProjectController {
 		return mav;
 	}
 
+	@RequestMapping(value="searchproject.action", method = RequestMethod.POST)
+	public ModelAndView searchProject(String[] skill, String[] location){
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("skills", skill);
+		params.put("locations", location);
+
+		List<Project> projects = projectService.searchProject(params);
+		
+		for (Project project : projects) {
+			System.out.println(project.getProjectNo());
+			Calendar cal = Calendar.getInstance();
+			long nowDay = cal.getTimeInMillis();
+
+			int year = project.getProjectExpire().getYear();
+			int month = project.getProjectExpire().getMonth();
+			int date = project.getProjectExpire().getDate();
+
+			cal.set(year + 1900, month, date);// 목표일
+			long eventDay = cal.getTimeInMillis();
+			int y = (int) ((eventDay - nowDay) / (24 * 60 * 60 * 1000));
+			project.setProjectStatus(y);
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("project/projectlist");
+		mav.addObject("projects", projects);
+		return mav;
+	}
 	
 	/** *********************************************************************************** **/ 
-	
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	//북마크 등록
@@ -252,10 +279,7 @@ public class ProjectController {
 	@RequestMapping(value="commentregister.action",method = RequestMethod.POST, produces="text/plain;charset=utf-8")
 	@ResponseBody
 	public ModelAndView commentRegister(ProjectComment comment) {
-		projectService.commentRegister(comment);
-		int commentNo = comment.getCommentNo();
-
-		ProjectComment newComment = projectService.getCommentByCommentNo(commentNo);
+		ProjectComment newComment = projectService.commentRegister(comment);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("newComment", newComment);
@@ -278,40 +302,17 @@ public class ProjectController {
 	}	
 	////////////////코멘트 영역///////////////////////
 	
-
-
-	
-	
-	
-	
-	//////////////////미구현/////////////////////////////////////////
-	@RequestMapping(value="searchproject.action", method = RequestMethod.POST)
-	public ModelAndView searchProject(String[] skill, String[] location){
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("skills", skill);
-		params.put("locations", location);
-
-		List<Project> projects = projectService.searchProject(params);
+	@RequestMapping(value="commentreply.action",method = RequestMethod.POST, produces="text/plain;charset=utf-8")
+	@ResponseBody
+	public ModelAndView commentReply(ProjectComment comment){
 		
-		for (Project project : projects) {
-			System.out.println(project.getProjectNo());
-			Calendar cal = Calendar.getInstance();
-			long nowDay = cal.getTimeInMillis();
+		ProjectComment newComment = projectService.commentReply(comment);
 
-			int year = project.getProjectExpire().getYear();
-			int month = project.getProjectExpire().getMonth();
-			int date = project.getProjectExpire().getDate();
-
-			cal.set(year + 1900, month, date);// 목표일
-			long eventDay = cal.getTimeInMillis();
-			int y = (int) ((eventDay - nowDay) / (24 * 60 * 60 * 1000));
-			project.setProjectStatus(y);
-		}
-		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("project/projectlist");
-		mav.addObject("projects", projects);
+		mav.addObject("newComment", newComment);
+		mav.setViewName("project/newcomment");
 		return mav;
-	}
+	}	
+	
 		
 }

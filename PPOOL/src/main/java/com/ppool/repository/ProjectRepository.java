@@ -38,4 +38,7 @@ public interface ProjectRepository{
 	void commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
 	void commentUpdate(ProjectComment comment);
+	void commentReply(ProjectComment comment);
+	int getCommentLastStep(int commentGroupNo);
+	
 }

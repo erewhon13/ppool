@@ -113,7 +113,7 @@
 				COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP, COMMENTCLOSED, COMMENTREGISTERDAY
 			FROM COMMENTS
 			WHERE projectno=#{projectno}
-			ORDER BY COMMENTNO ASC, COMMENTSTEP ASC
+			ORDER BY commentgroupno ASC, COMMENTSTEP ASC, COMMENTNO ASC
 		</select>
 	<!-- ***************** 프로젝트 상세보기 ***************** -->
 	
@@ -287,6 +287,25 @@
 			(COMMENTNO_SEQUENCE.NEXTVAL, #{projectNo}, #{userNo}, #{commentContent}, 
 			COMMENTNO_SEQUENCE.CURRVAL, 1, 1)
 	</insert>
+	<insert id="commentReply" parameterType="ProjectComment">
+		<selectKey keyProperty="commentNo" order="AFTER" resultType="int" >
+			SELECT COMMENTNO_SEQUENCE.currval FROM DUAL
+		</selectKey>
+		INSERT INTO COMMENTS
+			(COMMENTNO, PROJECTNO, USERNO, COMMENTCONTENT, 
+			COMMENTGROUPNO, COMMENTDEPTH, COMMENTSTEP)
+		VALUES
+			(COMMENTNO_SEQUENCE.NEXTVAL, #{projectNo}, #{userNo}, #{commentContent}, 
+			#{commentGroupNo}, #{commentDepth}+1, #{commentStep}+1)
+	</insert>
+	
+	<select id="getCommentLastStep" parameterType="int" resultType="int">
+		SELECT MIN(COMMENTSTEP)
+		FROM COMMENTS
+		WHERE commentgroupno = #{commentGroupNo}
+		ORDER BY COMMENTSTEP DESC
+	</select>
+	
 		<!-- ***************** 신규 코멘트 조회 ***************** -->
 		<select id="getCommentByCommentNo" parameterType="int" resultMap="newComment">
 			SELECT 

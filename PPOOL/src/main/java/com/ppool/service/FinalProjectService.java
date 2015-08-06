@@ -148,12 +148,10 @@ public class FinalProjectService implements ProjectService {
 	}
 	
 	@Override
-	public void commentRegister(ProjectComment comment) {
+	public ProjectComment commentRegister(ProjectComment comment) {
 		projectRepository.commentRegister(comment);
-	}
+		int commentNo = comment.getCommentNo();
 
-	@Override
-	public ProjectComment getCommentByCommentNo(int commentNo) {
 		ProjectComment newComment = projectRepository.getCommentByCommentNo(commentNo);
 		return newComment;
 	}
@@ -162,6 +160,20 @@ public class FinalProjectService implements ProjectService {
 	public List<Project> searchProject(HashMap<String, Object> params) {
 		List<Project> projects = projectRepository.searchProject(params);
 		return projects;
+	}
+
+	@Override
+	public ProjectComment commentReply(ProjectComment comment) {
+		int commentGroupNo = comment.getCommentGroupNo();
+		
+		int lastStep = projectRepository.getCommentLastStep(commentGroupNo);
+		comment.setCommentStep(lastStep);
+		
+		projectRepository.commentReply(comment);
+		int commentNo = comment.getCommentNo();
+		
+		ProjectComment newComment = projectRepository.getCommentByCommentNo(commentNo);
+		return newComment;
 	}
 	
 
