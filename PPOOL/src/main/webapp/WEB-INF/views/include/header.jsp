@@ -88,7 +88,7 @@
 						<li><a
 							href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
 					</c:if>
-					<c:if test="${loginuser.userNo == 104}">
+					<c:if test="${loginuser.userNo == 1}">
 						<li><a href='/ppool/reportlist.action'>신고목록</a></li>
 					</c:if>
 				</c:if>

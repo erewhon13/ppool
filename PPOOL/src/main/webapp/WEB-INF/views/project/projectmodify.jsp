@@ -59,7 +59,6 @@
 	<div class="basic" ><br/>
 		<table class="tech">
 			<caption >상세뷰
-				<img src="/ppool/resources/images/report.png" id="report" align="right">
 			</caption>
 			<tr>
 				<th >프로젝트명</th>

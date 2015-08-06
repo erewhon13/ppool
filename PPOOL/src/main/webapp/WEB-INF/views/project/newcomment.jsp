@@ -11,7 +11,7 @@
     <td class="yescomment" style="padding-left:${newComment.commentDepth > 1? '10%' : '5px'};padding-right:5px">
 		<div class="c_name" >${newComment.userName }</div>
 		<br/>
-		<div id="a${newComment.commentNo}" class="a" style="${loginuser.userNo eq project.userNo ? 'background-color:#ffeeee' : '' }">${fn:replace(newComment.commentContent , enter, '<br>')}</div>
+		<div id="a${newComment.commentNo}" class="a" >${fn:replace(newComment.commentContent , enter, '<br>')}</div>
 		<form id="fo${newComment.commentNo}">
 			<textarea id="b${newComment.commentNo}" class="b" 
 					name="commentContent">${newComment.commentContent }</textarea>

@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-
+<link rel="stylesheet" href="resources/css/project.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 <style type="text/css">
@@ -62,8 +62,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 				<br />
 				<c:if test="${loginuser.userNo == 1}">	
 				<div style="width: 99%;" align="right">
-					<img src="/ppool/resources/images/writer.png" id="writer"
-						style="cursor: pointer;">
+					<input type="button" class="btn" id="writer" value="글쓰기"/>
 				</div>
 				</c:if>
 			</form>
