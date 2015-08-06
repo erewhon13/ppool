@@ -36,7 +36,7 @@ public class UserSearchController {
 		ModelAndView mav = new ModelAndView();
 		List<User> users = userSearchService.getUserSearchList();
 
-		mav.addObject("users", users); // getattribute (데이터 출력을 위해 데이터 가져오기)
+		mav.addObject("users", users); 
 		mav.setViewName("users/searchuser");
 		return mav;
 	}
@@ -78,8 +78,8 @@ public class UserSearchController {
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("skills", skill);
 		params.put("locations", location);
-		List<User> list = userSearchService.searchUsers(params);
-		mav.addObject("list", list);
+		List<User> users = userSearchService.searchUsers(params);
+		mav.addObject("users", users);
 		mav.setViewName("users/searchuser");
 		return mav;
 	}
