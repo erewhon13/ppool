@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
+<link rel="stylesheet" href="resources/css/project.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 
@@ -43,11 +44,9 @@
 		            </tr>
 				</table>
 				<br />
-				<div class="buttons">	        	
-					<input type='submit' value='수정' style='height:25px' />
-					&nbsp;&nbsp;
-					<input type="button" value="취소" style="height: 25px" 
-						onclick="location.href='notificationlist.action';"/>
+				<div style="width: 100%;" align="right">        	
+					<input type="submit" class="btn" id="write" value="수정"/>
+					<input type="button" class="btn" id="cancel" value="취소" onclick="location.href='notificationlist.action';"/>
 				</div>
 				</form>
 			</div>
