@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.ppool.dto.History;
-import com.ppool.dto.Project;
 import com.ppool.dto.ResumeEducation;
 import com.ppool.dto.ResumeLanguage;
 import com.ppool.dto.ResumeLicense;
