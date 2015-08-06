@@ -36,6 +36,18 @@
 		   })
 	   })
    	</script>
+   	<style type="text/css">
+   		.button{
+   		background-color:#7d97d3;
+   		border:solid 3px #7d97d3;
+   		color:#fff;font-weight:bold; 
+   		cursor: pointer;
+   		font-size: 16pt;
+    width: 65pt;
+    margin-left: 2px;
+    padding: 1px 6px;
+   	}
+   	</style>
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
@@ -108,9 +120,9 @@
 	<c:if test="${loginuser.userNo eq history.userNo}">
 		<div style="float: right;">
 			<input type="hidden" id="userNo" name="userNo" value='${loginuser.userNo}' /> 
-				<img src="/ppool/resources/images/modify.png" id="register2" style="cursor: pointer;">&nbsp;
-				<img src="/ppool/resources/images/delete.png" id="delete" style="cursor: pointer;">&nbsp;			
-				<img src="/ppool/resources/images/list.png" id="close" style="cursor: pointer;" >
+				<input type="button" class="button" value="수정" id="register2">&nbsp;
+				<input type="button" class="button" value="삭제"" id="delete" >&nbsp;			
+				<input type="button" class="button" value="취소" id="close" >&nbsp;	
 		</div>
 	</c:if>
 </c:if>	

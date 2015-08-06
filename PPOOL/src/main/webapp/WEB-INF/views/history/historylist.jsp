@@ -17,6 +17,16 @@
 .history2 tr:HOVER th{
 	background:#49505a; 
 }
+.button{
+   		background-color:#7d97d3;
+   		border:solid 3px #7d97d3;
+   		color:#fff;font-weight:bold; 
+   		cursor: pointer;
+   		font-size: 16pt;
+    width: 65pt;
+    margin-left: 2px;
+    padding: 1px 6px;
+   	}
 </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="/ppool/resources/css/board.css">
@@ -58,11 +68,11 @@
 								<tbody>
 									<input type="hidden" value="${user.userNo}"/>		
 										<tr>
-											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20" >순번</td>
-											<td style="width:30%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">프로젝트명</td>
-											<td style="width:20%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">역할</td>
-											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">공개</td>
-											<td style="width:20%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">수행기간</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20" >순번</td>
+											<td style="width:30%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">프로젝트명</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">역할</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">공개</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">수행기간</td>
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">
@@ -97,7 +107,7 @@
 							</table>
 							<br/>		
 							<div style="width:100%;" align="right" >		
-								<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
+								<input type="button" class="button" value="글쓰기" id="writer">
 							</div>							
 					</div>
 				
