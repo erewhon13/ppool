@@ -80,7 +80,8 @@ public class UserController {
 		// 말한다.
 		String referer = request.getHeader("referer");
 		// 요청이 들어온 url을 읽어서 반환
-		mav.setViewName("redirect:" + referer.substring(27));
+		//mav.setViewName("redirect:" + referer.substring(27));
+		mav.setViewName("redirect:/home.action");
 		return mav;
 	}
 
@@ -93,7 +94,8 @@ public class UserController {
 		// 말한다.
 		String referer = request.getHeader("referer");
 		// 요청이 들어온 url을 읽어서 반환
-		mav.setViewName("redirect:" + referer.substring(27));
+		//mav.setViewName("redirect:" + referer.substring(27));
+		mav.setViewName("redirect:/home.action");
 		return mav;
 	}
 
