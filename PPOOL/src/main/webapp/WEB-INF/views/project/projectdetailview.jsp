@@ -526,7 +526,7 @@
         			<td class="yescomment" style="padding-left:${comment.commentDepth > 1? '10%' : '5px'};padding-right:5px">
 						<div class="c_name" >${comment.userName }</div>
 						<br/>
-						<div id="a${comment.commentNo}" class="a" style="${loginuser.userNo eq project.userNo ? 'background-color:#ffeeee' : '' }">${fn:replace(comment.commentContent , enter, '<br>')}</div>
+						<div id="a${comment.commentNo}" class="a" style="${comment.userNo eq project.userNo ? 'background-color:#ffeeee' : '' }">${fn:replace(comment.commentContent , enter, '<br>')}</div>
 						<form id="fo${comment.commentNo}">
 							<textarea id="b${comment.commentNo}" class="b" 
 									name="commentContent">${comment.commentContent }</textarea>
@@ -564,7 +564,7 @@
 	                					<div style="text-align: center">+</div>
 	                				</td>
 		                			<td style="width: 80%">
-										<textarea id="commentcontent${comment.commentNo}" name="commentContent" rows="5" style="background-color:#eeffec;max-height: 600px;width:100%;resize:none;font-size: 15pt;"></textarea>
+										<textarea id="commentcontent${comment.commentNo}" name="commentContent" rows="5" style="background-color:#eeffec;max-height: 600px;width:100%;resize:none;"></textarea>
 									</td>
 									<td style="width: 10%">
 										<input type="button" class="rr_bt" id="rr${comment.commentNo}" value="등 록" style="background-color:#7d97d3;border:solid 3px #7d97d3;color:#fff;font-weight:bold;"/>

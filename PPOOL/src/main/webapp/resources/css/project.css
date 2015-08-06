@@ -4,11 +4,11 @@ table.list {width:100%; margin:0 auto; text-align:center; border-collapse:separa
 .list tr.head {background:#7d97d3; text-align:center; border-right:1px solid #fff; font-size: 13pt;}
 .list tr.head th{width:0%;padding:7px 7px;}
 .list td.projectno {text-align:center; width:8%}
-.list td.date {text-align:center; width:18%}
-.list td.content {text-align:left; width:25%}
-.list td.location {text-align:center; width:21%}
-.list td.dday {text-align:center; width:17%}
-.list td.status {text-align:center; width:11%}
+.list td.date {text-align:center; width:17%}
+.list td.content {text-align:left; width:32%}
+.list td.location {text-align:center; width:20%}
+.list td.dday {text-align:center; width:15%}
+.list td.status {text-align:center; width:8%}
 .list tr.odd {cursor: pointer;background:#f3f3f3}
 .list tr.odd th {background:#e1e1e1;width:8%;color:black;}
 .list tr.even {cursor: pointer;background:#fff;}
@@ -32,7 +32,7 @@ td{text-align:left;font-size:12pt;margin:5px;padding:6px 10px 6px 10px;text-alig
 td.w85{width: 85%}
 td.w35{width: 35%}
 td div{width: 100%;}
-td textarea{max-height: 600px;width:100%;resize:none;font-size: 15pt;} 
+textarea{max-height: 600px;width:100%;resize:none;font-size: 13pt;} 
 .tech .checkbox{list-style:none;text-align: left;width: 100%;padding:2% 10% 2% 10%;}
 .tech .checkbox td{padding: 0;width: 25%;}
 .tech .check{list-style:none;text-align: left;width: 100%;padding:2% 10% 2% 10%;}
