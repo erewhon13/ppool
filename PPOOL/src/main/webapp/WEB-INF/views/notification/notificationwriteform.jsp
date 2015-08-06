@@ -49,7 +49,7 @@
 				</table>
 				<br />
 				<div class="buttons">	        	
-					<input type='submit' value='등록' style='height:30px; margin-left: 450px' />
+					<input type='submit' value='등록' style='height:30px; margin-left: 100px' />
 					&nbsp;&nbsp;
 					<input type="button" value="취소" style="height: 30px" 
 						onclick="location.href='notificationlist.action';"/>
