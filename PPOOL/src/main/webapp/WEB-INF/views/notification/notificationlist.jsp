@@ -35,8 +35,7 @@
 					style="text-align: center; border: groove; margin-left: 1%">
 					<caption
 						style="text-align: left; font-size: 15pt; color: #1BA6B2; font-weight: 700;">공지사항</caption>
-					<tr
-						style="background-color: #7d97d3; color: #ffffff; height: 30px;">
+					<tr class="head" style="background-color: #7d97d3; color: #ffffff; height: 30px;">
 						<th style="width: 5%">글번호</th>
 						<th style="width: 20%">제목</th>
 						<th style="width: 10%">등록일</th>
@@ -58,10 +57,8 @@
 					</c:forEach>
 
 				</table>
-				<div style='text-align: center'>${pager.toString()}</div>
-
 				<br />
-				<c:if test="${loginuser.userNo != 1}">	
+				<c:if test="${loginuser.userNo == 1}">	
 				<div style="width: 99%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer"
 						style="cursor: pointer;">

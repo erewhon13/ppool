@@ -15,12 +15,11 @@
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript">
 	$(document).ready(function() {
 		$("#delete").click(function(){
-			if ('${deleted}' == '0') { 
-
-		        var result = confirm('${notification.notificationTitle}를 삭제하시겠습니까?');
+			if ('${deleted}' == '1') { 
+				var result = confirm('${notification.notificationTitle}를 삭제하시겠습니까?');
 		        if(result) {
 		        	//yes
-		        	var url = "/ppool/projectbookmarks.action?userNo=" + "${loginuser.userNo ==1}" + "&projectNo="+"${project.projectNo}";
+		        	var url = "/ppool/notificationdelete.action?userNo=" + "${loginuser.userNo == 1}" + "&projectNo="+"${notification.notificationNo}";
 		        	$(location).attr("href",url);
 		        }else{
 		        }
@@ -72,7 +71,7 @@
 						
 						
 					</table>
-					<c:if test="${loginuser.userNo != 1}">
+					<c:if test="${loginuser.userNo == 1}">
 					<div style='margin-left: 1100px'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
