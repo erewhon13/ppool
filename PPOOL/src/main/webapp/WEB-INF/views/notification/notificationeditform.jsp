@@ -13,6 +13,20 @@
 <link rel="stylesheet" href="resources/css/project.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#update").click(function(){
+				var result = confirm('${notification.notificationTitle}를 수정하시겠습니까?');
+		        if(result) {
+		        	//yes
+		        	var url = "/ppool/notificationdelete.action?notificationNo="+"${notification.notificationNo}";
+		        	$(location).attr("href",url);
+		        }else{
+		        }
+		 });
+	});
+</script>
 
 <title>편집</title>
 </head>
@@ -45,7 +59,7 @@
 				</table>
 				<br />
 				<div style="width: 100%;" align="right">        	
-					<input type="submit" class="btn" id="write" value="수정"/>
+					<input type="submit" class="btn" id="update" value="수정"/>
 					<input type="button" class="btn" id="cancel" value="취소" onclick="location.href='notificationlist.action';"/>
 				</div>
 				</form>
