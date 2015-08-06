@@ -278,11 +278,12 @@ public class ProjectController {
 	////////////////코멘트 영역///////////////////////	
 	@RequestMapping(value="commentregister.action",method = RequestMethod.POST, produces="text/plain;charset=utf-8")
 	@ResponseBody
-	public ModelAndView commentRegister(ProjectComment comment) {
+	public ModelAndView commentRegister(ProjectComment comment, int projectUserNo) {
 		ProjectComment newComment = projectService.commentRegister(comment);
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("newComment", newComment);
+		mav.addObject("projectUserNo", projectUserNo);
 		mav.setViewName("project/newcomment");
 		return mav;
 	}

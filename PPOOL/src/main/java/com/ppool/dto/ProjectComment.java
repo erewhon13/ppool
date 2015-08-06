@@ -12,7 +12,16 @@ public class ProjectComment {
 	private int commentDepth;
 	private int commentClosed;
 	private Date commentRegisterDay;
-//////////////////////////////////////////////////////////////
+	
+	private int projectUserNo;
+	
+public int getProjectUserNo() {
+		return projectUserNo;
+	}
+	public void setProjectUserNo(int projectUserNo) {
+		this.projectUserNo = projectUserNo;
+	}
+	//////////////////////////////////////////////////////////////
 	private String userName;
 	
 	public String getUserName() {

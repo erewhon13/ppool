@@ -552,8 +552,8 @@
                 		</div>
                 		
                 		<form id="commentform${comment.commentNo}" action="/ppool/commentreply.action" method="post">
+                			<input type="hidden" name="projectUserNo" value='${project.userNo }' />
                 			<input type="hidden" name="projectNo" value='${project.projectNo }' />
-                			<input type="hidden" name="projectUserNo" value="${project.userNo }"/>
 	                		<input type="hidden" name="userNo" value='${loginuser.userNo}' />
 	                		<input type="hidden" name="commentGroupNo" value='${comment.commentGroupNo}' />
 	                		<input type="hidden" name="commentStep" value='${comment.commentStep}' />

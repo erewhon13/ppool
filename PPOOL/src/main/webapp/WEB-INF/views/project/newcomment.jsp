@@ -11,7 +11,7 @@
     <td class="yescomment" style="padding-left:${newComment.commentDepth > 1? '10%' : '5px'};padding-right:5px">
 		<div class="c_name" >${newComment.userName }</div>
 		<br/>
-		<div id="a${newComment.commentNo}" class="a" >${fn:replace(newComment.commentContent , enter, '<br>')}</div>
+		<div id="a${newComment.commentNo}" class="a" style="${newComment.userNo eq projectUserNo ? 'background-color:#ffeeee' : '' }">${fn:replace(newComment.commentContent , enter, '<br>')}</div>
 		<form id="fo${newComment.commentNo}">
 			<textarea id="b${newComment.commentNo}" class="b" 
 					name="commentContent">${newComment.commentContent }</textarea>
@@ -22,7 +22,7 @@
 		<f:formatDate value="${newComment.commentRegisterDay}" pattern="yyyy년 MM월 dd일 hh:mm" var="registerday"/>
 		<div class="c_regi" >${registerday}</div>
      	<div class="sele" id="aa${newComment.commentNo}" >
-	     	<c:if test="${loginuser.userNo eq newComment.userNo }">
+	     	<c:if test="${projectUserNo eq newComment.userNo }">
 	    		<input type="button" class="ed_bt" id="ed${newComment.commentNo}" value="편집"/>&nbsp;
 	    		<input type="button" class="de_bt" id="de${newComment.commentNo}" value="삭제"/>&nbsp;
 	     	</c:if>
@@ -33,10 +33,10 @@
          	<input type="button" class="ca_bt" id="ca${newComment.commentNo}" value="취소"/>
         </div>
             		
-        <form id="commentform${newComment.commentNo}">
-        	<input type="hidden" id="projectno" name="projectNo" value='${project.projectNo }' />
-         	<input type="hidden" name="userNo" value='${loginuser.userNo}' />
-         	<input type="hidden" name="commentNo" value='${newComment.commentNo}' />
+        <form id="commentform${newComment.commentNo}" action="/ppool/commentreply.action" method="post">
+        	<input type="hidden" id="projectno" name="projectNo" value='${newComment.projectNo }' />
+         	<input type="hidden" name="userNo" value='${newComment.userNo}' />
+         	<input type="hidden" name="commentGroupNo" value='${newComment.commentGroupNo}' />
          	<input type="hidden" name="commentStep" value='${newComment.commentStep}' />
          	<input type="hidden" name="commentDepth" value='${newComment.commentDepth}' />
          	<table id="reta${newComment.commentNo}" class="reta" style="width: 100%;border-top:solid 2px;margin-top:5px ;display: none">
@@ -45,7 +45,7 @@
              			<div style="text-align: center">+</div>
              		</td>
               		<td style="width: 80%">
-						<textarea id="commentcontent${newComment.commentNo}" name="commentContent" rows="5" style="background-color:#eeffec;max-height: 600px;width:100%;resize:none;font-size: 15pt;"></textarea>
+						<textarea id="commentcontent${newComment.commentNo}" name="commentContent" rows="5" style="background-color:#eeffec;max-height: 600px;width:100%;resize:none;"></textarea>
 					</td>
 					<td style="width: 10%">
 						<input type="button" class="rr_bt" id="rr${newComment.commentNo}" value="등 록" style="background-color:#7d97d3;border:solid 3px #7d97d3;color:#fff;font-weight:bold;"/>
