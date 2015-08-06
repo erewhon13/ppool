@@ -64,6 +64,11 @@
 						환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
 					</div>
 				</c:when>
+				<c:when test="${message eq false}">
+					<script type="text/javascript">
+						alert("승인받지 않은 이메일입니다.");
+					</script>
+				</c:when>
 			</c:choose>
 		</div>
 		<div id="sidemenu">
@@ -83,7 +88,7 @@
 						<li><a
 							href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
 					</c:if>
-					<c:if test="${loginuser.userNo == 1}">
+					<c:if test="${loginuser.userNo == 104}">
 						<li><a href='/ppool/reportlist.action'>신고목록</a></li>
 					</c:if>
 				</c:if>

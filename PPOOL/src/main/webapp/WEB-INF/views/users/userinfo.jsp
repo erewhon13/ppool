@@ -30,10 +30,9 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-
 	<div id="personaldata">
 		<div align="center">
-			<table style="width: 99%;">
+			<table style="width: 98%;">
 				<caption>회원정보</caption>
 				<tr>
 					<th>기본</th>
