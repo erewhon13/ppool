@@ -196,8 +196,8 @@
 	   					 <tr style="background-color: #FF9147; color: #ffffff;height: 30px;">
 							<th style="width: 10%">회원정보</th>
 							<th style="width: 25%">이력사항</th>
-							<th style="width: 10%">희망지역</th>
-							<th style="width: 10%">프로젝트 경험여부</th>
+							<th style="width: 15%">희망지역</th>
+							<th style="width: 8%">프로젝트 경험여부</th>
 						</tr>
 						<c:forEach var="user" items="${ users }">
 							<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
