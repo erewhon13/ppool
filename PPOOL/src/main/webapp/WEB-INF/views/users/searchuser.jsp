@@ -208,7 +208,7 @@
 								</td>
 								<td style="text-align: center">${ user.skillNames }</td>
 								<td style="text-align: center">${ user.locationNames }</td>
-								
+								 
 								<td style="text-align: center">
 								<c:choose>
 								<c:when test="${user.userExperience == 'true' }"> 있음</c:when>
