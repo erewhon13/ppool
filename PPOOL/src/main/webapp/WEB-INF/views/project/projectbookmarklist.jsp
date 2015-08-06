@@ -46,11 +46,11 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 			<thead style="margin-left: 20%">
 				<tr style="background-color: #7d97d3; width: 150px">
 					<th style="width: 8%">글번호</th>
-					<th style="width: 18%">프로젝트기간</th>
-					<th style="width: 25%">프로젝트정보</th>
-					<th style="width: 21%">지역</th>
-					<th style="width: 17%">마감일</th>
-					<th style="width: 11%">상태</th>
+					<th style="width: 17%">프로젝트기간</th>
+					<th style="width: 32%">프로젝트정보</th>
+					<th style="width: 20%">지역</th>
+					<th style="width: 15%">마감일</th>
+					<th style="width: 8%">상태</th>
 				</tr>
 			</thead>
 			<tbody>
