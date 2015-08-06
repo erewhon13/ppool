@@ -13,7 +13,9 @@
   <script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 
 <style type="text/css">
-
+#ee{
+font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; margin-bottom: 5px;
+}
 		#r_center{
 		width:70%;
 		height:80%;
@@ -811,10 +813,8 @@
 </script>
 
 </head>
-<%
-	pageContext.include("/WEB-INF/views/include/header.jsp");
-%>
 <body>
+<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 <div id="dialog-form" title="등록하기">
 		<form id="formResumeSchool" action="formresumeschool.action" method="post">
 			<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
@@ -934,11 +934,18 @@
 </div>
 
 	<c:set var="resumeSchool" value="${resumeSchools}"/>
-	<div id="r_center" style=" width:80%; float:left;"><!-- 가운데 -->
-				<img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 50px;">
+	<div id="r_center" style=" width:79%; float:left;"><!-- 가운데 -->
+	<table   id="r_inside" style="width: 100%;border: groove;">
+	<caption id="ee">이력사항</caption>
+	<tr>
+	<td>
+	
+	
+	
+				<!-- <img src="/ppool/resources/images/resumelogo.png" style="height:40px; margin-top: 50px;"> -->
 
 		
-				<div id="r_inside" style="margin-top:5px; width:99% ">
+				<!-- <div id="r_inside" style="margin-top:5px; width:99%;border: solid 1px; "> -->
 						
 						<table style="text-align:center; width:100%; height:20px; ">
 								<tbody>
@@ -1173,7 +1180,11 @@
 						</table>
 					</div>
 				</form>
-			</div>
+			<!-- </div> -->
+		</td>
+	</tr>
+	</table>	
+			
 		</div>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>		
 </body>

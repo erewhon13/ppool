@@ -34,19 +34,18 @@
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 
 	<c:set var="users" value="${users}" />
-	<div id="s_top"></div>
-	<!-- 공간바 -->
  
 
 	<div id="s_center">
 		<!-- 가운데 -->
 		
 		<div class="basic">
-		<img src="/ppool/resources/images/usersearchlogo.png" style="height:40px; ">
+		<!-- <img src="/ppool/resources/images/usersearchlogo.png" style="height:40px; "> -->
 		
 			<br />
 			<form id="searchfield" action="searchuser.action" method="POST">
 				<table class="tech">
+				<caption>인물</caption>
 					<tr>
 						<th>개발</th>
 						<td class="w85" colspan="3">

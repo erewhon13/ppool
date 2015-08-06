@@ -61,7 +61,7 @@ public class FinalUserService implements UserService {
 		// 메일 내용
 		String recipient = user.getUserEmail();
 		String subject = "회원가입 인증";
-		String body = "<a href='http://localhost:8081/ppool/activeview.action?userNo="
+		String body = "<a href='http://192.168.13.6:8081/ppool/activeview.action?userNo="
 				+ userNo + "'>인증페이지</a>";
 
 		// properties 설정

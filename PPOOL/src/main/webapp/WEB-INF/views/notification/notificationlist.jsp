@@ -12,10 +12,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-
+<link rel="stylesheet" href="resources/css/project.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
-
+<style type="text/css">
+#dd{
+font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; margin-bottom: 5px;
+}
+</style>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#writer').click(function() {
@@ -27,14 +31,12 @@
 </head>
 
 <body>
-	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div style="margin-top: 2%">
-		<div align="center">
-			<form id="notification" action="" method="post">
-				<table width="79%"
-					style="text-align: center;">
-					<caption
-						style="text-align: left; font-size: 15pt; color: #1BA6B2; font-weight: 700;">공지사항</caption>
+	<c:import url="/WEB-INF/views/include/header.jsp"/>
+	<div style="width: 79%;float: right">
+	<br/>
+		<form id="notification" action="" method="post">
+				<table style="text-align: center; width:100% ">
+					<caption id="dd">공지사항</caption>
 					<tr class="head" style="background-color: #7d97d3; color: #ffffff; height: 30px;">
 						<th style="width: 5%">글번호</th>
 						<th style="width: 20%">제목</th>
@@ -60,12 +62,10 @@
 				<br />
 				<c:if test="${loginuser.userNo == 1}">	
 				<div style="width: 99%;" align="right">
-					<img src="/ppool/resources/images/writer.png" id="writer"
-						style="cursor: pointer;">
+					<input type="button" class="btn" id="writer" value="글쓰기"/>
 				</div>
 				</c:if>
 			</form>
-		</div>
 	</div>
 	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>

@@ -27,7 +27,7 @@
 	<form id="submitForm" action="projectregister.action" method="POST"> 
 		<div class="basic" ><br/>
 		<table class="tech">
-			<caption >테스트</caption>
+			<caption >프로젝트 등록</caption>
 			<tr>
 				<th >프로젝트명</th>
 				<td class="w85" colspan="3">
