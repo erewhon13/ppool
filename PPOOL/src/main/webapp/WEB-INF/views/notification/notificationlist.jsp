@@ -61,10 +61,12 @@
 				<div style='text-align: center'>${pager.toString()}</div>
 
 				<br />
+				<c:if test="${loginuser.userNo != 1}">	
 				<div style="width: 99%;" align="right">
 					<img src="/ppool/resources/images/writer.png" id="writer"
 						style="cursor: pointer;">
 				</div>
+				</c:if>
 			</form>
 		</div>
 	</div>

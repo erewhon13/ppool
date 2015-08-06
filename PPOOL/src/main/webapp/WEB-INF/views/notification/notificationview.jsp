@@ -72,6 +72,7 @@
 						
 						
 					</table>
+					<c:if test="${loginuser.userNo != 1}">
 					<div style='margin-left: 1100px'>
 						<c:url value="notificationeditform.action" var="editformUrl">
         					<c:param name="notificationNo" value="${ notification.notificationNo }" />
@@ -84,8 +85,8 @@
 						<c:url value="notificationlist.action" var="cancel">
 						</c:url>
 						[<a href="${ cancel }">취소</a>]
-						
 					</div>
+					</c:if>
 			</form>
 		</div>
 	</div>
