@@ -61,7 +61,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 				</table>
 				<br />
 				<c:if test="${loginuser.userNo == 1}">	
-				<div style="width: 99%;" align="right">
+				<div style="width: 100%;" align="right">
 					<input type="button" class="btn" id="writer" value="글쓰기"/>
 				</div>
 				</c:if>

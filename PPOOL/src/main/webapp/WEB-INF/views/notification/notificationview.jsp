@@ -11,11 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/ppool/resources/css/menustyles.css">
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
-
-<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript">
+<link rel="stylesheet" href="resources/css/project.css" />
+<script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+<script type="text/javascript">
 	$(document).ready(function() {
 		$("#delete").click(function(){
-			if ('${deleted}' == '1') { 
 				var result = confirm('${notification.notificationTitle}를 삭제하시겠습니까?');
 		        if(result) {
 		        	//yes
@@ -23,7 +23,6 @@
 		        	$(location).attr("href",url);
 		        }else{
 		        }
-			}
 		 });
 	});
 </script>
@@ -71,19 +70,12 @@
 						
 						
 					</table>
+					<br />
 					<c:if test="${loginuser.userNo == 1}">
-					<div style='margin-left: 1100px'>
-						<c:url value="notificationeditform.action" var="editformUrl">
-        					<c:param name="notificationNo" value="${ notification.notificationNo }" />
-        				</c:url>
-        				[<a href="${ editformUrl }">편집</a>]
-						<c:url value="notificationdelete.action" var="deleteUrl">
-							<c:param name="notificationNo" value="${ notification.notificationNo }" />
-						</c:url>
-						[<a id="delete" href="${ deleteUrl }">삭제</a>]
-						<c:url value="notificationlist.action" var="cancel">
-						</c:url>
-						[<a href="${ cancel }">취소</a>]
+					<div style="width: 100%;" align="right">
+					<input type="button" class="btn" id="update" value="편집" onclick="location.href='notificationeditform.action?notificationNo=${notification.notificationNo}';"/>
+					<input type="button" class="btn" id="delete" value="삭제"/>
+					<input type="button" class="btn" id="cancel" value="취소" onclick="location.href='notificationlist.action';"/>
 					</div>
 					</c:if>
 			</form>
