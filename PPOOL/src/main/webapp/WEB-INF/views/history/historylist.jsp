@@ -27,6 +27,22 @@
     margin-left: 2px;
     padding: 1px 6px;
    	}
+   	
+  .caption{
+  font-weight: 700;
+    font-size: 20px;
+    padding: 5px;
+    color: #1BA6B2;
+    text-align: left;
+    margin-bottom: 5px;
+  
+  }	
+  table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
 </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="/ppool/resources/css/board.css">
@@ -53,10 +69,11 @@
 		<div id="history" style="width: 79%; float: right;">	
 				
 			<table style="text-align:center; width:100%; margin-top:10px; ">
+				<caption class="caption"> 프로젝트 이력관리 </caption>				
 				<tbody>
 					<tr>
 						<td align="left"   >							
-							<img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >
+							<!-- <img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  > -->
 									
 								</td>
 									<td style="width:20%" align="right">
