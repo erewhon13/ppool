@@ -32,7 +32,7 @@
 		<div align="center">
 			<form id="notification" action="" method="post">
 				<table width="79%"
-					style="text-align: center; border: groove; margin-left: 1%">
+					style="text-align: center;">
 					<caption
 						style="text-align: left; font-size: 15pt; color: #1BA6B2; font-weight: 700;">공지사항</caption>
 					<tr class="head" style="background-color: #7d97d3; color: #ffffff; height: 30px;">
