@@ -935,7 +935,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 
 	<c:set var="resumeSchool" value="${resumeSchools}"/>
 	<div id="r_center" style=" width:79%; float:left;"><!-- 가운데 -->
-	<table   id="r_inside" style="width: 100%;border: groove;">
+	<table   id="r_inside" style="width: 100%;border: groove 1px;">
 	<caption id="ee">이력사항</caption>
 	<tr>
 	<td>
@@ -947,7 +947,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 		
 				<!-- <div id="r_inside" style="margin-top:5px; width:99%;border: solid 1px; "> -->
 						
-						<table style="text-align:center; width:100%; height:20px; ">
+						<!-- <table style="text-align:center; width:100%; height:20px; ">
 								<tbody>
 									<tr>
 										<td style="padding-bottom:3px; float:left; font-size:20px; margin-top:10px; font-style: italic;" >
@@ -955,7 +955,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 										</td>
 									</tr>
 								</tbody>
-						</table>
+						</table> -->
 						
 				<div id="users-contain" class="ui-widget2">	
 						
@@ -1136,7 +1136,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 					</div>
 					 
 					<hr border-top:1px solid />
-					<table style="text-align:center; width:100%; height:20px; ">
+					<!-- <table style="text-align:center; width:100%; height:20px; ">
 								<tbody>
 									<tr>
 										<td style="padding-bottom:3px; float:left; font-size:20px; margin-top:10px; font-style: italic;" >
@@ -1144,7 +1144,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 										</td>
 									</tr>
 								</tbody>
-						</table>
+						</table> -->
 			<c:set var="resumeIntroduction" value="${resumeIntroductions}"/>		
 				<form id="form123" name="form123" method="post" >
 					<input type="hidden" name="userNo" value="${loginuser.userNo}"/>
