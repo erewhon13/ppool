@@ -309,9 +309,8 @@ margin-left:64px;
 												<div style="position: absolute;top:-750px;left:-100px;display: none;">
 									
 								</div>
-											<input type="button" value="쪽지보내기" onclick="location.href='home.action';">
-											<input type="button" value="목록으로" onclick="location.href='search.action';">
-						 </td>
+											<input  type="button" value="목록으로" onclick="location.href='search.action';">
+						 </td> 
 				   </tr>
 			</table>
 		</table>
