@@ -110,7 +110,6 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 			</tbody>
 		</table>
 	</div>
-	</div>
 	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>
