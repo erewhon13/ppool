@@ -13,13 +13,14 @@
 <link rel="stylesheet" href="/ppool/resources/css/mainpage.css">
 <link rel="stylesheet" href="resources/css/project.css" />
 <script src="/ppool/resources/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#delete").click(function(){
 				var result = confirm('${notification.notificationTitle}를 삭제하시겠습니까?');
 		        if(result) {
 		        	//yes
-		        	var url = "/ppool/notificationdelete.action?userNo=" + "${loginuser.userNo == 1}" + "&projectNo="+"${notification.notificationNo}";
+		        	var url = "/ppool/notificationdelete.action?notificationNo="+"${notification.notificationNo}";
 		        	$(location).attr("href",url);
 		        }else{
 		        }
