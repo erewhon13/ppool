@@ -41,9 +41,10 @@
 <c:set var="projects" value="${projects }"/>
 <div  class="basic" ><br/>
 
-<img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >
+<!-- <img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  > -->
 	<form id="searchfield" action="searchproject.action" method="POST">	
 	<table class="tech">
+	<caption>프로젝트 리스트</caption>
 			<tr>
 			<th >개발</th>
 				<td class="w85" colspan="3">

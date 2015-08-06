@@ -6,7 +6,9 @@
 <html>
 <head>
 <style type="text/css">
-
+#ff{
+font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; margin-bottom: 5px;
+}
 	.cursor{
 		cursor: pointer;
 	}
@@ -63,20 +65,22 @@
 	
 		<div id="history" style="width: 79%; float: right;">	
 				
-			<table style="text-align:center; width:100%; margin-top:10px; ">
+		<%-- 	<table style="text-align:center; width:100%; margin-top:10px; ">
 				<caption class="caption"> 프로젝트 이력관리 </caption>				
 				<tbody>
-					<tr>
-						<td align="left"   >							
-							<!-- <img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  > -->
-									
-								</td>
-									<td style="width:20%" align="right">
-												</td>
-											</tr>
-									</tbody>
-							</table>
+				<tr>
+					<td align="left"   >							
+						<!-- <img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  > -->
+								
+					</td>
+					<td style="width:20%" align="right">
+					</td>
+				</tr>
+		</tbody>
+	</table> --%>
+							<br/>
 							<table class="history2" style="text-align:center; width:100%; ">
+							<caption class="caption" id="ff"> 프로젝트 이력관리 </caption>
 								<tbody>
 									<input type="hidden" value="${user.userNo}"/>		
 										<tr>
