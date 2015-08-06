@@ -32,7 +32,7 @@
 			</c:when>
 		</c:choose>
 		<div id="sidelogin">
-			<div id="topbar" class="nonelogined"
+			<div class="nonelogined"
 				style='display : ${loginuser eq null ? "block" : "none"};'>
 				<form action="userlogin.action" method="POST">
 					<div id="userinfo">
@@ -59,10 +59,15 @@
 				<c:when test="${loginuser.userStatus eq true}">
 					<div id="topbar" class="logined"
 						style='display : ${loginuser eq null ? "none" : "block"}'>
-						<span id="mid"> <a
-							href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></span>님
+						<span id="mid"><b> <a
+								href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></b></span>님
 						환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
 					</div>
+				</c:when>
+				<c:when test="${message eq false}">
+					<script type="text/javascript">
+						alert("승인받지 않은 이메일입니다.");
+					</script>
 				</c:when>
 			</c:choose>
 		</div>
@@ -83,7 +88,7 @@
 						<li><a
 							href='/ppool/userinfoupdateform.action?userNo=${user.getUserNo() }'><span>회원정보수정</span></a></li>
 					</c:if>
-					<c:if test="${loginuser.userNo == 1}">
+					<c:if test="${loginuser.userNo == 104}">
 						<li><a href='/ppool/reportlist.action'>신고목록</a></li>
 					</c:if>
 				</c:if>

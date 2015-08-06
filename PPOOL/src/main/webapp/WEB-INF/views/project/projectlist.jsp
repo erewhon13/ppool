@@ -13,8 +13,8 @@
 	<link rel="stylesheet" href="resources/css/project.css" />
 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 	<script type="text/javascript">
-	
 	$(document).ready(function (){
+		
 		$('.odd, .even').click(function(){
 			$(location).attr("href", "/ppool/projectdetailview.action?projectNo="+ $(this).attr('id') );
 		});
@@ -39,7 +39,6 @@
 <body>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <c:set var="projects" value="${projects }"/>
-
 <div  class="basic" ><br/>
 
 <img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >

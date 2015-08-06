@@ -28,6 +28,20 @@
 		  
 	   })
    	</script>
+   	<style type="text/css">
+   	.button{
+   		background-color:#7d97d3;
+   		border:solid 3px #7d97d3;
+   		color:#fff;font-weight:bold; 
+   		cursor: pointer;
+   		font-size: 16pt;
+    width: 65pt;
+    margin-left: 2px;
+    padding: 1px 6px;
+   	}
+   	
+   	
+   	</style>
 </head>
 <c:import url="/WEB-INF/views/include/header.jsp"/>
 <div>
@@ -76,8 +90,8 @@
 		</tr>
 		</table>
 		<div style="float: right;">
-				<input type="button" id="register2" value="등록하기">
-				<input type="button" id="close" value="창닫기">	
+				<input class="button" type="button" id="register2" value="등록">
+				<input class="button" type="button" id="close" value="취소">	
 		</div>		
 		</form>
 	</div>

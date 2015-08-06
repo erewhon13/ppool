@@ -11,7 +11,7 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+caption {font-weight:700; font-size:15px; padding:1px; color:#1BA6B2; text-align:left;margin-top: 4px;}
 #side{
 	text-align:center;
 	float: left;
@@ -19,14 +19,20 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 	margin-top: 30px;
 }
 #sidelogin{
-	height: 90px;
+	height: 120px;
 	border: groove;
+}
+#topbar{
+	margin-top: 50px;
 }
 
 #sidelogin ul li{
 	display: inline-block;
 	text-align: center;
 	margin-right: 35px;	
+}
+#loginbutton{
+	margin-top: 20px;
 }
 
 #userinfo {
@@ -147,4 +153,9 @@ caption {font-weight:700; font-size:20px; padding:5px; color:#1BA6B2; text-align
 #sidemenu ul ul>li.has-sub>a:before {
 	top: 20px;
 	background: #ffffff;
+}
+
+#mid{
+	text-decoration:underline;
+	font-weight: bold;
 }

@@ -199,7 +199,7 @@
 							<th style="width: 10%">희망지역</th>
 							<th style="width: 10%">프로젝트 경험여부</th>
 						</tr>
-						<c:forEach var="user" items="${ users }">
+						<c:forEach var="user" items="${ list }">
 							<tr style='text-align: center; height: 30px; background-color: #F1F1F1;'>
 								<td style="text-align: center">
 										<c:url value="userdetailview.action" var="viewUrl">

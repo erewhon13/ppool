@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-	<form action="approval.action" method="POST">
-	<input type="hidden" name="userNo" value="${userNo}">
-	<input type="submit" value="승인">
-	</form>
+	<div align='center'>
+        <div>인증페이지 입니다.</div>
+		<form action="approval.action" method="POST">
+			<input type="hidden" name="userNo" value="${userNo}"> <input
+				type="submit" value="승인">
+		</form>
 	</div>
 </body>
 </html>

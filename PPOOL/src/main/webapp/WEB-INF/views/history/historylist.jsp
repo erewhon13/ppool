@@ -17,6 +17,32 @@
 .history2 tr:HOVER th{
 	background:#49505a; 
 }
+.button{
+   		background-color:#7d97d3;
+   		border:solid 3px #7d97d3;
+   		color:#fff;font-weight:bold; 
+   		cursor: pointer;
+   		font-size: 16pt;
+    width: 65pt;
+    margin-left: 2px;
+    padding: 1px 6px;
+   	}
+   	
+  .caption{
+  font-weight: 700;
+    font-size: 20px;
+    padding: 5px;
+    color: #1BA6B2;
+    text-align: left;
+    margin-bottom: 5px;
+  
+  }	
+  table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
 </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="/ppool/resources/css/board.css">
@@ -43,10 +69,11 @@
 		<div id="history" style="width: 79%; float: right;">	
 				
 			<table style="text-align:center; width:100%; margin-top:10px; ">
+				<caption class="caption"> 프로젝트 이력관리 </caption>				
 				<tbody>
 					<tr>
 						<td align="left"   >							
-							<img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  >
+							<!-- <img src="/ppool/resources/images/historylogo.png" style="height:40px; margin-top: 8px;"  > -->
 									
 								</td>
 									<td style="width:20%" align="right">
@@ -58,11 +85,11 @@
 								<tbody>
 									<input type="hidden" value="${user.userNo}"/>		
 										<tr>
-											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20" >순번</td>
-											<td style="width:30%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">프로젝트명</td>
-											<td style="width:20%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">역할</td>
-											<td style="width:15%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">공개</td>
-											<td style="width:20%; color: black;" align="center"  bgcolor="#7d97d3" height="40" width="20">수행기간</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20" >순번</td>
+											<td style="width:30%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">프로젝트명</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">역할</td>
+											<td style="width:15%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">공개</td>
+											<td style="width:20%; color: white;" align="center"  bgcolor="#7d97d3" height="40" width="20">수행기간</td>
 										</tr>
 										
 										<c:forEach var="history" items="${histories}">
@@ -97,7 +124,7 @@
 							</table>
 							<br/>		
 							<div style="width:100%;" align="right" >		
-								<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
+								<input type="button" class="button" value="글쓰기" id="writer">
 							</div>							
 					</div>
 				

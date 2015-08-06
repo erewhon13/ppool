@@ -15,7 +15,6 @@ public interface ProjectService {
 	void projectDelete(int projectNo);
 	void projectModify(Project project);
 	List<ProjectComment> getCommentsByProjectNo(int projectNo);
-	ProjectComment getCommentByCommentNo(int commentNo);
 	
 	List<Project> searchProject(HashMap<String, Object> params);
 	
@@ -31,9 +30,10 @@ public interface ProjectService {
 	////////////////////////////////////////////////////////
 	
 	///////////////코멘트//////////////////////
-	void commentRegister(ProjectComment comment);
+	ProjectComment commentRegister(ProjectComment comment);
 	void commentDelete(int commentNo);
 	void commentUpdate(ProjectComment comment);
+	ProjectComment commentReply(ProjectComment comment);
 	////////////////////////////////////////////////////////
 	
 }

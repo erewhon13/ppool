@@ -35,6 +35,16 @@
 		}
 		
 		input.text { margin-bottom:12px; width:95%; padding: .4em; }
+		.button{
+   		background-color:#7d97d3;
+   		border:solid 3px #7d97d3;
+   		color:#fff;font-weight:bold; 
+   		cursor: pointer;
+   		font-size: 16pt;
+    width: 65pt;
+    margin-left: 2px;
+    padding: 1px 6px;
+   	}
 
 </style>
  
@@ -946,9 +956,8 @@
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
 										<tr>
-											<td style="width:80%"  align="left"  >
-												<img src="/ppool/resources/images/arrow.gif" height=13px>
-											학력사항
+											<td style="width:80%;color: #1BA6B2;"  align="left"  >
+												학력사항
 											</td>
 											<td style="width:20%" align="right">
 												<button id="register1" style="float:right;">등록하기</button>
@@ -996,8 +1005,8 @@
 							<table style="text-align:center; width:100%; margin-top:10px; ">
 									<tbody>
 											<tr>
-												<td style="width:80%"  align="left"  >
-													<img src="/ppool/resources/images/arrow.gif" height=13px>
+												<td style="width:80%;color: #1BA6B2;"  align="left"  >
+													
 												교육사항
 												</td>
 												<td style="width:20%" align="right">
@@ -1040,8 +1049,7 @@
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
 										<tr>
-											<td style="width:80%"  align="left"  >
-												<img src="/ppool/resources/images/arrow.gif" height=13px>
+											<td style="width:80%;color: #1BA6B2;"  align="left" >
 											자격증
 											</td>
 											<td style="width:20%" align="right">
@@ -1081,8 +1089,7 @@
 						<table style="text-align:center; width:100%; margin-top:10px; ">
 								<tbody>
 										<tr>
-											<td style="width:80%"  align="left"  >
-												<img src="/ppool/resources/images/arrow.gif" height=13px>
+											<td style="width:80%;color: #1BA6B2;"  align="left"  >
 											외국어능력
 											</td>
 											<td style="width:20%" align="right">
@@ -1122,13 +1129,15 @@
 					</div>
 					 
 					<hr border-top:1px solid />
-					<table style="margin-top: 10px;">
-						<tr>
-							<td style="padding-bottom:3px; float:left; font-size:20px; margin-top:10px; font-style: italic;" >
-								2.자기소개서
-							</td>
-						</tr>
-					</table>
+					<table style="text-align:center; width:100%; height:20px; ">
+								<tbody>
+									<tr>
+										<td style="padding-bottom:3px; float:left; font-size:20px; margin-top:10px; font-style: italic;" >
+										2. 자기소개서
+										</td>
+									</tr>
+								</tbody>
+						</table>
 			<c:set var="resumeIntroduction" value="${resumeIntroductions}"/>		
 				<form id="form123" name="form123" method="post" >
 					<input type="hidden" name="userNo" value="${loginuser.userNo}"/>

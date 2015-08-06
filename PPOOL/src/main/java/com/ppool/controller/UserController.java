@@ -74,7 +74,7 @@ public class UserController {
 		if (user != null) {
 			if (user.isUserStatus() == true) {
 				mav.addObject("loginuser", user);
-			}
+			}	
 		}
 		// 리퍼러(referer)는 웹 브라우저로 월드 와이드 웹을 서핑할 때, 하이퍼링크를 통해서 각각의 사이트로 방문시 남는 흔적을
 		// 말한다.
