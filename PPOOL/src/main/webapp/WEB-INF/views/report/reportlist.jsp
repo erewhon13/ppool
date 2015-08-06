@@ -8,6 +8,12 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="/ppool/resources/css/board.css">
    <title>Insert title here</title>
+   <style type="text/css">
+   #ff{
+font-weight: 700;font-size: 20px;padding: 5px;color: black;text-align: left; margin-bottom: 5px;
+}
+   
+   </style>
 	<script src="//code.jquery.com/jquery-1.11.3.js"></script> <!-- jquery 사용하기 위해서 CDN삽입 -->
 	<script type="text/javascript">
 		 $(function(){
@@ -27,11 +33,13 @@
 	<c:set var="reports" value="${reports}"/>
 	
 		<div style="width: 79%; float: right;">	
-			<table style="text-align:center; width:100%; margin-top:10px; ">
+		<br/>
+			<table style="text-align:center; width:100%; ">			
+			<caption class="caption" id="ff"> 신고관리 </caption>
 				<tbody>
 					<tr>
 						<td align="left" >
-							<img src="/ppool/resources/images/reportlogo.png" style="height:40px; margin-top: 8px;"  >
+						<!-- 	<img src="/ppool/resources/images/reportlogo.png" style="height:40px; margin-top: 8px;"  > -->
 								</td>
 									<td style="width:20%" align="right">
 												</td>
@@ -76,7 +84,7 @@
 								<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
 							</div>							 -->
 					</div>
-				
+					
 					
 	
 	<!-- <a href="historyRegister.action">[등록하기] </a> -->
@@ -92,5 +100,6 @@
 		</jsp:include> --%>
 	
 	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>
