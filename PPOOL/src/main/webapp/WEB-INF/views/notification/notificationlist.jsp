@@ -34,7 +34,7 @@ font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; m
 	<c:import url="/WEB-INF/views/include/header.jsp"/>
 	<div style="width: 79%;float: right">
 	<br/>
-			<form id="notification" action="" method="post">
+		<form id="notification" action="" method="post">
 				<table style="text-align: center; width:100% ">
 					<caption id="dd">공지사항</caption>
 					<tr class="head" style="background-color: #7d97d3; color: #ffffff; height: 30px;">
