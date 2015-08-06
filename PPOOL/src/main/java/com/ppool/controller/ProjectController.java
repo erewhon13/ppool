@@ -105,7 +105,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "projectdetailview.action", method = RequestMethod.GET)
-	public ModelAndView projectDetailView(int projectNo, HttpSession session) {
+	public ModelAndView projectDetailView(int projectNo,HttpSession session) {
 		Project project = projectService.getProjectByProjectNo(projectNo);
 		List<ProjectComment> comments = projectService.getCommentsByProjectNo(projectNo);
 
@@ -280,8 +280,8 @@ public class ProjectController {
 	@ResponseBody
 	public ModelAndView commentRegister(ProjectComment comment) {
 		ProjectComment newComment = projectService.commentRegister(comment);
-
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("newComment", newComment);
 		mav.setViewName("project/newcomment");
 		return mav;
@@ -302,16 +302,12 @@ public class ProjectController {
 	}	
 	////////////////코멘트 영역///////////////////////
 	
-	@RequestMapping(value="commentreply.action",method = RequestMethod.POST, produces="text/plain;charset=utf-8")
-	@ResponseBody
-	public ModelAndView commentReply(ProjectComment comment){
+	@RequestMapping(value="commentreply.action",method = RequestMethod.POST)
+	public String commentReply(ProjectComment comment){
 		
 		ProjectComment newComment = projectService.commentReply(comment);
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("newComment", newComment);
-		mav.setViewName("project/newcomment");
-		return mav;
+		
+		return "redirect:/projectdetailview.action?projectNo="+comment.getProjectNo();
 	}	
 	
 		
