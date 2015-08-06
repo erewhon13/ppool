@@ -11,6 +11,11 @@
 <title>북마크 목록</title>
 <link rel="stylesheet" href="resources/css/project.css" />
 <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<style type="text/css">
+#rr{
+font-weight: 700;font-size: 20px;padding: 5px;color: #1BA6B2;text-align: left; margin-bottom: 5px;
+}
+</style>
 <script type="text/javascript">
 	$(document).ready(
 			function() {
@@ -34,17 +39,18 @@
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 	<c:set var="projects" value="${projects }" />
 
-	<div>
-		<table style="margin-top: 2%; width: 80%">
-			<caption style="text-align: left; font-size: 15pt; color: #1BA6B2; font-weight: 700;">북마크목록</caption>
+	<div style="width: 79%;float: right">
+	<br/>
+		<table style="width: 100%">
+			<caption id="rr">북마크목록</caption>
 			<thead style="margin-left: 20%">
 				<tr style="background-color: #7d97d3; width: 150px">
-					<th style="font-size: 17pt" scope="col">글번호</th>
-					<th style="font-size: 17pt" scope="col">프로젝트기간</th>
-					<th style="font-size: 17pt" scope="col">프로젝트정보</th>
-					<th style="font-size: 17pt" scope="col">지역</th>
-					<th style="font-size: 17pt" scope="col">마감일</th>
-					<th style="font-size: 17pt" scope="col">상태</th>
+					<th style="width: 8%">글번호</th>
+					<th style="width: 18%">프로젝트기간</th>
+					<th style="width: 25%">프로젝트정보</th>
+					<th style="width: 21%">지역</th>
+					<th style="width: 17%">마감일</th>
+					<th style="width: 11%">상태</th>
 				</tr>
 			</thead>
 			<tbody>
