@@ -16,24 +16,26 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"
 	type="text/javascript"></script>
 
-<script type="text/javascript">	
-	$(document).ready(function (){
-		$('#writer').click(function(){
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#writer').click(function() {
 			$(location).attr("href", "/ppool/notificationwriteform.action");
 		});
-	});	
-	</script>
+	});
+</script>
 <title>목록보기</title>
 </head>
 
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-	<div>
-		<div align="center" style="margin-top: 2.9%">
+	<div style="margin-top: 2%">
+		<div align="center">
 			<form id="notification" action="" method="post">
-				<table width="79%" style="text-align: center; border: groove;margin-left: 1%">
-					<caption style="text-align:left;font-size:15pt; color:#1BA6B2;font-weight: 700;">공지사항</caption>
-					<tr style="background-color: #7d97d3; color: #ffffff;height: 30px;">
+				<table width="79%"
+					style="text-align: center; border: groove; margin-left: 1%">
+					<caption
+						style="text-align: left; font-size: 15pt; color: #1BA6B2; font-weight: 700;">공지사항</caption>
+					<tr class="head" style="background-color: #7d97d3; color: #ffffff; height: 30px;">
 						<th style="width: 5%">글번호</th>
 						<th style="width: 20%">제목</th>
 						<th style="width: 10%">등록일</th>
@@ -55,17 +57,16 @@
 					</c:forEach>
 
 				</table>
-				<div style='text-align: center'>${pager.toString()}</div>
-
 				<br />
-				<div style="width: 100%;" align="right">
-					<img src="/ppool/resources/images/writer.png" id="writer" style="cursor: pointer;">
+				<c:if test="${loginuser.userNo == 1}">	
+				<div style="width: 99%;" align="right">
+					<img src="/ppool/resources/images/writer.png" id="writer"
+						style="cursor: pointer;">
 				</div>
+				</c:if>
 			</form>
 		</div>
 	</div>
-
-
-
+	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

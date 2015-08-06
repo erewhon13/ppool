@@ -32,7 +32,7 @@
 			</c:when>
 		</c:choose>
 		<div id="sidelogin">
-			<div id="topbar" class="nonelogined"
+			<div class="nonelogined"
 				style='display : ${loginuser eq null ? "block" : "none"};'>
 				<form action="userlogin.action" method="POST">
 					<div id="userinfo">
@@ -58,10 +58,10 @@
 			<c:choose>
 				<c:when test="${loginuser.userStatus eq true}">
 					<div id="topbar" class="logined"
-						style='display : ${loginuser eq null ? "none" : "block"}' >
-						<span id="mid"> 
-						<a href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName: ""}
-						</a></span>님 환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
+						style='display : ${loginuser eq null ? "none" : "block"}'>
+						<span id="mid"><b> <a
+								href="/ppool/userinfo.action?userNo=${loginuser.userNo}">${loginuser ne null ? loginuser.userName : ""}</a></b></span>님
+						환영합니다. <a href='/ppool/userlogout.action'>로그아웃</a>
 					</div>
 				</c:when>
 			</c:choose>

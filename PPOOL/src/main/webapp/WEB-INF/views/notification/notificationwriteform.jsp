@@ -16,40 +16,40 @@
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 	<div>		
-		<div align="center" style="margin-top: 2.7%" >
+		<div align="center" style="margin-top: 2%" >
 			<div id="pageContainer">	
 				<form id="writeform" action="notificationwrite.action" method="post">
-				<table style="margin-left: 71px;border: groove;">
+				<table style="border: groove;width: 79%; margin-left: 1%">
 				<caption style="text-align:left;font-size:14pt; color:#1BA6B2;font-weight: 700;">글쓰기</caption>
 					<tr>
 						<th bgcolor="#7d97d3" style="font-size: 14pt; color: #ffffff; width: 140px"  >제목</th>
 						<td>
-							<input type="text" name="notificationTitle" style="width:702px; font-size: 14pt" />
+							<input type="text" name="notificationTitle" style="width:825px; font-size: 14pt" />
 						</td>
 					</tr>
 					<tr>
 						<th bgcolor="#7d97d3" style="font-size: 14pt; color: #ffffff;">관리번호</th>
 						<td>
-						<input type="text" name="adminNo" style="width:702px; font-size: 14pt" />
+						<input type="text" name="adminNo" style="width:825px; font-size: 14pt" />
 						</td>
 					</tr>
 					<tr>
 						<th bgcolor="#7d97d3" style="font-size: 14pt; color: #ffffff;">작성일</th>
 						<td>
-							<input type="date" name="notificationRegisterDay" style="width:702px; font-size: 14pt" />
+							<input type="date" name="notificationRegisterDay" style="width:825px; font-size: 14pt" />
 						</td>
 					</tr>
 					<tr>
 						<th bgcolor="#7d97d3" style="font-size: 14pt; color: #ffffff;">내용</th>
 						<td>		                    
 							<textarea 
-								name="notificationContent" cols="85" rows="20" style="font-size: 12pt"></textarea>
+								name="notificationContent" cols="101" rows="20" style="font-size: 12pt"></textarea>
 						</td>
 					</tr>
 				</table>
 				<br />
 				<div class="buttons">	        	
-					<input type='submit' value='등록' style='height:30px; margin-left: 450px' />
+					<input type='submit' value='등록' style='height:30px; margin-left: 100px' />
 					&nbsp;&nbsp;
 					<input type="button" value="취소" style="height: 30px" 
 						onclick="location.href='notificationlist.action';"/>
@@ -58,5 +58,6 @@
 			</div>
 		</div>   	
 	</div>
+	<c:import url="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>
